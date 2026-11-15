@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[TROCAR] Nome da Pousada — Pousada em Cidade/UF | Reserve direto</title>
+<meta name="description" content="[TROCAR] Pousada em Cidade/UF. Veja os quartos, as comodidades e consulte a disponibilidade direto pelo WhatsApp.">
+<meta name="theme-color" content="#0F4C5C">
+<link rel="canonical" href="https://[TROCAR]/">
+
+<!-- Open Graph: o WhatsApp e o Facebook NÃO executam JavaScript. Edite estas linhas à mão para cada cliente. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="[TROCAR] Nome da Pousada">
+<meta property="og:title" content="[TROCAR] Nome da Pousada — Pousada em Cidade/UF">
+<meta property="og:description" content="[TROCAR] Pousada em Cidade/UF. Consulte a disponibilidade direto pelo WhatsApp.">
+<meta property="og:url" content="https://[TROCAR]/">
+<meta property="og:image" content="https://[TROCAR]/foto-compartilhamento-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F4C5C'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' text-anchor='middle' fill='%23FAF6EF'%3EP%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Tokens. As 4 cores vêm do CONFIG.cores; o resto é derivado delas.
+   ========================================================================== */
+:root{
+  --primaria:#0F4C5C; --secundaria:#E08A3C; --fundo:#FAF6EF; --texto:#1E2A2D;
+  --cta-texto:#1E2A2D; --primaria-texto:#FAF6EF;
+
+  --primaria-escura:color-mix(in oklab,var(--primaria) 72%,#000);
+  --rodape-bg:color-mix(in oklab,var(--primaria) 52%,#000);
+  --papel:var(--fundo);
+  --papel-2:color-mix(in oklab,color-mix(in oklab,var(--fundo) 90%,var(--secundaria)) 94%,var(--texto));
+  --tinta:var(--texto);
+  --tinta-suave:color-mix(in oklab,var(--texto) 76%,var(--fundo));
+  --linha:color-mix(in oklab,var(--texto) 16%,var(--fundo));
+  --campo:color-mix(in oklab,var(--fundo) 55%,#fff);
+  --cta:var(--secundaria);
+  --cta-hover:color-mix(in oklab,var(--secundaria) 86%,#000);
+  --foco:var(--primaria-escura);
+
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --max:1200px;
+  --sec:clamp(4.5rem,9vw,8rem);
+  --raio:16px;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:4.75rem;accent-color:var(--primaria);color-scheme:light}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.62 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scrollbar-color:color-mix(in oklab,var(--primaria) 55%,var(--fundo)) var(--papel-2)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--cta);color:var(--cta-texto)}
+input,select{caret-color:var(--primaria)}
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:4px}
+section[id]{scroll-margin-top:4.5rem}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pular{position:fixed;left:1rem;top:-4rem;z-index:100;background:var(--tinta);color:var(--fundo);padding:.75rem 1.1rem;border-radius:10px;transition:top .2s var(--ease)}
+.pular:focus{top:1rem}
+.container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+.ico{display:inline-flex;width:1.35em;height:1.35em;flex:none}
+.ico svg{width:100%;height:100%}
+.tnum{font-variant-numeric:tabular-nums}
+
+h1,h2,h3{font-family:var(--serif);font-optical-sizing:auto;font-weight:400;text-wrap:balance}
+h1 em,h2 em{font-style:italic}
+h2{font-size:clamp(2rem,1.3rem + 2.9vw,3.5rem);line-height:1.06;letter-spacing:-.015em}
+h3{font-size:1.5rem;line-height:1.2;letter-spacing:-.005em;font-weight:500}
+p{text-wrap:pretty}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:3.25rem;padding:.8rem 1.6rem;border-radius:999px;border:2px solid transparent;font-weight:600;font-size:1rem;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;transition:background-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease),color .25s,border-color .25s}
+.btn .ico{width:1.4em;height:1.4em}
+.btn--cta{background:var(--cta);color:var(--cta-texto)}
+.btn--prim{background:var(--primaria);color:var(--primaria-texto)}
+.btn--linha{background:transparent;border-color:currentColor;color:inherit}
+.btn--sm{min-height:2.75rem;padding:.5rem 1.1rem;font-size:.95rem}
+.btn--lg{min-height:3.6rem;padding:1rem 2rem;font-size:1.0625rem}
+.btn:active{transform:scale(.985)}
+@media (hover:hover){
+  .btn--cta:hover{background:var(--cta-hover);transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(0,0,0,.5)}
+  .btn--prim:hover{background:var(--primaria-escura);transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(0,0,0,.4)}
+  .btn--linha:hover{background:color-mix(in oklab,currentColor 10%,transparent)}
+}
+.link-seta{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.1rem}
+.link-seta .ico{width:1.1em;height:1.1em;transition:transform .3s var(--ease)}
+@media (hover:hover){.link-seta:hover .ico{transform:translateX(4px)}}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+.topo{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--fundo);--foco:var(--fundo);transition:background-color .4s var(--ease),color .4s var(--ease),box-shadow .4s var(--ease)}
+.topo[data-solido]{background:color-mix(in oklab,var(--papel) 93%,transparent);backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2);color:var(--tinta);--foco:var(--primaria-escura);box-shadow:0 1px 0 var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.marca{font-family:var(--serif);font-size:1.3rem;font-weight:500;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1 1 auto}
+.topo .btn{white-space:nowrap;flex:none}
+@media (max-width:380px){.marca{font-size:1.15rem}.topo .btn--sm{padding-inline:.85rem;gap:.45rem}}
+@media (min-width:1000px){.marca{flex:0 1 auto}}
+.nav{display:none;gap:1.75rem;font-size:.97rem;font-weight:500}
+.nav a{text-decoration:none;padding:.4rem 0;border-bottom:1px solid transparent;transition:border-color .25s}
+@media (hover:hover){.nav a:hover{border-bottom-color:currentColor}}
+@media (min-width:1000px){.nav{display:flex}}
+
+/* ==========================================================================
+   Hero — a foto é a protagonista
+   ========================================================================== */
+.hero{position:relative;isolation:isolate;overflow:clip;display:grid;align-items:end;min-height:max(35rem,100svh);color:var(--fundo);--foco:var(--fundo)}
+.hero-media{position:absolute;inset:0;z-index:-2;background:var(--primaria-escura)}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,
+  color-mix(in oklab,var(--primaria-escura) 92%,transparent) 0%,
+  color-mix(in oklab,var(--primaria-escura) 72%,transparent) 36%,
+  color-mix(in oklab,var(--primaria-escura) 22%,transparent) 68%,
+  color-mix(in oklab,var(--primaria-escura) 46%,transparent) 100%)}
+.hero-content{padding-top:9rem;padding-bottom:clamp(3rem,8vw,6rem);display:grid;gap:1.5rem;justify-items:start}
+.hero--consulta .hero-content{padding-bottom:calc(clamp(3rem,8vw,6rem) + 3.5rem)}
+.hero h1{font-size:clamp(2.55rem,1.4rem + 5.4vw,5.25rem);line-height:1.02;letter-spacing:-.025em;max-width:15ch}
+.hero-lead{font-size:clamp(1.1rem,1rem + .5vw,1.3rem);line-height:1.5;max-width:46ch;color:color-mix(in oklab,var(--fundo) 94%,transparent)}
+.hero-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:.5rem}
+.hero-nota{font-size:.95rem;color:color-mix(in oklab,var(--fundo) 86%,transparent);max-width:52ch}
+@media (max-width:560px){.hero-acoes .btn--cta{width:100%}}
+
+@media (prefers-reduced-motion:no-preference){
+  .hero-media img{animation:hero-img 1.9s var(--ease) both}
+  .hero-content>*{animation:hero-in 1s var(--ease) both}
+  .hero-content>:nth-child(1){animation-delay:.12s}
+  .hero-content>:nth-child(2){animation-delay:.26s}
+  .hero-content>:nth-child(3){animation-delay:.4s}
+  .hero-content>:nth-child(4){animation-delay:.52s}
+  @keyframes hero-img{from{transform:scale(1.09)}to{transform:scale(1)}}
+  @keyframes hero-in{from{opacity:0;transform:translateY(22px);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+}
+
+/* ==========================================================================
+   Barra de datas (plano Completo)
+   ========================================================================== */
+.consulta{position:relative;z-index:3;margin-top:-3.5rem}
+.consulta-card{background:var(--papel);border-radius:22px;padding:clamp(1.1rem,3vw,1.75rem);box-shadow:0 28px 60px -24px rgba(8,22,26,.45),0 2px 6px rgba(8,22,26,.08);display:grid;gap:1rem 1.25rem}
+.consulta-card legend{font-family:var(--serif);font-size:1.35rem;font-weight:500;padding:0;margin-bottom:.9rem;display:block;width:100%}
+.consulta fieldset{border:0;margin:0;padding:0;min-width:0}
+.campos{display:grid;gap:1rem;grid-template-columns:minmax(0,1fr)}
+.campo{display:grid;gap:.35rem;min-width:0}
+.campo input,.campo select{min-width:0}
+@media (min-width:440px){.campos{grid-template-columns:repeat(2,minmax(0,1fr))}.campo--lg{grid-column:1/-1}}
+.campo label{font-size:.85rem;font-weight:600;color:var(--tinta-suave)}
+.campo input,.campo select{width:100%;min-height:3.25rem;padding:.6rem .9rem;background:var(--campo);border:1.5px solid color-mix(in oklab,var(--texto) 32%,var(--fundo));border-radius:12px;transition:border-color .2s,box-shadow .2s}
+.campo input:hover,.campo select:hover{border-color:var(--primaria)}
+.campo input:focus-visible,.campo select:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
+.consulta-acao{display:grid;align-content:end}
+.consulta-acao .btn{width:100%}
+.aviso-datas{font-size:.9rem;color:var(--tinta-suave)}
+.aviso-datas:not(:empty){margin-top:.75rem}
+.consulta-corpo{display:grid;gap:1rem 1.25rem;align-items:end}
+@media (min-width:860px){
+  .consulta{margin-top:-4.25rem}
+  .consulta-card legend{margin-bottom:.25rem}
+  .campos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .campo--lg{grid-column:auto}
+}
+@media (min-width:1120px){
+  .consulta-corpo{grid-template-columns:minmax(0,1fr) auto}
+  .consulta-acao .btn{white-space:nowrap}
+}
+
+/* ==========================================================================
+   Seções
+   ========================================================================== */
+.sec{padding-block:var(--sec)}
+.sec--tinta{background:var(--papel-2)}
+.sec--escura{background:var(--primaria-escura);color:var(--fundo);--foco:var(--fundo)}
+.sec-head{display:grid;gap:1rem 4rem;margin-bottom:clamp(2.25rem,5vw,3.75rem)}
+.sec-head .lead{color:var(--tinta-suave);max-width:46ch;font-size:1.1rem}
+.sec--escura .sec-head .lead{color:color-mix(in oklab,var(--fundo) 84%,transparent)}
+@media (min-width:900px){.sec-head{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:end}}
+
+/* Quartos */
+.quartos-grid{display:grid;gap:clamp(1.25rem,3vw,2rem);grid-template-columns:repeat(auto-fill,minmax(min(100%,20.5rem),1fr))}
+.quarto{display:flex;flex-direction:column;background:var(--papel-2);border-radius:var(--raio);overflow:hidden}
+.sec--tinta .quarto{background:var(--papel)}
+.quarto-foto{aspect-ratio:4/3;overflow:hidden;background:var(--papel-2)}
+.quarto-foto img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+@media (hover:hover){.quarto:hover .quarto-foto img{transform:scale(1.04)}}
+.quarto-corpo{display:flex;flex-direction:column;gap:1rem;padding:1.5rem 1.5rem 1.6rem;flex:1}
+.quarto-cap{display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:.95rem;color:var(--primaria)}
+.quarto-desc{color:var(--tinta-suave);max-width:60ch}
+.quarto-itens{display:grid;gap:.45rem;font-size:.97rem}
+.quarto-itens li{display:flex;gap:.6rem;align-items:flex-start}
+.quarto-itens .ico{width:1.15em;height:1.15em;margin-top:.22em;color:var(--primaria)}
+.quarto-preco{font-weight:600}
+.quarto .btn{margin-top:auto}
+.quarto-corpo>.btn{align-self:stretch}
+.nota{margin-top:clamp(1.5rem,3vw,2.25rem);color:var(--tinta-suave);font-size:.97rem;max-width:62ch}
+
+/* Sobre */
+.sobre-grid{display:grid;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.sobre-foto{aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;max-width:30rem}
+.sobre-foto img{width:100%;height:100%;object-fit:cover}
+.sobre-texto{display:grid;gap:1.25rem;max-width:56ch}
+.sobre-texto p{font-size:1.125rem}
+.assinatura{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--primaria)}
+@media (min-width:900px){.sobre-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+
+/* Comodidades */
+.amen{display:grid;gap:0 clamp(1.5rem,4vw,3.5rem);grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.amen li{display:flex;gap:1rem;align-items:flex-start;padding-block:1.15rem;border-top:1px solid var(--linha)}
+.amen .ico{width:1.7rem;height:1.7rem;color:var(--primaria);margin-top:.1rem}
+.amen strong{display:block;font-weight:600}
+.amen span.det{display:block;color:var(--tinta-suave);font-size:.95rem;margin-top:.1rem}
+
+/* Galeria */
+.galeria-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(9rem,40vw,13rem);grid-auto-flow:dense;gap:.7rem}
+.tile{position:relative;overflow:hidden;border-radius:12px;background:var(--papel-2);margin:0;padding:0;border:0;display:block;width:100%;height:100%}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.tile--big{grid-column:span 2;grid-row:span 2}
+.tile--wide{grid-column:span 2}
+.tile--tall{grid-row:span 2}
+button.tile{cursor:zoom-in}
+@media (hover:hover){button.tile:hover img{transform:scale(1.05)}}
+@media (min-width:760px){.galeria-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:13rem;gap:1rem}}
+@media (min-width:1100px){.galeria-grid{grid-auto-rows:15.5rem}}
+
+/* Lightbox */
+.lb{border:0;padding:0;width:100%;height:100%;max-width:none;max-height:none;background:transparent;color:#fff}
+.lb::backdrop{background:rgba(6,16,19,.93)}
+.lb[open]{display:grid;place-items:center;grid-template-columns:auto minmax(0,1fr) auto;gap:.5rem;padding:1rem}
+.lb figure{display:grid;gap:.9rem;justify-items:center;min-width:0}
+.lb img{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;border-radius:8px}
+.lb figcaption{font-size:.97rem;color:rgba(255,255,255,.88);text-align:center;max-width:60ch;min-height:1.4em}
+.lb-btn{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:background-color .2s}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb :focus-visible{outline-color:#fff}
+.lb-x{position:absolute;top:1rem;right:1rem}
+@media (max-width:640px){
+  .lb[open]{grid-template-columns:1fr;align-content:center}
+  .lb-prev,.lb-next{position:absolute;bottom:1.25rem}
+  .lb-prev{left:1rem}.lb-next{right:1rem}
+}
+
+/* Por que reservar direto */
+.pontos{display:grid;gap:2.25rem clamp(1.5rem,4vw,3.5rem)}
+.ponto{border-top:1px solid color-mix(in oklab,var(--fundo) 35%,transparent);padding-top:1.5rem;display:grid;gap:.75rem;align-content:start}
+.ponto p{color:color-mix(in oklab,var(--fundo) 86%,transparent);max-width:38ch}
+.pontos-acao{margin-top:clamp(2.25rem,5vw,3.5rem)}
+@media (min-width:860px){.pontos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Como funciona */
+.passos{display:grid;gap:2.25rem clamp(1.5rem,4vw,3.5rem);counter-reset:passo}
+.passo{display:grid;gap:.6rem;align-content:start;grid-template-columns:auto 1fr;column-gap:1.25rem}
+.passo-n{grid-row:span 2;font-family:var(--serif);font-size:4rem;line-height:.9;color:var(--primaria);font-weight:400;min-width:2.2rem}
+.passo p{color:var(--tinta-suave);max-width:36ch}
+@media (min-width:860px){
+  .passos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .passo{grid-template-columns:1fr;row-gap:.75rem}
+  .passo-n{grid-row:auto;font-size:5rem}
+}
+
+/* Avaliações */
+.avals{display:grid;gap:clamp(1.5rem,3vw,2.5rem);grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.aval{display:grid;gap:1.25rem;align-content:space-between;padding-top:1.5rem;border-top:1px solid var(--linha)}
+.aval blockquote{font-family:var(--serif);font-size:1.4rem;line-height:1.35;letter-spacing:-.005em}
+.aval cite{font-style:normal;font-size:.95rem;color:var(--tinta-suave)}
+.aval cite strong{color:var(--tinta);font-weight:600}
+
+/* Como chegar */
+.chegar{display:grid;gap:clamp(2rem,5vw,4rem)}
+@media (min-width:960px){.chegar{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}}
+.dados{display:grid;gap:0}
+.dados>div{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;padding-block:1.1rem;border-top:1px solid var(--linha)}
+.dados .ico{width:1.5rem;height:1.5rem;color:var(--primaria);grid-row:span 2;margin-top:.15rem}
+.dados dt{font-weight:600}
+.dados dd{color:var(--tinta-suave)}
+.rotas{display:grid;gap:1rem;margin-top:1.75rem}
+.rotas h3{font-size:1.15rem;font-family:var(--sans);font-weight:600;letter-spacing:0}
+.rotas p{color:var(--tinta-suave)}
+.chegar-acoes{margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.mapa{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--papel-2);display:grid;place-items:center;text-align:center;padding:1rem;color:var(--tinta-suave)}
+.sec--tinta .mapa{background:var(--papel)}
+.mapa--vazio{border:1.5px dashed color-mix(in oklab,var(--texto) 30%,transparent)}
+.mapa:has(iframe){padding:0}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+@media (min-width:960px){.mapa{position:sticky;top:6rem}}
+@media (max-width:959px){.mapa{aspect-ratio:1/1}}
+.atracoes{margin-top:clamp(3rem,6vw,5rem)}
+.atracoes h3{font-size:clamp(1.5rem,1.2rem + 1vw,2rem);margin-bottom:1.25rem}
+.atr-lista{display:grid;gap:0 clamp(1.5rem,4vw,3.5rem);grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr))}
+.atr-lista li{padding-block:1.1rem;border-top:1px solid var(--linha);display:grid;gap:.15rem}
+.atr-lista strong{font-weight:600}
+.atr-lista .dist{font-size:.9rem;font-weight:600;color:var(--primaria)}
+.atr-lista p{color:var(--tinta-suave);font-size:.97rem}
+
+/* FAQ */
+.faq-grid{display:grid;gap:2rem clamp(2rem,6vw,5rem)}
+@media (min-width:960px){.faq-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:start}.faq-grid .sec-head{display:grid;grid-template-columns:1fr;margin-bottom:0;position:sticky;top:6rem}}
+.faq-lista{border-bottom:1px solid var(--linha)}
+.faq-lista details{border-top:1px solid var(--linha)}
+.faq-lista summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;min-height:3.75rem;padding-block:1rem;font-weight:600;font-size:1.1rem}
+.faq-lista summary::-webkit-details-marker{display:none}
+.faq-lista summary::after{content:"";flex:none;width:1.1rem;height:1.1rem;background:
+  linear-gradient(var(--primaria),var(--primaria)) center/100% 2px no-repeat,
+  linear-gradient(var(--primaria),var(--primaria)) center/2px 100% no-repeat;transition:transform .4s var(--ease)}
+.faq-lista details[open] summary::after{transform:rotate(135deg)}
+@media (hover:hover){.faq-lista summary:hover{color:var(--primaria)}}
+.faq-resp{padding:0 3rem 1.5rem 0;color:var(--tinta-suave);max-width:60ch}
+
+/* Chamada final */
+.final{text-align:left}
+.final-in{display:grid;gap:1.75rem;justify-items:start}
+.final h2{font-size:clamp(2.25rem,1.3rem + 4vw,4.5rem);line-height:1.02;max-width:18ch;letter-spacing:-.02em}
+.final p{max-width:48ch;font-size:1.15rem;color:color-mix(in oklab,var(--fundo) 86%,transparent)}
+.final-contato{display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:1rem}
+.final-contato a{display:inline-flex;gap:.5rem;align-items:center}
+.final-contato .ico{width:1.15em;height:1.15em}
+
+/* Rodapé */
+.rodape{background:var(--rodape-bg);color:color-mix(in oklab,var(--fundo) 88%,transparent);padding-block:clamp(3rem,6vw,4.5rem) 2rem;font-size:.97rem;--foco:var(--fundo)}
+.rodape-grid{display:grid;gap:2.25rem clamp(2rem,5vw,4rem)}
+@media (min-width:860px){.rodape-grid{grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr)}}
+.rodape .logo{font-family:var(--serif);font-size:1.7rem;font-weight:500;color:var(--fundo);margin-bottom:.6rem;text-wrap:balance}
+.rodape h2{font-family:var(--sans);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fundo);margin-bottom:.9rem;line-height:1.3}
+.rodape ul{display:grid;gap:.55rem}
+.rodape a{text-decoration-color:color-mix(in oklab,var(--fundo) 40%,transparent)}
+@media (hover:hover){.rodape a:hover{text-decoration-color:currentColor}}
+.rodape li{display:flex;gap:.6rem;align-items:flex-start}
+.rodape .ico{width:1.15em;height:1.15em;margin-top:.25em;flex:none}
+.rodape-legal{margin-top:clamp(2.25rem,5vw,3.5rem);padding-top:1.5rem;border-top:1px solid color-mix(in oklab,var(--fundo) 22%,transparent);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;font-size:.88rem;color:color-mix(in oklab,var(--fundo) 78%,transparent)}
+
+/* Botão flutuante (celular) */
+.flutuante{position:fixed;z-index:60;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .6s var(--ease);box-shadow:0 16px 30px -10px rgba(0,0,0,.5);--foco:var(--tinta)}
+.flutuante[data-visivel]{transform:none}
+@media (min-width:900px){.flutuante{display:none}}
+@media (max-width:899px){body{padding-bottom:0}.rodape{padding-bottom:6rem}}
+
+/* Entrada ao rolar: só em grupos de itens, nunca em seção inteira */
+.rev-on .rev{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0)*80ms)}
+.rev-on .rev.in{opacity:1;transform:none}
+@media print{.rev-on .rev{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rev-on .rev{opacity:1;transform:none}}
+
+/* ==========================================================================
+   Ferramentas de prévia (somem com ?limpo ou modoPrevia:false)
+   ========================================================================== */
+.pend{display:inline-block;margin-right:.45em;padding:.18em .5em .14em;border-radius:5px;background:#ffe36e;color:#1b1b1b;font:700 .6rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;vertical-align:.2em;font-style:normal;white-space:nowrap}
+.previa{position:fixed;z-index:90;left:max(.75rem,env(safe-area-inset-left));bottom:max(.75rem,env(safe-area-inset-bottom));display:flex;gap:.6rem;align-items:center;max-width:calc(100vw - 6.5rem);padding:.6rem .9rem;border:0;border-radius:12px;background:#17201f;color:#fff;font:600 .78rem/1.25 var(--sans);cursor:pointer;text-align:left;box-shadow:0 10px 24px -8px rgba(0,0,0,.5)}
+.previa i{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:#ffe36e}
+.previa:focus-visible{outline-color:#ffe36e}
+@media (max-width:600px){.previa-longo{display:none}}
+@media (max-width:899px){.previa{bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 4.5rem)}}
+.pend-foco{outline:3px solid #ffe36e;outline-offset:6px;border-radius:6px}
+</style>
+</head>
+
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" id="topo"></header>
+<main id="conteudo"></main>
+<footer class="rodape" id="rodape"></footer>
+
+<a class="btn btn--cta btn--lg flutuante" id="flutuante" target="_blank" rel="noopener noreferrer" hidden></a>
+
+<dialog class="lb" id="lightbox" aria-label="Galeria de fotos">
+  <button class="lb-btn lb-x" type="button" aria-label="Fechar galeria" data-lb="x"></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Foto anterior" data-lb="prev"></button>
+  <figure><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Próxima foto" data-lb="next"></button>
+</dialog>
+
+<noscript>
+  <p style="padding:2rem;font-family:sans-serif">[TROCAR] Este site precisa de JavaScript para exibir o conteúdo. Fale com a pousada pelo WhatsApp: (00) 00000-0000.</p>
+</noscript>
+
+<script>
+/* ==========================================================================
+   CONFIG — TUDO que muda de cliente fica aqui. Procure por [TROCAR].
+   Dica: no texto, *palavra* vira itálico (use em no máximo 1 palavra por título).
+   Tokens aceitos nos textos: {nome} {cidade} {bairro} {uf} {checkin} {checkout}
+   ========================================================================== */
+const CONFIG = {
+
+  /* Prévia: mostra a etiqueta amarela [TROCAR] e o contador de pendências.
+     Para mostrar ao cliente sem as etiquetas, abra o link com ?limpo no final. */
+  modoPrevia: true,
+
+  negocio: {
+    nome: "[TROCAR] Nome da Pousada",
+    tipoSchema: "LodgingBusiness",   // LodgingBusiness | Hotel | BedAndBreakfast | Hostel
+    cidade: "[TROCAR] Cidade",
+    uf: "[TROCAR] UF",
+    bairro: "[TROCAR] Bairro ou praia",
+    rua: "[TROCAR] Rua Exemplo, 000",
+    cep: "[TROCAR] 00000-000",
+    coordenadas: null                // opcional: { lat: -00.0000, lng: -00.0000 }
+  },
+
+  contato: {
+    telefone: "[TROCAR] (00) 00000-0000",
+    email: "[TROCAR] contato@seudominio.com.br"
+  },
+
+  whatsapp: {
+    numero: "5500000000000",         // [TROCAR] só dígitos, com 55 + DDD + número
+    // {datas} só aparece se o módulo "consultaDatas" estiver ligado e o visitante preencher.
+    mensagem: "[TROCAR] Olá! Vi o site da {nome} e quero consultar a disponibilidade.{datas}",
+    mensagemQuarto: "[TROCAR] Olá! Vi o site da {nome} e quero consultar a disponibilidade do quarto “{quarto}”.{datas}"
+  },
+
+  horarios: {
+    checkin: "[TROCAR] 14h",
+    checkout: "[TROCAR] 11h",
+    checkinISO: "",                  // opcional, ex.: "14:00" (melhora o JSON-LD)
+    checkoutISO: "",                 // opcional, ex.: "11:00"
+    atendimento: "[TROCAR] Atendimento no WhatsApp todos os dias, das 8h às 20h"
+  },
+
+  links: {
+    instagram: "",                   // [TROCAR] https://instagram.com/perfil  (vazio = não mostra)
+    facebook: "",                    // opcional
+    googleMaps: "",                  // [TROCAR] link do Maps. Vazio = busca pelo endereço
+    mapaEmbed: ""                    // [TROCAR] só a URL do src do iframe "Incorporar mapa"
+  },
+
+  seo: {
+    titulo: "[TROCAR] Nome da Pousada — Pousada em {cidade}/{uf} | Reserve direto",
+    descricao: "[TROCAR] Pousada em {cidade}/{uf}. Veja os quartos, as comodidades e consulte a disponibilidade direto pelo WhatsApp.",
+    urlSite: "",                     // [TROCAR] https://www.dominio.com.br/ (vazio = não altera o canonical)
+    imagemOg: ""                     // [TROCAR] URL absoluta da foto 1200x630
+  },
+
+  /* Cores: use HEX. Sugestões de paleta por local (copie e cole):
+     MAR   → primaria #0F4C5C  secundaria #E08A3C  fundo #FAF6EF  texto #1E2A2D   (fundo = areia)
+     SERRA → primaria #2F4A3A  secundaria #D9A441  fundo #EEF1EB  texto #232A24   (fundo = névoa)
+     CAMPO → primaria #5B4636  secundaria #C8553D  fundo #F8F2E8  texto #2A2420
+     A primária deve ser ESCURA (vira fundo de seções com texto claro). */
+  cores: { primaria: "#0F4C5C", secundaria: "#E08A3C", fundo: "#FAF6EF", texto: "#1E2A2D" },
+
+  textos: {
+    heroTitulo: "[TROCAR] Uma pousada pequena para *descansar* em {cidade}",
+    heroSubtitulo: "[TROCAR] Quartos aconchegantes em {bairro}. Veja as fotos e consulte as datas direto com a gente.",
+    heroNota: "[TROCAR] Atendimento direto com a pousada, sem intermediários.",
+    botaoPrincipal: "Consultar disponibilidade pelo WhatsApp",
+    botaoCurto: "Consultar datas",
+    botaoQuarto: "Consultar este quarto",   // o ícone do WhatsApp vai junto; o leitor de tela ouve "abre o WhatsApp"
+    verQuartos: "Ver os quartos",
+    nav: { quartos: "Quartos", galeria: "Fotos", comoChegar: "Como chegar", faq: "Dúvidas" },
+
+    consultaTitulo: "Para quais datas você quer vir?",
+    botaoDatas: "Consultar estas datas pelo WhatsApp",
+
+    quartosTitulo: "Escolha o seu *quarto*",
+    quartosIntro: "[TROCAR] Cada quarto tem foto, lotação e o que oferece. Gostou de um? É só chamar.",
+    quartosNota: "[TROCAR] Valores e datas livres variam por período. Confirmamos tudo pelo WhatsApp.",
+
+    comodidadesTitulo: "O que a pousada *oferece*",
+    comodidadesIntro: "[TROCAR] Só o que está confirmado e disponível para os hóspedes.",
+
+    galeriaTitulo: "Conheça a *pousada*",
+    galeriaIntro: "[TROCAR] Fotos feitas na própria pousada.",
+
+    comoFuncionaTitulo: "Como *reservar*",
+    comoFuncionaIntro: "Três passos, direto com a pousada.",
+
+    avaliacoesTitulo: "Quem já ficou *conta*",
+    avaliacoesIntro: "Palavras de quem já se hospedou.",
+
+    comoChegarTitulo: "Como *chegar*",
+    atracoesTitulo: "Por perto",
+
+    faqTitulo: "Perguntas *frequentes*",
+    faqIntro: "Ficou alguma dúvida? Chame no WhatsApp.",
+    faqBotao: "Tirar dúvida no WhatsApp",
+
+    ctaFinalTitulo: "Escolha as datas e *fale com a gente*",
+    ctaFinalTexto: "[TROCAR] Conte quando quer vir e quantas pessoas vêm. A gente responde com a disponibilidade."
+  },
+
+  /* Foto de abertura. src vazio = placeholder. Ideal: horizontal, 1920×1080, até ~300 KB (WebP/JPG). */
+  hero: { foto: "", alt: "[TROCAR] Descreva a foto: ex. fachada da pousada ao entardecer" },
+
+  /* Quartos. foto vazia = placeholder (ideal 1200×900). precoTexto: deixe "" a menos que o cliente
+     informe — e, se informar, escreva a condição junto (ex.: "A partir de R$ X por noite, para 2 pessoas"). */
+  quartos: [
+    { nome: "[TROCAR] Quarto 1", foto: "", alt: "[TROCAR] Descreva a foto do quarto",
+      capacidade: "[TROCAR] Até 2 pessoas", capacidadeMax: null,
+      descricao: "[TROCAR] Descreva a cama, a vista e o que o quarto tem de especial. Duas frases curtas.",
+      comodidades: ["[TROCAR] Comodidade confirmada 1", "[TROCAR] Comodidade confirmada 2", "[TROCAR] Comodidade confirmada 3"],
+      precoTexto: "" },
+    { nome: "[TROCAR] Quarto 2", foto: "", alt: "[TROCAR] Descreva a foto do quarto",
+      capacidade: "[TROCAR] Até 4 pessoas", capacidadeMax: null,
+      descricao: "[TROCAR] Descreva a cama, a vista e o que o quarto tem de especial. Duas frases curtas.",
+      comodidades: ["[TROCAR] Comodidade confirmada 1", "[TROCAR] Comodidade confirmada 2", "[TROCAR] Comodidade confirmada 3"],
+      precoTexto: "" },
+    { nome: "[TROCAR] Quarto 3", foto: "", alt: "[TROCAR] Descreva a foto do quarto",
+      capacidade: "[TROCAR] Até 3 pessoas", capacidadeMax: null,
+      descricao: "[TROCAR] Descreva a cama, a vista e o que o quarto tem de especial. Duas frases curtas.",
+      comodidades: ["[TROCAR] Comodidade confirmada 1", "[TROCAR] Comodidade confirmada 2", "[TROCAR] Comodidade confirmada 3"],
+      precoTexto: "" }
+  ],
+
+  sobre: {
+    titulo: "[TROCAR] Quem recebe você",
+    paragrafos: [
+      "[TROCAR] Conte em duas ou três frases quem são os anfitriões e como é receber hóspedes aqui.",
+      "[TROCAR] Diga o que o hóspede encontra de diferente: o lugar, o ritmo, o jeito de atender."
+    ],
+    assinatura: "[TROCAR] Nome do anfitrião",
+    foto: "", alt: "[TROCAR] Descreva a foto: ex. os anfitriões na varanda da pousada"
+  },
+
+  /* Comodidades GERAIS — só as confirmadas pelo cliente.
+     icone: cafe | wifi | car | paw | pool | snow | tv | utensils | umbrella | flame | crianca | leaf | key | bed | check */
+  comodidades: [
+    { icone: "cafe",  nome: "[TROCAR] Café da manhã",    detalhe: "[TROCAR] Detalhe confirmado (horário, o que inclui)" },
+    { icone: "wifi",  nome: "[TROCAR] Wi-Fi",            detalhe: "" },
+    { icone: "car",   nome: "[TROCAR] Estacionamento",   detalhe: "[TROCAR] Gratuito? Vagas limitadas?" },
+    { icone: "paw",   nome: "[TROCAR] Aceita pets",      detalhe: "[TROCAR] Regras e porte aceito" },
+    { icone: "pool",  nome: "[TROCAR] Piscina",          detalhe: "" },
+    { icone: "snow",  nome: "[TROCAR] Ar-condicionado",  detalhe: "" }
+  ],
+
+  /* Galeria ampla (8 a 12 fotos funcionam melhor). src vazio = placeholder. legenda é opcional. */
+  galeria: [
+    { src: "", alt: "[TROCAR] Descreva: fachada da pousada", rotulo: "Fachada", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: área de convivência", rotulo: "Área de convivência", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: mesa do café da manhã", rotulo: "Café da manhã", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: um dos quartos", rotulo: "Quarto", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: vista a partir da pousada", rotulo: "Vista", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: área externa ou piscina", rotulo: "Área externa", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: jardim ou entrada", rotulo: "Jardim", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: detalhe da decoração", rotulo: "Detalhe", legenda: "" }
+  ],
+
+  /* "Por que reservar direto": use SOMENTE o que o cliente confirmar por escrito.
+     Exemplos de pontos reais: contato direto com quem recebe; condição especial para quem reserva direto
+     (só se existir e com a regra clara); flexibilidade combinada por WhatsApp. NUNCA "melhor preço". */
+  porQueDireto: {
+    titulo: "Por que *reservar direto*",
+    intro: "[TROCAR] Três motivos confirmados pela pousada.",
+    pontos: [
+      { titulo: "[TROCAR] Ponto 1 confirmado", texto: "[TROCAR] Explique em uma frase curta." },
+      { titulo: "[TROCAR] Ponto 2 confirmado", texto: "[TROCAR] Explique em uma frase curta." },
+      { titulo: "[TROCAR] Ponto 3 confirmado", texto: "[TROCAR] Explique em uma frase curta." }
+    ]
+  },
+
+  comoFunciona: {
+    passos: [
+      { titulo: "Escolha o quarto e as datas", texto: "Veja os quartos acima e anote quando quer vir e quantas pessoas vêm." },
+      { titulo: "Chame no WhatsApp", texto: "A mensagem já vai pronta. Você só precisa enviar." },
+      { titulo: "Confirme com a pousada", texto: "[TROCAR] Explique como a reserva é confirmada (sinal, forma de pagamento, prazo)." }
+    ]
+  },
+
+  /* Depoimentos REAIS, com autorização do hóspede. Lista vazia = a seção some.
+     Formato: { texto: "…", autor: "Nome", origem: "Google | Booking | WhatsApp…", link: "" }
+     Não coloque nota nem contagem de avaliações: só texto de quem escreveu. */
+  avaliacoes: [],
+
+  comoChegar: {
+    rotas: [
+      { titulo: "[TROCAR] De carro", texto: "[TROCAR] Indique a rodovia, a saída e uma referência fácil de achar." },
+      { titulo: "[TROCAR] De ônibus ou avião", texto: "[TROCAR] Indique rodoviária ou aeroporto mais próximos e como seguir até a pousada." }
+    ]
+  },
+
+  /* Atrações próximas (só com distância que o cliente confirmar) */
+  atracoes: [
+    { nome: "[TROCAR] Praia, cachoeira ou mirante", distancia: "[TROCAR] 5 min a pé", texto: "[TROCAR] Uma frase." },
+    { nome: "[TROCAR] Centro e restaurantes", distancia: "[TROCAR] 10 min de carro", texto: "[TROCAR] Uma frase." },
+    { nome: "[TROCAR] Passeio ou trilha", distancia: "[TROCAR] 20 min de carro", texto: "[TROCAR] Uma frase." }
+  ],
+
+  faq: [
+    { p: "Qual o horário de check-in e check-out?",
+      r: "[TROCAR] O check-in começa às {checkin} e o check-out vai até às {checkout}. Explique se há flexibilidade." },
+    { p: "Qual a política de cancelamento?",
+      r: "[TROCAR] Escreva a regra exata combinada com o cliente: prazos, devolução do sinal, remarcação." },
+    { p: "Posso levar meu pet?",
+      r: "[TROCAR] Diga se aceita, porte, taxa (se houver) e regras. Se não aceita, escreva isso com clareza." },
+    { p: "Crianças podem se hospedar?",
+      r: "[TROCAR] Explique idade, se há condição para crianças e se oferece berço ou cama extra." },
+    { p: "Como pago a reserva?",
+      r: "[TROCAR] Formas de pagamento aceitas e quando cada parcela é cobrada." }
+  ],
+
+  rodape: {
+    frase: "[TROCAR] Uma frase curta sobre a pousada.",
+    razaoSocial: "[TROCAR] Razão social Ltda.",
+    cnpj: "[TROCAR] 00.000.000/0000-00",
+    cadastur: "",                    // só preencha se o cliente tiver o registro (nunca invente)
+    credito: "Site por JL Devs",     // "" remove
+    creditoUrl: ""                   // [TROCAR] link do seu portfólio (vazio = só texto)
+  },
+
+  /* ---- PLANOS --------------------------------------------------------------
+     planos.ativo escolhe o pacote. Cada módulo em "modulos" pode ser:
+       null  = segue o plano ativo      true = força ligado      false = força desligado
+     Os pacotes abaixo são a definição padrão do template.                        */
+  planos: {
+    ativo: "completo",               // "basico" | "intermediario" | "completo"
+    presets: {
+      basico:        { quartos:true, sobre:true, comodidades:true, comoFunciona:true, comoChegar:true, faq:true, botaoFlutuante:true,
+                       galeria:false, lightbox:false, porQueDireto:false, atracoes:false, mapa:false, instagram:false, avaliacoes:false, consultaDatas:false, jsonLdQuartos:false },
+      intermediario: { quartos:true, sobre:true, comodidades:true, comoFunciona:true, comoChegar:true, faq:true, botaoFlutuante:true,
+                       galeria:true, porQueDireto:true, atracoes:true, mapa:true, instagram:true,
+                       lightbox:false, avaliacoes:false, consultaDatas:false, jsonLdQuartos:false },
+      completo:      { quartos:true, sobre:true, comodidades:true, comoFunciona:true, comoChegar:true, faq:true, botaoFlutuante:true,
+                       galeria:true, porQueDireto:true, atracoes:true, mapa:true, instagram:true,
+                       lightbox:true, avaliacoes:true, consultaDatas:true, jsonLdQuartos:true }
+    },
+    modulos: {
+      quartos: null, sobre: null, comodidades: null, galeria: null, lightbox: null,
+      porQueDireto: null, comoFunciona: null, avaliacoes: null, comoChegar: null,
+      atracoes: null, mapa: null, faq: null, consultaDatas: null,
+      instagram: null, jsonLdQuartos: null, botaoFlutuante: null
+    }
+  }
+};
+
+/* ==========================================================================
+   A partir daqui é o motor do template. Normalmente não precisa mexer.
+   ========================================================================== */
+(function () {
+'use strict';
+const C = CONFIG;
+const $ = (s, r = document) => r.querySelector(s);
+const MARCA = /\[TROCAR\]/g;
+const limpo = s => String(s == null ? '' : s).replace(MARCA, '').replace(/\s+/g, ' ').trim();
+const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const params = new URLSearchParams(location.search);
+const modoLimpo = params.has('limpo');
+const previa = C.modoPrevia && !modoLimpo;
+const estado = { ci: '', co: '', hosp: '', fotosPend: 0 };
+const waLinks = [];
+
+/* ---------- ícones (traço único, 1.6) ---------- */
+const ICONS = {
+  pin: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  users: '<circle cx="9" cy="8.5" r="3.2"/><path d="M3 20c.4-3.4 3-5.4 6-5.4s5.6 2 6 5.4"/><path d="M16 5.6a3.2 3.2 0 0 1 0 5.8M18.2 14.8c1.7.7 2.6 2.4 2.8 5"/>',
+  check: '<path d="M5 12.5l4.2 4.2L19 7"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  prev: '<path d="M15 5l-7 7 7 7"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".7" fill="currentColor"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 6 8-6"/>',
+  phone: '<path d="M5 4h3.5l1.5 4-2 1.3a11 11 0 0 0 5.7 5.7L15 13l4 1.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/>',
+  key: '<circle cx="8" cy="15" r="3.5"/><path d="M10.5 12.5L20 3M16.5 6.5l3 3M14 9l2 2"/>',
+  bed: '<path d="M3 18V6M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.7"/>',
+  cafe: '<path d="M5 9h11v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V9z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c0 1.2 1 1.5 1 2.7M12 3.5c0 1.2 1 1.5 1 2.7"/>',
+  wifi: '<path d="M3 9.5a14 14 0 0 1 18 0M6 13a9.5 9.5 0 0 1 12 0M9 16.4a5 5 0 0 1 6 0"/><circle cx="12" cy="19.5" r=".8" fill="currentColor"/>',
+  car: '<path d="M4 15.5V12l1.8-4.6A2 2 0 0 1 7.7 6h8.6a2 2 0 0 1 1.9 1.4L20 12v3.5"/><path d="M3 15.5h18V18a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2.5z"/><path d="M4.5 12h15"/>',
+  paw: '<circle cx="7" cy="10" r="1.7"/><circle cx="11" cy="6.8" r="1.7"/><circle cx="15.5" cy="7.5" r="1.7"/><circle cx="18.2" cy="11.4" r="1.7"/><path d="M12.4 12c-2.6 0-5 3.6-4.3 5.6.6 1.6 2.4 1.4 4.3 1.4s3.7.2 4.3-1.4c.7-2-1.7-5.6-4.3-5.6z"/>',
+  pool: '<path d="M8 13V5.5a2 2 0 0 1 3.7-1M15 13V5.5"/><path d="M8 8.5h7"/><path d="M3 16.5c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/><path d="M3 20.5c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0 3-1.2 4.5 0"/>',
+  snow: '<path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="M9.5 4.8L12 6.5l2.5-1.7M9.5 19.2L12 17.5l2.5 1.7"/>',
+  tv: '<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  utensils: '<path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10"/><path d="M17 21V3c-2.2 1.2-3 4-3 7 0 1.6.8 2.5 3 2.5"/>',
+  umbrella: '<path d="M3 12a9 9 0 0 1 18 0H3z"/><path d="M12 12v7a2 2 0 0 0 4 0"/>',
+  flame: '<path d="M12 21a6 6 0 0 0 6-6c0-3.2-2.4-4.8-3.2-7.5-1.8 1.2-2.3 2.8-2.3 4C10.5 9.5 11 6 9.5 3 7 6 6 9 6 15a6 6 0 0 0 6 6z"/>',
+  crianca: '<circle cx="12" cy="9" r="5"/><path d="M10 9.3h.01M14 9.3h.01M10.3 11.5c1 .8 2.4.8 3.4 0"/><path d="M7 20.5c.5-2.4 2.4-3.8 5-3.8s4.5 1.4 5 3.8"/>',
+  leaf: '<path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19c3-4 6-7 9-9"/>'
+};
+const WA_PATH = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z';
+
+/* ---------- construtor de DOM (escapa tudo, sem innerHTML com dados) ---------- */
+function add(el, kids) { kids.flat(Infinity).forEach(k => { if (k == null || k === false) return; el.append(k instanceof Node ? k : document.createTextNode(k)); }); }
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
+    if (k === 'html') el.innerHTML = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  add(el, kids); return el;
+}
+const icon = (n, cls) => h('span', { class: 'ico' + (cls ? ' ' + cls : ''), 'aria-hidden': 'true',
+  html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ICONS.check}</svg>` });
+const waIcon = () => h('span', { class: 'ico', 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${WA_PATH}"/></svg>` });
+
+/* ---------- textos ---------- */
+function vals() {
+  const n = C.negocio, hr = C.horarios;
+  return { nome: limpo(n.nome), cidade: limpo(n.cidade), bairro: limpo(n.bairro), uf: limpo(n.uf), checkin: limpo(hr.checkin), checkout: limpo(hr.checkout) };
+}
+function fill(str, extra) {
+  const v = Object.assign(vals(), extra || {});
+  return String(str == null ? '' : str).replace(/\{(\w+)\}/g, (m, k) => (k in v ? limpo(v[k]) : m));
+}
+function rich(s) {
+  const f = document.createDocumentFragment();
+  String(s).split(/(\*[^*]+\*)/).forEach(p => {
+    if (/^\*[^*]+\*$/.test(p)) f.append(h('em', null, p.slice(1, -1)));
+    else if (p) f.append(p);
+  });
+  return f;
+}
+
+/* ---------- módulos (flags dos planos) ---------- */
+function on(mod) {
+  const v = C.planos.modulos[mod];
+  if (v === true || v === false) return v;
+  const p = C.planos.presets[C.planos.ativo] || {};
+  return !!p[mod];
+}
+
+/* ---------- cores: tema, contraste ---------- */
+const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+const rgb = x => { let s = x.replace('#', ''); if (s.length === 3) s = [...s].map(c => c + c).join(''); const n = parseInt(s, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+const lum = a => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(a[0]) + .7152 * f(a[1]) + .0722 * f(a[2]); };
+const ratio = (a, b) => { const x = lum(rgb(a)), y = lum(rgb(b)); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+const toHex = a => '#' + a.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+const mix = (a, b, t) => { const A = rgb(a), B = rgb(b); return toHex(A.map((v, i) => v * (1 - t) + B[i] * t)); };
+const cor = { primaria: '#0F4C5C', secundaria: '#E08A3C', fundo: '#FAF6EF', texto: '#1E2A2D' };
+Object.keys(cor).forEach(k => { if (HEX.test(C.cores[k] || '')) cor[k] = C.cores[k]; else console.error('[template] cor inválida em CONFIG.cores.' + k + ' — use HEX, ex. #0F4C5C'); });
+const textoSobre = bg => ratio(bg, cor.fundo) >= ratio(bg, cor.texto) ? cor.fundo : cor.texto;
+
+function aplicarTema() {
+  const r = document.documentElement.style;
+  r.setProperty('--primaria', cor.primaria); r.setProperty('--secundaria', cor.secundaria);
+  r.setProperty('--fundo', cor.fundo); r.setProperty('--texto', cor.texto);
+  const ctaTxt = textoSobre(cor.secundaria), primTxt = textoSobre(cor.primaria);
+  r.setProperty('--cta-texto', ctaTxt); r.setProperty('--primaria-texto', primTxt);
+  const escura = mix(cor.primaria, '#000000', .28);
+  const avisos = [];
+  if (ratio(cor.texto, cor.fundo) < 4.5) avisos.push('texto x fundo');
+  if (ratio(cor.secundaria, ctaTxt) < 4.5) avisos.push('botão principal (secundária)');
+  if (ratio(cor.primaria, primTxt) < 4.5) avisos.push('botões e seções na cor primária');
+  if (ratio(escura, cor.fundo) < 4.5) avisos.push('primária escura x fundo (texto do hero e seções escuras) — escureça a primária');
+  if (avisos.length) console.warn('[template] Contraste abaixo de 4,5:1 em: ' + avisos.join('; '));
+  const tc = $('meta[name="theme-color"]'); if (tc) tc.content = escura;
+  const ini = (limpo(C.negocio.nome).charAt(0) || 'P').toUpperCase();
+  const fav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${cor.primaria}"/><text x="32" y="44" font-family="Georgia,serif" font-size="36" text-anchor="middle" fill="${primTxt}">${ini}</text></svg>`;
+  const link = $('link[rel="icon"]'); if (link) link.href = 'data:image/svg+xml,' + encodeURIComponent(fav);
+}
+
+/* ---------- fotos e placeholders ---------- */
+const TONS = [.5, .32, .66, .22, .42, .6, .28, .54];
+function placeholder(w, hgt, rotulo, i, hero) {
+  const bg = hero ? mix(cor.primaria, cor.fundo, .3) : mix(cor.primaria, cor.fundo, TONS[(i || 0) % TONS.length]);
+  const tx = hero ? cor.fundo : textoSobre(bg);
+  if (hero) {
+    // No hero o rótulo fica no alto e centralizado: não briga com o título e sobrevive ao corte no celular.
+    const fs = Math.round(w / 80), y = Math.round(hgt * .11);
+    const svgH = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${hgt}" width="${w}" height="${hgt}">
+<defs><pattern id="p" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><line x1="0" y1="0" x2="0" y2="26" stroke="${tx}" stroke-opacity=".07" stroke-width="2"/></pattern></defs>
+<rect width="${w}" height="${hgt}" fill="${bg}"/><rect width="${w}" height="${hgt}" fill="url(#p)"/>
+<g fill="${tx}" font-family="system-ui,Segoe UI,Arial,sans-serif" text-anchor="middle">
+<text x="${w / 2}" y="${y}" font-size="${fs}" font-weight="700" letter-spacing="${fs / 6}">FOTO PENDENTE</text>
+<text x="${w / 2}" y="${y + fs * 1.5}" font-size="${fs}" fill-opacity=".9">${rotulo.replace(/[<&>]/g, '')}</text>
+<text x="${w / 2}" y="${y + fs * 2.8}" font-size="${fs * .85}" fill-opacity=".75">${w} × ${hgt} px</text></g></svg>`;
+    return 'data:image/svg+xml,' + encodeURIComponent(svgH);
+  }
+  const fs = Math.max(14, Math.round(w / 24)), y = Math.round(hgt * .5);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${hgt}" width="${w}" height="${hgt}">
+<defs><pattern id="p" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><line x1="0" y1="0" x2="0" y2="26" stroke="${tx}" stroke-opacity=".09" stroke-width="2"/></pattern></defs>
+<rect width="${w}" height="${hgt}" fill="${bg}"/><rect width="${w}" height="${hgt}" fill="url(#p)"/>
+<g fill="none" stroke="${tx}" stroke-opacity=".75" stroke-width="${Math.max(2, fs / 9)}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${w / 2 - fs * 1.1} ${y - fs * 3.3}) scale(${fs / 12})">
+<rect x="1" y="3" width="22" height="16" rx="3"/><circle cx="8" cy="9" r="2"/><path d="M2 17l6-5 5 4 4-3 5 4"/></g>
+<g fill="${tx}" font-family="system-ui,Segoe UI,Arial,sans-serif" text-anchor="middle">
+<text x="${w / 2}" y="${y}" font-size="${fs}" font-weight="700" letter-spacing="${fs / 8}">FOTO PENDENTE</text>
+<text x="${w / 2}" y="${y + fs * 1.5}" font-size="${fs * .95}" fill-opacity=".92">${rotulo.replace(/[<&>]/g, '')}</text>
+<text x="${w / 2}" y="${y + fs * 2.9}" font-size="${fs * .8}" fill-opacity=".75">${w} × ${hgt} px</text></g></svg>`;
+  return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+function foto(src, o) {
+  const w = o.w || 1200, hgt = o.h || 800;
+  const img = document.createElement('img');
+  img.width = w; img.height = hgt; img.decoding = 'async';
+  if (o.eager) { img.loading = 'eager'; img.setAttribute('fetchpriority', 'high'); } else img.loading = 'lazy';
+  const usarPlaceholder = () => { img.src = placeholder(w, hgt, o.rotulo || 'Foto', o.i, o.hero); img.alt = '[TROCAR] Foto pendente: ' + (o.rotulo || 'foto'); img.dataset.pendente = '1'; };
+  if (src) {
+    img.src = src;
+    if (!o.alt) console.warn('[template] Foto sem alt no CONFIG: ' + src);
+    img.alt = limpo(o.alt) ? o.alt : (o.rotulo || '');
+    img.addEventListener('error', () => { console.warn('[template] Foto não carregou: ' + src); usarPlaceholder(); estado.fotosPend++; }, { once: true });
+  } else { usarPlaceholder(); estado.fotosPend++; }
+  return img;
+}
+
+/* ---------- WhatsApp ---------- */
+const numero = String(C.whatsapp.numero || '').replace(/\D/g, '');
+const numeroPendente = !numero || /^55\d{2}0{7,}$/.test(numero) || /^5500/.test(numero);
+const br = iso => iso.split('-').reverse().join('/');
+function datasFrase() {
+  if (!on('consultaDatas')) return '';
+  const p = [];
+  if (estado.ci && estado.co) p.push('Datas: ' + br(estado.ci) + ' a ' + br(estado.co));
+  else if (estado.ci) p.push('Check-in em ' + br(estado.ci));
+  if (estado.hosp) p.push(estado.hosp + (estado.hosp === '1' ? ' hóspede' : ' hóspedes'));
+  return p.length ? ' ' + p.join('. ') + '.' : '';
+}
+function waUrl(tpl, extra) {
+  const msg = fill(String(tpl).replace('{datas}', '§DATAS§'), extra).replace('§DATAS§', datasFrase()).replace(/\s+/g, ' ').trim();
+  return 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
+}
+function waBtn(o) {
+  const a = h('a', { class: 'btn ' + (o.cls || 'btn--cta'), href: '#', target: '_blank', rel: 'noopener noreferrer' },
+    waIcon(), h('span', null, o.texto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  waLinks.push({ a, tpl: o.tpl || C.whatsapp.mensagem, extra: o.extra || {} });
+  return a;
+}
+function waTexto(texto, cls) {
+  const a = h('a', { href: '#', target: '_blank', rel: 'noopener noreferrer', class: cls || null }, texto);
+  waLinks.push({ a, tpl: C.whatsapp.mensagem, extra: {} }); return a;
+}
+function refreshWa() { waLinks.forEach(l => { l.a.href = waUrl(l.tpl, l.extra); }); }
+
+/* ---------- contato, endereço ---------- */
+function telHref() { let d = String(C.contato.telefone || '').replace(/\D/g, ''); if (!d) return ''; if (d.length <= 11) d = '55' + d; return 'tel:+' + d; }
+function mapsUrl() {
+  if (C.links.googleMaps) return C.links.googleMaps;
+  const n = C.negocio;
+  const q = [limpo(n.rua), limpo(n.bairro), limpo(n.cidade), limpo(n.uf)].filter(Boolean).join(', ');
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+}
+
+/* ---------- peças de seção ---------- */
+function secHead(id, titulo, intro) {
+  return h('div', { class: 'sec-head' }, h('h2', { id: id + '-t' }, rich(fill(titulo))), intro ? h('p', { class: 'lead' }, fill(intro)) : null);
+}
+function sec(id, cls, head, body, tom) {
+  const s = h('section', { id, class: 'sec ' + (cls || ''), 'aria-labelledby': id + '-t' }, h('div', { class: 'container' }, head, body));
+  s.dataset.tom = tom || 'auto'; return s;
+}
+
+/* ---------- cabeçalho ---------- */
+function cabecalho(navItens) {
+  const t = $('#topo');
+  t.append(h('div', { class: 'container topo-in' },
+    h('a', { class: 'marca', href: '#topo' }, C.negocio.nome),
+    h('nav', { class: 'nav', 'aria-label': 'Seções da página' }, navItens.map(n => h('a', { href: '#' + n.id }, n.label))),
+    waBtn({ texto: C.textos.botaoCurto, cls: 'btn--cta btn--sm', tpl: C.whatsapp.mensagem })
+  ));
+}
+
+/* ---------- hero ---------- */
+function hero() {
+  const tx = C.textos;
+  return h('section', { class: 'hero' + (on('consultaDatas') ? ' hero--consulta' : ''), id: 'hero', 'aria-labelledby': 'h1' },
+    h('div', { class: 'hero-media' }, foto(C.hero.foto, { alt: C.hero.alt, w: 1920, h: 1080, rotulo: 'Foto principal — horizontal', eager: true, hero: true, i: 0 })),
+    h('div', { class: 'hero-scrim' }),
+    h('div', { class: 'container hero-content' },
+      h('h1', { id: 'h1' }, rich(fill(tx.heroTitulo))),
+      h('p', { class: 'hero-lead' }, fill(tx.heroSubtitulo)),
+      h('div', { class: 'hero-acoes' },
+        waBtn({ texto: tx.botaoPrincipal, cls: 'btn--cta btn--lg' }),
+        on('quartos') && C.quartos.length ? h('a', { class: 'link-seta', href: '#quartos' }, tx.verQuartos, icon('arrow')) : null),
+      h('p', { class: 'hero-nota' }, fill(tx.heroNota))
+    ));
+}
+
+/* ---------- barra de datas ---------- */
+function consulta() {
+  if (!on('consultaDatas')) return null;
+  const hoje = new Date(), pad = n => String(n).padStart(2, '0');
+  const iso = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const ci = h('input', { type: 'date', id: 'f-ci', min: iso(hoje) });
+  const co = h('input', { type: 'date', id: 'f-co', min: iso(hoje) });
+  const hosp = h('select', { id: 'f-h' }, h('option', { value: '' }, 'Quantos?'),
+    Array.from({ length: 10 }, (_, i) => h('option', { value: String(i + 1) }, (i + 1) + (i ? ' hóspedes' : ' hóspede'))));
+  const aviso = h('p', { class: 'aviso-datas', 'aria-live': 'polite' });
+  const amanha = v => { const [y, m, d] = v.split('-').map(Number); return iso(new Date(y, m - 1, d + 1)); };
+  ci.addEventListener('change', () => {
+    estado.ci = ci.value;
+    if (ci.value) { co.min = amanha(ci.value); if (co.value && co.value <= ci.value) { co.value = ''; estado.co = ''; aviso.textContent = 'A saída precisa ser depois da entrada. Escolha a data de saída de novo.'; } else aviso.textContent = ''; }
+    refreshWa();
+  });
+  co.addEventListener('change', () => {
+    if (ci.value && co.value && co.value <= ci.value) { co.value = ''; estado.co = ''; aviso.textContent = 'A saída precisa ser depois da entrada.'; }
+    else { estado.co = co.value; aviso.textContent = ''; }
+    refreshWa();
+  });
+  hosp.addEventListener('change', () => { estado.hosp = hosp.value; refreshWa(); });
+  const campo = (lbl, el, cls) => h('div', { class: 'campo ' + (cls || '') }, h('label', { for: el.id }, lbl), el);
+  return h('section', { class: 'consulta', id: 'datas', 'aria-labelledby': 'datas-t' },
+    h('div', { class: 'container' }, h('div', { class: 'consulta-card' },
+      h('h2', { id: 'datas-t', class: 'vh' }, 'Consultar datas'),
+      h('fieldset', null,
+        h('legend', null, C.textos.consultaTitulo),
+        h('div', { class: 'consulta-corpo' },
+          h('div', { class: 'campos' }, campo('Entrada', ci), campo('Saída', co), campo('Hóspedes', hosp, 'campo--lg')),
+          h('div', { class: 'consulta-acao' }, waBtn({ texto: C.textos.botaoDatas, cls: 'btn--cta btn--lg' }))),
+        aviso))));
+}
+
+/* ---------- quartos ---------- */
+function quartos() {
+  if (!on('quartos') || !C.quartos.length) return null;
+  const cards = C.quartos.map((q, i) => {
+    const art = h('article', { class: 'quarto rev', style: '--i:' + (i % 3) },
+      h('div', { class: 'quarto-foto' }, foto(q.foto, { alt: q.alt, w: 1200, h: 900, rotulo: q.nome ? limpo(q.nome) + ' — 4:3' : 'Quarto — 4:3', i: i + 1 })),
+      h('div', { class: 'quarto-corpo' },
+        h('h3', null, q.nome),
+        q.capacidade ? h('p', { class: 'quarto-cap' }, icon('users'), q.capacidade) : null,
+        q.descricao ? h('p', { class: 'quarto-desc' }, q.descricao) : null,
+        q.comodidades && q.comodidades.length ? h('ul', { class: 'quarto-itens', 'aria-label': 'Comodidades do quarto' }, q.comodidades.map(c => h('li', null, icon('check'), h('span', null, c)))) : null,
+        q.precoTexto ? h('p', { class: 'quarto-preco' }, q.precoTexto) : null,
+        waBtn({ texto: C.textos.botaoQuarto, cls: 'btn--prim', tpl: C.whatsapp.mensagemQuarto, extra: { quarto: q.nome } })));
+    return art;
+  });
+  return sec('quartos', '', secHead('quartos', C.textos.quartosTitulo, C.textos.quartosIntro),
+    [h('div', { class: 'quartos-grid' }, cards), C.textos.quartosNota ? h('p', { class: 'nota' }, fill(C.textos.quartosNota)) : null]);
+}
+
+/* ---------- sobre ---------- */
+function sobre() {
+  if (!on('sobre') || !C.sobre || !C.sobre.paragrafos.length) return null;
+  const s = C.sobre;
+  return sec('sobre', '', null,
+    h('div', { class: 'sobre-grid' },
+      h('div', { class: 'sobre-foto' }, foto(s.foto, { alt: s.alt, w: 960, h: 1200, rotulo: 'Anfitriões ou ambiente — vertical 4:5', i: 3 })),
+      h('div', { class: 'sobre-texto' },
+        h('h2', { id: 'sobre-t' }, rich(fill(s.titulo))),
+        s.paragrafos.map(p => h('p', null, fill(p, {}))),
+        s.assinatura ? h('p', { class: 'assinatura' }, s.assinatura) : null)));
+}
+
+/* ---------- comodidades ---------- */
+function comodidades() {
+  if (!on('comodidades') || !C.comodidades.length) return null;
+  return sec('comodidades', '', secHead('comodidades', C.textos.comodidadesTitulo, C.textos.comodidadesIntro),
+    h('ul', { class: 'amen' }, C.comodidades.map((c, i) => h('li', { class: 'rev', style: '--i:' + (i % 3) }, icon(c.icone || 'check'),
+      h('div', null, h('strong', null, c.nome), c.detalhe ? h('span', { class: 'det' }, c.detalhe) : null)))));
+}
+
+/* ---------- galeria ---------- */
+const PADRAO = ['big', '', '', '', '', 'wide', '', ''];
+let lbItens = [];
+/* Distribui tamanhos e fecha a grade: o total de células vira múltiplo de 4 (e de 2 no celular), sem buracos. */
+function tamanhos(n) {
+  const t = Array.from({ length: n }, (_, i) => PADRAO[i % PADRAO.length]);
+  if (n < 3) return t.map(() => 'wide');
+  const cel = { big: 4, wide: 2, '': 1 };
+  let falta = (4 - t.reduce((s, x) => s + cel[x], 0) % 4) % 4;
+  for (let i = n - 1; i >= 0 && falta > 0; i--) if (t[i] === '') { t[i] = 'wide'; falta--; }
+  return t;
+}
+function galeria() {
+  if (!on('galeria') || !C.galeria.length) return null;
+  const usaLb = on('lightbox');
+  lbItens = [];
+  const tam = tamanhos(C.galeria.length);
+  const tiles = C.galeria.map((g, i) => {
+    const cls = 'tile rev' + (tam[i] ? ' tile--' + tam[i] : '');
+    const dim = { w: 1200, h: 900 };
+    const img = foto(g.src, { alt: g.alt, w: dim.w, h: dim.h, rotulo: g.rotulo || 'Foto da galeria', i: i + 2 });
+    if (usaLb && g.src) {
+      const idx = lbItens.length;
+      lbItens.push({ src: g.src, alt: g.alt || g.rotulo || '', legenda: g.legenda || '', w: dim.w, h: dim.h });
+      return h('button', { type: 'button', class: cls, style: '--i:' + (i % 4), 'aria-label': 'Ampliar foto: ' + limpo(g.alt || g.rotulo || 'foto ' + (i + 1)), onclick: () => abrirLb(idx) }, img);
+    }
+    return h('div', { class: cls, style: '--i:' + (i % 4) }, img);
+  });
+  return sec('galeria', '', secHead('galeria', C.textos.galeriaTitulo, C.textos.galeriaIntro), h('div', { class: 'galeria-grid' }, tiles));
+}
+
+/* ---------- por que reservar direto ---------- */
+function porQueDireto() {
+  const p = C.porQueDireto;
+  if (!on('porQueDireto') || !p || !p.pontos.length) return null;
+  return sec('por-que-direto', 'sec--escura', secHead('por-que-direto', p.titulo, p.intro),
+    [h('div', { class: 'pontos' }, p.pontos.slice(0, 3).map((pt, i) => h('div', { class: 'ponto rev', style: '--i:' + i }, h('h3', null, pt.titulo), h('p', null, pt.texto)))),
+     h('div', { class: 'pontos-acao' }, waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--cta btn--lg' }))], 'escura');
+}
+
+/* ---------- como funciona ---------- */
+function comoFunciona() {
+  const p = C.comoFunciona && C.comoFunciona.passos;
+  if (!on('comoFunciona') || !p || !p.length) return null;
+  return sec('como-funciona', '', secHead('como-funciona', C.textos.comoFuncionaTitulo, C.textos.comoFuncionaIntro),
+    h('ol', { class: 'passos' }, p.slice(0, 3).map((s, i) => h('li', { class: 'passo rev', style: '--i:' + i },
+      h('span', { class: 'passo-n', 'aria-hidden': 'true' }, String(i + 1)), h('h3', null, s.titulo), h('p', null, s.texto)))));
+}
+
+/* ---------- avaliações reais (some sozinha se vazia) ---------- */
+function avaliacoes() {
+  const l = (C.avaliacoes || []).filter(a => a && a.texto);
+  if (!on('avaliacoes') || !l.length) return null;
+  return sec('avaliacoes', '', secHead('avaliacoes', C.textos.avaliacoesTitulo, C.textos.avaliacoesIntro),
+    h('div', { class: 'avals' }, l.map((a, i) => h('figure', { class: 'aval rev', style: '--i:' + (i % 3) },
+      h('blockquote', null, '“' + a.texto + '”'),
+      h('figcaption', null, h('cite', null, a.autor ? h('strong', null, a.autor) : null, a.origem ? ' · ' + a.origem : '',
+        a.link ? [' · ', h('a', { href: a.link, target: '_blank', rel: 'noopener noreferrer' }, 'ver original')] : null))))));
+}
+
+/* ---------- como chegar ---------- */
+function comoChegar() {
+  if (!on('comoChegar')) return null;
+  const n = C.negocio, hr = C.horarios;
+  const dados = h('dl', { class: 'dados' },
+    h('div', null, icon('pin'), h('dt', null, 'Endereço'), h('dd', null, n.rua, h('br'), n.bairro + ' · ' + n.cidade + '/' + n.uf, h('br'), 'CEP ', n.cep)),
+    h('div', null, icon('key'), h('dt', null, 'Check-in e check-out'), h('dd', { class: 'tnum' }, 'Entrada a partir de ' + hr.checkin + ' · Saída até ' + hr.checkout)),
+    hr.atendimento ? h('div', null, icon('clock'), h('dt', null, 'Atendimento'), h('dd', null, hr.atendimento)) : null);
+  const rotas = (C.comoChegar.rotas || []).length ? h('div', { class: 'rotas' }, C.comoChegar.rotas.map(r => h('div', null, h('h3', null, r.titulo), h('p', null, r.texto)))) : null;
+  const acoes = h('div', { class: 'chegar-acoes' },
+    h('a', { class: 'btn btn--prim', href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, icon('pin'), 'Abrir no Google Maps', h('span', { class: 'vh' }, ' (abre em outra aba)')),
+    telHref() ? h('a', { class: 'btn btn--linha', href: telHref() }, icon('phone'), C.contato.telefone) : null);
+  let mapa = null;
+  if (on('mapa')) {
+    mapa = h('div', { class: 'mapa' });
+    if (C.links.mapaEmbed) mapa.append(h('iframe', { src: C.links.mapaEmbed, title: 'Mapa com a localização de ' + limpo(n.nome), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true }));
+    else mapa.classList.add('mapa--vazio'), mapa.append(h('p', null, '[TROCAR] Cole em CONFIG.links.mapaEmbed o endereço do mapa (Google Maps > Compartilhar > Incorporar um mapa).'));
+  }
+  const atr = on('atracoes') && C.atracoes.length ? h('div', { class: 'atracoes' }, h('h3', null, C.textos.atracoesTitulo),
+    h('ul', { class: 'atr-lista' }, C.atracoes.map((a, i) => h('li', { class: 'rev', style: '--i:' + (i % 3) }, h('strong', null, a.nome), a.distancia ? h('span', { class: 'dist' }, a.distancia) : null, a.texto ? h('p', null, a.texto) : null)))) : null;
+  return sec('como-chegar', '', null, [
+    h('div', { class: 'chegar' },
+      h('div', null, h('h2', { id: 'como-chegar-t', style: 'margin-bottom:1.75rem' }, rich(fill(C.textos.comoChegarTitulo))), dados, rotas, acoes),
+      mapa), atr]);
+}
+
+/* ---------- FAQ ---------- */
+function faq() {
+  if (!on('faq') || !C.faq.length) return null;
+  const head = h('div', { class: 'sec-head' }, h('h2', { id: 'perguntas-t' }, rich(fill(C.textos.faqTitulo))),
+    h('p', { class: 'lead' }, fill(C.textos.faqIntro)), h('div', null, waBtn({ texto: C.textos.faqBotao, cls: 'btn--prim' })));
+  return sec('perguntas', '', h('div', { class: 'faq-grid' }, head,
+    h('div', { class: 'faq-lista' }, C.faq.map(f => h('details', null, h('summary', null, h('span', null, f.p)), h('div', { class: 'faq-resp' }, fill(f.r)))))), null);
+}
+
+/* ---------- chamada final ---------- */
+function ctaFinal() {
+  const tel = telHref();
+  return sec('reservar', 'sec--escura final', null,
+    h('div', { class: 'final-in' },
+      h('h2', { id: 'reservar-t' }, rich(fill(C.textos.ctaFinalTitulo))),
+      h('p', null, fill(C.textos.ctaFinalTexto)),
+      waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--cta btn--lg' }),
+      h('div', { class: 'final-contato' },
+        tel ? h('a', { href: tel }, icon('phone'), C.contato.telefone) : null,
+        C.contato.email ? h('a', { href: 'mailto:' + limpo(C.contato.email) }, icon('mail'), C.contato.email) : null)), 'escura');
+}
+
+/* ---------- rodapé ---------- */
+function rodape() {
+  const f = C.rodape, n = C.negocio, tel = telHref(), ig = on('instagram') && C.links.instagram;
+  const legal = [f.razaoSocial, f.cnpj ? 'CNPJ ' + f.cnpj : '', f.cadastur ? 'Cadastur ' + f.cadastur : ''].filter(Boolean);
+  const r = $('#rodape');
+  r.append(h('div', { class: 'container' },
+    h('div', { class: 'rodape-grid' },
+      h('div', null, h('p', { class: 'logo' }, n.nome), f.frase ? h('p', null, f.frase) : null),
+      h('div', null, h('h2', null, 'Contato'), h('ul', null,
+        h('li', null, waIcon(), waTexto('Chamar no WhatsApp')),
+        tel ? h('li', null, icon('phone'), h('a', { href: tel }, C.contato.telefone)) : null,
+        C.contato.email ? h('li', null, icon('mail'), h('a', { href: 'mailto:' + limpo(C.contato.email) }, C.contato.email)) : null,
+        ig ? h('li', null, icon('instagram'), h('a', { href: C.links.instagram, target: '_blank', rel: 'noopener noreferrer' }, 'Instagram', h('span', { class: 'vh' }, ' (abre em outra aba)'))) : null)),
+      h('div', null, h('h2', null, 'Endereço'), h('ul', null,
+        h('li', null, icon('pin'), h('span', null, n.rua, h('br'), n.bairro + ' · ' + n.cidade + '/' + n.uf, h('br'), 'CEP ', n.cep)),
+        h('li', null, icon('arrow'), h('a', { href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, 'Ver no mapa', h('span', { class: 'vh' }, ' (abre em outra aba)')))))),
+    h('div', { class: 'rodape-legal' },
+      h('span', null, '© ' + new Date().getFullYear() + ' ' + (legal.length ? legal.join(' · ') : n.nome)),
+      f.credito ? h('span', null, f.creditoUrl ? h('a', { href: f.creditoUrl, target: '_blank', rel: 'noopener noreferrer' }, f.credito) : f.credito) : null)));
+}
+
+/* ---------- botão flutuante ---------- */
+function flutuante() {
+  if (!on('botaoFlutuante')) return;
+  const el = $('#flutuante'); el.hidden = false;
+  el.append(waIcon(), h('span', null, C.textos.botaoCurto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  waLinks.push({ a: el, tpl: C.whatsapp.mensagem, extra: {} });
+  const heroEl = $('#hero');
+  if ('IntersectionObserver' in window && heroEl) new IntersectionObserver(([e]) => { if (e.isIntersecting) el.removeAttribute('data-visivel'); else el.setAttribute('data-visivel', ''); }, { threshold: 0.35 }).observe(heroEl);
+  else el.setAttribute('data-visivel', '');
+}
+
+/* ---------- lightbox ---------- */
+let lbI = 0;
+function abrirLb(i) { const d = $('#lightbox'); lbI = i; mostrarLb(); if (!d.open) d.showModal(); }
+function mostrarLb() {
+  const d = $('#lightbox'), it = lbItens[lbI]; if (!it) return;
+  const img = $('img', d); img.width = it.w; img.height = it.h; img.src = it.src; img.alt = it.alt;
+  $('figcaption', d).textContent = it.legenda || '';
+  d.setAttribute('aria-label', 'Galeria de fotos, foto ' + (lbI + 1) + ' de ' + lbItens.length);
+}
+function iniciarLb() {
+  const d = $('#lightbox');
+  const primeira = lbItens[0];
+  $('figure', d).prepend(h('img', { src: primeira.src, alt: primeira.alt, width: primeira.w, height: primeira.h, decoding: 'async' }));
+  $('[data-lb=x]', d).append(icon('close')); $('[data-lb=prev]', d).append(icon('prev')); $('[data-lb=next]', d).append(icon('next'));
+  const nav = k => { lbI = (lbI + k + lbItens.length) % lbItens.length; mostrarLb(); };
+  d.addEventListener('click', e => { const b = e.target.closest('[data-lb]'); if (b) { const k = b.dataset.lb; if (k === 'x') d.close(); else nav(k === 'next' ? 1 : -1); } else if (e.target === d) d.close(); });
+  d.addEventListener('keydown', e => { if (e.key === 'ArrowRight') nav(1); if (e.key === 'ArrowLeft') nav(-1); });
+  let x0 = null;
+  d.addEventListener('touchstart', e => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  d.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) nav(dx < 0 ? 1 : -1); x0 = null; }, { passive: true });
+}
+
+/* ---------- SEO: head + JSON-LD ---------- */
+function metaSet(sel, attr, val) { const m = $(sel); if (m && val) m.setAttribute(attr, val); }
+function seo() {
+  const s = C.seo, titulo = fill(s.titulo), desc = fill(s.descricao);
+  document.title = titulo;
+  metaSet('meta[name="description"]', 'content', desc);
+  metaSet('meta[property="og:title"]', 'content', titulo);
+  metaSet('meta[property="og:description"]', 'content', desc);
+  metaSet('meta[property="og:site_name"]', 'content', C.negocio.nome);
+  if (s.urlSite) { metaSet('link[rel="canonical"]', 'href', s.urlSite); metaSet('meta[property="og:url"]', 'content', s.urlSite); }
+  if (s.imagemOg) metaSet('meta[property="og:image"]', 'content', s.imagemOg);
+}
+function jsonld() {
+  const n = C.negocio, hr = C.horarios, abs = u => /^https?:\/\//.test(u || '') ? u : undefined;
+  const o = {
+    '@context': 'https://schema.org', '@type': n.tipoSchema || 'LodgingBusiness',
+    name: n.nome, description: fill(C.seo.descricao), url: abs(C.seo.urlSite),
+    image: abs(C.seo.imagemOg) || abs(C.hero.foto),
+    telephone: numeroPendente ? undefined : '+' + numero,
+    email: C.contato.email ? limpo(C.contato.email) : undefined,
+    address: { '@type': 'PostalAddress', streetAddress: n.rua, addressLocality: n.cidade, addressRegion: n.uf, postalCode: n.cep, addressCountry: 'BR' },
+    geo: n.coordenadas ? { '@type': 'GeoCoordinates', latitude: n.coordenadas.lat, longitude: n.coordenadas.lng } : undefined,
+    hasMap: mapsUrl(),
+    checkinTime: hr.checkinISO || undefined, checkoutTime: hr.checkoutISO || undefined,
+    amenityFeature: on('comodidades') && C.comodidades.length ? C.comodidades.map(c => ({ '@type': 'LocationFeatureSpecification', name: c.nome, value: true })) : undefined,
+    sameAs: [C.links.instagram, C.links.facebook].filter(Boolean),
+    containsPlace: on('jsonLdQuartos') && C.quartos.length ? C.quartos.map(q => ({ '@type': 'Accommodation', name: q.nome, description: q.descricao || undefined,
+      occupancy: q.capacidadeMax ? { '@type': 'QuantitativeValue', maxValue: q.capacidadeMax } : undefined,
+      amenityFeature: (q.comodidades || []).map(c => ({ '@type': 'LocationFeatureSpecification', name: c, value: true })) })) : undefined
+  };
+  if (!o.sameAs.length) delete o.sameAs;
+  const s = h('script', { type: 'application/ld+json' }); s.textContent = JSON.stringify(o); document.head.append(s);
+}
+
+/* ---------- comportamentos ---------- */
+function comportamentos() {
+  const t = $('#topo');
+  let rafId = 0;
+  const atualiza = () => { rafId = 0; if (window.scrollY > 24) t.setAttribute('data-solido', ''); else t.removeAttribute('data-solido'); };
+  atualiza();
+  addEventListener('scroll', () => { if (!rafId) rafId = requestAnimationFrame(atualiza); }, { passive: true });
+  const els = document.querySelectorAll('.rev');
+  if ('IntersectionObserver' in window && !reduzMovimento && els.length) {
+    document.documentElement.classList.add('rev-on');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(el => io.observe(el));
+  }
+}
+
+/* ---------- pendências [TROCAR] ---------- */
+function pendencias() {
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.parentElement && /^(SCRIPT|STYLE|NOSCRIPT)$/.test(n.parentElement.tagName) ? NodeFilter.FILTER_REJECT : MARCA.test(n.nodeValue) ? (MARCA.lastIndex = 0, NodeFilter.FILTER_ACCEPT) : NodeFilter.FILTER_SKIP) });
+  const nos = []; while (w.nextNode()) nos.push(w.currentNode);
+  let total = 0;
+  nos.forEach(n => {
+    const partes = n.nodeValue.split(MARCA); total += partes.length - 1;
+    // ?limpo = prévia para o cliente: esconde as marcas. Sem prévia e sem ?limpo, o "[TROCAR]" aparece cru (alerta visível).
+    if (modoLimpo) { n.nodeValue = partes.join('').replace(/^\s+/, ''); return; }
+    if (!previa) return;
+    const f = document.createDocumentFragment();
+    partes.forEach((p, i) => { if (i) f.append(h('mark', { class: 'pend' }, 'Trocar')); if (p) f.append(p.replace(/^ /, i ? '' : ' ')); });
+    n.replaceWith(f);
+  });
+  if (modoLimpo) document.title = limpo(document.title);
+  const numPend = numeroPendente ? 1 : 0;
+  const fotos = document.querySelectorAll('img[data-pendente]').length;
+  const resumo = { textos: total, fotos, whatsapp: numPend };
+  if (total || fotos || numPend) {
+    console.warn('[template] Pendências antes de publicar →', resumo);
+    // Enquanto houver pendência, a página fica fora do Google (noindex). Some sozinho quando tudo for trocado.
+    document.head.append(h('meta', { name: 'robots', content: 'noindex, nofollow' }));
+  }
+  if (previa) {
+    const marcas = () => [...document.querySelectorAll('mark.pend')];
+    let k = -1;
+    const bt = h('button', { type: 'button', class: 'previa', 'aria-label': 'Prévia do template: ir para a próxima pendência' }, h('i'),
+      h('span', null, 'Prévia: ' + total + ' [TROCAR] · ' + fotos + ' fotos' + (numPend ? ' · WhatsApp' : ''), h('span', { class: 'previa-longo' }, ' — toque para ir à próxima')));
+    bt.addEventListener('click', () => {
+      const m = marcas(); if (!m.length) return;
+      document.querySelectorAll('.pend-foco').forEach(x => x.classList.remove('pend-foco'));
+      k = (k + 1) % m.length; const alvo = m[k];
+      alvo.scrollIntoView({ block: 'center', behavior: reduzMovimento ? 'auto' : 'smooth' });
+      alvo.parentElement && alvo.parentElement.classList.add('pend-foco');
+      setTimeout(() => alvo.parentElement && alvo.parentElement.classList.remove('pend-foco'), 1800);
+    });
+    document.body.append(bt);
+  }
+}
+
+/* ---------- montagem ---------- */
+function montar() {
+  aplicarTema(); seo();
+  const main = $('#conteudo');
+  const partes = [hero(), consulta(), quartos(), sobre(), comodidades(), galeria(), porQueDireto(), comoFunciona(), avaliacoes(), comoChegar(), faq(), ctaFinal()].filter(Boolean);
+  let alt = false;
+  partes.forEach(p => { const t = p.dataset && p.dataset.tom; if (t === 'auto') { if (alt) p.classList.add('sec--tinta'); alt = !alt; } else if (t) alt = false; main.append(p); });
+  const nav = [['quartos', 'quartos'], ['galeria', 'galeria'], ['como-chegar', 'comoChegar'], ['perguntas', 'faq']]
+    .filter(([id]) => $('#' + id)).map(([id, k]) => ({ id, label: C.textos.nav[k] }));
+  cabecalho(nav); rodape(); flutuante();
+  if (lbItens.length) iniciarLb();
+  refreshWa(); jsonld(); comportamentos(); pendencias();
+}
+if (numeroPendente) console.warn('[template] CONFIG.whatsapp.numero ainda é o número de exemplo.');
+montar();
+})();
+</script>
+</body>
+</html>
+<!--
+=====================================================================
+CHECKLIST DE ADAPTAÇÃO POR CLIENTE  (tudo é no CONFIG, no topo do <script>, exceto o item 1)
+=====================================================================
+[ ] 1. <head> (estático, o WhatsApp/Facebook não rodam JS): <title>, meta description, canonical,
+       og:title, og:description, og:url, og:image (foto 1200x630 com URL absoluta).
+[ ] 2. CONFIG.negocio: nome, tipoSchema, cidade, uf, bairro, rua, cep (coordenadas é opcional).
+[ ] 3. CONFIG.whatsapp.numero (só dígitos, 55 + DDD + número) e as duas mensagens.
+[ ] 4. CONFIG.contato (telefone, e-mail) e CONFIG.horarios (check-in, check-out, atendimento).
+[ ] 5. CONFIG.links: Instagram, Google Maps, mapaEmbed (só a URL do src do iframe).
+[ ] 6. CONFIG.cores: 4 HEX. A primária tem de ser escura. Veja o console por avisos de contraste.
+[ ] 7. CONFIG.textos: heroTitulo, heroSubtitulo, heroNota e demais títulos que tiverem [TROCAR].
+[ ] 8. CONFIG.hero.foto + alt (1920x1080, horizontal, até ~300 KB).
+[ ] 9. CONFIG.quartos: nome, foto (1200x900), alt, capacidade, descrição, comodidades.
+       precoTexto fica "" a menos que o cliente informe preço COM a condição.
+[ ] 10. CONFIG.sobre, CONFIG.comodidades (só as confirmadas), CONFIG.galeria (8 a 12 fotos com alt).
+[ ] 11. CONFIG.porQueDireto: só pontos que o cliente confirmou por escrito.
+[ ] 12. CONFIG.comoFunciona (passo 3), comoChegar.rotas, atracoes (distâncias confirmadas).
+[ ] 13. CONFIG.faq: check-in/out, cancelamento, pets, crianças, pagamento — com a regra REAL do cliente.
+[ ] 14. CONFIG.avaliacoes: só depoimentos reais e autorizados. Lista vazia = seção some.
+[ ] 15. CONFIG.rodape: razão social, CNPJ, Cadastur (só se existir), crédito.
+[ ] 16. CONFIG.planos.ativo = "basico" | "intermediario" | "completo" (e ajuste fino em planos.modulos).
+[ ] 17. Procure "[TROCAR]" no arquivo (Ctrl+F): precisa dar ZERO resultados no CONFIG e no <head>.
+[ ] 18. Mostre ao cliente com ?limpo no fim do link (esconde as etiquetas amarelas).
+Obs.: enquanto houver [TROCAR], foto pendente ou WhatsApp de exemplo, a página se marca sozinha
+como noindex. Quando tudo estiver trocado, ela volta a ser indexável sem você mexer em nada.
+=====================================================================
+-->

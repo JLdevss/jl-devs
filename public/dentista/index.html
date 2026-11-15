@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[TROCAR] Nome da Clínica — Dentista em Bairro, Cidade/UF</title>
+<meta name="description" content="[TROCAR] Clínica odontológica em Cidade/UF. Conheça os tratamentos e agende sua avaliação pelo WhatsApp.">
+<meta name="theme-color" content="#0B6E78">
+<link rel="canonical" href="https://[TROCAR]/">
+
+<!-- Open Graph: o WhatsApp e o Facebook NÃO executam JavaScript. Edite estas linhas à mão para cada cliente. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="[TROCAR] Nome da Clínica">
+<meta property="og:title" content="[TROCAR] Nome da Clínica — Dentista em Cidade/UF">
+<meta property="og:description" content="[TROCAR] Clínica odontológica em Cidade/UF. Agende sua avaliação pelo WhatsApp.">
+<meta property="og:url" content="https://[TROCAR]/">
+<meta property="og:image" content="https://[TROCAR]/foto-compartilhamento-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B6E78'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='32' text-anchor='middle' fill='%23FFFFFF'%3EC%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Tokens. As 4 cores vêm do CONFIG.cores; o resto é derivado delas.
+   primaria = botões, links e ícones (precisa ser escura o bastante para texto branco)
+   secundaria = tom claro de apoio (fundos suaves, painel atrás da foto)
+   ========================================================================== */
+:root{
+  --primaria:#0B6E78; --secundaria:#CFEDEA; --fundo:#FFFFFF; --texto:#12303A;
+  --cta-texto:#FFFFFF;
+
+  --primaria-escura:color-mix(in oklab,var(--primaria) 68%,#000);
+  --superficie:color-mix(in oklab,var(--secundaria) 60%,var(--fundo));
+  --superficie-2:color-mix(in oklab,var(--secundaria) 24%,var(--fundo));
+  --tinta:var(--texto);
+  --tinta-suave:color-mix(in oklab,var(--texto) 76%,var(--fundo));
+  --linha:color-mix(in oklab,var(--texto) 12%,var(--fundo));
+  --linha-forte:color-mix(in oklab,var(--texto) 32%,var(--fundo));
+  --cta-hover:var(--primaria-escura);
+  --foco:var(--primaria-escura);
+
+  --display:'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --sans:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --max:1200px;
+  --sec:clamp(4.5rem,9vw,7.5rem);
+  --raio:22px;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem;accent-color:var(--primaria);color-scheme:light}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:400 1.0625rem/1.62 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scrollbar-color:color-mix(in oklab,var(--primaria) 45%,var(--fundo)) var(--superficie-2)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--primaria);color:var(--cta-texto)}
+input,select{caret-color:var(--primaria)}
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:6px}
+section[id]{scroll-margin-top:4.75rem}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pular{position:fixed;left:1rem;top:-4rem;z-index:100;background:var(--tinta);color:var(--fundo);padding:.75rem 1.1rem;border-radius:10px;transition:top .2s var(--ease)}
+.pular:focus{top:1rem}
+.container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+.ico{display:inline-flex;width:1.3em;height:1.3em;flex:none}
+.ico svg{width:100%;height:100%}
+.tnum{font-variant-numeric:tabular-nums}
+
+h1,h2,h3{font-family:var(--display);font-weight:500;text-wrap:balance;color:var(--tinta)}
+h1 em,h2 em{font-style:normal;color:var(--primaria)}
+h2{font-size:clamp(1.9rem,1.25rem + 2.5vw,3rem);line-height:1.1;letter-spacing:-.028em}
+h3{font-size:1.2rem;line-height:1.3;letter-spacing:-.012em}
+p{text-wrap:pretty}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:3.25rem;padding:.8rem 1.55rem;border-radius:999px;border:2px solid transparent;font-family:var(--sans);font-weight:700;font-size:1rem;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;transition:background-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease),color .25s,border-color .25s}
+.btn .ico{width:1.35em;height:1.35em}
+.btn--cta{background:var(--primaria);color:var(--cta-texto)}
+.btn--claro{background:var(--fundo);color:var(--primaria-escura)}
+.btn--linha{background:transparent;border-color:var(--linha-forte);color:var(--tinta)}
+.btn--sm{min-height:2.75rem;padding:.5rem 1.1rem;font-size:.95rem}
+.btn--lg{min-height:3.6rem;padding:1rem 1.9rem;font-size:1.0625rem}
+.btn:active{transform:scale(.985)}
+@media (hover:hover){
+  .btn--cta:hover{background:var(--cta-hover);transform:translateY(-2px);box-shadow:0 14px 26px -14px rgba(0,0,0,.42)}
+  .btn--claro:hover{transform:translateY(-2px);box-shadow:0 14px 26px -14px rgba(0,0,0,.5)}
+  .btn--linha:hover{border-color:var(--primaria);color:var(--primaria)}
+}
+.link-seta{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:var(--primaria);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:.1rem}
+.link-seta .ico{width:1.05em;height:1.05em;transition:transform .3s var(--ease)}
+@media (hover:hover){.link-seta:hover .ico{transform:translateX(4px)}}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+.topo{position:fixed;inset:0 0 auto 0;z-index:50;background:color-mix(in oklab,var(--fundo) 92%,transparent);backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);transition:box-shadow .3s var(--ease)}
+.topo[data-solido]{box-shadow:0 1px 0 var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.marca{display:flex;align-items:center;gap:.6rem;min-width:0;flex:1 1 auto;font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.marca span.nome{overflow:hidden;text-overflow:ellipsis}
+.marca .selo{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;border-radius:10px;background:var(--superficie);color:var(--primaria)}
+.marca .selo .ico{width:1.25rem;height:1.25rem}
+.nav{display:none;gap:1.75rem;font-size:.97rem}
+.nav a{text-decoration:none;color:var(--tinta-suave);padding:.4rem 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+@media (hover:hover){.nav a:hover{color:var(--tinta);border-bottom-color:var(--primaria)}}
+.topo .btn{white-space:nowrap;flex:none}
+@media (max-width:380px){.marca{font-size:1rem}.marca .selo{display:none}.topo .btn--sm{padding-inline:.85rem;gap:.45rem}}
+@media (min-width:1080px){.nav{display:flex}.marca{flex:0 1 auto}}
+
+/* ==========================================================================
+   Hero — texto + foto real da clínica, com o responsável técnico à vista
+   ========================================================================== */
+.hero{position:relative;isolation:isolate;overflow:clip;padding-top:calc(4.25rem + clamp(2rem,5vw,4.5rem));padding-bottom:clamp(3.5rem,7vw,6rem)}
+.hero-grid{display:grid;gap:3rem;align-items:center}
+.hero-texto{display:grid;gap:1.5rem;justify-items:start}
+.hero h1{font-size:clamp(2.35rem,1.35rem + 3.9vw,4.4rem);line-height:1.04;letter-spacing:-.04em;max-width:15ch}
+.hero-lead{font-size:clamp(1.1rem,1rem + .4vw,1.25rem);line-height:1.55;color:var(--tinta-suave);max-width:44ch}
+.hero-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:.25rem}
+.fatos{display:grid;gap:.6rem;margin-top:.75rem;padding-top:1.25rem;border-top:1px solid var(--linha);width:100%;max-width:34rem;font-size:.98rem;color:var(--tinta-suave)}
+.fatos li{display:flex;gap:.7rem;align-items:flex-start}
+.fatos .ico{width:1.2rem;height:1.2rem;color:var(--primaria);margin-top:.2em}
+.hero-media{position:relative;margin-inline-end:calc(-1*var(--gutter));padding-inline-end:var(--gutter)}
+.hero-media::before{content:"";position:absolute;z-index:-1;inset:14% 0 -7% 22%;background:var(--superficie);border-radius:32px 0 0 32px}
+.hero-foto{aspect-ratio:5/4;border-radius:28px;overflow:hidden;background:var(--superficie)}
+.hero-foto img{width:100%;height:100%;object-fit:cover}
+.hero-rt{position:relative;margin:-2.25rem 0 0 1rem;width:fit-content;max-width:calc(100% - 2rem);display:flex;gap:.85rem;align-items:center;padding:.9rem 1.15rem;background:var(--fundo);border-radius:18px;box-shadow:0 18px 40px -18px rgba(0,0,0,.32),0 1px 3px rgba(0,0,0,.08)}
+.hero-rt>.ico{width:2.4rem;height:2.4rem;padding:.5rem;border-radius:12px;background:var(--superficie);color:var(--primaria)}
+.hero-rt div{display:grid;line-height:1.3}
+.rt-rotulo{font-size:.8rem;color:var(--tinta-suave)}
+.hero-rt strong{font-family:var(--display);font-weight:500;font-size:1rem;letter-spacing:-.01em}
+.hero-rt .tnum{font-size:.9rem;color:var(--tinta-suave)}
+@media (max-width:560px){.hero-acoes .btn--cta{width:100%}}
+@media (min-width:960px){
+  .hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(3rem,6vw,6rem)}
+  .hero-media{margin-inline-end:0;padding-inline-end:0}
+  .hero-media::before{inset:10% -100vw -8% 26%}
+  .hero-foto{aspect-ratio:4/5}
+  .hero-rt{position:absolute;left:-2rem;bottom:2.25rem;margin:0}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-foto{animation:foto-in 1.3s var(--ease) both .1s}
+  .hero-texto>*{animation:texto-in .9s var(--ease) both}
+  .hero-texto>:nth-child(1){animation-delay:.08s}
+  .hero-texto>:nth-child(2){animation-delay:.18s}
+  .hero-texto>:nth-child(3){animation-delay:.28s}
+  .hero-texto>:nth-child(4){animation-delay:.38s}
+  .hero-rt{animation:texto-in .9s var(--ease) both .75s}
+  @keyframes foto-in{from{clip-path:inset(18% 0 0 0 round 28px);transform:translateY(18px)}to{clip-path:inset(0 0 0 0 round 28px);transform:none}}
+  @keyframes texto-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+
+/* ==========================================================================
+   "Conte o que você precisa" (plano Completo)
+   ========================================================================== */
+.consulta{padding-bottom:clamp(1rem,3vw,2rem)}
+.consulta-card{background:var(--superficie);border-radius:28px;padding:clamp(1.4rem,4vw,2.5rem);display:grid;gap:1.5rem 3rem}
+.consulta-card h2{font-size:clamp(1.5rem,1.2rem + 1.2vw,2rem)}
+.consulta-card .lead{color:var(--tinta-suave);margin-top:.5rem;max-width:36ch}
+.consulta-form{display:grid;gap:1.25rem}
+.campo{display:grid;gap:.4rem;min-width:0}
+.campo label,.grupo legend{font-size:.9rem;font-weight:700;color:var(--tinta)}
+.campo select{width:100%;min-width:0;min-height:3.25rem;padding:.6rem .9rem;background:var(--fundo);border:1.5px solid var(--linha-forte);border-radius:14px;transition:border-color .2s}
+.campo select:hover{border-color:var(--primaria)}
+.grupo{border:0;margin:0;padding:0;min-width:0}
+.grupo legend{padding:0;margin-bottom:.5rem}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.pill span{display:inline-flex;align-items:center;min-height:2.75rem;padding:.5rem 1.15rem;background:var(--fundo);border:1.5px solid var(--linha-forte);border-radius:999px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.pill input:checked+span{background:var(--primaria);border-color:var(--primaria);color:var(--cta-texto)}
+.pill input:focus-visible+span{outline:3px solid var(--foco);outline-offset:2px}
+@media (hover:hover){.pill span:hover{border-color:var(--primaria)}}
+.consulta-form .btn{justify-self:stretch}
+.linha-2{display:grid;gap:1.25rem}
+@media (min-width:640px){.linha-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.consulta-card{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:start}.consulta-form .btn{justify-self:start}}
+
+/* ==========================================================================
+   Seções
+   ========================================================================== */
+.sec{padding-block:var(--sec)}
+.sec--tinta{background:var(--superficie-2)}
+.sec--escura{background:var(--primaria-escura);color:var(--fundo);--foco:var(--fundo)}
+.sec--escura h2{color:var(--fundo)}
+.sec--escura h2 em{color:var(--secundaria)}
+.sec-head{display:grid;gap:1rem;max-width:44rem;margin-bottom:clamp(2.25rem,5vw,3.5rem)}
+.sec-head .lead{color:var(--tinta-suave);font-size:1.1rem;max-width:52ch}
+
+/* Tratamentos */
+.servs{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr))}
+.serv{display:flex;flex-direction:column;gap:.85rem;padding:1.75rem 1.6rem 1.6rem;background:var(--fundo);border:1px solid var(--linha);border-radius:var(--raio);transition:border-color .3s var(--ease),transform .3s var(--ease)}
+.sec--tinta .serv{border-color:transparent}
+.serv-ico{display:grid;place-items:center;width:3.25rem;height:3.25rem;border-radius:16px;background:var(--superficie);color:var(--primaria);margin-bottom:.35rem}
+.serv-ico .ico{width:1.75rem;height:1.75rem}
+.serv p{color:var(--tinta-suave);max-width:40ch}
+.serv-link{margin-top:auto;padding-top:.5rem;display:inline-flex;align-items:center;gap:.5rem;font-weight:700;color:var(--primaria);text-decoration:none;align-self:flex-start;min-height:2.75rem}
+.serv-link .ico{width:1.05em;height:1.05em;transition:transform .3s var(--ease)}
+/* Celular: ícone ao lado do texto, cartão mais baixo */
+@media (max-width:559px){
+  .serv{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:1rem;row-gap:.45rem;padding:1.25rem 1.25rem 1rem}
+  .serv-ico{grid-row:span 3;width:2.75rem;height:2.75rem;border-radius:14px;margin:0}
+  .serv-ico .ico{width:1.5rem;height:1.5rem}
+  .serv-link{padding-top:0;margin-top:.15rem}
+}
+@media (hover:hover){
+  .serv:hover{border-color:color-mix(in oklab,var(--primaria) 45%,var(--fundo))}
+  .serv-link:hover{text-decoration:underline}
+  .serv-link:hover .ico{transform:translateX(4px)}
+}
+
+/* Sobre */
+.sobre-grid{display:grid;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.sobre-foto{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden}
+.sobre-foto img{width:100%;height:100%;object-fit:cover}
+.sobre-texto{display:grid;gap:1.15rem;max-width:56ch}
+.sobre-texto p{font-size:1.1rem;color:var(--tinta-suave)}
+.sobre-texto p.assinatura{color:var(--tinta);font-family:var(--display);font-weight:500;font-size:1.05rem}
+@media (min-width:900px){.sobre-grid{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}.sobre-foto{aspect-ratio:5/4}}
+
+/* Primeira consulta */
+.passos{display:grid;gap:1rem}
+.passo{position:relative;display:grid;gap:.6rem;align-content:start;padding:1.75rem 1.6rem;background:var(--superficie-2);border-radius:var(--raio)}
+.sec--tinta .passo{background:var(--fundo)}
+.passo-n{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--primaria);color:var(--cta-texto);font-family:var(--display);font-weight:600;font-size:1.05rem;margin-bottom:.5rem}
+.passo p{color:var(--tinta-suave);max-width:36ch}
+@media (min-width:860px){.passos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Equipe */
+.equipe{display:grid;gap:clamp(1.25rem,3vw,2rem);grid-template-columns:repeat(auto-fill,minmax(min(100%,16rem),1fr))}
+.membro{display:grid;align-content:start}
+.membro-txt{display:grid;gap:.35rem;align-content:start}
+.membro-foto{aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:var(--superficie);margin-bottom:1rem}
+/* Celular: foto menor ao lado do nome, para a equipe não ocupar três telas */
+@media (max-width:639px){
+  .membro{grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1.1rem;align-items:center}
+  .membro-foto{margin-bottom:0;border-radius:16px}
+}
+/* 1 ou 2 profissionais: cartões na horizontal, para não sobrar meia tela vazia */
+@media (min-width:640px){
+  .equipe--poucos{grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr))}
+  .equipe--poucos .membro{grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:1.5rem;align-items:center;padding:1rem;background:var(--fundo);border-radius:calc(var(--raio) + 6px)}
+  .equipe--poucos .membro-foto{margin-bottom:0}
+}
+.membro-foto img{width:100%;height:100%;object-fit:cover}
+.membro-esp{color:var(--primaria);font-weight:700}
+.membro-cro{font-size:.92rem;color:var(--tinta-suave)}
+.membro-bio{color:var(--tinta-suave);margin-top:.4rem;font-size:.98rem}
+
+/* Galeria */
+.galeria-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(9rem,40vw,13rem);grid-auto-flow:dense;gap:.7rem}
+.tile{position:relative;overflow:hidden;border-radius:16px;background:var(--superficie);margin:0;padding:0;border:0;display:block;width:100%;height:100%}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.tile--big{grid-column:span 2;grid-row:span 2}
+.tile--wide{grid-column:span 2}
+button.tile{cursor:zoom-in}
+@media (hover:hover){button.tile:hover img{transform:scale(1.04)}}
+@media (min-width:760px){.galeria-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:13rem;gap:1rem}}
+@media (min-width:1100px){.galeria-grid{grid-auto-rows:15rem}}
+
+/* Lightbox */
+.lb{border:0;padding:0;width:100%;height:100%;max-width:none;max-height:none;background:transparent;color:#fff}
+.lb::backdrop{background:rgba(8,22,28,.94)}
+.lb[open]{display:grid;place-items:center;grid-template-columns:auto minmax(0,1fr) auto;gap:.5rem;padding:1rem}
+.lb figure{display:grid;gap:.9rem;justify-items:center;min-width:0}
+.lb img{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;border-radius:10px}
+.lb figcaption{font-size:.97rem;color:rgba(255,255,255,.88);text-align:center;max-width:60ch;min-height:1.4em}
+.lb-btn{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:background-color .2s}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb :focus-visible{outline-color:#fff}
+.lb-x{position:absolute;top:1rem;right:1rem}
+@media (max-width:640px){.lb[open]{grid-template-columns:1fr;align-content:center}.lb-prev,.lb-next{position:absolute;bottom:1.25rem}.lb-prev{left:1rem}.lb-next{right:1rem}}
+
+/* Avaliações */
+.avals{display:grid;gap:clamp(1rem,3vw,1.5rem);grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.aval{display:grid;gap:1.25rem;align-content:space-between;padding:1.75rem;background:var(--fundo);border:1px solid var(--linha);border-radius:var(--raio)}
+.aval blockquote{font-size:1.1rem;line-height:1.55}
+.aval cite{font-style:normal;font-size:.95rem;color:var(--tinta-suave)}
+.aval cite strong{color:var(--tinta)}
+
+/* FAQ */
+.faq-grid{display:grid;gap:2rem clamp(2rem,6vw,5rem)}
+@media (min-width:960px){.faq-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:start}.faq-grid .sec-head{margin-bottom:0;position:sticky;top:6.5rem}}
+.faq-lista{display:grid;gap:.6rem}
+.faq-lista details{background:var(--fundo);border:1px solid var(--linha);border-radius:18px;transition:border-color .25s}
+.sec--tinta .faq-lista details{border-color:transparent}
+.faq-lista details[open]{border-color:color-mix(in oklab,var(--primaria) 40%,var(--fundo))}
+.faq-lista summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.25rem;min-height:3.75rem;padding:1rem 1.35rem;font-family:var(--display);font-weight:500;font-size:1.05rem;letter-spacing:-.01em;border-radius:18px}
+.faq-lista summary::-webkit-details-marker{display:none}
+.faq-lista summary::after{content:"";flex:none;width:1.75rem;height:1.75rem;border-radius:50%;background:
+  linear-gradient(var(--primaria),var(--primaria)) center/.7rem 2px no-repeat,
+  linear-gradient(var(--primaria),var(--primaria)) center/2px .7rem no-repeat,var(--superficie);transition:transform .4s var(--ease)}
+.faq-lista details[open] summary::after{transform:rotate(135deg)}
+.faq-resp{padding:0 1.35rem 1.35rem;color:var(--tinta-suave);max-width:62ch}
+
+/* Localização */
+.local{display:grid;gap:clamp(2rem,5vw,4rem)}
+@media (min-width:960px){.local{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}}
+.dados{display:grid}
+.dados>div{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;padding-block:1.1rem;border-top:1px solid var(--linha)}
+.dados>div:last-child{border-bottom:1px solid var(--linha)}
+.dados .ico{width:1.45rem;height:1.45rem;color:var(--primaria);grid-row:span 2;margin-top:.1rem}
+.dados dt{font-weight:700}
+.dados dd{color:var(--tinta-suave)}
+.horas{display:grid;gap:.2rem}
+.horas>span{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;max-width:24rem}
+.local-acoes{margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.mapa{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--superficie);display:grid;place-items:center;text-align:center;padding:1.25rem;color:var(--tinta-suave)}
+.mapa--vazio{border:1.5px dashed var(--linha-forte);background:var(--superficie-2)}
+.mapa:has(iframe){padding:0}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+@media (max-width:959px){.mapa{aspect-ratio:1/1}}
+@media (min-width:960px){.mapa{position:sticky;top:6.5rem}}
+
+/* Chamada final */
+.final-in{display:grid;gap:1.6rem;justify-items:start}
+.final h2{font-size:clamp(2.2rem,1.3rem + 3.6vw,4rem);line-height:1.04;letter-spacing:-.035em;max-width:16ch}
+.final p{max-width:46ch;font-size:1.12rem;color:color-mix(in oklab,var(--fundo) 86%,transparent)}
+.final-contato{display:flex;flex-wrap:wrap;gap:.5rem 2rem}
+.final-contato a{display:inline-flex;gap:.5rem;align-items:center}
+.final-contato .ico{width:1.15em;height:1.15em}
+
+/* Rodapé (com responsável técnico — exigência do CFO) */
+.rodape{background:var(--texto);color:color-mix(in oklab,var(--fundo) 84%,transparent);padding-block:clamp(3rem,6vw,4.5rem) 2rem;font-size:.97rem;--foco:var(--fundo)}
+.rodape-grid{display:grid;gap:2.25rem clamp(2rem,5vw,4rem)}
+@media (min-width:860px){.rodape-grid{grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,4fr)}}
+.rodape .logo{font-family:var(--display);font-weight:600;font-size:1.4rem;letter-spacing:-.02em;color:var(--fundo);margin-bottom:.6rem}
+.rodape h2{font-family:var(--sans);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fundo);margin-bottom:.9rem;line-height:1.3}
+.rodape ul{display:grid;gap:.55rem}
+.rodape li{display:flex;gap:.6rem;align-items:flex-start}
+.rodape .ico{width:1.1em;height:1.1em;margin-top:.25em;flex:none}
+.rodape a{text-decoration-color:color-mix(in oklab,var(--fundo) 40%,transparent)}
+@media (hover:hover){.rodape a:hover{text-decoration-color:currentColor}}
+.rt-rodape{margin-top:clamp(2.25rem,5vw,3.25rem);padding:1.1rem 1.25rem;border:1px solid color-mix(in oklab,var(--fundo) 24%,transparent);border-radius:16px;display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;color:var(--fundo)}
+.rt-rodape strong{font-weight:700}
+.rodape-legal{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;font-size:.88rem;color:color-mix(in oklab,var(--fundo) 76%,transparent)}
+
+/* Botão flutuante (celular) */
+.flutuante{position:fixed;z-index:60;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .6s var(--ease);box-shadow:0 16px 30px -10px rgba(0,0,0,.45)}
+.flutuante[data-visivel]{transform:none}
+@media (min-width:900px){.flutuante{display:none}}
+@media (max-width:899px){.rodape{padding-bottom:6rem}}
+
+/* Entrada ao rolar: só em grupos de itens */
+.rev-on .rev{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+.rev-on .rev.in{opacity:1;transform:none}
+@media print{.rev-on .rev{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rev-on .rev{opacity:1;transform:none}}
+
+/* ==========================================================================
+   Ferramentas de prévia (somem com ?limpo ou modoPrevia:false)
+   ========================================================================== */
+.pend{display:inline-block;margin-right:.45em;padding:.18em .5em .14em;border-radius:5px;background:#ffe36e;color:#1b1b1b;font:700 .6rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;vertical-align:.2em;font-style:normal;white-space:nowrap}
+.previa{position:fixed;z-index:90;left:max(.75rem,env(safe-area-inset-left));bottom:max(.75rem,env(safe-area-inset-bottom));display:flex;gap:.6rem;align-items:center;max-width:calc(100vw - 1.5rem);padding:.6rem .9rem;border:0;border-radius:12px;background:#17201f;color:#fff;font:700 .78rem/1.25 var(--sans);cursor:pointer;text-align:left;box-shadow:0 10px 24px -8px rgba(0,0,0,.5)}
+.previa i{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:#ffe36e}
+.previa:focus-visible{outline-color:#ffe36e}
+@media (max-width:600px){.previa-longo{display:none}}
+@media (max-width:899px){.previa{bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 4.5rem)}}
+.pend-foco{outline:3px solid #ffe36e;outline-offset:6px;border-radius:6px}
+</style>
+</head>
+
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" id="topo"></header>
+<main id="conteudo"></main>
+<footer class="rodape" id="rodape"></footer>
+
+<a class="btn btn--cta btn--lg flutuante" id="flutuante" target="_blank" rel="noopener noreferrer" hidden></a>
+
+<dialog class="lb" id="lightbox" aria-label="Galeria de fotos">
+  <button class="lb-btn lb-x" type="button" aria-label="Fechar galeria" data-lb="x"></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Foto anterior" data-lb="prev"></button>
+  <figure><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Próxima foto" data-lb="next"></button>
+</dialog>
+
+<noscript>
+  <p style="padding:2rem;font-family:sans-serif">[TROCAR] Este site precisa de JavaScript para exibir o conteúdo. Agende pelo WhatsApp: (00) 00000-0000. Responsável técnico: Dr(a). Nome — CRO-UF 00000.</p>
+</noscript>
+
+<script>
+/* ==========================================================================
+   CONFIG — TUDO que muda de cliente fica aqui. Procure por [TROCAR].
+   Dica: no título, *palavra* ganha a cor primária (use em 1 ou 2 palavras).
+   Tokens aceitos nos textos: {nome} {cidade} {bairro} {uf} {convenios}
+
+   REGRAS DO CFO (publicidade odontológica) já respeitadas pelo template:
+   - nada de "antes e depois", preço de procedimento como atrativo, "o melhor" ou promessa de resultado;
+   - rodapé sempre com responsável técnico + CRO (e inscrição da clínica no CRO, se for pessoa jurídica);
+   - "especialista" só para quem tem a especialidade registrada no CFO.
+   Na dúvida sobre algum texto do cliente, confirme com o responsável técnico.
+   ========================================================================== */
+const CONFIG = {
+
+  /* Prévia: mostra a etiqueta amarela [TROCAR] e o contador de pendências.
+     Para mostrar ao cliente sem as etiquetas, abra o link com ?limpo no final. */
+  modoPrevia: true,
+
+  negocio: {
+    nome: "[TROCAR] Nome da Clínica",
+    nicho: "Clínica odontológica",
+    tipoSchema: "Dentist",
+    cidade: "[TROCAR] Cidade",
+    uf: "[TROCAR] UF",
+    bairro: "[TROCAR] Bairro",
+    rua: "[TROCAR] Rua Exemplo, 000 — sala 00",
+    cep: "[TROCAR] 00000-000",
+    acessibilidade: "",              // opcional, ex.: "Prédio com elevador e acesso para cadeira de rodas"
+    coordenadas: null                // opcional: { lat: -00.0000, lng: -00.0000 }
+  },
+
+  /* OBRIGATÓRIO (CFO): aparece no rodapé e no destaque ao lado da foto principal. */
+  responsavelTecnico: {
+    nome: "[TROCAR] Dr(a). Nome Sobrenome",
+    cro: "[TROCAR] CRO-UF 00000"
+  },
+
+  contato: {
+    telefone: "[TROCAR] (00) 0000-0000",
+    email: "[TROCAR] contato@seudominio.com.br"
+  },
+
+  whatsapp: {
+    numero: "5500000000000",         // [TROCAR] só dígitos, com 55 + DDD + número
+    // {detalhes} recebe o que o paciente escolher em "Conte o que você precisa" (plano Completo).
+    mensagem: "[TROCAR] Olá! Vi o site da {nome} e gostaria de agendar uma avaliação.{detalhes}",
+    mensagemServico: "[TROCAR] Olá! Vi o site da {nome} e gostaria de agendar uma avaliação de {servico}.{detalhes}"
+  },
+
+  /* Horário de funcionamento, do jeito que deve aparecer no site. */
+  horarios: [
+    { dias: "[TROCAR] Segunda a sexta", horas: "[TROCAR] 8h às 18h" },
+    { dias: "[TROCAR] Sábado", horas: "[TROCAR] 8h às 12h" }
+  ],
+  /* Opcional, só para o Google (JSON-LD). Dias em inglês: Monday … Sunday.
+     Ex.: [{ dias: ["Monday","Tuesday","Wednesday","Thursday","Friday"], abre: "08:00", fecha: "18:00" }] */
+  horariosSchema: [],
+
+  /* Períodos que o paciente pode escolher na mensagem (use só os que a clínica atende). */
+  periodos: ["Manhã", "Tarde"],
+
+  /* Convênios aceitos DE FATO. Lista vazia = o site não fala de convênio (só a FAQ). */
+  convenios: [],
+
+  links: {
+    instagram: "",                   // [TROCAR] https://instagram.com/perfil  (vazio = não mostra)
+    facebook: "",                    // opcional
+    googleMaps: "",                  // [TROCAR] link do Maps. Vazio = busca pelo endereço
+    mapaEmbed: ""                    // [TROCAR] só a URL do src do iframe "Incorporar mapa"
+  },
+
+  seo: {
+    titulo: "[TROCAR] Nome da Clínica — Dentista em {bairro}, {cidade}/{uf}",
+    descricao: "[TROCAR] Clínica odontológica em {bairro}, {cidade}/{uf}. Conheça os tratamentos e agende sua avaliação pelo WhatsApp.",
+    urlSite: "",                     // [TROCAR] https://www.dominio.com.br/ (vazio = não altera o canonical)
+    imagemOg: ""                     // [TROCAR] URL absoluta da foto 1200x630
+  },
+
+  /* Cores em HEX. Sugestões (copie e cole):
+     VERDE-ÁGUA → primaria #0B6E78  secundaria #CFEDEA  fundo #FFFFFF  texto #12303A
+     AZUL-CLARO → primaria #1C5F99  secundaria #D6E8F7  fundo #FFFFFF  texto #14273A
+     A primária recebe texto branco por cima: precisa ser escura. A secundária é o tom claro de apoio. */
+  cores: { primaria: "#0B6E78", secundaria: "#CFEDEA", fundo: "#FFFFFF", texto: "#12303A" },
+
+  textos: {
+    /* Tom calmo e acolhedor. "Sem dor, sem pressa" SÓ se o cliente confirmar que pratica isso. */
+    heroTitulo: "[TROCAR] Dentista em {bairro} que *explica* cada etapa do tratamento",
+    heroSubtitulo: "[TROCAR] Avaliação, prevenção e tratamentos em {cidade}. Agende pelo WhatsApp e tire suas dúvidas antes de começar.",
+    botaoPrincipal: "Agendar avaliação pelo WhatsApp",
+    botaoCurto: "Agendar avaliação",
+    botaoServico: "Agendar avaliação",
+    verServicos: "Ver tratamentos",
+    nav: { servicos: "Tratamentos", equipe: "Equipe", faq: "Dúvidas", local: "Localização" },
+
+    consultaTitulo: "Conte o que você *precisa*",
+    consultaIntro: "Suas escolhas entram na mensagem do WhatsApp. Tudo é opcional.",
+
+    servicosTitulo: "Tratamentos *oferecidos*",
+    servicosIntro: "[TROCAR] Os tratamentos que a clínica realiza. Escolha um para agendar a avaliação.",
+
+    primeiraTitulo: "Como é a *primeira consulta*",
+    primeiraIntro: "Três passos para você saber o que esperar.",
+
+    equipeTitulo: "Quem vai *atender você*",
+    equipeIntro: "[TROCAR] Profissionais da clínica, com o número de registro no CRO.",
+
+    galeriaTitulo: "Conheça a *clínica*",
+    galeriaIntro: "[TROCAR] Fotos do consultório e da recepção.",
+
+    avaliacoesTitulo: "O que dizem os *pacientes*",
+    avaliacoesIntro: "Relatos de pacientes, publicados com autorização.",
+
+    faqTitulo: "Dúvidas *frequentes*",
+    faqIntro: "Não achou sua resposta? Pergunte pelo WhatsApp.",
+    faqBotao: "Perguntar pelo WhatsApp",
+
+    localTitulo: "Onde *estamos*",
+
+    ctaFinalTitulo: "Agende sua *avaliação*",
+    ctaFinalTexto: "[TROCAR] Mande uma mensagem com o melhor dia e período. A clínica responde com os horários livres."
+  },
+
+  /* Foto principal: real, da clínica ou da equipe (nunca banco de imagens). Vertical, 1200×1500, até ~250 KB. */
+  hero: { foto: "", alt: "[TROCAR] Descreva a foto: ex. a dentista na recepção da clínica" },
+
+  /* Tratamentos. oferece: false esconde o card. Descrições curtas, sem promessa de resultado e sem preço.
+     icone: limpeza | clareamento | ortodontia | implante | crianca | urgencia | dente */
+  servicos: [
+    { oferece: true, icone: "limpeza",     nome: "Limpeza e prevenção",
+      texto: "[TROCAR] Remoção de tártaro, check-up e orientação de cuidados em casa." },
+    { oferece: true, icone: "clareamento", nome: "Clareamento",
+      texto: "[TROCAR] Avaliação para saber se o clareamento é indicado para você e qual técnica usar." },
+    { oferece: true, icone: "ortodontia",  nome: "Ortodontia",
+      texto: "[TROCAR] Aparelhos para alinhar dentes e mordida. Diga quais tipos a clínica trabalha." },
+    { oferece: true, icone: "implante",    nome: "Implantes",
+      texto: "[TROCAR] Reposição de dentes perdidos, sempre depois de uma avaliação completa." },
+    { oferece: true, icone: "crianca",     nome: "Odontopediatria",
+      texto: "[TROCAR] Atendimento para crianças, com explicação para os pais em cada etapa." },
+    { oferece: true, icone: "urgencia",    nome: "Urgência",
+      texto: "[TROCAR] Atendimento para dor ou trauma dental. Diga em quais horários a clínica atende urgência." }
+  ],
+
+  sobre: {
+    titulo: "[TROCAR] Sobre a *clínica*",
+    paragrafos: [
+      "[TROCAR] Conte em duas ou três frases há quanto tempo a clínica existe (só se o cliente informar) e como é o atendimento.",
+      "[TROCAR] Diga o que o paciente encontra aqui: o jeito de explicar, o cuidado com quem tem medo, o ambiente."
+    ],
+    assinatura: "[TROCAR] Nome do responsável, cargo",
+    foto: "", alt: "[TROCAR] Descreva a foto: ex. sala de atendimento da clínica"
+  },
+
+  /* "Como é a primeira consulta": agenda → avaliação → plano de tratamento explicado. */
+  primeiraConsulta: [
+    { titulo: "Você agenda", texto: "Escolha o melhor dia e período pelo WhatsApp. A clínica confirma o horário com você." },
+    { titulo: "Avaliação", texto: "[TROCAR] Descreva o que acontece: conversa, exame clínico e radiografia, se for necessário." },
+    { titulo: "Plano de tratamento explicado", texto: "[TROCAR] Explique como as opções são apresentadas, com tempo para tirar dúvidas antes de decidir." }
+  ],
+
+  /* Equipe. Lista vazia = a seção some. foto: "" = placeholder; foto: false = card sem foto.
+     especialidade: só escreva "Especialista em X" se o título estiver registrado no CFO;
+     caso contrário, use "Clínico geral" ou "Atua em X". */
+  equipe: [
+    { nome: "[TROCAR] Dr(a). Nome Sobrenome", cro: "[TROCAR] CRO-UF 00000", especialidade: "[TROCAR] Especialidade registrada",
+      bio: "", foto: "", alt: "[TROCAR] Foto de Dr(a). Nome Sobrenome" },
+    { nome: "[TROCAR] Dr(a). Nome Sobrenome", cro: "[TROCAR] CRO-UF 00000", especialidade: "[TROCAR] Especialidade registrada",
+      bio: "", foto: "", alt: "[TROCAR] Foto de Dr(a). Nome Sobrenome" }
+  ],
+
+  /* Galeria: SÓ o ambiente da clínica (recepção, consultórios, fachada, equipe).
+     NÃO use fotos de "antes e depois" de pacientes. Lista vazia = a seção some. */
+  galeria: [
+    { src: "", alt: "[TROCAR] Descreva: recepção da clínica", rotulo: "Recepção", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: consultório", rotulo: "Consultório", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: sala de espera", rotulo: "Sala de espera", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: fachada ou entrada", rotulo: "Fachada", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: outro consultório ou detalhe", rotulo: "Consultório 2", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: equipe reunida", rotulo: "Equipe", legenda: "" }
+  ],
+
+  /* Depoimentos REAIS, com autorização escrita do paciente. Lista vazia = a seção some.
+     Antes de publicar, confirme com o responsável técnico se o uso está de acordo com as normas vigentes do CFO.
+     Formato: { texto: "…", autor: "Nome (ou iniciais)", origem: "Google", link: "" } — sem nota e sem contagem. */
+  avaliacoes: [],
+
+  faq: [
+    { p: "Vocês atendem convênio?",
+      r: "[TROCAR] Liste os convênios aceitos ou explique que o atendimento é particular." },
+    { p: "Atendem urgência?",
+      r: "[TROCAR] Diga se atende urgência, em quais horários e como o paciente deve avisar." },
+    /* Não informe preço de procedimento aqui (regra do CFO). Fale só das formas de pagamento. */
+    { p: "Posso parcelar o tratamento?",
+      r: "[TROCAR] Explique as formas de pagamento aceitas e se há parcelamento." },
+    { p: "Como é a primeira consulta?",
+      r: "[TROCAR] Explique quanto tempo dura, o que é avaliado e se é preciso levar algum exame." },
+    { p: "Vocês atendem crianças?",
+      r: "[TROCAR] Diga a partir de qual idade e se os pais podem acompanhar o atendimento." }
+  ],
+
+  rodape: {
+    frase: "[TROCAR] Uma frase curta sobre a clínica.",
+    razaoSocial: "[TROCAR] Razão social Ltda.",
+    cnpj: "[TROCAR] 00.000.000/0000-00",
+    croClinica: "[TROCAR] CRO-UF EPAO 0000",   // inscrição da clínica (pessoa jurídica) no CRO; "" se for consultório pessoa física
+    credito: "Site por JL Devs",     // "" remove
+    creditoUrl: ""                   // [TROCAR] link do seu portfólio (vazio = só texto)
+  },
+
+  /* ---- PLANOS --------------------------------------------------------------
+     planos.ativo escolhe o pacote. Cada módulo em "modulos" pode ser:
+       null  = segue o plano ativo      true = força ligado      false = força desligado        */
+  planos: {
+    ativo: "completo",               // "basico" | "intermediario" | "completo"
+    presets: {
+      basico:        { servicos:true, linksServico:true, sobre:true, primeiraConsulta:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       equipe:false, galeria:false, mapa:false, instagram:false, avaliacoes:false, lightbox:false, consultaRapida:false, jsonLdCompleto:false },
+      intermediario: { servicos:true, linksServico:true, sobre:true, primeiraConsulta:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       equipe:true, galeria:true, mapa:true, instagram:true,
+                       avaliacoes:false, lightbox:false, consultaRapida:false, jsonLdCompleto:false },
+      completo:      { servicos:true, linksServico:true, sobre:true, primeiraConsulta:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       equipe:true, galeria:true, mapa:true, instagram:true,
+                       avaliacoes:true, lightbox:true, consultaRapida:true, jsonLdCompleto:true }
+    },
+    modulos: {
+      servicos: null, linksServico: null, sobre: null, primeiraConsulta: null, equipe: null,
+      galeria: null, lightbox: null, avaliacoes: null, faq: null, localizacao: null, mapa: null,
+      instagram: null, consultaRapida: null, jsonLdCompleto: null, botaoFlutuante: null
+    }
+  }
+};
+
+/* ==========================================================================
+   A partir daqui é o motor do template. Normalmente não precisa mexer.
+   ========================================================================== */
+(function () {
+'use strict';
+const C = CONFIG;
+const $ = (s, r = document) => r.querySelector(s);
+const MARCA = /\[TROCAR\]/g;
+const limpo = s => String(s == null ? '' : s).replace(MARCA, '').replace(/\s+/g, ' ').trim();
+const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const params = new URLSearchParams(location.search);
+const modoLimpo = params.has('limpo');
+const previa = C.modoPrevia && !modoLimpo;
+const estado = { trat: '', periodo: '', primeira: '' };
+const waLinks = [];
+
+/* ---------- ícones (traço único, 1.6) ---------- */
+const DENTE = 'M8 3.2c-2.4 0-4.2 1.9-4.2 4.5 0 1.9.6 3.2 1.2 4.7.6 1.6.8 3.7 1.3 6 .4 1.7 1 2.6 1.9 2.6 1 0 1.4-1 1.7-2.7.3-1.6.7-3.2 2.1-3.2s1.8 1.6 2.1 3.2c.3 1.7.7 2.7 1.7 2.7.9 0 1.5-.9 1.9-2.6.5-2.3.7-4.4 1.3-6 .6-1.5 1.2-2.8 1.2-4.7 0-2.6-1.8-4.5-4.2-4.5-1.7 0-2.4.9-4 .9s-2.3-.9-4-.9z';
+const ICONS = {
+  dente: `<path d="${DENTE}"/>`,
+  limpeza: '<path d="M4 20l8.5-8.5"/><path d="M11.5 9.5l4-4a2.1 2.1 0 0 1 3 3l-4 4z"/><path d="M13.6 7.4l3 3M15.6 5.4l3 3"/><path d="M5 5.5v2M4 6.5h2M8 2.8v1.4M7.3 3.5h1.4"/>',
+  clareamento: `<g transform="translate(-1.2 1.4) scale(.88)"><path d="${DENTE}"/></g><path d="M19.6 1.8v4M17.6 3.8h4"/><path d="M21 8.6v1.6M20.2 9.4h1.6"/>`,
+  ortodontia: `<path d="${DENTE}"/><path d="M4.6 10.2h14.8"/><rect x="7" y="8.9" width="2.6" height="2.6" rx=".5"/><rect x="14.4" y="8.9" width="2.6" height="2.6" rx=".5"/>`,
+  implante: '<path d="M6.2 4.8c0-.9.7-1.6 1.6-1.6 1.6 0 2.5.8 4.2.8s2.6-.8 4.2-.8c.9 0 1.6.7 1.6 1.6 0 2.2-1 3.8-2 4.4H8.2c-1-.6-2-2.2-2-4.4z"/><path d="M12 9.2V21"/><path d="M9 12h6M9.5 15h5M10 18h4"/>',
+  crianca: `<g transform="translate(1.8 2.6) scale(.85)"><path d="${DENTE}"/></g><path d="M10.3 10.6c.5.6 1 .9 1.7.9s1.2-.3 1.7-.9"/><path d="M10 8.2h.01M14 8.2h.01"/>`,
+  urgencia: '<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>',
+  shield: '<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.8 12.2l2.2 2.2 4.3-4.6"/>',
+  pin: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  card: '<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 14.5h4"/>',
+  acesso: '<circle cx="12" cy="4.6" r="1.6"/><path d="M8 9h8M12 9v5l-3 6M12 14l3 6"/>',
+  check: '<path d="M5 12.5l4.2 4.2L19 7"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  prev: '<path d="M15 5l-7 7 7 7"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".7" fill="currentColor"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 6 8-6"/>',
+  phone: '<path d="M5 4h3.5l1.5 4-2 1.3a11 11 0 0 0 5.7 5.7L15 13l4 1.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/>'
+};
+const WA_PATH = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z';
+
+/* ---------- construtor de DOM (escapa tudo, sem innerHTML com dados) ---------- */
+function add(el, kids) { kids.flat(Infinity).forEach(k => { if (k == null || k === false) return; el.append(k instanceof Node ? k : document.createTextNode(k)); }); }
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
+    if (k === 'html') el.innerHTML = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  add(el, kids); return el;
+}
+const icon = (n, cls) => h('span', { class: 'ico' + (cls ? ' ' + cls : ''), 'aria-hidden': 'true',
+  html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ICONS.dente}</svg>` });
+const waIcon = () => h('span', { class: 'ico', 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${WA_PATH}"/></svg>` });
+
+/* ---------- textos ---------- */
+function vals() {
+  const n = C.negocio;
+  return { nome: limpo(n.nome), cidade: limpo(n.cidade), bairro: limpo(n.bairro), uf: limpo(n.uf), convenios: (C.convenios || []).map(limpo).join(', ') };
+}
+function fill(str, extra) {
+  const v = Object.assign(vals(), extra || {});
+  return String(str == null ? '' : str).replace(/\{(\w+)\}/g, (m, k) => (k in v ? limpo(v[k]) : m));
+}
+function rich(s) {
+  const f = document.createDocumentFragment();
+  String(s).split(/(\*[^*]+\*)/).forEach(p => {
+    if (/^\*[^*]+\*$/.test(p)) f.append(h('em', null, p.slice(1, -1)));
+    else if (p) f.append(p);
+  });
+  return f;
+}
+
+/* ---------- módulos (flags dos planos) ---------- */
+function on(mod) {
+  const v = C.planos.modulos[mod];
+  if (v === true || v === false) return v;
+  const p = C.planos.presets[C.planos.ativo] || {};
+  return !!p[mod];
+}
+const servicosAtivos = () => (C.servicos || []).filter(s => s && s.nome && s.oferece !== false);
+
+/* ---------- cores: tema, contraste ---------- */
+const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+const rgb = x => { let s = x.replace('#', ''); if (s.length === 3) s = [...s].map(c => c + c).join(''); const n = parseInt(s, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+const lum = a => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(a[0]) + .7152 * f(a[1]) + .0722 * f(a[2]); };
+const ratio = (a, b) => { const x = lum(rgb(a)), y = lum(rgb(b)); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+const toHex = a => '#' + a.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+const mix = (a, b, t) => { const A = rgb(a), B = rgb(b); return toHex(A.map((v, i) => v * (1 - t) + B[i] * t)); };
+const cor = { primaria: '#0B6E78', secundaria: '#CFEDEA', fundo: '#FFFFFF', texto: '#12303A' };
+Object.keys(cor).forEach(k => { if (HEX.test(C.cores[k] || '')) cor[k] = C.cores[k]; else console.error('[template] cor inválida em CONFIG.cores.' + k + ' — use HEX, ex. #0B6E78'); });
+const textoSobre = bg => ratio(bg, cor.fundo) >= ratio(bg, cor.texto) ? cor.fundo : cor.texto;
+
+function aplicarTema() {
+  const r = document.documentElement.style;
+  r.setProperty('--primaria', cor.primaria); r.setProperty('--secundaria', cor.secundaria);
+  r.setProperty('--fundo', cor.fundo); r.setProperty('--texto', cor.texto);
+  const ctaTxt = textoSobre(cor.primaria);
+  r.setProperty('--cta-texto', ctaTxt);
+  const sup = mix(cor.fundo, cor.secundaria, .6), suave = mix(cor.fundo, cor.texto, .76), escura = mix(cor.primaria, '#000000', .32);
+  const avisos = [];
+  if (ratio(cor.texto, cor.fundo) < 4.5) avisos.push('texto x fundo');
+  if (ratio(cor.primaria, ctaTxt) < 4.5) avisos.push('botões (primária) — escureça a primária');
+  if (ratio(cor.primaria, cor.fundo) < 4.5) avisos.push('links e ícones na primária sobre o fundo');
+  if (ratio(suave, sup) < 4.5) avisos.push('texto secundário sobre a secundária — clareie a secundária');
+  if (ratio(escura, cor.fundo) < 4.5) avisos.push('seção escura (chamada final)');
+  if (avisos.length) console.warn('[template] Contraste abaixo de 4,5:1 em: ' + avisos.join('; '));
+  const tc = $('meta[name="theme-color"]'); if (tc) tc.content = cor.primaria;
+  const ini = (limpo(C.negocio.nome).charAt(0) || 'C').toUpperCase();
+  const fav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="${cor.primaria}"/><text x="32" y="43" font-family="Arial,sans-serif" font-weight="700" font-size="32" text-anchor="middle" fill="${ctaTxt}">${ini}</text></svg>`;
+  const link = $('link[rel="icon"]'); if (link) link.href = 'data:image/svg+xml,' + encodeURIComponent(fav);
+}
+
+/* ---------- fotos e placeholders ---------- */
+const TONS = [.38, .2, .52, .28, .44, .16, .34, .48];
+function placeholder(w, hgt, rotulo, i) {
+  const bg = mix(cor.secundaria, cor.primaria, TONS[(i || 0) % TONS.length]);
+  const tx = textoSobre(bg);
+  const fs = Math.max(14, Math.round(w / 24)), y = Math.round(hgt * .5);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${hgt}" width="${w}" height="${hgt}">
+<defs><pattern id="p" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><line x1="0" y1="0" x2="0" y2="26" stroke="${tx}" stroke-opacity=".08" stroke-width="2"/></pattern></defs>
+<rect width="${w}" height="${hgt}" fill="${bg}"/><rect width="${w}" height="${hgt}" fill="url(#p)"/>
+<g fill="none" stroke="${tx}" stroke-opacity=".7" stroke-width="${Math.max(2, fs / 9)}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${w / 2 - fs * 1.1} ${y - fs * 3.3}) scale(${fs / 12})">
+<rect x="1" y="3" width="22" height="16" rx="3"/><circle cx="8" cy="9" r="2"/><path d="M2 17l6-5 5 4 4-3 5 4"/></g>
+<g fill="${tx}" font-family="system-ui,Segoe UI,Arial,sans-serif" text-anchor="middle">
+<text x="${w / 2}" y="${y}" font-size="${fs}" font-weight="700" letter-spacing="${fs / 8}">FOTO PENDENTE</text>
+<text x="${w / 2}" y="${y + fs * 1.5}" font-size="${fs * .95}" fill-opacity=".92">${rotulo.replace(/[<&>]/g, '')}</text>
+<text x="${w / 2}" y="${y + fs * 2.9}" font-size="${fs * .8}" fill-opacity=".75">${w} × ${hgt} px</text></g></svg>`;
+  return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+function foto(src, o) {
+  const w = o.w || 1200, hgt = o.h || 800;
+  const img = document.createElement('img');
+  img.width = w; img.height = hgt; img.decoding = 'async';
+  if (o.eager) { img.loading = 'eager'; img.setAttribute('fetchpriority', 'high'); } else img.loading = 'lazy';
+  const usarPlaceholder = () => { img.src = placeholder(w, hgt, o.rotulo || 'Foto', o.i); img.alt = '[TROCAR] Foto pendente: ' + (o.rotulo || 'foto'); img.dataset.pendente = '1'; };
+  if (src) {
+    img.src = src;
+    if (!limpo(o.alt)) console.warn('[template] Foto sem alt no CONFIG: ' + src);
+    img.alt = limpo(o.alt) ? o.alt : (o.rotulo || '');
+    img.addEventListener('error', () => { console.warn('[template] Foto não carregou: ' + src); usarPlaceholder(); }, { once: true });
+  } else usarPlaceholder();
+  return img;
+}
+
+/* ---------- WhatsApp ---------- */
+const numero = String(C.whatsapp.numero || '').replace(/\D/g, '');
+const numeroPendente = !numero || /^55\d{2}0{7,}$/.test(numero) || /^5500/.test(numero);
+function detalhesFrase(comTratamento) {
+  if (!on('consultaRapida')) return '';
+  const p = [];
+  if (comTratamento && estado.trat) p.push('Tenho interesse em: ' + estado.trat);
+  if (estado.periodo) p.push('Prefiro o período da ' + estado.periodo.toLowerCase());
+  if (estado.primeira === 'sim') p.push('É minha primeira consulta na clínica');
+  if (estado.primeira === 'nao') p.push('Já sou paciente da clínica');
+  return p.length ? ' ' + p.join('. ') + '.' : '';
+}
+function waUrl(tpl, extra, comTratamento) {
+  const msg = fill(String(tpl).replace('{detalhes}', '§DET§'), extra).replace('§DET§', detalhesFrase(comTratamento)).replace(/\s+/g, ' ').trim();
+  return 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
+}
+function registra(a, tpl, extra, comTratamento) { waLinks.push({ a, tpl: tpl || C.whatsapp.mensagem, extra: extra || {}, comTratamento: comTratamento !== false }); return a; }
+function waBtn(o) {
+  const a = h('a', { class: 'btn ' + (o.cls || 'btn--cta'), href: '#', target: '_blank', rel: 'noopener noreferrer' },
+    waIcon(), h('span', null, o.texto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  return registra(a, o.tpl, o.extra, o.comTratamento);
+}
+function refreshWa() { waLinks.forEach(l => { l.a.href = waUrl(l.tpl, l.extra, l.comTratamento); }); }
+
+/* ---------- contato, endereço ---------- */
+function telHref() { let d = String(C.contato.telefone || '').replace(/\D/g, ''); if (!d) return ''; if (d.length <= 11) d = '55' + d; return 'tel:+' + d; }
+function mapsUrl() {
+  if (C.links.googleMaps) return C.links.googleMaps;
+  const n = C.negocio;
+  const q = [limpo(n.rua), limpo(n.bairro), limpo(n.cidade), limpo(n.uf)].filter(Boolean).join(', ');
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+}
+const enderecoLinhas = () => { const n = C.negocio; return [n.rua, h('br'), n.bairro + ' · ' + n.cidade + '/' + n.uf, h('br'), 'CEP ', n.cep]; };
+
+/* ---------- peças de seção ---------- */
+function secHead(id, titulo, intro, extra) {
+  return h('div', { class: 'sec-head' }, h('h2', { id: id + '-t' }, rich(fill(titulo))), intro ? h('p', { class: 'lead' }, fill(intro)) : null, extra || null);
+}
+function sec(id, cls, head, body, tom) {
+  const s = h('section', { id, class: 'sec ' + (cls || ''), 'aria-labelledby': id + '-t' }, h('div', { class: 'container' }, head, body));
+  s.dataset.tom = tom || 'auto'; return s;
+}
+
+/* ---------- cabeçalho ---------- */
+function cabecalho(navItens) {
+  $('#topo').append(h('div', { class: 'container topo-in' },
+    h('a', { class: 'marca', href: '#topo' }, h('span', { class: 'selo' }, icon('dente')), h('span', { class: 'nome' }, C.negocio.nome)),
+    h('nav', { class: 'nav', 'aria-label': 'Seções da página' }, navItens.map(n => h('a', { href: '#' + n.id }, n.label))),
+    waBtn({ texto: C.textos.botaoCurto, cls: 'btn--cta btn--sm' })));
+}
+
+/* ---------- hero ---------- */
+function fatos() {
+  const itens = [];
+  const hr = (C.horarios || [])[0];
+  if (hr) itens.push(h('li', null, icon('clock'), h('span', null, hr.dias + ': ' + hr.horas)));
+  itens.push(h('li', null, icon('pin'), h('span', null, C.negocio.bairro + ' · ' + C.negocio.cidade + '/' + C.negocio.uf)));
+  if ((C.convenios || []).length) itens.push(h('li', null, icon('card'), h('span', null, 'Convênios: ' + C.convenios.join(', '))));
+  return h('ul', { class: 'fatos', 'aria-label': 'Informações rápidas' }, itens);
+}
+function hero() {
+  const tx = C.textos, rt = C.responsavelTecnico || {};
+  return h('section', { class: 'hero', id: 'hero', 'aria-labelledby': 'h1' },
+    h('div', { class: 'container hero-grid' },
+      h('div', { class: 'hero-texto' },
+        h('h1', { id: 'h1' }, rich(fill(tx.heroTitulo))),
+        h('p', { class: 'hero-lead' }, fill(tx.heroSubtitulo)),
+        h('div', { class: 'hero-acoes' },
+          waBtn({ texto: tx.botaoPrincipal, cls: 'btn--cta btn--lg' }),
+          on('servicos') && servicosAtivos().length ? h('a', { class: 'link-seta', href: '#tratamentos' }, tx.verServicos, icon('arrow')) : null),
+        fatos()),
+      h('div', { class: 'hero-media' },
+        h('div', { class: 'hero-foto' }, foto(C.hero.foto, { alt: C.hero.alt, w: 1200, h: 1500, rotulo: 'Clínica ou equipe — vertical', eager: true, i: 0 })),
+        rt.nome || rt.cro ? h('div', { class: 'hero-rt' }, icon('shield'),
+          h('div', null, h('span', { class: 'rt-rotulo' }, 'Responsável técnico'), h('strong', null, rt.nome), h('span', { class: 'tnum' }, rt.cro))) : null)));
+}
+
+/* ---------- "Conte o que você precisa" ---------- */
+function consultaRapida() {
+  if (!on('consultaRapida')) return null;
+  const servs = servicosAtivos();
+  const sel = h('select', { id: 'f-trat' }, h('option', { value: '' }, 'Escolha um tratamento'),
+    servs.map(s => h('option', { value: limpo(s.nome) }, limpo(s.nome))), h('option', { value: 'uma avaliação geral' }, 'Ainda não sei, quero uma avaliação'));
+  sel.addEventListener('change', () => { estado.trat = sel.value; refreshWa(); });
+  const grupo = (nome, legenda, opcoes, chave) => h('fieldset', { class: 'grupo' }, h('legend', null, legenda),
+    h('div', { class: 'pills' }, opcoes.map(([v, t]) => h('label', { class: 'pill' },
+      h('input', { type: 'radio', name: nome, value: v, onchange: () => { estado[chave] = v; refreshWa(); } }), h('span', null, t)))));
+  const periodos = (C.periodos || []).filter(Boolean);
+  return h('section', { class: 'consulta', id: 'consulta', 'aria-labelledby': 'consulta-t' },
+    h('div', { class: 'container' }, h('div', { class: 'consulta-card' },
+      h('div', null, h('h2', { id: 'consulta-t' }, rich(fill(C.textos.consultaTitulo))), h('p', { class: 'lead' }, fill(C.textos.consultaIntro))),
+      h('div', { class: 'consulta-form' },
+        h('div', { class: 'campo' }, h('label', { for: 'f-trat' }, 'Tratamento'), sel),
+        h('div', { class: 'linha-2' },
+          periodos.length ? grupo('periodo', 'Período preferido', periodos.map(p => [p, p]), 'periodo') : null,
+          grupo('primeira', 'Primeira consulta aqui?', [['sim', 'Sim'], ['nao', 'Já sou paciente']], 'primeira')),
+        waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--cta btn--lg' })))));
+}
+
+/* ---------- tratamentos ---------- */
+function servicos() {
+  const l = servicosAtivos();
+  if (!on('servicos') || !l.length) return null;
+  return sec('tratamentos', '', secHead('tratamentos', C.textos.servicosTitulo, C.textos.servicosIntro),
+    h('div', { class: 'servs' }, l.map((s, i) => h('article', { class: 'serv rev', style: '--i:' + (i % 3) },
+      h('span', { class: 'serv-ico' }, icon(s.icone)),
+      h('h3', null, s.nome),
+      s.texto ? h('p', null, s.texto) : null,
+      on('linksServico') ? registra(h('a', { class: 'serv-link', href: '#', target: '_blank', rel: 'noopener noreferrer' },
+        C.textos.botaoServico, h('span', { class: 'vh' }, ' de ' + limpo(s.nome) + ' pelo WhatsApp (abre em outra aba)'), icon('arrow')),
+        C.whatsapp.mensagemServico, { servico: s.nome }, false) : null))));
+}
+
+/* ---------- sobre ---------- */
+function sobre() {
+  const s = C.sobre;
+  if (!on('sobre') || !s || !(s.paragrafos || []).length) return null;
+  return sec('sobre', '', null,
+    h('div', { class: 'sobre-grid' },
+      h('div', { class: 'sobre-foto' }, foto(s.foto, { alt: s.alt, w: 1200, h: 960, rotulo: 'Ambiente da clínica — horizontal', i: 2 })),
+      h('div', { class: 'sobre-texto' },
+        h('h2', { id: 'sobre-t' }, rich(fill(s.titulo))),
+        s.paragrafos.map(p => h('p', null, fill(p))),
+        s.assinatura ? h('p', { class: 'assinatura' }, s.assinatura) : null)));
+}
+
+/* ---------- primeira consulta ---------- */
+function primeiraConsulta() {
+  const p = C.primeiraConsulta || [];
+  if (!on('primeiraConsulta') || !p.length) return null;
+  return sec('primeira-consulta', '', secHead('primeira-consulta', C.textos.primeiraTitulo, C.textos.primeiraIntro),
+    h('ol', { class: 'passos' }, p.slice(0, 3).map((s, i) => h('li', { class: 'passo rev', style: '--i:' + i },
+      h('span', { class: 'passo-n', 'aria-hidden': 'true' }, String(i + 1)), h('h3', null, s.titulo), h('p', null, s.texto)))));
+}
+
+/* ---------- equipe ---------- */
+function equipe() {
+  const l = (C.equipe || []).filter(p => p && p.nome);
+  if (!on('equipe') || !l.length) return null;
+  return sec('equipe', '', secHead('equipe', C.textos.equipeTitulo, C.textos.equipeIntro),
+    h('ul', { class: 'equipe' + (l.length <= 2 ? ' equipe--poucos' : '') }, l.map((p, i) => h('li', { class: 'membro rev', style: '--i:' + (i % 4) },
+      p.foto !== false ? h('div', { class: 'membro-foto' }, foto(p.foto, { alt: p.alt || p.nome, w: 960, h: 1200, rotulo: limpo(p.nome) || 'Profissional', i: i + 3 })) : null,
+      h('div', { class: 'membro-txt' },
+        h('h3', null, p.nome),
+        p.especialidade ? h('p', { class: 'membro-esp' }, p.especialidade) : null,
+        p.cro ? h('p', { class: 'membro-cro tnum' }, p.cro) : null,
+        p.bio ? h('p', { class: 'membro-bio' }, p.bio) : null)))));
+}
+
+/* ---------- galeria ---------- */
+const PADRAO = ['big', '', '', '', '', 'wide', '', ''];
+let lbItens = [];
+function tamanhos(n) {
+  const t = Array.from({ length: n }, (_, i) => PADRAO[i % PADRAO.length]);
+  if (n < 3) return t.map(() => 'wide');
+  const cel = { big: 4, wide: 2, '': 1 };
+  let falta = (4 - t.reduce((s, x) => s + cel[x], 0) % 4) % 4;
+  for (let i = n - 1; i >= 0 && falta > 0; i--) if (t[i] === '') { t[i] = 'wide'; falta--; }
+  return t;
+}
+function galeria() {
+  if (!on('galeria') || !C.galeria.length) return null;
+  const usaLb = on('lightbox');
+  lbItens = [];
+  const tam = tamanhos(C.galeria.length);
+  const tiles = C.galeria.map((g, i) => {
+    const cls = 'tile rev' + (tam[i] ? ' tile--' + tam[i] : '');
+    const img = foto(g.src, { alt: g.alt, w: 1200, h: 900, rotulo: g.rotulo || 'Foto da clínica', i: i + 1 });
+    if (usaLb && g.src) {
+      const idx = lbItens.length;
+      lbItens.push({ src: g.src, alt: limpo(g.alt) ? g.alt : (g.rotulo || ''), legenda: g.legenda || '', w: 1200, h: 900 });
+      return h('button', { type: 'button', class: cls, style: '--i:' + (i % 4), 'aria-label': 'Ampliar foto: ' + limpo(g.alt || g.rotulo || 'foto ' + (i + 1)), onclick: () => abrirLb(idx) }, img);
+    }
+    return h('div', { class: cls, style: '--i:' + (i % 4) }, img);
+  });
+  return sec('galeria', '', secHead('galeria', C.textos.galeriaTitulo, C.textos.galeriaIntro), h('div', { class: 'galeria-grid' }, tiles));
+}
+
+/* ---------- avaliações reais (some sozinha se vazia) ---------- */
+function avaliacoes() {
+  const l = (C.avaliacoes || []).filter(a => a && a.texto);
+  if (!on('avaliacoes') || !l.length) return null;
+  return sec('avaliacoes', '', secHead('avaliacoes', C.textos.avaliacoesTitulo, C.textos.avaliacoesIntro),
+    h('div', { class: 'avals' }, l.map((a, i) => h('figure', { class: 'aval rev', style: '--i:' + (i % 3) },
+      h('blockquote', null, '“' + a.texto + '”'),
+      h('figcaption', null, h('cite', null, a.autor ? h('strong', null, a.autor) : null, a.origem ? ' · ' + a.origem : '',
+        a.link ? [' · ', h('a', { href: a.link, target: '_blank', rel: 'noopener noreferrer' }, 'ver original')] : null))))));
+}
+
+/* ---------- FAQ ---------- */
+function faq() {
+  if (!on('faq') || !C.faq.length) return null;
+  const head = secHead('perguntas', C.textos.faqTitulo, C.textos.faqIntro, h('div', null, waBtn({ texto: C.textos.faqBotao, cls: 'btn--linha' })));
+  return sec('perguntas', '', h('div', { class: 'faq-grid' }, head,
+    h('div', { class: 'faq-lista' }, C.faq.map(f => h('details', null, h('summary', null, h('span', null, f.p)), h('div', { class: 'faq-resp' }, fill(f.r)))))), null);
+}
+
+/* ---------- localização ---------- */
+function localizacao() {
+  if (!on('localizacao')) return null;
+  const n = C.negocio, hrs = C.horarios || [];
+  const dados = h('dl', { class: 'dados' },
+    h('div', null, icon('pin'), h('dt', null, 'Endereço'), h('dd', null, enderecoLinhas())),
+    hrs.length ? h('div', null, icon('clock'), h('dt', null, 'Horário de atendimento'),
+      h('dd', { class: 'horas tnum' }, hrs.map(x => h('span', null, h('span', null, x.dias), h('span', null, x.horas))))) : null,
+    n.acessibilidade ? h('div', null, icon('acesso'), h('dt', null, 'Acessibilidade'), h('dd', null, n.acessibilidade)) : null,
+    (C.convenios || []).length ? h('div', null, icon('card'), h('dt', null, 'Convênios'), h('dd', null, C.convenios.join(', '))) : null);
+  const acoes = h('div', { class: 'local-acoes' },
+    h('a', { class: 'btn btn--cta', href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, icon('pin'), 'Abrir no Google Maps', h('span', { class: 'vh' }, ' (abre em outra aba)')),
+    telHref() ? h('a', { class: 'btn btn--linha', href: telHref() }, icon('phone'), C.contato.telefone) : null);
+  let mapa = null;
+  if (on('mapa')) {
+    mapa = h('div', { class: 'mapa' });
+    if (C.links.mapaEmbed) mapa.append(h('iframe', { src: C.links.mapaEmbed, title: 'Mapa com a localização de ' + limpo(n.nome), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true }));
+    else { mapa.classList.add('mapa--vazio'); mapa.append(h('p', null, '[TROCAR] Cole em CONFIG.links.mapaEmbed o endereço do mapa (Google Maps > Compartilhar > Incorporar um mapa).')); }
+  }
+  return sec('localizacao', '', null, h('div', { class: 'local' },
+    h('div', null, h('h2', { id: 'localizacao-t', style: 'margin-bottom:1.75rem' }, rich(fill(C.textos.localTitulo))), dados, acoes), mapa));
+}
+
+/* ---------- chamada final ---------- */
+function ctaFinal() {
+  const tel = telHref();
+  return sec('agendar', 'sec--escura final', null,
+    h('div', { class: 'final-in' },
+      h('h2', { id: 'agendar-t' }, rich(fill(C.textos.ctaFinalTitulo))),
+      h('p', null, fill(C.textos.ctaFinalTexto)),
+      waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--claro btn--lg' }),
+      h('div', { class: 'final-contato' },
+        tel ? h('a', { href: tel }, icon('phone'), C.contato.telefone) : null,
+        C.contato.email ? h('a', { href: 'mailto:' + limpo(C.contato.email) }, icon('mail'), C.contato.email) : null)), 'escura');
+}
+
+/* ---------- rodapé ---------- */
+function rodape() {
+  const f = C.rodape, n = C.negocio, rt = C.responsavelTecnico || {}, tel = telHref(), ig = on('instagram') && C.links.instagram;
+  const legal = [f.razaoSocial, f.cnpj ? 'CNPJ ' + f.cnpj : '', f.croClinica ? 'Inscrição no CRO: ' + f.croClinica : ''].filter(Boolean);
+  if (!limpo(rt.nome) || !limpo(rt.cro)) console.error('[template] CFO: o rodapé precisa do nome do responsável técnico e do número do CRO (CONFIG.responsavelTecnico).');
+  $('#rodape').append(h('div', { class: 'container' },
+    h('div', { class: 'rodape-grid' },
+      h('div', null, h('p', { class: 'logo' }, n.nome), f.frase ? h('p', null, f.frase) : null),
+      h('div', null, h('h2', null, 'Contato'), h('ul', null,
+        h('li', null, waIcon(), registra(h('a', { href: '#', target: '_blank', rel: 'noopener noreferrer' }, 'Agendar pelo WhatsApp'))),
+        tel ? h('li', null, icon('phone'), h('a', { href: tel }, C.contato.telefone)) : null,
+        C.contato.email ? h('li', null, icon('mail'), h('a', { href: 'mailto:' + limpo(C.contato.email) }, C.contato.email)) : null,
+        ig ? h('li', null, icon('instagram'), h('a', { href: C.links.instagram, target: '_blank', rel: 'noopener noreferrer' }, 'Instagram', h('span', { class: 'vh' }, ' (abre em outra aba)'))) : null)),
+      h('div', null, h('h2', null, 'Endereço e horário'), h('ul', null,
+        h('li', null, icon('pin'), h('span', null, enderecoLinhas())),
+        (C.horarios || []).length ? h('li', null, icon('clock'), h('span', { class: 'tnum' }, C.horarios.map((x, i) => [i ? h('br') : null, x.dias + ': ' + x.horas]))) : null,
+        h('li', null, icon('arrow'), h('a', { href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, 'Ver no mapa', h('span', { class: 'vh' }, ' (abre em outra aba)')))))),
+    h('p', { class: 'rt-rodape' }, h('span', null, 'Responsável técnico: ', h('strong', null, rt.nome || '[TROCAR] Nome do responsável técnico')), h('span', { class: 'tnum' }, rt.cro || '[TROCAR] CRO-UF 00000')),
+    h('div', { class: 'rodape-legal' },
+      h('span', null, '© ' + new Date().getFullYear() + ' ' + (legal.length ? legal.join(' · ') : n.nome)),
+      f.credito ? h('span', null, f.creditoUrl ? h('a', { href: f.creditoUrl, target: '_blank', rel: 'noopener noreferrer' }, f.credito) : f.credito) : null)));
+}
+
+/* ---------- botão flutuante ---------- */
+function flutuante() {
+  if (!on('botaoFlutuante')) return;
+  const el = $('#flutuante'); el.hidden = false;
+  el.append(waIcon(), h('span', null, C.textos.botaoCurto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  registra(el);
+  const heroEl = $('#hero');
+  if ('IntersectionObserver' in window && heroEl) new IntersectionObserver(([e]) => { if (e.isIntersecting) el.removeAttribute('data-visivel'); else el.setAttribute('data-visivel', ''); }, { threshold: 0.2 }).observe(heroEl);
+  else el.setAttribute('data-visivel', '');
+}
+
+/* ---------- lightbox ---------- */
+let lbI = 0;
+function abrirLb(i) { const d = $('#lightbox'); lbI = i; mostrarLb(); if (!d.open) d.showModal(); }
+function mostrarLb() {
+  const d = $('#lightbox'), it = lbItens[lbI]; if (!it) return;
+  const img = $('img', d); img.width = it.w; img.height = it.h; img.src = it.src; img.alt = it.alt;
+  $('figcaption', d).textContent = it.legenda || '';
+  d.setAttribute('aria-label', 'Galeria de fotos, foto ' + (lbI + 1) + ' de ' + lbItens.length);
+}
+function iniciarLb() {
+  const d = $('#lightbox'), primeira = lbItens[0];
+  $('figure', d).prepend(h('img', { src: primeira.src, alt: primeira.alt, width: primeira.w, height: primeira.h, decoding: 'async' }));
+  $('[data-lb=x]', d).append(icon('close')); $('[data-lb=prev]', d).append(icon('prev')); $('[data-lb=next]', d).append(icon('next'));
+  const nav = k => { lbI = (lbI + k + lbItens.length) % lbItens.length; mostrarLb(); };
+  d.addEventListener('click', e => { const b = e.target.closest('[data-lb]'); if (b) { const k = b.dataset.lb; if (k === 'x') d.close(); else nav(k === 'next' ? 1 : -1); } else if (e.target === d) d.close(); });
+  d.addEventListener('keydown', e => { if (e.key === 'ArrowRight') nav(1); if (e.key === 'ArrowLeft') nav(-1); });
+  let x0 = null;
+  d.addEventListener('touchstart', e => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  d.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) nav(dx < 0 ? 1 : -1); x0 = null; }, { passive: true });
+}
+
+/* ---------- SEO: head + JSON-LD ---------- */
+function metaSet(sel, attr, val) { const m = $(sel); if (m && val) m.setAttribute(attr, val); }
+function seo() {
+  const s = C.seo, titulo = fill(s.titulo), desc = fill(s.descricao);
+  document.title = titulo;
+  metaSet('meta[name="description"]', 'content', desc);
+  metaSet('meta[property="og:title"]', 'content', titulo);
+  metaSet('meta[property="og:description"]', 'content', desc);
+  metaSet('meta[property="og:site_name"]', 'content', C.negocio.nome);
+  if (s.urlSite) { metaSet('link[rel="canonical"]', 'href', s.urlSite); metaSet('meta[property="og:url"]', 'content', s.urlSite); }
+  if (s.imagemOg) metaSet('meta[property="og:image"]', 'content', s.imagemOg);
+}
+function jsonld() {
+  const n = C.negocio, abs = u => /^https?:\/\//.test(u || '') ? u : undefined, completo = on('jsonLdCompleto');
+  const horas = (C.horariosSchema || []).filter(x => x && x.abre && x.fecha && (x.dias || []).length)
+    .map(x => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: x.dias, opens: x.abre, closes: x.fecha }));
+  const equipeL = (C.equipe || []).filter(p => p && p.nome);
+  const o = {
+    '@context': 'https://schema.org', '@type': n.tipoSchema || 'Dentist',
+    name: n.nome, description: fill(C.seo.descricao), url: abs(C.seo.urlSite),
+    image: abs(C.seo.imagemOg) || abs(C.hero.foto),
+    telephone: numeroPendente ? undefined : '+' + numero,
+    email: C.contato.email ? limpo(C.contato.email) : undefined,
+    address: { '@type': 'PostalAddress', streetAddress: n.rua, addressLocality: n.cidade, addressRegion: n.uf, postalCode: n.cep, addressCountry: 'BR' },
+    geo: n.coordenadas ? { '@type': 'GeoCoordinates', latitude: n.coordenadas.lat, longitude: n.coordenadas.lng } : undefined,
+    hasMap: mapsUrl(),
+    openingHoursSpecification: horas.length ? horas : undefined,
+    sameAs: [C.links.instagram, C.links.facebook].filter(Boolean),
+    availableService: completo && on('servicos') && servicosAtivos().length ? servicosAtivos().map(s => ({ '@type': 'MedicalProcedure', name: s.nome })) : undefined,
+    employee: completo && on('equipe') && equipeL.length ? equipeL.map(p => ({ '@type': 'Person', name: p.nome, jobTitle: p.especialidade || undefined })) : undefined
+  };
+  if (!o.sameAs.length) delete o.sameAs;
+  const s = h('script', { type: 'application/ld+json' }); s.textContent = JSON.stringify(o); document.head.append(s);
+}
+
+/* ---------- comportamentos ---------- */
+function comportamentos() {
+  const t = $('#topo');
+  let rafId = 0;
+  const atualiza = () => { rafId = 0; if (window.scrollY > 12) t.setAttribute('data-solido', ''); else t.removeAttribute('data-solido'); };
+  atualiza();
+  addEventListener('scroll', () => { if (!rafId) rafId = requestAnimationFrame(atualiza); }, { passive: true });
+  const els = document.querySelectorAll('.rev');
+  if ('IntersectionObserver' in window && !reduzMovimento && els.length) {
+    document.documentElement.classList.add('rev-on');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(el => io.observe(el));
+  }
+}
+
+/* ---------- pendências [TROCAR] ---------- */
+function pendencias() {
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.parentElement && /^(SCRIPT|STYLE|NOSCRIPT|OPTION)$/.test(n.parentElement.tagName) ? NodeFilter.FILTER_REJECT : MARCA.test(n.nodeValue) ? (MARCA.lastIndex = 0, NodeFilter.FILTER_ACCEPT) : NodeFilter.FILTER_SKIP) });
+  const nos = []; while (w.nextNode()) nos.push(w.currentNode);
+  let total = 0;
+  nos.forEach(n => {
+    const partes = n.nodeValue.split(MARCA); total += partes.length - 1;
+    // ?limpo = prévia para o cliente: esconde as marcas. Sem prévia e sem ?limpo, o "[TROCAR]" aparece cru (alerta visível).
+    if (modoLimpo) { n.nodeValue = partes.join('').replace(/^\s+/, ''); return; }
+    if (!previa) return;
+    const f = document.createDocumentFragment();
+    partes.forEach((p, i) => { if (i) f.append(h('mark', { class: 'pend' }, 'Trocar')); if (p) f.append(p.replace(/^ /, i ? '' : ' ')); });
+    n.replaceWith(f);
+  });
+  if (modoLimpo) document.title = limpo(document.title);
+  const numPend = numeroPendente ? 1 : 0;
+  const fotos = document.querySelectorAll('img[data-pendente]').length;
+  if (total || fotos || numPend) {
+    console.warn('[template] Pendências antes de publicar →', { textos: total, fotos, whatsapp: numPend });
+    // Enquanto houver pendência, a página fica fora do Google (noindex). Some sozinho quando tudo for trocado.
+    document.head.append(h('meta', { name: 'robots', content: 'noindex, nofollow' }));
+  }
+  if (previa) {
+    let k = -1;
+    const bt = h('button', { type: 'button', class: 'previa', 'aria-label': 'Prévia do template: ir para a próxima pendência' }, h('i'),
+      h('span', null, 'Prévia: ' + total + ' [TROCAR] · ' + fotos + ' fotos' + (numPend ? ' · WhatsApp' : ''), h('span', { class: 'previa-longo' }, ' — toque para ir à próxima')));
+    bt.addEventListener('click', () => {
+      const m = [...document.querySelectorAll('mark.pend')]; if (!m.length) return;
+      document.querySelectorAll('.pend-foco').forEach(x => x.classList.remove('pend-foco'));
+      k = (k + 1) % m.length; const alvo = m[k];
+      alvo.scrollIntoView({ block: 'center', behavior: reduzMovimento ? 'auto' : 'smooth' });
+      alvo.parentElement && alvo.parentElement.classList.add('pend-foco');
+      setTimeout(() => alvo.parentElement && alvo.parentElement.classList.remove('pend-foco'), 1800);
+    });
+    document.body.append(bt);
+  }
+}
+
+/* ---------- montagem ---------- */
+function montar() {
+  aplicarTema(); seo();
+  const main = $('#conteudo');
+  const partes = [hero(), consultaRapida(), servicos(), sobre(), primeiraConsulta(), equipe(), galeria(), avaliacoes(), faq(), localizacao(), ctaFinal()].filter(Boolean);
+  let alt = false;
+  partes.forEach(p => { const t = p.dataset && p.dataset.tom; if (t === 'auto') { if (alt) p.classList.add('sec--tinta'); alt = !alt; } else if (t) alt = false; main.append(p); });
+  const nav = [['tratamentos', 'servicos'], ['equipe', 'equipe'], ['perguntas', 'faq'], ['localizacao', 'local']]
+    .filter(([id]) => $('#' + id)).map(([id, k]) => ({ id, label: C.textos.nav[k] }));
+  cabecalho(nav); rodape(); flutuante();
+  if (lbItens.length) iniciarLb();
+  refreshWa(); jsonld(); comportamentos(); pendencias();
+}
+if (numeroPendente) console.warn('[template] CONFIG.whatsapp.numero ainda é o número de exemplo.');
+montar();
+})();
+</script>
+</body>
+</html>
+<!--
+=====================================================================
+CHECKLIST DE ADAPTAÇÃO POR CLIENTE — DENTISTA  (tudo no CONFIG, exceto o item 1)
+=====================================================================
+[ ] 1. <head> (estático, o WhatsApp/Facebook não rodam JS): <title>, meta description, canonical,
+       og:title, og:description, og:url, og:image (foto 1200x630 com URL absoluta).
+[ ] 2. CONFIG.negocio: nome, cidade, uf, bairro, rua, cep (acessibilidade e coordenadas são opcionais).
+[ ] 3. CONFIG.responsavelTecnico: nome e CRO — OBRIGATÓRIO pelo CFO.
+[ ] 4. CONFIG.whatsapp.numero (55 + DDD + número) e as duas mensagens.
+[ ] 5. CONFIG.contato, CONFIG.horarios (e horariosSchema, se quiser horário no Google), CONFIG.periodos.
+[ ] 6. CONFIG.convenios: só os aceitos de fato (vazio = não aparece).
+[ ] 7. CONFIG.links: Instagram, Google Maps, mapaEmbed.
+[ ] 8. CONFIG.cores: 4 HEX. Primária escura (recebe texto branco), secundária clara.
+[ ] 9. CONFIG.textos: heroTitulo, heroSubtitulo e os demais com [TROCAR].
+       "Sem dor, sem pressa" ou parecido SÓ se o cliente confirmar.
+[ ] 10. CONFIG.hero.foto + alt (foto REAL, vertical 1200x1500).
+[ ] 11. CONFIG.servicos: oferece true/false e descrição de cada um. Sem preço, sem promessa.
+[ ] 12. CONFIG.sobre, CONFIG.primeiraConsulta (passos 2 e 3).
+[ ] 13. CONFIG.equipe: nome, CRO, especialidade (só se registrada no CFO), foto 960x1200.
+[ ] 14. CONFIG.galeria: só ambiente da clínica. NUNCA "antes e depois".
+[ ] 15. CONFIG.avaliacoes: só depoimentos reais e autorizados; confirmar com o RT.
+[ ] 16. CONFIG.faq: convênios, urgência, parcelamento (sem preço), primeira consulta, crianças.
+[ ] 17. CONFIG.rodape: razão social, CNPJ, inscrição da clínica no CRO, crédito.
+[ ] 18. CONFIG.planos.ativo = "basico" | "intermediario" | "completo".
+[ ] 19. Ctrl+F por "[TROCAR]": precisa dar ZERO resultados no CONFIG e no <head>.
+[ ] 20. Mostre ao cliente com ?limpo no fim do link (esconde as etiquetas amarelas).
+Obs.: enquanto houver [TROCAR], foto pendente ou WhatsApp de exemplo, a página se marca sozinha
+como noindex. Quando tudo estiver trocado, ela volta a ser indexável sem você mexer em nada.
+=====================================================================
+-->

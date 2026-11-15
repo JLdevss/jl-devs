@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[TROCAR] Nome do Escritório — Advocacia em Cidade/UF</title>
+<meta name="description" content="[TROCAR] Escritório de advocacia em Cidade/UF. Conheça as áreas de atuação e fale com o escritório pelo WhatsApp.">
+<meta name="theme-color" content="#15253D">
+<link rel="canonical" href="https://[TROCAR]/">
+
+<!-- Open Graph: o WhatsApp e o LinkedIn NÃO executam JavaScript. Edite estas linhas à mão para cada cliente. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="[TROCAR] Nome do Escritório">
+<meta property="og:title" content="[TROCAR] Nome do Escritório — Advocacia em Cidade/UF">
+<meta property="og:description" content="[TROCAR] Escritório de advocacia em Cidade/UF. Fale com o escritório pelo WhatsApp.">
+<meta property="og:url" content="https://[TROCAR]/">
+<meta property="og:image" content="https://[TROCAR]/foto-compartilhamento-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2315253D'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23FAFAF8'%3EA%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Tokens. As 4 cores vêm do CONFIG.cores; o resto é derivado delas.
+   primaria = azul-marinho ou verde-escuro (fundo do topo, botões, títulos de destaque)
+   secundaria = tom neutro (linhas, destaques sobre o escuro, fundos suaves)
+   ========================================================================== */
+:root{
+  --primaria:#15253D; --secundaria:#D8D2C6; --fundo:#FAFAF8; --texto:#1A2130;
+  --cta-texto:#FFFFFF;
+
+  --primaria-escura:color-mix(in oklab,var(--primaria) 72%,#000);
+  --superficie:color-mix(in oklab,var(--secundaria) 32%,var(--fundo));
+  --cartao:color-mix(in oklab,var(--fundo) 40%,#fff);
+  --tinta:var(--texto);
+  --tinta-suave:color-mix(in oklab,var(--texto) 76%,var(--fundo));
+  --linha:color-mix(in oklab,var(--texto) 13%,var(--fundo));
+  --linha-forte:color-mix(in oklab,var(--texto) 32%,var(--fundo));
+  --claro-suave:color-mix(in oklab,var(--fundo) 80%,var(--primaria));
+  --foco:var(--primaria);
+
+  --serif:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --sans:'Public Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --max:1180px;
+  --sec:clamp(4.5rem,9vw,7.5rem);
+  --raio:8px;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem;accent-color:var(--primaria);color-scheme:light}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scrollbar-color:color-mix(in oklab,var(--primaria) 45%,var(--fundo)) var(--superficie)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--primaria);color:var(--cta-texto)}
+input,select{caret-color:var(--primaria)}
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:3px}
+section[id]{scroll-margin-top:4.75rem}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pular{position:fixed;left:1rem;top:-4rem;z-index:100;background:var(--tinta);color:var(--fundo);padding:.75rem 1.1rem;border-radius:6px;transition:top .2s var(--ease)}
+.pular:focus{top:1rem}
+.container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+.ico{display:inline-flex;width:1.25em;height:1.25em;flex:none}
+.ico svg{width:100%;height:100%}
+.tnum{font-variant-numeric:tabular-nums lining-nums}
+
+h1,h2,h3{font-family:var(--serif);font-optical-sizing:auto;font-weight:400;text-wrap:balance;color:var(--tinta)}
+h1 em,h2 em{font-style:italic}
+h2{font-size:clamp(1.95rem,1.3rem + 2.5vw,3.1rem);line-height:1.1;letter-spacing:-.015em}
+h3{font-size:1.35rem;line-height:1.25;font-weight:600;letter-spacing:-.005em}
+p{text-wrap:pretty}
+
+/* ==========================================================================
+   Botões — discretos, cantos pouco arredondados
+   ========================================================================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:3.25rem;padding:.8rem 1.5rem;border-radius:6px;border:1.5px solid transparent;font-family:var(--sans);font-weight:600;font-size:1rem;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;transition:background-color .25s var(--ease),color .25s,border-color .25s,transform .25s var(--ease)}
+.btn .ico{width:1.3em;height:1.3em}
+.btn--cta{background:var(--primaria);color:var(--cta-texto)}
+.btn--claro{background:var(--fundo);color:var(--primaria)}
+.btn--linha{background:transparent;border-color:var(--linha-forte);color:var(--tinta)}
+.btn--sm{min-height:2.75rem;padding:.5rem 1rem;font-size:.95rem}
+.btn--lg{min-height:3.5rem;padding:.95rem 1.75rem;font-size:1.03rem}
+.btn:active{transform:scale(.985)}
+@media (hover:hover){
+  .btn--cta:hover{background:var(--primaria-escura)}
+  .btn--claro:hover{background:var(--secundaria)}
+  .btn--linha:hover{border-color:var(--primaria);color:var(--primaria)}
+}
+.link-seta{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.1rem}
+.link-seta .ico{width:1em;height:1em;transition:transform .3s var(--ease)}
+@media (hover:hover){.link-seta:hover .ico{transform:translateX(4px)}}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+.topo{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--fundo);--foco:var(--fundo);transition:background-color .35s var(--ease),color .35s,box-shadow .35s}
+.topo[data-solido]{background:color-mix(in oklab,var(--fundo) 95%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--tinta);--foco:var(--primaria);box-shadow:0 1px 0 var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.marca{min-width:0;flex:1 1 auto;font-family:var(--serif);font-weight:600;font-size:1.22rem;letter-spacing:-.005em;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{display:none;gap:1.75rem;font-size:.95rem}
+.nav a{text-decoration:none;opacity:.86;padding:.4rem 0;border-bottom:1px solid transparent;transition:opacity .2s,border-color .2s}
+@media (hover:hover){.nav a:hover{opacity:1;border-bottom-color:currentColor}}
+.topo .btn{white-space:nowrap;flex:none}
+.topo:not([data-solido]) .btn--cta{background:var(--fundo);color:var(--primaria)}
+@media (max-width:380px){.marca{font-size:1.05rem}.topo .btn--sm{padding-inline:.8rem;gap:.45rem}}
+@media (min-width:1080px){.nav{display:flex}.marca{flex:0 1 auto}}
+
+/* ==========================================================================
+   Hero — fundo escuro, título com serifa, responsável à vista
+   ========================================================================== */
+.hero{position:relative;background:var(--primaria);color:var(--fundo);--foco:var(--fundo);padding-top:calc(4.25rem + clamp(2.5rem,6vw,5.5rem));padding-bottom:clamp(3.5rem,7vw,6rem);overflow:clip}
+.hero h1,.hero h2{color:var(--fundo)}
+.hero h1 em{color:var(--secundaria)}
+.hero-grid{display:grid;gap:3rem;align-items:end}
+.hero-texto{display:grid;gap:1.5rem;justify-items:start}
+.hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.6rem);line-height:1.04;letter-spacing:-.022em;max-width:16ch}
+.hero-lead{font-size:clamp(1.08rem,1rem + .35vw,1.22rem);line-height:1.6;color:var(--claro-suave);max-width:46ch}
+.hero-regua{width:4.5rem;height:1px;background:var(--secundaria);transform-origin:left}
+.hero-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:.25rem}
+.hero-nota{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--claro-suave);max-width:46ch}
+.hero-nota .ico{margin-top:.2em;color:var(--secundaria)}
+.hero .link-seta{color:var(--fundo)}
+.hero-lado{display:grid;gap:1rem;align-content:end}
+.hero-foto{aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:var(--primaria-escura);max-width:26rem}
+.hero-foto img{width:100%;height:100%;object-fit:cover}
+.resp{display:grid;gap:.15rem;padding:1.1rem 0 0;border-top:1px solid color-mix(in oklab,var(--secundaria) 55%,transparent);max-width:26rem}
+.resp-rotulo{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--secundaria)}
+.resp strong{font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--fundo)}
+.resp .tnum{color:var(--claro-suave);font-size:.95rem}
+@media (max-width:560px){.hero-acoes .btn{width:100%}}
+@media (min-width:960px){.hero-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(3rem,7vw,7rem)}.hero-grid--sem-foto{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr)}}
+@media (max-width:959px){.hero-foto{aspect-ratio:4/3;max-width:none}}
+@media (prefers-reduced-motion:no-preference){
+  .hero-texto>*{animation:subir .9s var(--ease) both}
+  .hero-texto>:nth-child(1){animation-delay:.08s}
+  .hero-texto>:nth-child(2){animation:regua 1.1s var(--ease) both .35s}
+  .hero-texto>:nth-child(3){animation-delay:.22s}
+  .hero-texto>:nth-child(4){animation-delay:.32s}
+  .hero-texto>:nth-child(5){animation-delay:.42s}
+  .hero-lado{animation:subir 1s var(--ease) both .45s}
+  @keyframes subir{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes regua{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+
+/* ==========================================================================
+   "Sobre qual assunto?" (plano Completo)
+   ========================================================================== */
+.consulta{padding-top:clamp(3rem,6vw,4.5rem)}
+.consulta-card{border:1px solid var(--linha);background:var(--cartao);border-radius:var(--raio);padding:clamp(1.4rem,4vw,2.5rem);display:grid;gap:1.5rem 3rem}
+.consulta-card h2{font-size:clamp(1.5rem,1.2rem + 1.1vw,2rem)}
+.consulta-card .lead{color:var(--tinta-suave);margin-top:.6rem;max-width:38ch}
+.consulta-card .aviso{display:flex;gap:.55rem;margin-top:1rem;font-size:.92rem;color:var(--tinta-suave);max-width:38ch}
+.consulta-card .aviso .ico{margin-top:.2em;color:var(--primaria)}
+.consulta-form{display:grid;gap:1.25rem}
+.campo{display:grid;gap:.4rem;min-width:0}
+.campo label,.grupo legend{font-size:.9rem;font-weight:600;color:var(--tinta)}
+.campo select{width:100%;min-width:0;min-height:3.25rem;padding:.6rem .9rem;background:var(--fundo);border:1.5px solid var(--linha-forte);border-radius:6px;transition:border-color .2s}
+.campo select:hover{border-color:var(--primaria)}
+.grupo{border:0;margin:0;padding:0;min-width:0}
+.grupo legend{padding:0;margin-bottom:.5rem}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.pill span{display:inline-flex;align-items:center;min-height:2.75rem;padding:.5rem 1.05rem;background:var(--fundo);border:1.5px solid var(--linha-forte);border-radius:6px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.pill input:checked+span{background:var(--primaria);border-color:var(--primaria);color:var(--cta-texto)}
+.pill input:focus-visible+span{outline:3px solid var(--foco);outline-offset:2px}
+@media (hover:hover){.pill span:hover{border-color:var(--primaria)}}
+.linha-2{display:grid;gap:1.25rem}
+@media (min-width:640px){.linha-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.consulta-card{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:start}.consulta-form .btn{justify-self:start}}
+
+/* ==========================================================================
+   Seções
+   ========================================================================== */
+.sec{padding-block:var(--sec)}
+.sec--tinta{background:var(--superficie)}
+.sec--escura{background:var(--primaria);color:var(--fundo);--foco:var(--fundo)}
+.sec--escura h2{color:var(--fundo)}
+.sec--escura h2 em{color:var(--secundaria)}
+.sec-head{display:grid;gap:1rem;max-width:46rem;margin-bottom:clamp(2.25rem,5vw,3.5rem)}
+.sec-head .lead{color:var(--tinta-suave);font-size:1.1rem;max-width:54ch}
+
+/* Áreas de atuação */
+.areas{display:grid;gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden;grid-template-columns:repeat(auto-fill,minmax(min(100%,21rem),1fr))}
+.area{display:flex;flex-direction:column;gap:.75rem;padding:1.75rem 1.6rem 1.5rem;background:var(--cartao)}
+.area p{color:var(--tinta-suave);max-width:42ch}
+.area-link{margin-top:auto;padding-top:.5rem;display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;font-weight:600;color:var(--primaria);text-decoration:none;align-self:flex-start}
+.area-link .ico{width:1em;height:1em;transition:transform .3s var(--ease)}
+@media (hover:hover){.area-link:hover{text-decoration:underline}.area-link:hover .ico{transform:translateX(4px)}}
+
+/* Sobre */
+.sobre-grid{display:grid;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.sobre-foto{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden}
+.sobre-foto img{width:100%;height:100%;object-fit:cover}
+.sobre-texto{display:grid;gap:1.15rem;max-width:60ch}
+.sobre-texto p{font-size:1.1rem;color:var(--tinta-suave)}
+@media (min-width:900px){.sobre-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}}
+
+/* Primeiro atendimento */
+.passos{display:grid;gap:2rem}
+.passo{display:grid;gap:.6rem;align-content:start}
+.passo-n{font-family:var(--serif);font-size:3.5rem;line-height:1;color:var(--primaria);font-weight:400}
+.passo p{color:var(--tinta-suave);max-width:34ch}
+@media (min-width:860px){
+  .passos{grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+  .passo{padding:0 2rem;border-left:1px solid var(--linha-forte)}
+  .passo:first-child{padding-left:0;border-left:0}
+}
+
+/* Advogados */
+.advs{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr))}
+.adv{display:grid;gap:1.25rem;padding:1.25rem;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);align-items:start;max-width:46rem}
+.adv--foto{grid-template-columns:minmax(0,8rem) minmax(0,1fr)}
+.adv-foto{aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--superficie)}
+.adv-foto img{width:100%;height:100%;object-fit:cover}
+.adv-txt{display:grid;gap:.3rem;align-content:start}
+.adv-oab{font-weight:600;color:var(--primaria)}
+.adv-areas{color:var(--tinta-suave);font-size:.97rem}
+.adv-bio{color:var(--tinta-suave);margin-top:.35rem;font-size:.97rem}
+@media (min-width:640px){.adv--foto{grid-template-columns:minmax(0,10rem) minmax(0,1fr)}}
+@media (max-width:479px){.adv--foto{grid-template-columns:minmax(0,1fr)}.adv-foto{width:7.5rem}}
+
+/* Galeria */
+.galeria-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(9rem,40vw,13rem);grid-auto-flow:dense;gap:.7rem}
+.tile{position:relative;overflow:hidden;border-radius:6px;background:var(--superficie);margin:0;padding:0;border:0;display:block;width:100%;height:100%}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.tile--big{grid-column:span 2;grid-row:span 2}
+.tile--wide{grid-column:span 2}
+button.tile{cursor:zoom-in}
+@media (hover:hover){button.tile:hover img{transform:scale(1.03)}}
+@media (min-width:760px){.galeria-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:13rem;gap:1rem}}
+@media (min-width:1100px){.galeria-grid{grid-auto-rows:15rem}}
+
+/* Lightbox */
+.lb{border:0;padding:0;width:100%;height:100%;max-width:none;max-height:none;background:transparent;color:#fff}
+.lb::backdrop{background:rgba(8,12,20,.94)}
+.lb[open]{display:grid;place-items:center;grid-template-columns:auto minmax(0,1fr) auto;gap:.5rem;padding:1rem}
+.lb figure{display:grid;gap:.9rem;justify-items:center;min-width:0}
+.lb img{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;border-radius:6px}
+.lb figcaption{font-size:.97rem;color:rgba(255,255,255,.88);text-align:center;max-width:60ch;min-height:1.4em}
+.lb-btn{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:background-color .2s}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb :focus-visible{outline-color:#fff}
+.lb-x{position:absolute;top:1rem;right:1rem}
+@media (max-width:640px){.lb[open]{grid-template-columns:1fr;align-content:center}.lb-prev,.lb-next{position:absolute;bottom:1.25rem}.lb-prev{left:1rem}.lb-next{right:1rem}}
+
+/* Avaliações (desligado por padrão neste nicho) */
+.avals{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.aval{display:grid;gap:1rem;padding-top:1.5rem;border-top:1px solid var(--linha)}
+.aval blockquote{font-family:var(--serif);font-size:1.3rem;line-height:1.4}
+.aval cite{font-style:normal;color:var(--tinta-suave);font-size:.95rem}
+
+/* FAQ */
+.faq-grid{display:grid;gap:2rem clamp(2rem,6vw,5rem)}
+@media (min-width:960px){.faq-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:start}.faq-grid .sec-head{margin-bottom:0;position:sticky;top:6.5rem}}
+.faq-lista{border-bottom:1px solid var(--linha-forte)}
+.faq-lista details{border-top:1px solid var(--linha-forte)}
+.faq-lista summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;min-height:3.75rem;padding-block:1.1rem;font-family:var(--serif);font-size:1.2rem;line-height:1.35}
+.faq-lista summary::-webkit-details-marker{display:none}
+.faq-lista summary::after{content:"";flex:none;width:1rem;height:1rem;background:
+  linear-gradient(var(--primaria),var(--primaria)) center/100% 1.5px no-repeat,
+  linear-gradient(var(--primaria),var(--primaria)) center/1.5px 100% no-repeat;transition:transform .4s var(--ease)}
+.faq-lista details[open] summary::after{transform:rotate(135deg)}
+@media (hover:hover){.faq-lista summary:hover{color:var(--primaria)}}
+.faq-resp{padding:0 2.5rem 1.4rem 0;color:var(--tinta-suave);max-width:62ch}
+
+/* Localização */
+.local{display:grid;gap:clamp(2rem,5vw,4rem)}
+@media (min-width:960px){.local{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}}
+.dados{display:grid}
+.dados>div{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;padding-block:1.1rem;border-top:1px solid var(--linha)}
+.dados>div:last-child{border-bottom:1px solid var(--linha)}
+.dados .ico{width:1.4rem;height:1.4rem;color:var(--primaria);grid-row:span 2;margin-top:.15rem}
+.dados dt{font-weight:600}
+.dados dd{color:var(--tinta-suave)}
+.horas{display:grid;gap:.2rem}
+.horas>span{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;max-width:24rem}
+.local-acoes{margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.mapa{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--superficie);display:grid;place-items:center;text-align:center;padding:1.25rem;color:var(--tinta-suave)}
+.sec--tinta .mapa{background:var(--fundo)}
+.mapa--vazio{border:1.5px dashed var(--linha-forte)}
+.mapa:has(iframe){padding:0}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+@media (max-width:959px){.mapa{aspect-ratio:1/1}}
+@media (min-width:960px){.mapa{position:sticky;top:6.5rem}}
+
+/* Chamada final */
+.final-in{display:grid;gap:1.5rem;justify-items:start}
+.final h2{font-size:clamp(2.1rem,1.3rem + 3.2vw,3.8rem);line-height:1.06;letter-spacing:-.02em;max-width:18ch}
+.final p{max-width:48ch;font-size:1.1rem;color:var(--claro-suave)}
+.final-contato{display:flex;flex-wrap:wrap;gap:.5rem 2rem}
+.final-contato a{display:inline-flex;gap:.5rem;align-items:center}
+.final-contato .ico{width:1.1em;height:1.1em}
+
+/* Rodapé (nome e OAB do responsável — exigência do Código de Ética) */
+.rodape{background:var(--primaria-escura);color:var(--claro-suave);padding-block:clamp(3rem,6vw,4.5rem) 2rem;font-size:.97rem;--foco:var(--fundo)}
+.rodape-grid{display:grid;gap:2.25rem clamp(2rem,5vw,4rem)}
+@media (min-width:860px){.rodape-grid{grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,4fr)}}
+.rodape .logo{font-family:var(--serif);font-size:1.5rem;color:var(--fundo);margin-bottom:.6rem}
+.rodape h2{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fundo);margin-bottom:.9rem;line-height:1.3}
+.rodape ul{display:grid;gap:.55rem}
+.rodape li{display:flex;gap:.6rem;align-items:flex-start}
+.rodape .ico{width:1.1em;height:1.1em;margin-top:.25em;flex:none}
+.rodape a{text-decoration-color:color-mix(in oklab,var(--fundo) 40%,transparent)}
+@media (hover:hover){.rodape a:hover{text-decoration-color:currentColor}}
+.resp-rodape{margin-top:clamp(2.25rem,5vw,3.25rem);padding-top:1.25rem;border-top:1px solid color-mix(in oklab,var(--secundaria) 35%,transparent);display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;color:var(--fundo)}
+.resp-rodape strong{font-weight:600}
+.rodape-legal{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;font-size:.88rem;color:color-mix(in oklab,var(--fundo) 74%,transparent)}
+
+/* Botão flutuante (celular) */
+.flutuante{position:fixed;z-index:60;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .6s var(--ease);box-shadow:0 14px 28px -12px rgba(0,0,0,.5)}
+.flutuante[data-visivel]{transform:none}
+@media (min-width:900px){.flutuante{display:none}}
+@media (max-width:899px){.rodape{padding-bottom:6rem}}
+
+/* Entrada ao rolar: só em grupos de itens */
+.rev-on .rev{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+.rev-on .rev.in{opacity:1;transform:none}
+@media print{.rev-on .rev{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rev-on .rev{opacity:1;transform:none}}
+
+/* ==========================================================================
+   Ferramentas de prévia (somem com ?limpo ou modoPrevia:false)
+   ========================================================================== */
+.pend{display:inline-block;margin-right:.45em;padding:.18em .5em .14em;border-radius:4px;background:#ffe36e;color:#1b1b1b;font:700 .6rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;vertical-align:.2em;font-style:normal;white-space:nowrap}
+.previa{position:fixed;z-index:90;left:max(.75rem,env(safe-area-inset-left));bottom:max(.75rem,env(safe-area-inset-bottom));display:flex;gap:.6rem;align-items:center;max-width:calc(100vw - 1.5rem);padding:.6rem .9rem;border:0;border-radius:10px;background:#17201f;color:#fff;font:700 .78rem/1.25 var(--sans);cursor:pointer;text-align:left;box-shadow:0 10px 24px -8px rgba(0,0,0,.5)}
+.previa i{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:#ffe36e}
+.previa:focus-visible{outline-color:#ffe36e}
+@media (max-width:600px){.previa-longo{display:none}}
+@media (max-width:899px){.previa{bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 4.5rem)}}
+.pend-foco{outline:3px solid #ffe36e;outline-offset:6px;border-radius:4px}
+</style>
+</head>
+
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" id="topo"></header>
+<main id="conteudo"></main>
+<footer class="rodape" id="rodape"></footer>
+
+<a class="btn btn--cta btn--lg flutuante" id="flutuante" target="_blank" rel="noopener noreferrer" hidden></a>
+
+<dialog class="lb" id="lightbox" aria-label="Galeria de fotos">
+  <button class="lb-btn lb-x" type="button" aria-label="Fechar galeria" data-lb="x"></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Foto anterior" data-lb="prev"></button>
+  <figure><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Próxima foto" data-lb="next"></button>
+</dialog>
+
+<noscript>
+  <p style="padding:2rem;font-family:sans-serif">[TROCAR] Este site precisa de JavaScript para exibir o conteúdo. Fale com o escritório pelo WhatsApp: (00) 00000-0000. Responsável: Dr(a). Nome — OAB/UF 000.000.</p>
+</noscript>
+
+<script>
+/* ==========================================================================
+   CONFIG — TUDO que muda de cliente fica aqui. Procure por [TROCAR].
+   Dica: no título, *palavra* vira itálico (use em 1 ou 2 palavras, no máximo).
+   Tokens aceitos nos textos: {nome} {cidade} {bairro} {uf}
+
+   PUBLICIDADE NA ADVOCACIA (Código de Ética e Disciplina da OAB + Provimento 205/2021).
+   O template já segue estes limites — mantenha nos textos do cliente:
+   - caráter informativo, sóbrio e discreto;
+   - nada de promessa de resultado, "causa ganha", "o melhor", urgência ou "ligue já";
+   - nada de valores de honorários, desconto ou "consulta grátis" como atrativo;
+   - nada de depoimentos de clientes nem citação de casos ou clientes atendidos;
+   - rodapé sempre com nome e OAB do(a) responsável.
+   Na dúvida sobre algum texto, confirme com o(a) próprio(a) advogado(a).
+   ========================================================================== */
+const CONFIG = {
+
+  /* Prévia: mostra a etiqueta amarela [TROCAR] e o contador de pendências.
+     Para mostrar ao cliente sem as etiquetas, abra o link com ?limpo no final. */
+  modoPrevia: true,
+
+  negocio: {
+    nome: "[TROCAR] Nome do Escritório",
+    nicho: "Escritório de advocacia",
+    tipoSchema: "LegalService",
+    cidade: "[TROCAR] Cidade",
+    uf: "[TROCAR] UF",
+    bairro: "[TROCAR] Bairro",
+    rua: "[TROCAR] Rua Exemplo, 000 — sala 00",
+    cep: "[TROCAR] 00000-000",
+    coordenadas: null                // opcional: { lat: -00.0000, lng: -00.0000 }
+  },
+
+  /* OBRIGATÓRIO: advogado(a) responsável. Aparece no topo e no rodapé. */
+  responsavel: {
+    nome: "[TROCAR] Dr(a). Nome Sobrenome",
+    oab: "[TROCAR] OAB/UF 000.000"
+  },
+
+  contato: {
+    telefone: "[TROCAR] (00) 0000-0000",
+    email: "[TROCAR] contato@seudominio.adv.br"
+  },
+
+  whatsapp: {
+    numero: "5500000000000",         // [TROCAR] só dígitos, com 55 + DDD + número
+    // {detalhes} recebe as escolhas do bloco "Sobre qual assunto?" (plano Completo). Nunca detalhes do caso.
+    mensagem: "[TROCAR] Olá! Encontrei o site do escritório {nome} e gostaria de conversar sobre um assunto.{detalhes}",
+    mensagemArea: "[TROCAR] Olá! Encontrei o site do escritório {nome} e gostaria de conversar sobre um assunto. Área: {area}.{detalhes}"
+  },
+
+  /* Forma de atendimento, do jeito que o cliente confirmar (aparece no topo). "" = não mostra. */
+  formaAtendimento: "[TROCAR] Atendimento presencial em {bairro} e online, com horário marcado.",
+  /* Opções que o visitante pode escolher no bloco "Sobre qual assunto?". */
+  modalidades: ["Presencial", "Online"],
+
+  horarios: [
+    { dias: "[TROCAR] Segunda a sexta", horas: "[TROCAR] 9h às 18h" }
+  ],
+  /* Opcional, só para o Google (JSON-LD). Dias em inglês: Monday … Sunday. */
+  horariosSchema: [],
+
+  links: {
+    instagram: "",                   // [TROCAR] (vazio = não mostra)
+    linkedin: "",                    // [TROCAR] (vazio = não mostra)
+    googleMaps: "",                  // [TROCAR] link do Maps. Vazio = busca pelo endereço
+    mapaEmbed: ""                    // [TROCAR] só a URL do src do iframe "Incorporar mapa"
+  },
+
+  seo: {
+    titulo: "[TROCAR] Nome do Escritório — Advocacia em {cidade}/{uf}",
+    descricao: "[TROCAR] Escritório de advocacia em {bairro}, {cidade}/{uf}. Conheça as áreas de atuação e fale com o escritório pelo WhatsApp.",
+    urlSite: "",                     // [TROCAR] https://www.dominio.adv.br/ (vazio = não altera o canonical)
+    imagemOg: ""                     // [TROCAR] URL absoluta da imagem 1200x630
+  },
+
+  /* Cores em HEX. Sugestões (copie e cole):
+     AZUL-MARINHO → primaria #15253D  secundaria #D8D2C6  fundo #FAFAF8  texto #1A2130
+     VERDE-ESCURO → primaria #1E3A32  secundaria #D5D2C4  fundo #FAFAF8  texto #1B2420
+     A primária é o fundo do topo e dos botões: precisa ser bem escura. A secundária é um neutro claro. */
+  cores: { primaria: "#15253D", secundaria: "#D8D2C6", fundo: "#FAFAF8", texto: "#1A2130" },
+
+  textos: {
+    /* Tom sóbrio e claro, sem juridiquês e sem promessa. */
+    heroTitulo: "[TROCAR] Orientação jurídica em {cidade}, *explicada* sem juridiquês",
+    heroSubtitulo: "[TROCAR] Escritório de advocacia em {bairro}. Conte sua situação pelo WhatsApp e saiba quais são os caminhos possíveis.",
+    botaoPrincipal: "Falar com o escritório pelo WhatsApp",
+    botaoCurto: "Falar no WhatsApp",
+    botaoArea: "Falar sobre este assunto",
+    verAreas: "Ver áreas de atuação",
+    nav: { areas: "Áreas", atendimento: "Atendimento", advogados: "Advogados", faq: "Dúvidas" },
+
+    consultaTitulo: "Sobre qual *assunto*?",
+    consultaIntro: "Suas escolhas entram na mensagem do WhatsApp. Tudo é opcional.",
+    consultaAviso: "Não escreva detalhes do caso aqui. Você conta tudo na conversa com o escritório.",
+
+    areasTitulo: "Áreas de *atuação*",
+    areasIntro: "[TROCAR] As áreas em que o escritório atua. Escolha uma para iniciar a conversa.",
+
+    atendimentoTitulo: "Como funciona o *primeiro atendimento*",
+    atendimentoIntro: "Três passos para você saber o que esperar.",
+
+    advogadosTitulo: "Advogado *responsável*",
+    advogadosIntro: "[TROCAR] Quem conduz o atendimento, com o número de inscrição na OAB.",
+
+    galeriaTitulo: "O *escritório*",
+    galeriaIntro: "[TROCAR] Fotos do espaço de atendimento.",
+
+    avaliacoesTitulo: "Depoimentos",
+    avaliacoesIntro: "",
+
+    faqTitulo: "Dúvidas *frequentes*",
+    faqIntro: "Não encontrou sua dúvida? Pergunte pelo WhatsApp.",
+    faqBotao: "Perguntar pelo WhatsApp",
+
+    localTitulo: "Onde *atendemos*",
+
+    ctaFinalTitulo: "Quer entender a sua *situação*?",
+    ctaFinalTexto: "[TROCAR] Mande uma mensagem com um resumo do assunto. O escritório responde para marcar o atendimento."
+  },
+
+  /* Foto do topo: real (advogado(a) ou escritório). Vertical 1200×1500. foto: false = topo só com texto. */
+  hero: { foto: "", alt: "[TROCAR] Descreva a foto: ex. Dr(a). Nome no escritório" },
+
+  /* Áreas de atuação. atua: false esconde o card. Texto informativo, sem promessa. */
+  areas: [
+    { atua: true, nome: "Família e sucessões",  texto: "[TROCAR] Divórcio, guarda, pensão alimentícia, inventário e testamento." },
+    { atua: true, nome: "Trabalhista",          texto: "[TROCAR] Questões de contrato, demissão, verbas rescisórias e jornada." },
+    { atua: true, nome: "Previdenciário",       texto: "[TROCAR] Aposentadoria, auxílios e revisão de benefícios do INSS." },
+    { atua: true, nome: "Direito do consumidor", texto: "[TROCAR] Problemas com compras, serviços, bancos e planos de saúde." },
+    { atua: true, nome: "Cível",                texto: "[TROCAR] Contratos, cobranças, indenizações e questões de imóveis." },
+    { atua: true, nome: "Empresarial",          texto: "[TROCAR] Contratos, abertura de empresa e orientação para o dia a dia do negócio." }
+  ],
+
+  sobre: {
+    titulo: "[TROCAR] Sobre o *escritório*",
+    paragrafos: [
+      "[TROCAR] Conte em duas ou três frases como o escritório trabalha e para quem atende.",
+      "[TROCAR] Diga como o cliente é informado durante o caso: por qual canal e com que frequência."
+    ],
+    foto: false,                     // "" = placeholder; URL = foto real; false = sem foto (mais sóbrio)
+    alt: "[TROCAR] Descreva a foto: ex. sala de reunião do escritório"
+  },
+
+  /* "Como funciona o primeiro atendimento": você conta o caso → avaliamos a viabilidade → explicamos os próximos passos. */
+  primeiroAtendimento: [
+    { titulo: "Você conta o caso", texto: "Pelo WhatsApp ou em um horário marcado, você explica a situação com calma." },
+    { titulo: "Avaliamos a viabilidade", texto: "[TROCAR] Explique o que o escritório analisa: documentos, prazos e caminhos possíveis." },
+    { titulo: "Explicamos os próximos passos", texto: "[TROCAR] Diga como as opções e os custos são apresentados antes de qualquer decisão." }
+  ],
+
+  /* Advogado(s). Lista vazia = a seção some (o rodapé continua com o responsável).
+     foto: "" = placeholder; foto: false = cartão sem foto.
+     areas e bio: só fatos que o(a) advogado(a) confirmar (formação, só se informada). */
+  advogados: [
+    { nome: "[TROCAR] Dr(a). Nome Sobrenome", oab: "[TROCAR] OAB/UF 000.000",
+      areas: "[TROCAR] Família e sucessões · Cível", bio: "[TROCAR] Uma ou duas frases sobre a atuação, sem adjetivos de autoelogio.",
+      foto: "", alt: "[TROCAR] Foto de Dr(a). Nome Sobrenome" }
+  ],
+
+  /* Galeria: poucas fotos, todas reais (recepção, sala de reunião, fachada). Lista vazia = some. */
+  galeria: [
+    { src: "", alt: "[TROCAR] Descreva: recepção do escritório", rotulo: "Recepção", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: sala de reunião", rotulo: "Sala de reunião", legenda: "" },
+    { src: "", alt: "[TROCAR] Descreva: fachada ou entrada do prédio", rotulo: "Fachada", legenda: "" }
+  ],
+
+  /* NÃO USE: o Provimento 205/2021 veda depoimentos de clientes na publicidade da advocacia.
+     O módulo fica desligado em todos os planos. */
+  avaliacoes: [],
+
+  faq: [
+    { p: "O atendimento pode ser online?",
+      r: "[TROCAR] Explique se atende por videochamada, como envia e assina documentos e se atende outras cidades." },
+    { p: "O que eu conto fica em sigilo?",
+      r: "[TROCAR] Explique que as informações são tratadas com sigilo profissional e como os documentos são guardados." },
+    { p: "Quais documentos devo levar?",
+      r: "[TROCAR] Liste o básico (documento com foto, comprovante de endereço) e diga que o escritório orienta o resto conforme o caso." },
+    /* Não informe valores de honorários nem ofereça consulta gratuita como atrativo. */
+    { p: "Como são combinados os honorários?",
+      r: "[TROCAR] Explique que os honorários são apresentados depois de entender o caso e combinados por escrito, sem citar valores." }
+  ],
+
+  rodape: {
+    frase: "[TROCAR] Uma frase curta e informativa sobre o escritório.",
+    razaoSocial: "[TROCAR] Nome Sociedade de Advogados",
+    cnpj: "[TROCAR] 00.000.000/0000-00",
+    registroSociedade: "[TROCAR] Registro OAB/UF nº 0000",   // sociedade de advogados; "" se for advogado(a) autônomo(a)
+    credito: "Site por JL Devs",     // "" remove
+    creditoUrl: ""                   // [TROCAR] link do seu portfólio (vazio = só texto)
+  },
+
+  /* ---- PLANOS --------------------------------------------------------------
+     planos.ativo escolhe o pacote. Cada módulo em "modulos" pode ser:
+       null  = segue o plano ativo      true = força ligado      false = força desligado
+     avaliacoes fica FALSE em todos os planos (vedado pela OAB).                  */
+  planos: {
+    ativo: "completo",               // "basico" | "intermediario" | "completo"
+    presets: {
+      basico:        { areas:true, linksArea:true, sobre:true, primeiroAtendimento:true, advogados:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       galeria:false, mapa:false, redes:false, lightbox:false, consultaRapida:false, jsonLdCompleto:false, avaliacoes:false },
+      intermediario: { areas:true, linksArea:true, sobre:true, primeiroAtendimento:true, advogados:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       galeria:true, mapa:true, redes:true,
+                       lightbox:false, consultaRapida:false, jsonLdCompleto:false, avaliacoes:false },
+      completo:      { areas:true, linksArea:true, sobre:true, primeiroAtendimento:true, advogados:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       galeria:true, mapa:true, redes:true,
+                       lightbox:true, consultaRapida:true, jsonLdCompleto:true, avaliacoes:false }
+    },
+    modulos: {
+      areas: null, linksArea: null, sobre: null, primeiroAtendimento: null, advogados: null,
+      galeria: null, lightbox: null, faq: null, localizacao: null, mapa: null, redes: null,
+      consultaRapida: null, jsonLdCompleto: null, botaoFlutuante: null,
+      avaliacoes: false
+    }
+  }
+};
+
+/* ==========================================================================
+   A partir daqui é o motor do template. Normalmente não precisa mexer.
+   ========================================================================== */
+(function () {
+'use strict';
+const C = CONFIG;
+const $ = (s, r = document) => r.querySelector(s);
+const MARCA = /\[TROCAR\]/g;
+const limpo = s => String(s == null ? '' : s).replace(MARCA, '').replace(/\s+/g, ' ').trim();
+const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const params = new URLSearchParams(location.search);
+const modoLimpo = params.has('limpo');
+const previa = C.modoPrevia && !modoLimpo;
+const estado = { area: '', modo: '', processo: '' };
+const waLinks = [];
+
+/* ---------- ícones (traço único, 1.5) ---------- */
+const ICONS = {
+  pin: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  video: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10.5l5-3v9l-5-3"/>',
+  lock: '<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  prev: '<path d="M15 5l-7 7 7 7"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".7" fill="currentColor"/>',
+  linkedin: '<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 10.5V16M8 7.8v.01M11.5 16v-5.5M11.5 13c0-1.6 1-2.6 2.3-2.6s2.2.9 2.2 2.6V16"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7.5l8 6 8-6"/>',
+  phone: '<path d="M5 4h3.5l1.5 4-2 1.3a11 11 0 0 0 5.7 5.7L15 13l4 1.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/>'
+};
+const WA_PATH = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z';
+
+/* ---------- construtor de DOM (escapa tudo, sem innerHTML com dados) ---------- */
+function add(el, kids) { kids.flat(Infinity).forEach(k => { if (k == null || k === false) return; el.append(k instanceof Node ? k : document.createTextNode(k)); }); }
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
+    if (k === 'html') el.innerHTML = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  add(el, kids); return el;
+}
+const icon = (n, cls) => h('span', { class: 'ico' + (cls ? ' ' + cls : ''), 'aria-hidden': 'true',
+  html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ICONS.arrow}</svg>` });
+const waIcon = () => h('span', { class: 'ico', 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${WA_PATH}"/></svg>` });
+
+/* ---------- textos ---------- */
+function vals() { const n = C.negocio; return { nome: limpo(n.nome), cidade: limpo(n.cidade), bairro: limpo(n.bairro), uf: limpo(n.uf) }; }
+function fill(str, extra) {
+  const v = Object.assign(vals(), extra || {});
+  return String(str == null ? '' : str).replace(/\{(\w+)\}/g, (m, k) => (k in v ? limpo(v[k]) : m));
+}
+function rich(s) {
+  const f = document.createDocumentFragment();
+  String(s).split(/(\*[^*]+\*)/).forEach(p => {
+    if (/^\*[^*]+\*$/.test(p)) f.append(h('em', null, p.slice(1, -1)));
+    else if (p) f.append(p);
+  });
+  return f;
+}
+
+/* ---------- módulos (flags dos planos) ---------- */
+function on(mod) {
+  const v = C.planos.modulos[mod];
+  if (v === true || v === false) return v;
+  const p = C.planos.presets[C.planos.ativo] || {};
+  return !!p[mod];
+}
+const areasAtivas = () => (C.areas || []).filter(a => a && a.nome && a.atua !== false);
+
+/* ---------- cores: tema, contraste ---------- */
+const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+const rgb = x => { let s = x.replace('#', ''); if (s.length === 3) s = [...s].map(c => c + c).join(''); const n = parseInt(s, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+const lum = a => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(a[0]) + .7152 * f(a[1]) + .0722 * f(a[2]); };
+const ratio = (a, b) => { const x = lum(rgb(a)), y = lum(rgb(b)); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+const toHex = a => '#' + a.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+const mix = (a, b, t) => { const A = rgb(a), B = rgb(b); return toHex(A.map((v, i) => v * (1 - t) + B[i] * t)); };
+const cor = { primaria: '#15253D', secundaria: '#D8D2C6', fundo: '#FAFAF8', texto: '#1A2130' };
+Object.keys(cor).forEach(k => { if (HEX.test(C.cores[k] || '')) cor[k] = C.cores[k]; else console.error('[template] cor inválida em CONFIG.cores.' + k + ' — use HEX, ex. #15253D'); });
+const textoSobre = bg => ratio(bg, cor.fundo) >= ratio(bg, cor.texto) ? cor.fundo : cor.texto;
+
+function aplicarTema() {
+  const r = document.documentElement.style;
+  r.setProperty('--primaria', cor.primaria); r.setProperty('--secundaria', cor.secundaria);
+  r.setProperty('--fundo', cor.fundo); r.setProperty('--texto', cor.texto);
+  const ctaTxt = textoSobre(cor.primaria);
+  r.setProperty('--cta-texto', ctaTxt);
+  const claroSuave = mix(cor.fundo, cor.primaria, .2);
+  const avisos = [];
+  if (ratio(cor.texto, cor.fundo) < 4.5) avisos.push('texto x fundo');
+  if (ratio(cor.primaria, cor.fundo) < 7) avisos.push('topo escuro x texto claro — escureça a primária (ideal 7:1)');
+  if (ratio(cor.primaria, claroSuave) < 4.5) avisos.push('texto secundário do topo');
+  if (ratio(cor.primaria, cor.secundaria) < 4.5) avisos.push('destaques na secundária sobre o topo escuro');
+  if (avisos.length) console.warn('[template] Contraste abaixo do ideal em: ' + avisos.join('; '));
+  const tc = $('meta[name="theme-color"]'); if (tc) tc.content = cor.primaria;
+  const ini = (limpo(C.negocio.nome).charAt(0) || 'A').toUpperCase();
+  const fav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="${cor.primaria}"/><text x="32" y="44" font-family="Georgia,serif" font-size="34" text-anchor="middle" fill="${ctaTxt}">${ini}</text></svg>`;
+  const link = $('link[rel="icon"]'); if (link) link.href = 'data:image/svg+xml,' + encodeURIComponent(fav);
+}
+
+/* ---------- fotos e placeholders ---------- */
+const TONS = [.35, .18, .5, .26, .42, .14];
+function placeholder(w, hgt, rotulo, i) {
+  const bg = mix(cor.secundaria, cor.primaria, TONS[(i || 0) % TONS.length]);
+  const tx = textoSobre(bg);
+  const fs = Math.max(14, Math.round(w / 24)), y = Math.round(hgt * .5);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${hgt}" width="${w}" height="${hgt}">
+<defs><pattern id="p" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><line x1="0" y1="0" x2="0" y2="26" stroke="${tx}" stroke-opacity=".07" stroke-width="2"/></pattern></defs>
+<rect width="${w}" height="${hgt}" fill="${bg}"/><rect width="${w}" height="${hgt}" fill="url(#p)"/>
+<g fill="none" stroke="${tx}" stroke-opacity=".7" stroke-width="${Math.max(2, fs / 9)}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${w / 2 - fs * 1.1} ${y - fs * 3.3}) scale(${fs / 12})">
+<rect x="1" y="3" width="22" height="16" rx="3"/><circle cx="8" cy="9" r="2"/><path d="M2 17l6-5 5 4 4-3 5 4"/></g>
+<g fill="${tx}" font-family="system-ui,Segoe UI,Arial,sans-serif" text-anchor="middle">
+<text x="${w / 2}" y="${y}" font-size="${fs}" font-weight="700" letter-spacing="${fs / 8}">FOTO PENDENTE</text>
+<text x="${w / 2}" y="${y + fs * 1.5}" font-size="${fs * .95}" fill-opacity=".92">${rotulo.replace(/[<&>]/g, '')}</text>
+<text x="${w / 2}" y="${y + fs * 2.9}" font-size="${fs * .8}" fill-opacity=".75">${w} × ${hgt} px</text></g></svg>`;
+  return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+function foto(src, o) {
+  const w = o.w || 1200, hgt = o.h || 800;
+  const img = document.createElement('img');
+  img.width = w; img.height = hgt; img.decoding = 'async';
+  if (o.eager) { img.loading = 'eager'; img.setAttribute('fetchpriority', 'high'); } else img.loading = 'lazy';
+  const usarPlaceholder = () => { img.src = placeholder(w, hgt, o.rotulo || 'Foto', o.i); img.alt = '[TROCAR] Foto pendente: ' + (o.rotulo || 'foto'); img.dataset.pendente = '1'; };
+  if (src) {
+    img.src = src;
+    if (!limpo(o.alt)) console.warn('[template] Foto sem alt no CONFIG: ' + src);
+    img.alt = limpo(o.alt) ? o.alt : (o.rotulo || '');
+    img.addEventListener('error', () => { console.warn('[template] Foto não carregou: ' + src); usarPlaceholder(); }, { once: true });
+  } else usarPlaceholder();
+  return img;
+}
+
+/* ---------- WhatsApp ---------- */
+const numero = String(C.whatsapp.numero || '').replace(/\D/g, '');
+const numeroPendente = !numero || /^55\d{2}0{7,}$/.test(numero) || /^5500/.test(numero);
+function detalhesFrase(comArea) {
+  if (!on('consultaRapida')) return '';
+  const p = [];
+  if (comArea && estado.area) p.push('Área: ' + estado.area);
+  if (estado.modo) p.push('Prefiro atendimento ' + estado.modo.toLowerCase());
+  if (estado.processo === 'sim') p.push('Já existe um processo em andamento');
+  if (estado.processo === 'nao') p.push('Ainda não há processo');
+  if (estado.processo === 'naosei') p.push('Não sei se já existe processo');
+  return p.length ? ' ' + p.join('. ') + '.' : '';
+}
+function waUrl(tpl, extra, comArea) {
+  const msg = fill(String(tpl).replace('{detalhes}', '§DET§'), extra).replace('§DET§', detalhesFrase(comArea)).replace(/\s+/g, ' ').trim();
+  return 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
+}
+function registra(a, tpl, extra, comArea) { waLinks.push({ a, tpl: tpl || C.whatsapp.mensagem, extra: extra || {}, comArea: comArea !== false }); return a; }
+function waBtn(o) {
+  const a = h('a', { class: 'btn ' + (o.cls || 'btn--cta'), href: '#', target: '_blank', rel: 'noopener noreferrer' },
+    waIcon(), h('span', null, o.texto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  return registra(a, o.tpl, o.extra, o.comArea);
+}
+function refreshWa() { waLinks.forEach(l => { l.a.href = waUrl(l.tpl, l.extra, l.comArea); }); }
+
+/* ---------- contato, endereço ---------- */
+function telHref() { let d = String(C.contato.telefone || '').replace(/\D/g, ''); if (!d) return ''; if (d.length <= 11) d = '55' + d; return 'tel:+' + d; }
+function mapsUrl() {
+  if (C.links.googleMaps) return C.links.googleMaps;
+  const n = C.negocio;
+  const q = [limpo(n.rua), limpo(n.bairro), limpo(n.cidade), limpo(n.uf)].filter(Boolean).join(', ');
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+}
+const enderecoLinhas = () => { const n = C.negocio; return [n.rua, h('br'), n.bairro + ' · ' + n.cidade + '/' + n.uf, h('br'), 'CEP ', n.cep]; };
+
+/* ---------- peças de seção ---------- */
+function secHead(id, titulo, intro, extra) {
+  return h('div', { class: 'sec-head' }, h('h2', { id: id + '-t' }, rich(fill(titulo))), intro ? h('p', { class: 'lead' }, fill(intro)) : null, extra || null);
+}
+function sec(id, cls, head, body, tom) {
+  const s = h('section', { id, class: 'sec ' + (cls || ''), 'aria-labelledby': id + '-t' }, h('div', { class: 'container' }, head, body));
+  s.dataset.tom = tom || 'auto'; return s;
+}
+
+/* ---------- cabeçalho ---------- */
+function cabecalho(navItens) {
+  $('#topo').append(h('div', { class: 'container topo-in' },
+    h('a', { class: 'marca', href: '#topo' }, C.negocio.nome),
+    h('nav', { class: 'nav', 'aria-label': 'Seções da página' }, navItens.map(n => h('a', { href: '#' + n.id }, n.label))),
+    waBtn({ texto: C.textos.botaoCurto, cls: 'btn--cta btn--sm' })));
+}
+
+/* ---------- hero ---------- */
+function hero() {
+  const tx = C.textos, r = C.responsavel || {}, temFoto = C.hero.foto !== false;
+  const resp = r.nome || r.oab ? h('div', { class: 'resp' }, h('span', { class: 'resp-rotulo' }, 'Advogado(a) responsável'), h('strong', null, r.nome), h('span', { class: 'tnum' }, r.oab)) : null;
+  return h('section', { class: 'hero', id: 'hero', 'aria-labelledby': 'h1' },
+    h('div', { class: 'container hero-grid' + (temFoto ? '' : ' hero-grid--sem-foto') },
+      h('div', { class: 'hero-texto' },
+        h('h1', { id: 'h1' }, rich(fill(tx.heroTitulo))),
+        h('span', { class: 'hero-regua', 'aria-hidden': 'true' }),
+        h('p', { class: 'hero-lead' }, fill(tx.heroSubtitulo)),
+        h('div', { class: 'hero-acoes' },
+          waBtn({ texto: tx.botaoPrincipal, cls: 'btn--claro btn--lg' }),
+          on('areas') && areasAtivas().length ? h('a', { class: 'link-seta', href: '#areas' }, tx.verAreas, icon('arrow')) : null),
+        C.formaAtendimento ? h('p', { class: 'hero-nota' }, icon('video'), h('span', null, fill(C.formaAtendimento))) : null),
+      h('div', { class: 'hero-lado' },
+        temFoto ? h('div', { class: 'hero-foto' }, foto(C.hero.foto, { alt: C.hero.alt, w: 1200, h: 1500, rotulo: 'Advogado(a) ou escritório', eager: true, i: 0 })) : null,
+        resp)));
+}
+
+/* ---------- "Sobre qual assunto?" ---------- */
+function consultaRapida() {
+  if (!on('consultaRapida')) return null;
+  const sel = h('select', { id: 'f-area' }, h('option', { value: '' }, 'Escolha a área'),
+    areasAtivas().map(a => h('option', { value: limpo(a.nome) }, limpo(a.nome))), h('option', { value: 'outro assunto' }, 'Outro assunto / não sei'));
+  sel.addEventListener('change', () => { estado.area = sel.value; refreshWa(); });
+  const grupo = (nome, legenda, opcoes, chave) => h('fieldset', { class: 'grupo' }, h('legend', null, legenda),
+    h('div', { class: 'pills' }, opcoes.map(([v, t]) => h('label', { class: 'pill' },
+      h('input', { type: 'radio', name: nome, value: v, onchange: () => { estado[chave] = v; refreshWa(); } }), h('span', null, t)))));
+  const mods = (C.modalidades || []).filter(Boolean);
+  return h('section', { class: 'consulta', id: 'consulta', 'aria-labelledby': 'consulta-t' },
+    h('div', { class: 'container' }, h('div', { class: 'consulta-card' },
+      h('div', null, h('h2', { id: 'consulta-t' }, rich(fill(C.textos.consultaTitulo))), h('p', { class: 'lead' }, fill(C.textos.consultaIntro)),
+        h('p', { class: 'aviso' }, icon('lock'), h('span', null, fill(C.textos.consultaAviso)))),
+      h('div', { class: 'consulta-form' },
+        h('div', { class: 'campo' }, h('label', { for: 'f-area' }, 'Área do assunto'), sel),
+        h('div', { class: 'linha-2' },
+          mods.length > 1 ? grupo('modo', 'Atendimento preferido', mods.map(m => [m, m]), 'modo') : null,
+          grupo('processo', 'Já existe processo?', [['sim', 'Sim'], ['nao', 'Não'], ['naosei', 'Não sei']], 'processo')),
+        waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--cta btn--lg' })))));
+}
+
+/* ---------- áreas de atuação ---------- */
+function areas() {
+  const l = areasAtivas();
+  if (!on('areas') || !l.length) return null;
+  return sec('areas', '', secHead('areas', C.textos.areasTitulo, C.textos.areasIntro),
+    h('div', { class: 'areas' }, l.map((a, i) => h('article', { class: 'area rev', style: '--i:' + (i % 3) },
+      h('h3', null, a.nome),
+      a.texto ? h('p', null, a.texto) : null,
+      on('linksArea') ? registra(h('a', { class: 'area-link', href: '#', target: '_blank', rel: 'noopener noreferrer' },
+        C.textos.botaoArea, h('span', { class: 'vh' }, ': ' + limpo(a.nome) + ', pelo WhatsApp (abre em outra aba)'), icon('arrow')),
+        C.whatsapp.mensagemArea, { area: a.nome }, false) : null))));
+}
+
+/* ---------- sobre ---------- */
+function sobre() {
+  const s = C.sobre;
+  if (!on('sobre') || !s || !(s.paragrafos || []).length) return null;
+  const temFoto = s.foto !== false;
+  return sec('sobre', '', null,
+    h('div', { class: 'sobre-grid' },
+      temFoto ? h('div', { class: 'sobre-foto' }, foto(s.foto, { alt: s.alt, w: 1200, h: 900, rotulo: 'Escritório — horizontal', i: 2 })) : h('h2', { id: 'sobre-t' }, rich(fill(s.titulo))),
+      h('div', { class: 'sobre-texto' },
+        temFoto ? h('h2', { id: 'sobre-t' }, rich(fill(s.titulo))) : null,
+        s.paragrafos.map(p => h('p', null, fill(p))))));
+}
+
+/* ---------- primeiro atendimento ---------- */
+function primeiroAtendimento() {
+  const p = C.primeiroAtendimento || [];
+  if (!on('primeiroAtendimento') || !p.length) return null;
+  return sec('atendimento', '', secHead('atendimento', C.textos.atendimentoTitulo, C.textos.atendimentoIntro),
+    h('ol', { class: 'passos' }, p.slice(0, 3).map((s, i) => h('li', { class: 'passo rev', style: '--i:' + i },
+      h('span', { class: 'passo-n', 'aria-hidden': 'true' }, String(i + 1)), h('h3', null, s.titulo), h('p', null, s.texto)))));
+}
+
+/* ---------- advogados ---------- */
+function advogados() {
+  const l = (C.advogados || []).filter(p => p && p.nome);
+  if (!on('advogados') || !l.length) return null;
+  const titulo = l.length > 1 ? C.textos.advogadosTitulo.replace('Advogado *responsável*', 'Advogados *responsáveis*') : C.textos.advogadosTitulo;
+  return sec('advogados', '', secHead('advogados', titulo, C.textos.advogadosIntro),
+    h('ul', { class: 'advs' }, l.map((p, i) => h('li', { class: 'adv rev' + (p.foto !== false ? ' adv--foto' : ''), style: '--i:' + (i % 3) },
+      p.foto !== false ? h('div', { class: 'adv-foto' }, foto(p.foto, { alt: p.alt || p.nome, w: 960, h: 1200, rotulo: limpo(p.nome) || 'Advogado(a)', i: i + 3 })) : null,
+      h('div', { class: 'adv-txt' },
+        h('h3', null, p.nome),
+        p.oab ? h('p', { class: 'adv-oab tnum' }, p.oab) : null,
+        p.areas ? h('p', { class: 'adv-areas' }, p.areas) : null,
+        p.bio ? h('p', { class: 'adv-bio' }, p.bio) : null)))));
+}
+
+/* ---------- galeria ---------- */
+const PADRAO = ['big', '', '', '', '', 'wide', '', ''];
+let lbItens = [];
+function tamanhos(n) {
+  const t = Array.from({ length: n }, (_, i) => PADRAO[i % PADRAO.length]);
+  if (n < 3) return t.map(() => 'wide');
+  const cel = { big: 4, wide: 2, '': 1 };
+  let falta = (4 - t.reduce((s, x) => s + cel[x], 0) % 4) % 4;
+  for (let i = n - 1; i >= 0 && falta > 0; i--) if (t[i] === '') { t[i] = 'wide'; falta--; }
+  return t;
+}
+function galeria() {
+  if (!on('galeria') || !C.galeria.length) return null;
+  const usaLb = on('lightbox');
+  lbItens = [];
+  const tam = tamanhos(C.galeria.length);
+  const tiles = C.galeria.map((g, i) => {
+    const cls = 'tile rev' + (tam[i] ? ' tile--' + tam[i] : '');
+    const img = foto(g.src, { alt: g.alt, w: 1200, h: 900, rotulo: g.rotulo || 'Foto do escritório', i: i + 1 });
+    if (usaLb && g.src) {
+      const idx = lbItens.length;
+      lbItens.push({ src: g.src, alt: limpo(g.alt) ? g.alt : (g.rotulo || ''), legenda: g.legenda || '', w: 1200, h: 900 });
+      return h('button', { type: 'button', class: cls, style: '--i:' + (i % 4), 'aria-label': 'Ampliar foto: ' + limpo(g.alt || g.rotulo || 'foto ' + (i + 1)), onclick: () => abrirLb(idx) }, img);
+    }
+    return h('div', { class: cls, style: '--i:' + (i % 4) }, img);
+  });
+  return sec('galeria', '', secHead('galeria', C.textos.galeriaTitulo, C.textos.galeriaIntro), h('div', { class: 'galeria-grid' }, tiles));
+}
+
+/* ---------- avaliações: desligado por padrão (vedado pela OAB) ---------- */
+function avaliacoes() {
+  const l = (C.avaliacoes || []).filter(a => a && a.texto);
+  if (!on('avaliacoes') || !l.length) return null;
+  console.warn('[template] Atenção: depoimentos de clientes são vedados na publicidade da advocacia (Provimento 205/2021).');
+  return sec('avaliacoes', '', secHead('avaliacoes', C.textos.avaliacoesTitulo, C.textos.avaliacoesIntro),
+    h('div', { class: 'avals' }, l.map(a => h('figure', { class: 'aval' }, h('blockquote', null, '“' + a.texto + '”'), h('figcaption', null, h('cite', null, a.autor || ''))))));
+}
+
+/* ---------- FAQ ---------- */
+function faq() {
+  if (!on('faq') || !C.faq.length) return null;
+  const head = secHead('perguntas', C.textos.faqTitulo, C.textos.faqIntro, h('div', null, waBtn({ texto: C.textos.faqBotao, cls: 'btn--linha' })));
+  return sec('perguntas', '', h('div', { class: 'faq-grid' }, head,
+    h('div', { class: 'faq-lista' }, C.faq.map(f => h('details', null, h('summary', null, h('span', null, f.p)), h('div', { class: 'faq-resp' }, fill(f.r)))))), null);
+}
+
+/* ---------- localização ---------- */
+function localizacao() {
+  if (!on('localizacao')) return null;
+  const n = C.negocio, hrs = C.horarios || [];
+  const dados = h('dl', { class: 'dados' },
+    h('div', null, icon('pin'), h('dt', null, 'Endereço'), h('dd', null, enderecoLinhas())),
+    hrs.length ? h('div', null, icon('clock'), h('dt', null, 'Horário de atendimento'),
+      h('dd', { class: 'horas tnum' }, hrs.map(x => h('span', null, h('span', null, x.dias), h('span', null, x.horas))))) : null,
+    C.formaAtendimento ? h('div', null, icon('video'), h('dt', null, 'Forma de atendimento'), h('dd', null, fill(C.formaAtendimento))) : null);
+  const acoes = h('div', { class: 'local-acoes' },
+    h('a', { class: 'btn btn--cta', href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, icon('pin'), 'Abrir no Google Maps', h('span', { class: 'vh' }, ' (abre em outra aba)')),
+    telHref() ? h('a', { class: 'btn btn--linha', href: telHref() }, icon('phone'), C.contato.telefone) : null);
+  let mapa = null;
+  if (on('mapa')) {
+    mapa = h('div', { class: 'mapa' });
+    if (C.links.mapaEmbed) mapa.append(h('iframe', { src: C.links.mapaEmbed, title: 'Mapa com a localização de ' + limpo(n.nome), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true }));
+    else { mapa.classList.add('mapa--vazio'); mapa.append(h('p', null, '[TROCAR] Cole em CONFIG.links.mapaEmbed o endereço do mapa (Google Maps > Compartilhar > Incorporar um mapa).')); }
+  }
+  return sec('localizacao', '', null, h('div', { class: 'local' },
+    h('div', null, h('h2', { id: 'localizacao-t', style: 'margin-bottom:1.75rem' }, rich(fill(C.textos.localTitulo))), dados, acoes), mapa));
+}
+
+/* ---------- chamada final ---------- */
+function ctaFinal() {
+  const tel = telHref();
+  return sec('contato', 'sec--escura final', null,
+    h('div', { class: 'final-in' },
+      h('h2', { id: 'contato-t' }, rich(fill(C.textos.ctaFinalTitulo))),
+      h('p', null, fill(C.textos.ctaFinalTexto)),
+      waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--claro btn--lg' }),
+      h('div', { class: 'final-contato' },
+        tel ? h('a', { href: tel }, icon('phone'), C.contato.telefone) : null,
+        C.contato.email ? h('a', { href: 'mailto:' + limpo(C.contato.email) }, icon('mail'), C.contato.email) : null)), 'escura');
+}
+
+/* ---------- rodapé ---------- */
+function rodape() {
+  const f = C.rodape, n = C.negocio, r = C.responsavel || {}, tel = telHref();
+  const redes = on('redes') ? [['instagram', C.links.instagram, 'Instagram'], ['linkedin', C.links.linkedin, 'LinkedIn']].filter(x => x[1]) : [];
+  const legal = [f.razaoSocial, f.cnpj ? 'CNPJ ' + f.cnpj : '', f.registroSociedade || ''].filter(Boolean);
+  if (!limpo(r.nome) || !limpo(r.oab)) console.error('[template] OAB: o rodapé precisa do nome e da inscrição na OAB do(a) responsável (CONFIG.responsavel).');
+  $('#rodape').append(h('div', { class: 'container' },
+    h('div', { class: 'rodape-grid' },
+      h('div', null, h('p', { class: 'logo' }, n.nome), f.frase ? h('p', null, f.frase) : null),
+      h('div', null, h('h2', null, 'Contato'), h('ul', null,
+        h('li', null, waIcon(), registra(h('a', { href: '#', target: '_blank', rel: 'noopener noreferrer' }, 'Falar pelo WhatsApp'))),
+        tel ? h('li', null, icon('phone'), h('a', { href: tel }, C.contato.telefone)) : null,
+        C.contato.email ? h('li', null, icon('mail'), h('a', { href: 'mailto:' + limpo(C.contato.email) }, C.contato.email)) : null,
+        redes.map(([ic, url, nome]) => h('li', null, icon(ic), h('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, nome, h('span', { class: 'vh' }, ' (abre em outra aba)')))))),
+      h('div', null, h('h2', null, 'Endereço e horário'), h('ul', null,
+        h('li', null, icon('pin'), h('span', null, enderecoLinhas())),
+        (C.horarios || []).length ? h('li', null, icon('clock'), h('span', { class: 'tnum' }, C.horarios.map((x, i) => [i ? h('br') : null, x.dias + ': ' + x.horas]))) : null,
+        h('li', null, icon('arrow'), h('a', { href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, 'Ver no mapa', h('span', { class: 'vh' }, ' (abre em outra aba)')))))),
+    h('p', { class: 'resp-rodape' }, h('span', null, 'Responsável: ', h('strong', null, r.nome || '[TROCAR] Nome do(a) advogado(a)')), h('span', { class: 'tnum' }, r.oab || '[TROCAR] OAB/UF 000.000')),
+    h('div', { class: 'rodape-legal' },
+      h('span', null, '© ' + new Date().getFullYear() + ' ' + (legal.length ? legal.join(' · ') : n.nome)),
+      f.credito ? h('span', null, f.creditoUrl ? h('a', { href: f.creditoUrl, target: '_blank', rel: 'noopener noreferrer' }, f.credito) : f.credito) : null)));
+}
+
+/* ---------- botão flutuante ---------- */
+function flutuante() {
+  if (!on('botaoFlutuante')) return;
+  const el = $('#flutuante'); el.hidden = false;
+  el.append(waIcon(), h('span', null, C.textos.botaoCurto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  registra(el);
+  const heroEl = $('#hero');
+  if ('IntersectionObserver' in window && heroEl) new IntersectionObserver(([e]) => { if (e.isIntersecting) el.removeAttribute('data-visivel'); else el.setAttribute('data-visivel', ''); }, { threshold: 0.2 }).observe(heroEl);
+  else el.setAttribute('data-visivel', '');
+}
+
+/* ---------- lightbox ---------- */
+let lbI = 0;
+function abrirLb(i) { const d = $('#lightbox'); lbI = i; mostrarLb(); if (!d.open) d.showModal(); }
+function mostrarLb() {
+  const d = $('#lightbox'), it = lbItens[lbI]; if (!it) return;
+  const img = $('img', d); img.width = it.w; img.height = it.h; img.src = it.src; img.alt = it.alt;
+  $('figcaption', d).textContent = it.legenda || '';
+  d.setAttribute('aria-label', 'Galeria de fotos, foto ' + (lbI + 1) + ' de ' + lbItens.length);
+}
+function iniciarLb() {
+  const d = $('#lightbox'), primeira = lbItens[0];
+  $('figure', d).prepend(h('img', { src: primeira.src, alt: primeira.alt, width: primeira.w, height: primeira.h, decoding: 'async' }));
+  $('[data-lb=x]', d).append(icon('close')); $('[data-lb=prev]', d).append(icon('prev')); $('[data-lb=next]', d).append(icon('next'));
+  const nav = k => { lbI = (lbI + k + lbItens.length) % lbItens.length; mostrarLb(); };
+  d.addEventListener('click', e => { const b = e.target.closest('[data-lb]'); if (b) { const k = b.dataset.lb; if (k === 'x') d.close(); else nav(k === 'next' ? 1 : -1); } else if (e.target === d) d.close(); });
+  d.addEventListener('keydown', e => { if (e.key === 'ArrowRight') nav(1); if (e.key === 'ArrowLeft') nav(-1); });
+  let x0 = null;
+  d.addEventListener('touchstart', e => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+  d.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) nav(dx < 0 ? 1 : -1); x0 = null; }, { passive: true });
+}
+
+/* ---------- SEO: head + JSON-LD ---------- */
+function metaSet(sel, attr, val) { const m = $(sel); if (m && val) m.setAttribute(attr, val); }
+function seo() {
+  const s = C.seo, titulo = fill(s.titulo), desc = fill(s.descricao);
+  document.title = titulo;
+  metaSet('meta[name="description"]', 'content', desc);
+  metaSet('meta[property="og:title"]', 'content', titulo);
+  metaSet('meta[property="og:description"]', 'content', desc);
+  metaSet('meta[property="og:site_name"]', 'content', C.negocio.nome);
+  if (s.urlSite) { metaSet('link[rel="canonical"]', 'href', s.urlSite); metaSet('meta[property="og:url"]', 'content', s.urlSite); }
+  if (s.imagemOg) metaSet('meta[property="og:image"]', 'content', s.imagemOg);
+}
+function jsonld() {
+  const n = C.negocio, abs = u => /^https?:\/\//.test(u || '') ? u : undefined, completo = on('jsonLdCompleto');
+  const horas = (C.horariosSchema || []).filter(x => x && x.abre && x.fecha && (x.dias || []).length)
+    .map(x => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: x.dias, opens: x.abre, closes: x.fecha }));
+  const advs = (C.advogados || []).filter(p => p && p.nome);
+  const o = {
+    '@context': 'https://schema.org', '@type': n.tipoSchema || 'LegalService',
+    name: n.nome, description: fill(C.seo.descricao), url: abs(C.seo.urlSite),
+    image: abs(C.seo.imagemOg) || abs(C.hero.foto),
+    telephone: numeroPendente ? undefined : '+' + numero,
+    email: C.contato.email ? limpo(C.contato.email) : undefined,
+    address: { '@type': 'PostalAddress', streetAddress: n.rua, addressLocality: n.cidade, addressRegion: n.uf, postalCode: n.cep, addressCountry: 'BR' },
+    geo: n.coordenadas ? { '@type': 'GeoCoordinates', latitude: n.coordenadas.lat, longitude: n.coordenadas.lng } : undefined,
+    areaServed: limpo(n.cidade) ? { '@type': 'City', name: n.cidade } : undefined,
+    hasMap: mapsUrl(),
+    openingHoursSpecification: horas.length ? horas : undefined,
+    sameAs: [C.links.instagram, C.links.linkedin].filter(Boolean),
+    knowsAbout: completo && on('areas') && areasAtivas().length ? areasAtivas().map(a => a.nome) : undefined,
+    employee: completo && on('advogados') && advs.length ? advs.map(p => ({ '@type': 'Person', name: p.nome, jobTitle: 'Advogado(a)', identifier: p.oab || undefined })) : undefined
+  };
+  if (!o.sameAs.length) delete o.sameAs;
+  const s = h('script', { type: 'application/ld+json' }); s.textContent = JSON.stringify(o); document.head.append(s);
+}
+
+/* ---------- comportamentos ---------- */
+function comportamentos() {
+  const t = $('#topo'), heroEl = $('#hero');
+  let rafId = 0;
+  const limite = () => (heroEl ? heroEl.offsetHeight - 72 : 24);
+  const atualiza = () => { rafId = 0; if (window.scrollY > limite()) t.setAttribute('data-solido', ''); else t.removeAttribute('data-solido'); };
+  atualiza();
+  addEventListener('scroll', () => { if (!rafId) rafId = requestAnimationFrame(atualiza); }, { passive: true });
+  addEventListener('resize', atualiza, { passive: true });
+  const els = document.querySelectorAll('.rev');
+  if ('IntersectionObserver' in window && !reduzMovimento && els.length) {
+    document.documentElement.classList.add('rev-on');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(el => io.observe(el));
+  }
+}
+
+/* ---------- pendências [TROCAR] ---------- */
+function pendencias() {
+  const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.parentElement && /^(SCRIPT|STYLE|NOSCRIPT|OPTION)$/.test(n.parentElement.tagName) ? NodeFilter.FILTER_REJECT : MARCA.test(n.nodeValue) ? (MARCA.lastIndex = 0, NodeFilter.FILTER_ACCEPT) : NodeFilter.FILTER_SKIP) });
+  const nos = []; while (w.nextNode()) nos.push(w.currentNode);
+  let total = 0;
+  nos.forEach(n => {
+    const partes = n.nodeValue.split(MARCA); total += partes.length - 1;
+    // ?limpo = prévia para o cliente: esconde as marcas. Sem prévia e sem ?limpo, o "[TROCAR]" aparece cru (alerta visível).
+    if (modoLimpo) { n.nodeValue = partes.join('').replace(/^\s+/, ''); return; }
+    if (!previa) return;
+    const f = document.createDocumentFragment();
+    partes.forEach((p, i) => { if (i) f.append(h('mark', { class: 'pend' }, 'Trocar')); if (p) f.append(p.replace(/^ /, i ? '' : ' ')); });
+    n.replaceWith(f);
+  });
+  if (modoLimpo) document.title = limpo(document.title);
+  const numPend = numeroPendente ? 1 : 0;
+  const fotos = document.querySelectorAll('img[data-pendente]').length;
+  if (total || fotos || numPend) {
+    console.warn('[template] Pendências antes de publicar →', { textos: total, fotos, whatsapp: numPend });
+    // Enquanto houver pendência, a página fica fora do Google (noindex). Some sozinho quando tudo for trocado.
+    document.head.append(h('meta', { name: 'robots', content: 'noindex, nofollow' }));
+  }
+  if (previa) {
+    let k = -1;
+    const bt = h('button', { type: 'button', class: 'previa', 'aria-label': 'Prévia do template: ir para a próxima pendência' }, h('i'),
+      h('span', null, 'Prévia: ' + total + ' [TROCAR] · ' + fotos + ' fotos' + (numPend ? ' · WhatsApp' : ''), h('span', { class: 'previa-longo' }, ' — toque para ir à próxima')));
+    bt.addEventListener('click', () => {
+      const m = [...document.querySelectorAll('mark.pend')]; if (!m.length) return;
+      document.querySelectorAll('.pend-foco').forEach(x => x.classList.remove('pend-foco'));
+      k = (k + 1) % m.length; const alvo = m[k];
+      alvo.scrollIntoView({ block: 'center', behavior: reduzMovimento ? 'auto' : 'smooth' });
+      alvo.parentElement && alvo.parentElement.classList.add('pend-foco');
+      setTimeout(() => alvo.parentElement && alvo.parentElement.classList.remove('pend-foco'), 1800);
+    });
+    document.body.append(bt);
+  }
+}
+
+/* ---------- montagem ---------- */
+function montar() {
+  aplicarTema(); seo();
+  const main = $('#conteudo');
+  const partes = [hero(), consultaRapida(), areas(), sobre(), primeiroAtendimento(), advogados(), galeria(), avaliacoes(), faq(), localizacao(), ctaFinal()].filter(Boolean);
+  let alt = false;
+  partes.forEach(p => { const t = p.dataset && p.dataset.tom; if (t === 'auto') { if (alt) p.classList.add('sec--tinta'); alt = !alt; } else if (t) alt = false; main.append(p); });
+  const nav = [['areas', 'areas'], ['atendimento', 'atendimento'], ['advogados', 'advogados'], ['perguntas', 'faq']]
+    .filter(([id]) => $('#' + id)).map(([id, k]) => ({ id, label: C.textos.nav[k] }));
+  cabecalho(nav); rodape(); flutuante();
+  if (lbItens.length) iniciarLb();
+  refreshWa(); jsonld(); comportamentos(); pendencias();
+}
+if (numeroPendente) console.warn('[template] CONFIG.whatsapp.numero ainda é o número de exemplo.');
+montar();
+})();
+</script>
+</body>
+</html>
+<!--
+=====================================================================
+CHECKLIST DE ADAPTAÇÃO POR CLIENTE — ADVOCACIA  (tudo no CONFIG, exceto o item 1)
+=====================================================================
+[ ] 1. <head> (estático, o WhatsApp/LinkedIn não rodam JS): <title>, meta description, canonical,
+       og:title, og:description, og:url, og:image (1200x630 com URL absoluta).
+[ ] 2. CONFIG.negocio: nome, cidade, uf, bairro, rua, cep.
+[ ] 3. CONFIG.responsavel: nome e OAB/UF — OBRIGATÓRIO.
+[ ] 4. CONFIG.whatsapp.numero (55 + DDD + número) e as duas mensagens.
+[ ] 5. CONFIG.contato, CONFIG.horarios (e horariosSchema, opcional), formaAtendimento, modalidades.
+[ ] 6. CONFIG.links: Instagram, LinkedIn, Google Maps, mapaEmbed.
+[ ] 7. CONFIG.cores: 4 HEX. Primária bem escura (marinho ou verde-escuro), secundária neutra clara.
+[ ] 8. CONFIG.textos: heroTitulo, heroSubtitulo e os demais com [TROCAR]. Sem promessa, sem juridiquês.
+[ ] 9. CONFIG.hero.foto + alt (real, vertical 1200x1500) — ou false para topo só com texto.
+[ ] 10. CONFIG.areas: atua true/false e texto informativo de cada área.
+[ ] 11. CONFIG.sobre (foto false por padrão), CONFIG.primeiroAtendimento (passos 2 e 3).
+[ ] 12. CONFIG.advogados: nome, OAB/UF, áreas, bio factual, foto (ou false).
+[ ] 13. CONFIG.galeria: poucas fotos reais do escritório (plano Intermediário em diante).
+[ ] 14. CONFIG.faq: online, sigilo, documentos, honorários (sem valores).
+[ ] 15. CONFIG.rodape: razão social, CNPJ, registro da sociedade na OAB (ou "" se autônomo), crédito.
+[ ] 16. CONFIG.planos.ativo = "basico" | "intermediario" | "completo". avaliacoes continua false.
+[ ] 17. Ctrl+F por "[TROCAR]": precisa dar ZERO resultados no CONFIG e no <head>.
+[ ] 18. Mostre ao cliente com ?limpo no fim do link (esconde as etiquetas amarelas).
+Obs.: enquanto houver [TROCAR], foto pendente ou WhatsApp de exemplo, a página se marca sozinha
+como noindex. Quando tudo estiver trocado, ela volta a ser indexável sem você mexer em nada.
+=====================================================================
+-->

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[TROCAR] Nome da Imobiliária — Imóveis à venda e para alugar em Cidade/UF</title>
+<meta name="description" content="[TROCAR] Imóveis à venda e para alugar em Cidade/UF. Veja fotos, valores e fale com um corretor pelo WhatsApp.">
+<meta name="theme-color" content="#1D4F6E">
+<link rel="canonical" href="https://[TROCAR]/">
+
+<!-- Open Graph: o WhatsApp e o Facebook NÃO executam JavaScript. Edite estas linhas à mão para cada cliente. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="[TROCAR] Nome da Imobiliária">
+<meta property="og:title" content="[TROCAR] Nome da Imobiliária — Imóveis em Cidade/UF">
+<meta property="og:description" content="[TROCAR] Imóveis à venda e para alugar em Cidade/UF. Fale com um corretor pelo WhatsApp.">
+<meta property="og:url" content="https://[TROCAR]/">
+<meta property="og:image" content="https://[TROCAR]/foto-compartilhamento-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231D4F6E'/%3E%3Cpath d='M16 32 32 18l16 14v15H38V37H26v10H16z' fill='%23FFFFFF'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Tokens. As 4 cores vêm do CONFIG.cores; o resto é derivado delas.
+   primaria = azul, verde ou terroso (botões, destaques). secundaria = tom claro de apoio (fundos).
+   ========================================================================== */
+:root{
+  --primaria:#1D4F6E; --secundaria:#EAF0F3; --fundo:#FFFFFF; --texto:#16212B;
+  --cta-texto:#FFFFFF;
+
+  --primaria-escura:color-mix(in oklab,var(--primaria) 72%,#000);
+  --superficie:color-mix(in oklab,var(--secundaria) 70%,var(--fundo));
+  --tinta:var(--texto);
+  --tinta-suave:color-mix(in oklab,var(--texto) 72%,var(--fundo));
+  --linha:color-mix(in oklab,var(--texto) 12%,var(--fundo));
+  --linha-forte:color-mix(in oklab,var(--texto) 28%,var(--fundo));
+  --foco:var(--primaria);
+
+  --display:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --max:1240px;
+  --sec:clamp(4rem,8vw,7rem);
+  --raio:14px;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem;accent-color:var(--primaria);color-scheme:light}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:400 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scrollbar-color:color-mix(in oklab,var(--primaria) 45%,var(--fundo)) var(--superficie)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.22em}
+button,input,select{font:inherit;color:inherit}
+::selection{background:var(--primaria);color:var(--cta-texto)}
+input,select{caret-color:var(--primaria)}
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:6px}
+section[id]{scroll-margin-top:4.75rem}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pular{position:fixed;left:1rem;top:-4rem;z-index:100;background:var(--tinta);color:var(--fundo);padding:.75rem 1.1rem;border-radius:10px;transition:top .2s var(--ease)}
+.pular:focus{top:1rem}
+.container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+.ico{display:inline-flex;width:1.2em;height:1.2em;flex:none}
+.ico svg{width:100%;height:100%}
+.tnum{font-variant-numeric:tabular-nums}
+
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;color:var(--tinta);letter-spacing:-.02em}
+h1 em,h2 em{font-style:normal;color:var(--primaria)}
+h2{font-size:clamp(1.85rem,1.25rem + 2.3vw,2.9rem);line-height:1.1}
+h3{font-size:1.15rem;line-height:1.3;letter-spacing:-.01em}
+p{text-wrap:pretty}
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3.1rem;padding:.75rem 1.4rem;border-radius:10px;border:1.5px solid transparent;font-family:var(--sans);font-weight:600;font-size:1rem;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;transition:background-color .2s var(--ease),color .2s,border-color .2s,transform .2s var(--ease)}
+.btn .ico{width:1.3em;height:1.3em}
+.btn--cta{background:var(--primaria);color:var(--cta-texto)}
+.btn--claro{background:var(--fundo);color:var(--primaria-escura)}
+.btn--linha{background:transparent;border-color:var(--linha-forte);color:var(--tinta)}
+.btn--sm{min-height:2.75rem;padding:.5rem 1rem;font-size:.95rem}
+.btn--lg{min-height:3.5rem;padding:.95rem 1.75rem;font-size:1.04rem}
+.btn--bloco{width:100%}
+.btn:active{transform:scale(.985)}
+@media (hover:hover){
+  .btn--cta:hover{background:var(--primaria-escura)}
+  .btn--claro:hover{background:var(--secundaria)}
+  .btn--linha:hover{border-color:var(--primaria);color:var(--primaria)}
+}
+.link-seta{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;color:var(--primaria);text-decoration:none;border:0;background:none;padding:.35rem 0;cursor:pointer;border-bottom:1.5px solid currentColor}
+.link-seta .ico{width:1em;height:1em;transition:transform .3s var(--ease)}
+@media (hover:hover){.link-seta:hover .ico{transform:translateX(4px)}}
+
+/* ==========================================================================
+   Cabeçalho
+   ========================================================================== */
+.topo{position:fixed;inset:0 0 auto 0;z-index:50;background:color-mix(in oklab,var(--fundo) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:box-shadow .3s var(--ease)}
+.topo[data-solido]{box-shadow:0 1px 0 var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.marca{display:flex;align-items:center;gap:.6rem;min-width:0;flex:1 1 auto;font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.marca .nome{overflow:hidden;text-overflow:ellipsis}
+.marca .selo{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;border-radius:9px;background:var(--primaria);color:var(--cta-texto)}
+.marca .selo .ico{width:1.15rem;height:1.15rem}
+.nav{display:none;gap:1.75rem;font-size:.97rem;font-weight:500}
+.nav a{text-decoration:none;color:var(--tinta-suave);padding:.4rem 0;border-bottom:1.5px solid transparent;transition:color .2s,border-color .2s}
+@media (hover:hover){.nav a:hover{color:var(--tinta);border-bottom-color:var(--primaria)}}
+.topo .btn{white-space:nowrap;flex:none}
+@media (max-width:380px){.marca{font-size:1rem}.marca .selo{display:none}.topo .btn--sm{padding-inline:.8rem;gap:.45rem}}
+@media (min-width:1080px){.nav{display:flex}.marca{flex:0 1 auto}}
+
+/* ==========================================================================
+   Hero — curto, para o catálogo aparecer logo
+   ========================================================================== */
+.hero{background:var(--superficie);padding-top:calc(4.25rem + clamp(2.25rem,5vw,4.5rem));padding-bottom:clamp(2.75rem,6vw,4.5rem)}
+.hero-in{display:grid;gap:1.4rem;justify-items:start}
+.hero h1{font-size:clamp(2.3rem,1.4rem + 3.8vw,4.2rem);line-height:1.04;letter-spacing:-.035em;max-width:19ch}
+.hero-lead{font-size:clamp(1.08rem,1rem + .35vw,1.22rem);color:var(--tinta-suave);max-width:46ch}
+.hero-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:.25rem}
+.atalhos{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}
+.hero-resp{font-size:.92rem;color:var(--tinta-suave)}
+@media (max-width:560px){.hero-acoes .btn--cta{width:100%}}
+@media (prefers-reduced-motion:no-preference){
+  .hero-in>*{animation:subir .8s var(--ease) both}
+  .hero-in>:nth-child(2){animation-delay:.08s}
+  .hero-in>:nth-child(3){animation-delay:.16s}
+  .hero-in>:nth-child(4){animation-delay:.24s}
+  @keyframes subir{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+}
+
+/* ==========================================================================
+   Seções
+   ========================================================================== */
+.sec{padding-block:var(--sec)}
+.sec--tinta{background:var(--superficie)}
+.sec--escura{background:var(--primaria);color:var(--cta-texto);--foco:var(--cta-texto)}
+.sec--escura h2{color:var(--cta-texto)}
+.sec-head{display:grid;gap:.9rem;max-width:46rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-head .lead{color:var(--tinta-suave);font-size:1.08rem;max-width:54ch}
+
+/* Filtros */
+.filtros-barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.5rem;margin-bottom:1.25rem}
+.abre-filtros{display:none}
+.abre-wrap{margin-bottom:1rem}
+@media (min-width:760px){.abre-wrap{display:none}}
+.vazio[hidden]{display:none}
+.filtros{display:grid;gap:1rem 1.25rem;padding:1.25rem;border:1px solid var(--linha);border-radius:var(--raio);background:var(--fundo);margin-bottom:1.5rem}
+.sec--tinta .filtros{border-color:transparent}
+.filtros-grid{display:grid;gap:1rem 1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));align-items:end}
+.filtros-grid>.grupo{grid-column:1/-1}
+@media (max-width:759px){.filtros-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.filtros-grid{grid-template-columns:minmax(16rem,1.3fr) repeat(5,minmax(0,1fr))}.filtros-grid>.grupo{grid-column:auto}}
+.campo{display:grid;gap:.35rem;min-width:0}
+.campo label,.grupo legend{font-size:.85rem;font-weight:600;color:var(--tinta)}
+.campo select{width:100%;min-width:0;min-height:2.9rem;padding:.5rem .8rem;background:var(--fundo);border:1.5px solid var(--linha-forte);border-radius:10px;transition:border-color .2s}
+.campo select:hover:not(:disabled){border-color:var(--primaria)}
+.campo select:disabled{opacity:.55;cursor:not-allowed}
+.grupo{border:0;margin:0;padding:0;min-width:0}
+.grupo legend{padding:0;margin-bottom:.35rem}
+.seg{display:flex;background:var(--superficie);border-radius:10px;padding:.25rem;gap:.25rem}
+.seg label{flex:1;position:relative}
+.seg input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:2.4rem;padding:.35rem .6rem;border-radius:8px;font-weight:500;font-size:.95rem;cursor:pointer;color:var(--tinta-suave);transition:background-color .2s,color .2s}
+.seg input:checked+span{background:var(--fundo);color:var(--tinta);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg input:focus-visible+span{outline:3px solid var(--foco);outline-offset:1px}
+.dica{font-size:.85rem;color:var(--tinta-suave);grid-column:1/-1}
+.contador{font-weight:600}
+.limpar{border:0;background:none;padding:.4rem 0;color:var(--primaria);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
+.limpar[hidden]{display:none}
+@media (max-width:759px){
+  .abre-filtros{display:inline-flex}
+  .filtros[data-fechado]{display:none}
+}
+
+/* Cartões de imóvel */
+.grade{display:grid;gap:clamp(1.5rem,3vw,2.25rem);grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr))}
+.imovel{display:flex;flex-direction:column;background:var(--fundo);border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
+.sec--tinta .imovel{border-color:transparent}
+@media (hover:hover){.imovel:hover{box-shadow:0 18px 36px -22px rgba(0,0,0,.35);transform:translateY(-2px)}}
+.imovel-foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--superficie);display:block;width:100%;border:0;padding:0;margin:0}
+button.imovel-foto{cursor:pointer}
+.imovel-foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+@media (hover:hover){button.imovel-foto:hover img{transform:scale(1.04)}}
+.selos{position:absolute;top:.75rem;left:.75rem;display:flex;flex-wrap:wrap;gap:.35rem}
+.selo-tag{display:inline-flex;align-items:center;min-height:1.6rem;padding:.15rem .6rem;border-radius:6px;font-size:.78rem;font-weight:600;letter-spacing:.02em;background:var(--fundo);color:var(--tinta)}
+.selo-tag--fin{background:var(--primaria);color:var(--cta-texto)}
+.selo-tag--status{background:var(--tinta);color:var(--fundo)}
+.imovel-corpo{display:flex;flex-direction:column;gap:.55rem;padding:1.15rem 1.25rem 1.25rem;flex:1}
+.valor{font-family:var(--display);font-weight:700;font-size:1.45rem;letter-spacing:-.01em;color:var(--tinta);font-variant-numeric:proportional-nums;font-feature-settings:"tnum" 0}
+.valor small{font-family:var(--sans);font-weight:500;font-size:.9rem;color:var(--tinta-suave);letter-spacing:0}
+.taxas{font-size:.88rem;color:var(--tinta-suave)}
+.imovel h3{font-family:var(--sans);font-weight:600;font-size:1.05rem;letter-spacing:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.local-tag{display:flex;align-items:center;gap:.4rem;font-size:.95rem;color:var(--tinta-suave)}
+.local-tag .ico{color:var(--primaria)}
+.carac{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;padding-block:.7rem;margin-block:.2rem;border-block:1px solid var(--linha);font-size:.93rem}
+.carac li{display:inline-flex;align-items:center;gap:.4rem}
+.carac .ico{color:var(--tinta-suave)}
+.ident{font-size:.82rem;color:var(--tinta-suave)}
+.imovel-acoes{display:grid;gap:.5rem;margin-top:auto;padding-top:.5rem}
+.imovel--indisp{opacity:.62}
+.imovel--indisp .imovel-foto img{filter:grayscale(.8)}
+.indisp-txt{font-weight:600;color:var(--tinta-suave);text-align:center;padding:.6rem;border:1.5px dashed var(--linha-forte);border-radius:10px}
+.exemplo{font-size:.8rem;color:var(--tinta-suave)}
+
+/* Vazio */
+.vazio{display:grid;justify-items:center;gap:1rem;text-align:center;padding:clamp(2.5rem,6vw,4rem) 1.5rem;border:1.5px dashed var(--linha-forte);border-radius:var(--raio);background:var(--fundo)}
+.vazio h3{font-size:1.4rem}
+.vazio p{color:var(--tinta-suave);max-width:44ch}
+
+/* Destaques */
+.destaques{display:grid;gap:clamp(1.5rem,3vw,2.25rem);grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr))}
+.destaques .imovel-foto{aspect-ratio:16/10}
+.destaques .valor{font-size:1.7rem}
+
+/* Detalhe do imóvel */
+.detalhe{border:0;padding:0;width:min(1120px,100% - 2rem);max-width:none;max-height:92vh;border-radius:18px;background:var(--fundo);color:var(--tinta);overflow:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.detalhe::backdrop{background:rgba(10,16,22,.62)}
+.det-topo{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 1rem .75rem 1.5rem;background:color-mix(in oklab,var(--fundo) 94%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+.det-topo .ident{font-size:.9rem}
+.fechar{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:50%;border:1px solid var(--linha-forte);background:var(--fundo);cursor:pointer;flex:none}
+.fechar:hover{border-color:var(--primaria)}
+.det-grid{display:grid;gap:1.5rem 2.5rem;padding:1.5rem}
+@media (min-width:900px){.det-grid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);padding:2rem}}
+.galeria-det{display:grid;gap:.6rem;align-content:start}
+.gal-principal{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--superficie)}
+.gal-principal img{width:100%;height:100%;object-fit:cover}
+.gal-nav{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:50%;border:0;background:color-mix(in oklab,var(--fundo) 90%,transparent);color:var(--tinta);cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.gal-nav--ant{left:.75rem}.gal-nav--prox{right:.75rem}
+.gal-cont{position:absolute;right:.75rem;bottom:.75rem;padding:.2rem .6rem;border-radius:6px;background:rgba(0,0,0,.6);color:#fff;font-size:.82rem}
+.miniaturas{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.25rem;scrollbar-width:thin}
+.mini{flex:none;width:5.5rem;aspect-ratio:4/3;border-radius:8px;overflow:hidden;border:2px solid transparent;padding:0;background:var(--superficie);cursor:pointer;opacity:.75;transition:opacity .2s,border-color .2s}
+.mini img{width:100%;height:100%;object-fit:cover}
+.mini[aria-current="true"]{border-color:var(--primaria);opacity:1}
+.det-info{display:grid;gap:1rem;align-content:start}
+.det-info h2{font-size:clamp(1.4rem,1.2rem + .8vw,1.9rem)}
+.det-info .valor{font-size:2rem}
+.det-carac{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 1rem;padding:1rem 0;border-block:1px solid var(--linha)}
+.det-carac div{display:flex;align-items:center;gap:.55rem}
+.det-carac .ico{color:var(--primaria);width:1.35rem;height:1.35rem}
+.det-desc{color:var(--tinta-suave)}
+.det-local{display:grid;gap:.75rem;padding-top:.5rem}
+.det-local h3{font-size:1rem}
+.det-mapa{aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--superficie)}
+.det-mapa iframe{width:100%;height:100%;border:0;display:block}
+.det-acoes{display:grid;gap:.6rem}
+@media (max-width:640px){
+  .detalhe{width:100%;max-height:none;height:100%;border-radius:0}
+  .det-acoes{position:sticky;bottom:0;background:var(--fundo);padding:.75rem 0;margin-inline:-1.5rem;padding-inline:1.5rem;border-top:1px solid var(--linha)}
+}
+
+/* Como funciona */
+.passos{display:grid;gap:1rem}
+.passo{display:grid;gap:.6rem;align-content:start;padding:1.6rem;border-radius:var(--raio);background:var(--superficie)}
+.sec--tinta .passo{background:var(--fundo)}
+.passo-n{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--primaria);color:var(--cta-texto);font-family:var(--display);font-weight:700;margin-bottom:.35rem}
+.passo p{color:var(--tinta-suave);max-width:36ch}
+@media (min-width:860px){.passos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Proprietário */
+.dono{display:grid;gap:1.5rem 3rem;align-items:center}
+.dono p{color:color-mix(in oklab,var(--cta-texto) 85%,transparent);max-width:52ch;font-size:1.08rem}
+@media (min-width:900px){.dono{grid-template-columns:minmax(0,1.4fr) auto}}
+
+/* Sobre */
+.sobre-grid{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
+.sobre-foto{aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;max-width:24rem;background:var(--superficie)}
+.sobre-foto img{width:100%;height:100%;object-fit:cover}
+.sobre-texto{display:grid;gap:1.1rem;max-width:58ch}
+.sobre-texto p{color:var(--tinta-suave);font-size:1.08rem}
+.creci{display:inline-flex;gap:.5rem;align-items:center;padding:.5rem .9rem;border-radius:8px;background:var(--superficie);font-weight:600;width:fit-content}
+.sec--tinta .creci{background:var(--fundo)}
+.creci .ico{color:var(--primaria)}
+@media (min-width:900px){.sobre-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr)}}
+
+/* Bairros */
+.bairros{display:flex;flex-wrap:wrap;gap:.6rem}
+.bairro{display:inline-flex;align-items:center;gap:.45rem;min-height:2.75rem;padding:.45rem 1.05rem;border-radius:999px;border:1.5px solid var(--linha-forte);background:var(--fundo);font-weight:500;color:var(--tinta)}
+button.bairro{cursor:pointer;transition:border-color .2s,color .2s}
+@media (hover:hover){button.bairro:hover{border-color:var(--primaria);color:var(--primaria)}}
+.bairro .ico{color:var(--primaria)}
+
+/* Avaliações */
+.avals{display:grid;gap:clamp(1rem,3vw,1.75rem);grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.aval{display:grid;gap:1.1rem;align-content:space-between;padding:1.5rem;border:1px solid var(--linha);border-radius:var(--raio);background:var(--fundo)}
+.aval blockquote{font-size:1.06rem}
+.aval cite{font-style:normal;font-size:.93rem;color:var(--tinta-suave)}
+
+/* FAQ */
+.faq-grid{display:grid;gap:2rem clamp(2rem,6vw,5rem)}
+@media (min-width:960px){.faq-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);align-items:start}.faq-grid .sec-head{margin-bottom:0;position:sticky;top:6.5rem}}
+.faq-lista{border-bottom:1px solid var(--linha-forte)}
+.faq-lista details{border-top:1px solid var(--linha-forte)}
+.faq-lista summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;min-height:3.6rem;padding-block:1rem;font-weight:600;font-size:1.06rem}
+.faq-lista summary::-webkit-details-marker{display:none}
+.faq-lista summary::after{content:"";flex:none;width:1rem;height:1rem;background:
+  linear-gradient(var(--primaria),var(--primaria)) center/100% 2px no-repeat,
+  linear-gradient(var(--primaria),var(--primaria)) center/2px 100% no-repeat;transition:transform .4s var(--ease)}
+.faq-lista details[open] summary::after{transform:rotate(135deg)}
+@media (hover:hover){.faq-lista summary:hover{color:var(--primaria)}}
+.faq-resp{padding:0 2.5rem 1.3rem 0;color:var(--tinta-suave);max-width:62ch}
+
+/* Localização */
+.local{display:grid;gap:clamp(2rem,5vw,4rem)}
+@media (min-width:960px){.local{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}}
+.dados{display:grid}
+.dados>div{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;padding-block:1.05rem;border-top:1px solid var(--linha)}
+.dados>div:last-child{border-bottom:1px solid var(--linha)}
+.dados .ico{width:1.4rem;height:1.4rem;color:var(--primaria);grid-row:span 2;margin-top:.1rem}
+.dados dt{font-weight:600}
+.dados dd{color:var(--tinta-suave)}
+.horas{display:grid;gap:.2rem}
+.horas>span{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;max-width:24rem}
+.local-acoes{margin-top:1.75rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.mapa{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--superficie);display:grid;place-items:center;text-align:center;padding:1.25rem;color:var(--tinta-suave)}
+.sec--tinta .mapa{background:var(--fundo)}
+.mapa--vazio{border:1.5px dashed var(--linha-forte)}
+.mapa:has(iframe){padding:0}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+@media (max-width:959px){.mapa{aspect-ratio:1/1}}
+
+/* Chamada final */
+.final-in{display:grid;gap:1.4rem;justify-items:start}
+.final h2{font-size:clamp(2rem,1.3rem + 3vw,3.6rem);line-height:1.06;max-width:18ch}
+.final p{max-width:48ch;font-size:1.1rem;color:color-mix(in oklab,var(--cta-texto) 85%,transparent)}
+.final-contato{display:flex;flex-wrap:wrap;gap:.5rem 2rem}
+.final-contato a{display:inline-flex;gap:.5rem;align-items:center}
+
+/* Rodapé (com CRECI do responsável) */
+.rodape{background:var(--texto);color:color-mix(in oklab,var(--fundo) 82%,transparent);padding-block:clamp(3rem,6vw,4.5rem) 2rem;font-size:.97rem;--foco:var(--fundo)}
+.rodape-grid{display:grid;gap:2.25rem clamp(2rem,5vw,4rem)}
+@media (min-width:860px){.rodape-grid{grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,4fr)}}
+.rodape .logo{font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--fundo);margin-bottom:.6rem;letter-spacing:-.02em}
+.rodape h2{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fundo);margin-bottom:.9rem;line-height:1.3}
+.rodape ul{display:grid;gap:.55rem}
+.rodape li{display:flex;gap:.6rem;align-items:flex-start}
+.rodape .ico{width:1.1em;height:1.1em;margin-top:.25em}
+.rodape a{text-decoration-color:color-mix(in oklab,var(--fundo) 40%,transparent)}
+@media (hover:hover){.rodape a:hover{text-decoration-color:currentColor}}
+.creci-rodape{margin-top:clamp(2.25rem,5vw,3.25rem);padding:1rem 1.2rem;border:1px solid color-mix(in oklab,var(--fundo) 22%,transparent);border-radius:12px;display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;color:var(--fundo)}
+.rodape-legal{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;font-size:.88rem;color:color-mix(in oklab,var(--fundo) 72%,transparent)}
+
+/* Botão flutuante (celular) */
+.flutuante{position:fixed;z-index:60;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .6s var(--ease);box-shadow:0 14px 28px -12px rgba(0,0,0,.5);border-radius:999px}
+.flutuante[data-visivel]{transform:none}
+@media (min-width:900px){.flutuante{display:none}}
+@media (max-width:899px){.rodape{padding-bottom:6rem}}
+
+/* Entrada ao rolar */
+.rev-on .rev{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i,0)*60ms)}
+.rev-on .rev.in{opacity:1;transform:none}
+@media print{.rev-on .rev{opacity:1!important;transform:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rev-on .rev{opacity:1;transform:none}}
+
+/* ==========================================================================
+   Ferramentas de prévia (somem com ?limpo ou modoPrevia:false)
+   ========================================================================== */
+.pend{display:inline-block;margin-right:.45em;padding:.18em .5em .14em;border-radius:5px;background:#ffe36e;color:#1b1b1b;font:700 .6rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;vertical-align:.2em;font-style:normal;white-space:nowrap}
+.previa{position:fixed;z-index:90;left:max(.75rem,env(safe-area-inset-left));bottom:max(.75rem,env(safe-area-inset-bottom));display:flex;gap:.6rem;align-items:center;max-width:calc(100vw - 1.5rem);padding:.6rem .9rem;border:0;border-radius:12px;background:#17201f;color:#fff;font:600 .78rem/1.25 var(--sans);cursor:pointer;text-align:left;box-shadow:0 10px 24px -8px rgba(0,0,0,.5)}
+.previa i{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:#ffe36e}
+.previa:focus-visible{outline-color:#ffe36e}
+@media (max-width:600px){.previa-longo{display:none}}
+@media (max-width:899px){.previa{bottom:calc(max(1rem,env(safe-area-inset-bottom)) + 4.5rem)}}
+.pend-foco{outline:3px solid #ffe36e;outline-offset:6px;border-radius:6px}
+</style>
+</head>
+
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" id="topo"></header>
+<main id="conteudo"></main>
+<footer class="rodape" id="rodape"></footer>
+
+<a class="btn btn--cta btn--lg flutuante" id="flutuante" target="_blank" rel="noopener noreferrer" hidden></a>
+
+<dialog class="detalhe" id="detalhe" aria-labelledby="det-titulo"></dialog>
+
+<noscript>
+  <p style="padding:2rem;font-family:sans-serif">[TROCAR] Este site precisa de JavaScript para mostrar os imóveis. Fale com um corretor pelo WhatsApp: (00) 00000-0000. CRECI 00000-J.</p>
+</noscript>
+
+<script>
+/* ==========================================================================
+   CONFIG — TUDO que muda de cliente fica aqui. Procure por [TROCAR].
+   Dica: no título, *palavra* ganha a cor primária.
+   Tokens aceitos nos textos: {nome} {cidade} {uf}
+
+   PUBLICIDADE IMOBILIÁRIA (já respeitada pelo template — mantenha nos textos do cliente):
+   - todo anúncio mostra valor (ou "Consulte") e o CRECI do responsável;
+   - nada de "melhor preço", "abaixo do mercado", "valorização garantida", "imperdível";
+   - nada de promessa de financiamento aprovado (condições só se o cliente informar por escrito);
+   - fotos só as do cliente; endereço completo só se ele autorizar (enderecoRestrito: false).
+   ========================================================================== */
+const CONFIG = {
+
+  /* Prévia: mostra a etiqueta amarela [TROCAR] e o contador de pendências.
+     Para mostrar ao cliente sem as etiquetas, abra o link com ?limpo no final. */
+  modoPrevia: true,
+
+  negocio: {
+    nome: "[TROCAR] Nome da Imobiliária",
+    nicho: "Imobiliária",
+    cidade: "[TROCAR] Cidade",
+    uf: "[TROCAR] UF",
+    bairro: "[TROCAR] Bairro",
+    rua: "[TROCAR] Rua Exemplo, 000 — sala 00",
+    cep: "[TROCAR] 00000-000",
+    coordenadas: null
+  },
+
+  /* OBRIGATÓRIO: responsável e CRECI. Aparece em todo anúncio e no rodapé.
+     Imobiliária = CRECI com "J"; corretor autônomo = CRECI com "F". */
+  responsavel: {
+    nome: "[TROCAR] Nome do corretor responsável",
+    creci: "[TROCAR] CRECI 00000-J",
+    uf: "[TROCAR] UF"
+  },
+
+  contato: {
+    telefone: "[TROCAR] (00) 0000-0000",
+    email: "[TROCAR] contato@seudominio.com.br"
+  },
+
+  whatsapp: {
+    numero: "5500000000000",         // [TROCAR] só dígitos, com 55 + DDD + número
+    mensagem: "[TROCAR] Olá! Vi o site da {nome} e gostaria de falar com um corretor.",
+    // Tokens do imóvel: {codigo} {titulo} {link}
+    mensagemImovel: "[TROCAR] Olá! Tenho interesse no imóvel {codigo} — {titulo}. Pode me passar mais informações? {link}",
+    // {busca} vira o resumo dos filtros (ex.: "apartamento para alugar no Centro, com 2+ quartos")
+    mensagemBusca: "[TROCAR] Olá! Procuro {busca} e não encontrei no site. Pode me avisar quando tiver algo assim?",
+    mensagemProprietario: "[TROCAR] Olá! Tenho um imóvel e gostaria de saber como anunciar com a {nome}."
+  },
+
+  horarios: [
+    { dias: "[TROCAR] Segunda a sexta", horas: "[TROCAR] 9h às 18h" },
+    { dias: "[TROCAR] Sábado", horas: "[TROCAR] 9h às 13h" }
+  ],
+  horariosSchema: [],              // opcional, só para o Google. Ex.: [{ dias:["Monday"], abre:"09:00", fecha:"18:00" }]
+
+  links: {
+    instagram: "",                   // [TROCAR] (vazio = não mostra)
+    googleMaps: "",                  // [TROCAR] link do Maps da imobiliária. Vazio = busca pelo endereço
+    mapaEmbed: ""                    // [TROCAR] só a URL do src do iframe "Incorporar mapa"
+  },
+
+  seo: {
+    titulo: "[TROCAR] Nome da Imobiliária — Imóveis à venda e para alugar em {cidade}/{uf}",
+    descricao: "[TROCAR] Imóveis à venda e para alugar em {cidade}/{uf}. Veja fotos, valores e fale com um corretor pelo WhatsApp.",
+    urlSite: "",                     // [TROCAR] https://www.dominio.com.br/ — também vira o link do imóvel na mensagem
+    imagemOg: ""
+  },
+
+  /* Cores em HEX. Sugestões (copie e cole):
+     AZUL    → primaria #1D4F6E  secundaria #EAF0F3  fundo #FFFFFF  texto #16212B
+     VERDE   → primaria #2F5D50  secundaria #E8EFEC  fundo #FFFFFF  texto #17221F
+     TERROSO → primaria #8A4B2F  secundaria #F3ECE6  fundo #FFFFFF  texto #241A15
+     A primária recebe texto branco por cima: precisa ser escura. A secundária é um tom bem claro. */
+  cores: { primaria: "#1D4F6E", secundaria: "#EAF0F3", fundo: "#FFFFFF", texto: "#16212B" },
+
+  textos: {
+    /* Tom confiável e objetivo. Sem "imperdível", sem pressa, sem promessa. */
+    heroTitulo: "[TROCAR] Imóveis para comprar e alugar em *{cidade}*",
+    heroSubtitulo: "[TROCAR] Veja fotos, valores e características. Gostou de um? Fale com um corretor pelo WhatsApp.",
+    botaoPrincipal: "Falar com um corretor pelo WhatsApp",
+    botaoCurto: "Falar com corretor",
+    botaoImovel: "Tenho interesse neste imóvel",
+    botaoDetalhe: "Ver detalhes",
+    atalhoVenda: "Ver imóveis à venda",
+    atalhoAluguel: "Ver imóveis para alugar",
+    nav: { catalogo: "Imóveis", comoFunciona: "Como funciona", anunciar: "Anunciar", faq: "Dúvidas" },
+
+    destaquesTitulo: "Destaques da *semana*",
+    destaquesIntro: "[TROCAR] Imóveis escolhidos pela equipe esta semana.",
+
+    catalogoTitulo: "Imóveis *disponíveis*",
+    catalogoIntro: "[TROCAR] Use os filtros para encontrar o que procura.",
+    vazioTitulo: "Nenhum imóvel com esses filtros",
+    vazioTexto: "Conte o que você procura. A gente avisa quando entrar algo assim.",
+    vazioBotao: "Me avise quando tiver algo assim",
+    catalogoVazioTitulo: "Catálogo em atualização",
+    catalogoVazioTexto: "[TROCAR] Fale com um corretor e conte o que você procura.",
+
+    comoFuncionaTitulo: "Como *funciona*",
+    comoFuncionaIntro: "Para quem quer comprar ou alugar.",
+
+    donoTitulo: "Quer vender ou alugar seu imóvel?",
+    donoTexto: "[TROCAR] Fale com a equipe para saber como funciona a avaliação e a divulgação do seu imóvel.",
+    donoBotao: "Quero anunciar meu imóvel",
+
+    sobreTitulo: "[TROCAR] Sobre a *imobiliária*",
+    bairrosTitulo: "Bairros *atendidos*",
+    bairrosIntro: "[TROCAR] Regiões onde a imobiliária atua.",
+
+    avaliacoesTitulo: "O que dizem os *clientes*",
+    avaliacoesIntro: "Relatos publicados com autorização.",
+
+    faqTitulo: "Dúvidas *frequentes*",
+    faqIntro: "Não encontrou sua dúvida? Pergunte pelo WhatsApp.",
+    faqBotao: "Perguntar pelo WhatsApp",
+
+    localTitulo: "Onde *estamos*",
+
+    ctaFinalTitulo: "Não achou o que procura?",
+    ctaFinalTexto: "[TROCAR] Conte o tipo de imóvel, o bairro e o valor que você imagina. Um corretor responde pelo WhatsApp."
+  },
+
+  /* ---- CATÁLOGO ----------------------------------------------------------- */
+  catalogo: {
+    indisponiveis: "ocultar",        // "ocultar" tira vendidos/alugados do site | "mostrar" mantém como indisponível
+    /* Opções do filtro de valor (em reais) para cada finalidade. */
+    faixasValor: {
+      venda: [200000, 300000, 400000, 500000, 700000, 1000000, 1500000],
+      aluguel: [1000, 1500, 2000, 3000, 4000, 6000, 8000]
+    }
+  },
+
+  /* Imóveis. NÃO invente nada: tudo vem do cliente. Os 3 itens abaixo são EXEMPLOS (exemplo: true)
+     e aparecem com a etiqueta [TROCAR] — apague-os ou substitua pelos imóveis reais.
+     finalidade: "venda" | "aluguel"   tipo: "casa" | "apartamento" | "terreno" | "sala comercial"
+     valor: número em reais, ou null para mostrar "Consulte"     condominio / iptu: número ou null
+     status: "disponivel" | "reservado" | "vendido" | "alugado"
+     enderecoRestrito: true = mostra só o bairro. false = mostra o endereço e o mapa (se houver).
+     fotos: [{ src: "url", alt: "descrição" }] — 1200×900 (4:3). Lista vazia = placeholder. */
+  imoveis: [
+    { exemplo: true, codigo: "AP-101", titulo: "[TROCAR] Apartamento de 2 quartos com varanda",
+      finalidade: "venda", tipo: "apartamento", bairro: "[TROCAR] Bairro A", cidade: "[TROCAR] Cidade",
+      valor: null, condominio: null, iptu: null,
+      quartos: 2, suites: 1, banheiros: 2, vagas: 1, area: 68,
+      descricao: "[TROCAR] Descreva o imóvel em duas ou três frases objetivas: andar, posição do sol, o que tem por perto.",
+      fotos: [], destaque: true, status: "disponivel",
+      enderecoRestrito: true, endereco: "", mapaEmbed: "" },
+    { exemplo: true, codigo: "CA-205", titulo: "[TROCAR] Casa térrea com quintal",
+      finalidade: "aluguel", tipo: "casa", bairro: "[TROCAR] Bairro B", cidade: "[TROCAR] Cidade",
+      valor: null, condominio: null, iptu: null,
+      quartos: 3, suites: 1, banheiros: 2, vagas: 2, area: 140,
+      descricao: "[TROCAR] Descreva o imóvel em duas ou três frases objetivas.",
+      fotos: [], destaque: true, status: "disponivel",
+      enderecoRestrito: true, endereco: "", mapaEmbed: "" },
+    { exemplo: true, codigo: "SL-310", titulo: "[TROCAR] Sala comercial no centro",
+      finalidade: "aluguel", tipo: "sala comercial", bairro: "[TROCAR] Centro", cidade: "[TROCAR] Cidade",
+      valor: null, condominio: null, iptu: null,
+      quartos: 0, suites: 0, banheiros: 1, vagas: 1, area: 40,
+      descricao: "[TROCAR] Descreva o imóvel em duas ou três frases objetivas.",
+      fotos: [], destaque: false, status: "reservado",
+      enderecoRestrito: true, endereco: "", mapaEmbed: "" }
+  ],
+
+  /* "Como funciona" para quem compra ou aluga. */
+  comoFunciona: [
+    { titulo: "Você escolhe", texto: "Veja os imóveis no site e chame no WhatsApp com o código do que gostou." },
+    { titulo: "Agendamos a visita", texto: "[TROCAR] Explique como a visita é marcada e quem acompanha." },
+    { titulo: "Cuidamos da documentação", texto: "[TROCAR] Explique o que a imobiliária faz na parte de contrato e documentos." }
+  ],
+
+  sobre: {
+    paragrafos: [
+      "[TROCAR] Conte em duas ou três frases quem é a imobiliária ou o corretor e como trabalha.",
+      "[TROCAR] Diga como o cliente é acompanhado: da primeira visita até a entrega das chaves."
+    ],
+    foto: "", alt: "[TROCAR] Descreva a foto: ex. o corretor na frente da imobiliária"   // foto: false = sem foto
+  },
+
+  /* Bairros atendidos. Se o bairro tiver imóvel no catálogo, o botão filtra a lista. */
+  bairros: ["[TROCAR] Bairro A", "[TROCAR] Bairro B", "[TROCAR] Centro", "[TROCAR] Bairro D"],
+
+  /* Depoimentos REAIS, com autorização. Lista vazia = a seção some. */
+  avaliacoes: [],
+
+  faq: [
+    { p: "Quais documentos preciso para comprar ou alugar?",
+      r: "[TROCAR] Liste os documentos básicos para compra e para locação e diga que o corretor confirma o resto." },
+    { p: "Vocês ajudam com o financiamento?",
+      r: "[TROCAR] Explique se a imobiliária acompanha o processo com o banco. Não prometa aprovação nem cite taxas." },
+    { p: "Como agendo uma visita?",
+      r: "[TROCAR] Explique que é só mandar o código do imóvel pelo WhatsApp e quais horários vocês atendem." },
+    { p: "Qual é a taxa de administração para quem aluga o imóvel?",
+      r: "[TROCAR] Explique como funciona a administração do aluguel para o proprietário (sem citar valores, se preferir)." },
+    { p: "Quais garantias de aluguel vocês aceitam?",
+      r: "[TROCAR] Liste as garantias aceitas: fiador, seguro-fiança, caução, título de capitalização." }
+  ],
+
+  rodape: {
+    frase: "[TROCAR] Uma frase curta sobre a imobiliária.",
+    razaoSocial: "[TROCAR] Razão social Ltda.",
+    cnpj: "[TROCAR] 00.000.000/0000-00",
+    credito: "Site por JL Devs",     // "" remove
+    creditoUrl: ""                   // [TROCAR] link do seu portfólio (vazio = só texto)
+  },
+
+  /* ---- PLANOS --------------------------------------------------------------
+     planos.ativo escolhe o pacote. Cada módulo em "modulos" pode ser:
+       null  = segue o plano ativo      true = força ligado      false = força desligado
+     limiteImoveis: quantos imóveis o catálogo mostra (0 = sem limite).                       */
+  planos: {
+    ativo: "completo",               // "basico" | "intermediario" | "completo"
+    presets: {
+      basico:        { limiteImoveis: 6, catalogo:true, filtros:false, detalhe:false, comoFunciona:true, sobre:true, bairros:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       destaques:false, proprietario:false, mapaImovel:false, mapa:false, instagram:false, avaliacoes:false, jsonLdImoveis:false },
+      intermediario: { limiteImoveis: 0, catalogo:true, filtros:true, detalhe:true, comoFunciona:true, sobre:true, bairros:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       mapa:true, instagram:true, jsonLdImoveis:true,
+                       destaques:false, proprietario:false, mapaImovel:false, avaliacoes:false },
+      completo:      { limiteImoveis: 0, catalogo:true, filtros:true, detalhe:true, comoFunciona:true, sobre:true, bairros:true, faq:true, localizacao:true, botaoFlutuante:true,
+                       mapa:true, instagram:true, jsonLdImoveis:true,
+                       destaques:true, proprietario:true, mapaImovel:true, avaliacoes:true }
+    },
+    modulos: {
+      limiteImoveis: null,
+      catalogo: null, filtros: null, detalhe: null, destaques: null, proprietario: null, mapaImovel: null,
+      comoFunciona: null, sobre: null, bairros: null, avaliacoes: null, faq: null, localizacao: null,
+      mapa: null, instagram: null, jsonLdImoveis: null, botaoFlutuante: null
+    }
+  }
+};
+
+/* ==========================================================================
+   A partir daqui é o motor do template. Normalmente não precisa mexer.
+   ========================================================================== */
+(function () {
+'use strict';
+const C = CONFIG;
+const $ = (s, r = document) => r.querySelector(s);
+const MARCA = /\[TROCAR\]/g;
+const limpo = s => String(s == null ? '' : s).replace(MARCA, '').replace(/\s+/g, ' ').trim();
+const reduzMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const params = new URLSearchParams(location.search);
+const modoLimpo = params.has('limpo');
+const previa = C.modoPrevia && !modoLimpo;
+const waLinks = [];
+const filtro = { fin: 'todos', tipo: '', bairro: '', quartos: 0, min: 0, max: 0 };
+
+/* ---------- ícones (traço único, 1.6) ---------- */
+const ICONS = {
+  casa: '<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/><path d="M10 20v-5.5h4V20"/>',
+  cama: '<path d="M3 18V7M3 14h18v4M21 14v-2.5A2.5 2.5 0 0 0 18.5 9H11v5"/><circle cx="7" cy="11" r="1.7"/>',
+  banho: '<path d="M4 12h16v2.5A4.5 4.5 0 0 1 15.5 19h-7A4.5 4.5 0 0 1 4 14.5V12z"/><path d="M6 12V6.5A2.5 2.5 0 0 1 8.5 4c1.2 0 2.2.8 2.4 2"/><path d="M7 19l-1 2M17 19l1 2"/>',
+  vaga: '<path d="M4 15.5V12l1.8-4.6A2 2 0 0 1 7.7 6h8.6a2 2 0 0 1 1.9 1.4L20 12v3.5"/><path d="M3 15.5h18V18a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2.5z"/><path d="M4.5 12h15"/>',
+  area: '<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><path d="M8 8l8 8M16 8l-8 8" opacity="0"/>',
+  suite: '<path d="M4 20V5a1 1 0 0 1 1-1h8v16"/><path d="M13 9h6v11"/><path d="M10 12.5h.01"/>',
+  pin: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  filtro: '<path d="M4 6h16M7 12h10M10 18h4"/>',
+  selo: '<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M8.8 12.2l2.2 2.2 4.3-4.6"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  close: '<path d="M6 6l12 12M18 6L6 18"/>',
+  prev: '<path d="M15 5l-7 7 7 7"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".7" fill="currentColor"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7.5l8 6 8-6"/>',
+  phone: '<path d="M5 4h3.5l1.5 4-2 1.3a11 11 0 0 0 5.7 5.7L15 13l4 1.5V18a2 2 0 0 1-2 2A13 13 0 0 1 3 6a2 2 0 0 1 2-2z"/>'
+};
+const WA_PATH = 'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z';
+
+/* ---------- construtor de DOM (escapa tudo, sem innerHTML com dados) ---------- */
+function add(el, kids) { kids.flat(Infinity).forEach(k => { if (k == null || k === false) return; el.append(k instanceof Node ? k : document.createTextNode(k)); }); }
+function h(tag, attrs, ...kids) {
+  const el = document.createElement(tag);
+  if (attrs) for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
+    if (k === 'html') el.innerHTML = v;
+    else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? '' : v);
+  }
+  add(el, kids); return el;
+}
+const icon = (n, cls) => h('span', { class: 'ico' + (cls ? ' ' + cls : ''), 'aria-hidden': 'true',
+  html: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ICONS.arrow}</svg>` });
+const waIcon = () => h('span', { class: 'ico', 'aria-hidden': 'true', html: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${WA_PATH}"/></svg>` });
+
+/* ---------- textos ---------- */
+function vals() { const n = C.negocio; return { nome: limpo(n.nome), cidade: limpo(n.cidade), uf: limpo(n.uf) }; }
+function fill(str, extra) {
+  const v = Object.assign(vals(), extra || {});
+  return String(str == null ? '' : str).replace(/\{(\w+)\}/g, (m, k) => (k in v ? limpo(v[k]) : m));
+}
+function rich(s) {
+  const f = document.createDocumentFragment();
+  String(s).split(/(\*[^*]+\*)/).forEach(p => {
+    if (/^\*[^*]+\*$/.test(p)) f.append(h('em', null, p.slice(1, -1)));
+    else if (p) f.append(p);
+  });
+  return f;
+}
+
+/* ---------- módulos (flags dos planos) ---------- */
+function valorModulo(mod) {
+  const v = C.planos.modulos[mod];
+  if (v !== null && v !== undefined) return v;
+  return (C.planos.presets[C.planos.ativo] || {})[mod];
+}
+const on = mod => !!valorModulo(mod);
+
+/* ---------- formatação ---------- */
+const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+const numOk = v => typeof v === 'number' && isFinite(v) && v > 0;
+const TIPOS = { 'casa': 'Casa', 'apartamento': 'Apartamento', 'terreno': 'Terreno', 'sala comercial': 'Sala comercial' };
+const FIN = { venda: 'Venda', aluguel: 'Aluguel' };
+const STATUS = { reservado: 'Reservado', vendido: 'Vendido', alugado: 'Alugado' };
+const tipoNome = t => TIPOS[t] || limpo(t) || 'Imóvel';
+const plural = (n, s, p) => n + ' ' + (n === 1 ? s : p);
+function valorTexto(im) {
+  if (!numOk(im.valor)) return { txt: 'Consulte', sufixo: '' };
+  return { txt: brl.format(im.valor), sufixo: im.finalidade === 'aluguel' ? '/mês' : '' };
+}
+
+/* ---------- cores: tema, contraste ---------- */
+const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+const rgb = x => { let s = x.replace('#', ''); if (s.length === 3) s = [...s].map(c => c + c).join(''); const n = parseInt(s, 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+const lum = a => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(a[0]) + .7152 * f(a[1]) + .0722 * f(a[2]); };
+const ratio = (a, b) => { const x = lum(rgb(a)), y = lum(rgb(b)); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+const toHex = a => '#' + a.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+const mix = (a, b, t) => { const A = rgb(a), B = rgb(b); return toHex(A.map((v, i) => v * (1 - t) + B[i] * t)); };
+const cor = { primaria: '#1D4F6E', secundaria: '#EAF0F3', fundo: '#FFFFFF', texto: '#16212B' };
+Object.keys(cor).forEach(k => { if (HEX.test(C.cores[k] || '')) cor[k] = C.cores[k]; else console.error('[template] cor inválida em CONFIG.cores.' + k + ' — use HEX, ex. #1D4F6E'); });
+const textoSobre = bg => ratio(bg, cor.fundo) >= ratio(bg, cor.texto) ? cor.fundo : cor.texto;
+
+function aplicarTema() {
+  const r = document.documentElement.style;
+  r.setProperty('--primaria', cor.primaria); r.setProperty('--secundaria', cor.secundaria);
+  r.setProperty('--fundo', cor.fundo); r.setProperty('--texto', cor.texto);
+  const ctaTxt = textoSobre(cor.primaria);
+  r.setProperty('--cta-texto', ctaTxt);
+  const sup = mix(cor.fundo, cor.secundaria, .7), suave = mix(cor.fundo, cor.texto, .72);
+  const avisos = [];
+  if (ratio(cor.texto, cor.fundo) < 4.5) avisos.push('texto x fundo');
+  if (ratio(cor.primaria, ctaTxt) < 4.5) avisos.push('botões (primária) — escureça a primária');
+  if (ratio(cor.primaria, cor.fundo) < 4.5) avisos.push('links na primária sobre o fundo');
+  if (ratio(suave, sup) < 4.5) avisos.push('texto secundário sobre a secundária — clareie a secundária');
+  if (avisos.length) console.warn('[template] Contraste abaixo de 4,5:1 em: ' + avisos.join('; '));
+  const tc = $('meta[name="theme-color"]'); if (tc) tc.content = cor.primaria;
+  const fav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="${cor.primaria}"/><path d="M16 32 32 18l16 14v15H38V37H26v10H16z" fill="${ctaTxt}"/></svg>`;
+  const link = $('link[rel="icon"]'); if (link) link.href = 'data:image/svg+xml,' + encodeURIComponent(fav);
+}
+
+/* ---------- fotos e placeholders ---------- */
+const TONS = [.16, .3, .22, .38, .12, .26];
+function placeholder(w, hgt, rotulo, i) {
+  const bg = mix(cor.secundaria, cor.primaria, TONS[(i || 0) % TONS.length]);
+  const tx = textoSobre(bg);
+  const fs = Math.max(14, Math.round(w / 24)), y = Math.round(hgt * .52);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${hgt}" width="${w}" height="${hgt}">
+<defs><pattern id="p" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><line x1="0" y1="0" x2="0" y2="26" stroke="${tx}" stroke-opacity=".07" stroke-width="2"/></pattern></defs>
+<rect width="${w}" height="${hgt}" fill="${bg}"/><rect width="${w}" height="${hgt}" fill="url(#p)"/>
+<g fill="none" stroke="${tx}" stroke-opacity=".65" stroke-width="${Math.max(2, fs / 9)}" stroke-linecap="round" stroke-linejoin="round" transform="translate(${w / 2 - fs * 1.1} ${y - fs * 3.3}) scale(${fs / 12})">
+<rect x="1" y="3" width="22" height="16" rx="3"/><circle cx="8" cy="9" r="2"/><path d="M2 17l6-5 5 4 4-3 5 4"/></g>
+<g fill="${tx}" font-family="system-ui,Segoe UI,Arial,sans-serif" text-anchor="middle">
+<text x="${w / 2}" y="${y}" font-size="${fs}" font-weight="700" letter-spacing="${fs / 8}">FOTO PENDENTE</text>
+<text x="${w / 2}" y="${y + fs * 1.5}" font-size="${fs * .95}" fill-opacity=".92">${rotulo.replace(/[<&>]/g, '')}</text>
+<text x="${w / 2}" y="${y + fs * 2.9}" font-size="${fs * .8}" fill-opacity=".75">${w} × ${hgt} px</text></g></svg>`;
+  return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+function foto(src, o) {
+  const w = o.w || 1200, hgt = o.h || 900;
+  const img = document.createElement('img');
+  img.width = w; img.height = hgt; img.decoding = 'async';
+  if (o.eager) { img.loading = 'eager'; } else img.loading = 'lazy';
+  const usarPlaceholder = () => { img.src = placeholder(w, hgt, o.rotulo || 'Foto', o.i); img.alt = '[TROCAR] Foto pendente: ' + (o.rotulo || 'foto'); img.dataset.pendente = '1'; };
+  if (src) {
+    img.src = src;
+    if (!limpo(o.alt)) console.warn('[template] Foto sem alt no CONFIG: ' + src);
+    img.alt = limpo(o.alt) ? o.alt : (o.rotulo || '');
+    img.addEventListener('error', () => { console.warn('[template] Foto não carregou: ' + src); usarPlaceholder(); }, { once: true });
+  } else usarPlaceholder();
+  return img;
+}
+
+/* ---------- WhatsApp ---------- */
+const numero = String(C.whatsapp.numero || '').replace(/\D/g, '');
+const numeroPendente = !numero || /^55\d{2}0{7,}$/.test(numero) || /^5500/.test(numero);
+const waHref = msg => 'https://wa.me/' + numero + '?text=' + encodeURIComponent(String(msg).replace(/\s+/g, ' ').trim());
+function waBtn(o) {
+  const a = h('a', { class: 'btn ' + (o.cls || 'btn--cta'), href: waHref(fill(o.tpl || C.whatsapp.mensagem, o.extra)), target: '_blank', rel: 'noopener noreferrer' },
+    waIcon(), h('span', null, o.texto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  if (o.dinamico) waLinks.push({ a, f: o.dinamico });
+  return a;
+}
+const slug = im => encodeURIComponent(limpo(im.codigo).replace(/\s+/g, '-'));
+function linkImovel(im) {
+  const base = /^https?:\/\//.test(C.seo.urlSite || '') ? C.seo.urlSite.split('#')[0] : (location.protocol.startsWith('http') ? location.origin + location.pathname : '');
+  return base ? base + '#imovel-' + slug(im) : '';
+}
+const msgImovel = im => fill(C.whatsapp.mensagemImovel, { codigo: im.codigo, titulo: im.titulo, link: linkImovel(im) });
+
+/* ---------- contato, endereço ---------- */
+function telHref() { let d = String(C.contato.telefone || '').replace(/\D/g, ''); if (!d) return ''; if (d.length <= 11) d = '55' + d; return 'tel:+' + d; }
+const mapsBusca = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+function mapsUrl() {
+  if (C.links.googleMaps) return C.links.googleMaps;
+  const n = C.negocio;
+  return mapsBusca([limpo(n.rua), limpo(n.bairro), limpo(n.cidade), limpo(n.uf)].filter(Boolean).join(', '));
+}
+const enderecoLinhas = () => { const n = C.negocio; return [n.rua, h('br'), n.bairro + ' · ' + n.cidade + '/' + n.uf, h('br'), 'CEP ', n.cep]; };
+const creciTxt = () => limpo(C.responsavel.creci) ? C.responsavel.creci : '[TROCAR] CRECI';
+
+/* ---------- peças de seção ---------- */
+function secHead(id, titulo, intro, extra) {
+  return h('div', { class: 'sec-head' }, h('h2', { id: id + '-t' }, rich(fill(titulo))), intro ? h('p', { class: 'lead' }, fill(intro)) : null, extra || null);
+}
+function sec(id, cls, head, body, tom) {
+  const s = h('section', { id, class: 'sec ' + (cls || ''), 'aria-labelledby': id + '-t' }, h('div', { class: 'container' }, head, body));
+  s.dataset.tom = tom || 'auto'; return s;
+}
+
+/* ---------- dados do catálogo ---------- */
+const disponivel = im => im.status !== 'vendido' && im.status !== 'alugado';
+function baseCatalogo() {
+  let l = (C.imoveis || []).filter(im => im && im.codigo);
+  if (C.catalogo.indisponiveis !== 'mostrar') l = l.filter(disponivel);
+  l = l.filter(disponivel).concat(l.filter(im => !disponivel(im)));
+  const lim = Number(valorModulo('limiteImoveis')) || 0;
+  return lim > 0 ? l.slice(0, lim) : l;
+}
+
+/* ---------- cartão do imóvel ---------- */
+function caracteristicas(im, det) {
+  const it = [];
+  if (numOk(im.quartos)) it.push(['cama', plural(im.quartos, 'quarto', 'quartos')]);
+  if (det && numOk(im.suites)) it.push(['suite', plural(im.suites, 'suíte', 'suítes')]);
+  if (numOk(im.banheiros)) it.push(['banho', plural(im.banheiros, 'banheiro', 'banheiros')]);
+  if (numOk(im.vagas)) it.push(['vaga', plural(im.vagas, 'vaga', 'vagas')]);
+  if (numOk(im.area)) it.push(['area', im.area + ' m²']);
+  return it;
+}
+function taxasTexto(im) {
+  const t = [];
+  if (numOk(im.condominio)) t.push('Cond. ' + brl.format(im.condominio));
+  if (numOk(im.iptu)) t.push('IPTU ' + brl.format(im.iptu));
+  return t.join(' · ');
+}
+function cartao(im, i, grande) {
+  const disp = disponivel(im), v = valorTexto(im), temDetalhe = on('detalhe');
+  const img = foto((im.fotos || [])[0] && im.fotos[0].src, { alt: (im.fotos || [])[0] && im.fotos[0].alt, rotulo: 'Imóvel ' + limpo(im.codigo), i, w: 1200, h: grande ? 750 : 900 });
+  const selos = h('div', { class: 'selos' },
+    h('span', { class: 'selo-tag selo-tag--fin' }, FIN[im.finalidade] || 'Imóvel'),
+    STATUS[im.status] ? h('span', { class: 'selo-tag selo-tag--status' }, STATUS[im.status]) : null,
+    im.destaque && disp && !grande && on('destaques') ? h('span', { class: 'selo-tag' }, 'Destaque') : null);
+  const fotoEl = temDetalhe
+    ? h('button', { type: 'button', class: 'imovel-foto', 'aria-label': 'Ver detalhes do imóvel ' + limpo(im.codigo), onclick: () => abrirDetalhe(im) }, img, selos)
+    : h('div', { class: 'imovel-foto' }, img, selos);
+  const carac = caracteristicas(im);
+  const taxas = taxasTexto(im);
+  return h('article', { class: 'imovel rev' + (disp ? '' : ' imovel--indisp'), style: '--i:' + (i % 3) },
+    fotoEl,
+    h('div', { class: 'imovel-corpo' },
+      h('p', { class: 'valor' }, v.txt, v.sufixo ? h('small', null, ' ' + v.sufixo) : null),
+      taxas ? h('p', { class: 'taxas tnum' }, taxas) : null,
+      h('h3', null, im.titulo),
+      h('p', { class: 'local-tag' }, icon('pin'), h('span', null, tipoNome(im.tipo) + ' · ' + im.bairro)),
+      carac.length ? h('ul', { class: 'carac', 'aria-label': 'Características' }, carac.map(([ic, t]) => h('li', null, icon(ic), t))) : null,
+      h('p', { class: 'ident' }, 'Cód. ' + limpo(im.codigo) + ' · ' + creciTxt()),
+      im.exemplo ? h('p', { class: 'exemplo' }, '[TROCAR] Imóvel de exemplo — substitua ou apague') : null,
+      h('div', { class: 'imovel-acoes' },
+        disp ? waBtn({ texto: C.textos.botaoImovel, tpl: msgImovel(im), cls: 'btn--cta btn--bloco' }) : h('p', { class: 'indisp-txt' }, 'Imóvel ' + (STATUS[im.status] || 'indisponível').toLowerCase()),
+        temDetalhe ? h('button', { type: 'button', class: 'btn btn--linha btn--bloco', onclick: () => abrirDetalhe(im) }, C.textos.botaoDetalhe, h('span', { class: 'vh' }, ' do imóvel ' + limpo(im.codigo))) : null)));
+}
+
+/* ---------- cabeçalho ---------- */
+function cabecalho(navItens) {
+  $('#topo').append(h('div', { class: 'container topo-in' },
+    h('a', { class: 'marca', href: '#topo' }, h('span', { class: 'selo' }, icon('casa')), h('span', { class: 'nome' }, C.negocio.nome)),
+    h('nav', { class: 'nav', 'aria-label': 'Seções da página' }, navItens.map(n => h('a', { href: '#' + n.id }, n.label))),
+    waBtn({ texto: C.textos.botaoCurto, cls: 'btn--cta btn--sm' })));
+}
+
+/* ---------- hero ---------- */
+function hero() {
+  const tx = C.textos, temFiltros = on('filtros') && baseCatalogo().length;
+  const atalho = (fin, txt) => h('button', { type: 'button', class: 'link-seta', onclick: () => { definirFiltro({ fin }); irPara('catalogo'); } }, txt, icon('arrow'));
+  return h('section', { class: 'hero', id: 'hero', 'aria-labelledby': 'h1' },
+    h('div', { class: 'container hero-in' },
+      h('h1', { id: 'h1' }, rich(fill(tx.heroTitulo))),
+      h('p', { class: 'hero-lead' }, fill(tx.heroSubtitulo)),
+      h('div', { class: 'hero-acoes' },
+        waBtn({ texto: tx.botaoPrincipal, cls: 'btn--cta btn--lg' }),
+        temFiltros ? h('div', { class: 'atalhos' }, atalho('venda', tx.atalhoVenda), atalho('aluguel', tx.atalhoAluguel))
+          : (on('catalogo') ? h('a', { class: 'link-seta', href: '#catalogo' }, 'Ver imóveis', icon('arrow')) : null)),
+      h('p', { class: 'hero-resp' }, C.negocio.nome, ' · ', creciTxt())));
+}
+function irPara(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: reduzMovimento ? 'auto' : 'smooth', block: 'start' }); }
+
+/* ---------- destaques ---------- */
+function destaques() {
+  const l = baseCatalogo().filter(im => im.destaque && disponivel(im)).slice(0, 4);
+  if (!on('destaques') || !on('catalogo') || !l.length) return null;
+  return sec('destaques', '', secHead('destaques', C.textos.destaquesTitulo, C.textos.destaquesIntro),
+    h('div', { class: 'destaques' }, l.map((im, i) => cartao(im, i, true))));
+}
+
+/* ---------- catálogo + filtros ---------- */
+let grade, contadorEl, limparBtn, abreTxt, controles = {}, vazioEl;
+function opcoesValor(sel, fin, rotuloVazio) {
+  sel.replaceChildren(h('option', { value: '0' }, rotuloVazio));
+  const fx = (C.catalogo.faixasValor || {})[fin] || [];
+  fx.forEach(v => sel.append(h('option', { value: String(v) }, brl.format(v) + (fin === 'aluguel' ? '/mês' : ''))));
+  sel.disabled = fin === 'todos';
+}
+function filtrosUI(base) {
+  const tipos = [...new Set(base.map(im => im.tipo))].filter(Boolean);
+  const bairros = [...new Set(base.map(im => limpo(im.bairro)))].filter(Boolean).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+  const seg = h('fieldset', { class: 'grupo' }, h('legend', null, 'Finalidade'),
+    h('div', { class: 'seg' }, [['todos', 'Todos'], ['venda', 'Comprar'], ['aluguel', 'Alugar']].map(([v, t]) => h('label', null,
+      h('input', { type: 'radio', name: 'f-fin', value: v, checked: v === 'todos', onchange: () => definirFiltro({ fin: v, min: 0, max: 0 }) }), h('span', null, t)))));
+  const selTipo = h('select', { id: 'f-tipo', onchange: e => definirFiltro({ tipo: e.target.value }) }, h('option', { value: '' }, 'Todos'), tipos.map(t => h('option', { value: t }, tipoNome(t))));
+  const selBairro = h('select', { id: 'f-bairro', onchange: e => definirFiltro({ bairro: e.target.value }) }, h('option', { value: '' }, 'Todos'), bairros.map(b => h('option', { value: b }, b)));
+  const selQuartos = h('select', { id: 'f-quartos', onchange: e => definirFiltro({ quartos: +e.target.value }) }, h('option', { value: '0' }, 'Qualquer'), [1, 2, 3, 4].map(n => h('option', { value: String(n) }, n + '+ quartos')));
+  const selMin = h('select', { id: 'f-min', onchange: e => definirFiltro({ min: +e.target.value }) });
+  const selMax = h('select', { id: 'f-max', onchange: e => definirFiltro({ max: +e.target.value }) });
+  opcoesValor(selMin, 'todos', 'Qualquer'); opcoesValor(selMax, 'todos', 'Qualquer');
+  const dica = h('p', { class: 'dica', id: 'f-dica' }, 'Escolha Comprar ou Alugar para filtrar por valor.');
+  controles = { seg, selTipo, selBairro, selQuartos, selMin, selMax, dica };
+  const campo = (lbl, el) => h('div', { class: 'campo' }, h('label', { for: el.id }, lbl), el);
+  const painel = h('div', { class: 'filtros', id: 'painel-filtros', 'data-fechado': '' },
+    h('div', { class: 'filtros-grid' }, seg, campo('Tipo', selTipo), campo('Bairro', selBairro), campo('Quartos', selQuartos), campo('Valor de', selMin), campo('Valor até', selMax)), dica);
+  abreTxt = h('span', null, 'Filtrar');
+  const abre = h('button', { type: 'button', class: 'btn btn--linha btn--sm abre-filtros', 'aria-expanded': 'false', 'aria-controls': 'painel-filtros' }, icon('filtro'), abreTxt);
+  abre.addEventListener('click', () => { const fechado = painel.hasAttribute('data-fechado'); painel.toggleAttribute('data-fechado', !fechado); abre.setAttribute('aria-expanded', String(fechado)); });
+  contadorEl = h('p', { class: 'contador', 'aria-live': 'polite' });
+  limparBtn = h('button', { type: 'button', class: 'limpar', hidden: true, onclick: limparFiltros }, 'Limpar filtros');
+  return [h('div', { class: 'abre-wrap' }, abre), painel, h('div', { class: 'filtros-barra' }, contadorEl, limparBtn)];
+}
+function ativos() { return (filtro.fin !== 'todos') + !!filtro.tipo + !!filtro.bairro + (filtro.quartos > 0) + (filtro.min > 0) + (filtro.max > 0); }
+function definirFiltro(p) {
+  if (!controles.seg) return;
+  const finMudou = 'fin' in p && p.fin !== filtro.fin;
+  Object.assign(filtro, p);
+  if ('fin' in p) { const r = controles.seg.querySelector(`input[value="${filtro.fin}"]`); if (r) r.checked = true; }
+  if (finMudou || 'fin' in p) {
+    opcoesValor(controles.selMin, filtro.fin, 'Qualquer'); opcoesValor(controles.selMax, filtro.fin, 'Qualquer');
+    controles.dica.hidden = filtro.fin !== 'todos';
+  }
+  controles.selTipo.value = filtro.tipo; controles.selBairro.value = filtro.bairro;
+  controles.selQuartos.value = String(filtro.quartos); controles.selMin.value = String(filtro.min); controles.selMax.value = String(filtro.max);
+  renderGrade();
+}
+function limparFiltros() { definirFiltro({ fin: 'todos', tipo: '', bairro: '', quartos: 0, min: 0, max: 0 }); }
+function passa(im) {
+  if (filtro.fin !== 'todos' && im.finalidade !== filtro.fin) return false;
+  if (filtro.tipo && im.tipo !== filtro.tipo) return false;
+  if (filtro.bairro && limpo(im.bairro) !== filtro.bairro) return false;
+  if (filtro.quartos && !(Number(im.quartos) >= filtro.quartos)) return false;
+  if ((filtro.min || filtro.max) && !numOk(im.valor)) return false;
+  if (filtro.min && im.valor < filtro.min) return false;
+  if (filtro.max && im.valor > filtro.max) return false;
+  return true;
+}
+function resumoBusca() {
+  const p = [];
+  p.push(filtro.tipo ? tipoNome(filtro.tipo).toLowerCase() : 'um imóvel');
+  if (filtro.fin === 'venda') p.push('para comprar'); if (filtro.fin === 'aluguel') p.push('para alugar');
+  if (filtro.bairro) p.push('no bairro ' + filtro.bairro);
+  if (filtro.quartos) p.push('com ' + filtro.quartos + '+ quartos');
+  if (filtro.min) p.push('a partir de ' + brl.format(filtro.min));
+  if (filtro.max) p.push('até ' + brl.format(filtro.max));
+  return p.join(' ');
+}
+function renderGrade() {
+  const base = baseCatalogo(), l = on('filtros') ? base.filter(passa) : base;
+  grade.replaceChildren(...l.map((im, i) => cartao(im, i)));
+  if (contadorEl) contadorEl.textContent = l.length === 1 ? '1 imóvel encontrado' : l.length + ' imóveis encontrados';
+  if (limparBtn) limparBtn.hidden = !ativos();
+  if (abreTxt) abreTxt.textContent = ativos() ? 'Filtrar (' + ativos() + ')' : 'Filtrar';
+  vazioEl.replaceChildren();
+  vazioEl.hidden = !!l.length;
+  if (!l.length && base.length) vazioEl.append(h('h3', null, C.textos.vazioTitulo), h('p', null, C.textos.vazioTexto),
+    waBtn({ texto: C.textos.vazioBotao, tpl: fill(C.whatsapp.mensagemBusca, { busca: resumoBusca() }), cls: 'btn--cta' }),
+    h('button', { type: 'button', class: 'limpar', onclick: limparFiltros }, 'Limpar filtros'));
+  if (document.documentElement.classList.contains('rev-on')) grade.querySelectorAll('.rev').forEach(el => el.classList.add('in'));
+}
+function catalogo() {
+  if (!on('catalogo')) return null;
+  const base = baseCatalogo();
+  grade = h('div', { class: 'grade' });
+  vazioEl = h('div', { class: 'vazio', hidden: true });
+  let corpo;
+  if (!base.length) {
+    corpo = h('div', { class: 'vazio' }, h('h3', null, C.textos.catalogoVazioTitulo), h('p', null, fill(C.textos.catalogoVazioTexto)), waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--cta' }));
+  } else {
+    corpo = [on('filtros') ? filtrosUI(base) : null, grade, vazioEl];
+  }
+  if (!base.length) grade = null;
+  return sec('catalogo', '', secHead('catalogo', C.textos.catalogoTitulo, on('filtros') ? C.textos.catalogoIntro : ''), corpo);
+}
+
+/* ---------- detalhe do imóvel (modal com link próprio: #imovel-CODIGO) ---------- */
+const dlg = () => $('#detalhe');
+let galI = 0;
+function abrirDetalhe(im, opt) {
+  if (!on('detalhe')) return;
+  const d = dlg(), fotos = (im.fotos || []).filter(f => f && f.src);
+  const lista = fotos.length ? fotos : [{ src: '', alt: '' }];
+  galI = 0;
+  const principal = h('div', { class: 'gal-principal' });
+  const cont = h('span', { class: 'gal-cont tnum', 'aria-live': 'polite' });
+  const minis = h('div', { class: 'miniaturas', 'aria-label': 'Fotos do imóvel' });
+  const mostra = i => {
+    galI = (i + lista.length) % lista.length;
+    const f = lista[galI];
+    principal.querySelector('img') && principal.querySelector('img').remove();
+    principal.prepend(foto(f.src, { alt: f.alt || limpo(im.titulo), rotulo: 'Imóvel ' + limpo(im.codigo), eager: true }));
+    cont.textContent = (galI + 1) + ' / ' + lista.length;
+    [...minis.children].forEach((m, j) => m.setAttribute('aria-current', String(j === galI)));
+  };
+  if (lista.length > 1) {
+    principal.append(
+      h('button', { type: 'button', class: 'gal-nav gal-nav--ant', 'aria-label': 'Foto anterior', onclick: () => mostra(galI - 1) }, icon('prev')),
+      h('button', { type: 'button', class: 'gal-nav gal-nav--prox', 'aria-label': 'Próxima foto', onclick: () => mostra(galI + 1) }, icon('next')), cont);
+    lista.forEach((f, j) => {
+      const mini = foto(f.src, { alt: f.alt || 'Foto ' + (j + 1), rotulo: 'Foto ' + (j + 1), w: 400, h: 300 });
+      mini.alt = '';   // decorativa: o botão já tem o rótulo "Foto X de Y"
+      minis.append(h('button', { type: 'button', class: 'mini', 'aria-label': 'Foto ' + (j + 1) + ' de ' + lista.length, onclick: () => mostra(j) }, mini));
+    });
+    let x0 = null;
+    principal.addEventListener('touchstart', e => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    principal.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) mostra(galI + (dx < 0 ? 1 : -1)); x0 = null; }, { passive: true });
+  }
+  const v = valorTexto(im), carac = caracteristicas(im, true), taxas = taxasTexto(im), disp = disponivel(im);
+  const mostraEndereco = !im.enderecoRestrito && limpo(im.endereco);
+  const localTxt = mostraEndereco ? im.endereco + ' — ' + im.bairro + ', ' + im.cidade : im.bairro + ', ' + im.cidade + ' (endereço exato informado pelo corretor)';
+  const mapaQ = mostraEndereco ? limpo(im.endereco) + ', ' + limpo(im.bairro) + ', ' + limpo(im.cidade) : limpo(im.bairro) + ', ' + limpo(im.cidade);
+  const local = h('div', { class: 'det-local' }, h('h3', null, 'Localização'), h('p', { class: 'local-tag' }, icon('pin'), h('span', null, localTxt)),
+    on('mapaImovel') && mostraEndereco && im.mapaEmbed ? h('div', { class: 'det-mapa' }, h('iframe', { src: im.mapaEmbed, title: 'Mapa do imóvel ' + limpo(im.codigo), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade' })) : null,
+    on('mapaImovel') ? h('a', { class: 'link-seta', href: mapsBusca(mapaQ), target: '_blank', rel: 'noopener noreferrer' }, mostraEndereco ? 'Ver no mapa' : 'Ver o bairro no mapa', icon('arrow'), h('span', { class: 'vh' }, ' (abre em outra aba)')) : null);
+  d.replaceChildren(
+    h('div', { class: 'det-topo' }, h('p', { class: 'ident' }, 'Cód. ' + limpo(im.codigo) + ' · ' + creciTxt()),
+      h('button', { type: 'button', class: 'fechar', 'aria-label': 'Fechar detalhes', onclick: () => d.close() }, icon('close'))),
+    h('div', { class: 'det-grid' },
+      h('div', { class: 'galeria-det' }, principal, lista.length > 1 ? minis : null),
+      h('div', { class: 'det-info' },
+        h('div', { class: 'selos', style: 'position:static' }, h('span', { class: 'selo-tag selo-tag--fin' }, FIN[im.finalidade] || 'Imóvel'), STATUS[im.status] ? h('span', { class: 'selo-tag selo-tag--status' }, STATUS[im.status]) : null),
+        h('h2', { id: 'det-titulo' }, im.titulo),
+        h('p', { class: 'local-tag' }, icon('casa'), h('span', null, tipoNome(im.tipo) + ' · ' + im.bairro)),
+        h('div', null, h('p', { class: 'valor' }, v.txt, v.sufixo ? h('small', null, ' ' + v.sufixo) : null), taxas ? h('p', { class: 'taxas tnum' }, taxas) : null),
+        carac.length ? h('div', { class: 'det-carac' }, carac.map(([ic, t]) => h('div', null, icon(ic), h('span', null, t)))) : null,
+        im.descricao ? h('p', { class: 'det-desc' }, im.descricao) : null,
+        im.exemplo ? h('p', { class: 'exemplo' }, '[TROCAR] Imóvel de exemplo — substitua ou apague') : null,
+        local,
+        h('div', { class: 'det-acoes' },
+          disp ? waBtn({ texto: C.textos.botaoImovel, tpl: msgImovel(im), cls: 'btn--cta btn--lg btn--bloco' }) : h('p', { class: 'indisp-txt' }, 'Imóvel ' + (STATUS[im.status] || 'indisponível').toLowerCase())))));
+  mostra(0);
+  if (!d.open) d.showModal();
+  d.scrollTop = 0;
+  if (previa) marcarPendencias(d);
+  if (modoLimpo) limparMarcas(d);
+  const hash = '#imovel-' + slug(im);
+  if (!(opt && opt.semHistorico) && location.hash !== hash) history.pushState({ imovel: true }, '', hash);
+}
+function iniciarDetalhe() {
+  const d = dlg();
+  d.addEventListener('click', e => { if (e.target === d) d.close(); });
+  d.addEventListener('keydown', e => {
+    if (e.target.closest('input,select,textarea')) return;
+    if (e.key === 'ArrowRight') { const b = d.querySelector('.gal-nav--prox'); if (b) b.click(); }
+    if (e.key === 'ArrowLeft') { const b = d.querySelector('.gal-nav--ant'); if (b) b.click(); }
+  });
+  d.addEventListener('close', () => {
+    if (history.state && history.state.imovel) history.back();
+    else if (location.hash.startsWith('#imovel-')) history.replaceState(null, '', location.pathname + location.search);
+  });
+  const doHash = () => {
+    const m = location.hash.match(/^#imovel-(.+)$/);
+    if (m) { const im = (C.imoveis || []).find(x => x && slug(x) === m[1]); if (im) abrirDetalhe(im, { semHistorico: true }); }
+    else if (d.open) d.close();
+  };
+  addEventListener('popstate', doHash);
+  doHash();
+}
+
+/* ---------- como funciona + proprietário ---------- */
+function comoFunciona() {
+  const p = C.comoFunciona || [];
+  if (!on('comoFunciona') || !p.length) return null;
+  return sec('como-funciona', '', secHead('como-funciona', C.textos.comoFuncionaTitulo, C.textos.comoFuncionaIntro),
+    h('ol', { class: 'passos' }, p.slice(0, 3).map((s, i) => h('li', { class: 'passo rev', style: '--i:' + i },
+      h('span', { class: 'passo-n', 'aria-hidden': 'true' }, String(i + 1)), h('h3', null, s.titulo), h('p', null, s.texto)))));
+}
+function proprietario() {
+  if (!on('proprietario')) return null;
+  return sec('anunciar', 'sec--escura', null, h('div', { class: 'dono' },
+    h('div', { style: 'display:grid;gap:.9rem' }, h('h2', { id: 'anunciar-t' }, rich(fill(C.textos.donoTitulo))), h('p', null, fill(C.textos.donoTexto))),
+    waBtn({ texto: C.textos.donoBotao, tpl: C.whatsapp.mensagemProprietario, cls: 'btn--claro btn--lg' })), 'escura');
+}
+
+/* ---------- sobre ---------- */
+function sobre() {
+  const s = C.sobre, r = C.responsavel;
+  if (!on('sobre') || !s || (!(s.paragrafos || []).length && !limpo(r.nome))) return null;
+  const temFoto = s.foto !== false;
+  return sec('sobre', '', null, h('div', { class: 'sobre-grid' },
+    temFoto ? h('div', { class: 'sobre-foto' }, foto(s.foto, { alt: s.alt, w: 960, h: 1200, rotulo: 'Corretor ou imobiliária', i: 2 })) : null,
+    h('div', { class: 'sobre-texto' },
+      h('h2', { id: 'sobre-t' }, rich(fill(C.textos.sobreTitulo))),
+      (s.paragrafos || []).map(p => h('p', null, fill(p))),
+      limpo(r.nome) || limpo(r.creci) ? h('p', { class: 'creci' }, icon('selo'), h('span', null, [r.nome, r.creci, r.uf].filter(Boolean).join(' · '))) : null)));
+}
+
+/* ---------- bairros ---------- */
+function bairros() {
+  const l = (C.bairros || []).filter(Boolean);
+  if (!on('bairros') || !l.length) return null;
+  const comImovel = new Set(baseCatalogo().map(im => limpo(im.bairro)));
+  return sec('bairros', '', secHead('bairros', C.textos.bairrosTitulo, C.textos.bairrosIntro),
+    h('ul', { class: 'bairros' }, l.map(b => h('li', null,
+      on('filtros') && comImovel.has(limpo(b))
+        ? h('button', { type: 'button', class: 'bairro', onclick: () => { definirFiltro({ bairro: limpo(b) }); irPara('catalogo'); } }, icon('pin'), b, h('span', { class: 'vh' }, ' — ver imóveis neste bairro'))
+        : h('span', { class: 'bairro' }, icon('pin'), b)))));
+}
+
+/* ---------- avaliações reais ---------- */
+function avaliacoes() {
+  const l = (C.avaliacoes || []).filter(a => a && a.texto);
+  if (!on('avaliacoes') || !l.length) return null;
+  return sec('depoimentos', '', secHead('depoimentos', C.textos.avaliacoesTitulo, C.textos.avaliacoesIntro),
+    h('div', { class: 'avals' }, l.map((a, i) => h('figure', { class: 'aval rev', style: '--i:' + (i % 3) },
+      h('blockquote', null, '“' + a.texto + '”'), h('figcaption', null, h('cite', null, a.autor || '', a.origem ? ' · ' + a.origem : ''))))));
+}
+
+/* ---------- FAQ ---------- */
+function faq() {
+  if (!on('faq') || !C.faq.length) return null;
+  const head = secHead('perguntas', C.textos.faqTitulo, C.textos.faqIntro, h('div', null, waBtn({ texto: C.textos.faqBotao, cls: 'btn--linha' })));
+  return sec('perguntas', '', h('div', { class: 'faq-grid' }, head,
+    h('div', { class: 'faq-lista' }, C.faq.map(f => h('details', null, h('summary', null, h('span', null, f.p)), h('div', { class: 'faq-resp' }, fill(f.r)))))), null);
+}
+
+/* ---------- localização ---------- */
+function localizacao() {
+  if (!on('localizacao')) return null;
+  const n = C.negocio, hrs = C.horarios || [];
+  const dados = h('dl', { class: 'dados' },
+    h('div', null, icon('pin'), h('dt', null, 'Endereço'), h('dd', null, enderecoLinhas())),
+    hrs.length ? h('div', null, icon('clock'), h('dt', null, 'Horário de atendimento'),
+      h('dd', { class: 'horas tnum' }, hrs.map(x => h('span', null, h('span', null, x.dias), h('span', null, x.horas))))) : null);
+  const acoes = h('div', { class: 'local-acoes' },
+    h('a', { class: 'btn btn--cta', href: mapsUrl(), target: '_blank', rel: 'noopener noreferrer' }, icon('pin'), 'Abrir no Google Maps', h('span', { class: 'vh' }, ' (abre em outra aba)')),
+    telHref() ? h('a', { class: 'btn btn--linha', href: telHref() }, icon('phone'), C.contato.telefone) : null);
+  let mapa = null;
+  if (on('mapa')) {
+    mapa = h('div', { class: 'mapa' });
+    if (C.links.mapaEmbed) mapa.append(h('iframe', { src: C.links.mapaEmbed, title: 'Mapa com a localização de ' + limpo(n.nome), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true }));
+    else { mapa.classList.add('mapa--vazio'); mapa.append(h('p', null, '[TROCAR] Cole em CONFIG.links.mapaEmbed o endereço do mapa (Google Maps > Compartilhar > Incorporar um mapa).')); }
+  }
+  return sec('localizacao', '', null, h('div', { class: 'local' },
+    h('div', null, h('h2', { id: 'localizacao-t', style: 'margin-bottom:1.75rem' }, rich(fill(C.textos.localTitulo))), dados, acoes), mapa));
+}
+
+/* ---------- chamada final ---------- */
+function ctaFinal() {
+  const tel = telHref();
+  return sec('contato', 'sec--escura final', null, h('div', { class: 'final-in' },
+    h('h2', { id: 'contato-t' }, rich(fill(C.textos.ctaFinalTitulo))),
+    h('p', null, fill(C.textos.ctaFinalTexto)),
+    waBtn({ texto: C.textos.botaoPrincipal, cls: 'btn--claro btn--lg' }),
+    h('div', { class: 'final-contato' },
+      tel ? h('a', { href: tel }, icon('phone'), C.contato.telefone) : null,
+      C.contato.email ? h('a', { href: 'mailto:' + limpo(C.contato.email) }, icon('mail'), C.contato.email) : null)), 'escura');
+}
+
+/* ---------- rodapé ---------- */
+function rodape() {
+  const f = C.rodape, n = C.negocio, r = C.responsavel, tel = telHref(), ig = on('instagram') && C.links.instagram;
+  const legal = [f.razaoSocial, f.cnpj ? 'CNPJ ' + f.cnpj : ''].filter(Boolean);
+  if (!limpo(r.creci)) console.error('[template] CRECI: anúncios e rodapé precisam do CRECI do responsável (CONFIG.responsavel.creci).');
+  $('#rodape').append(h('div', { class: 'container' },
+    h('div', { class: 'rodape-grid' },
+      h('div', null, h('p', { class: 'logo' }, n.nome), f.frase ? h('p', null, f.frase) : null),
+      h('div', null, h('h2', null, 'Contato'), h('ul', null,
+        h('li', null, waIcon(), h('a', { href: waHref(fill(C.whatsapp.mensagem)), target: '_blank', rel: 'noopener noreferrer' }, 'Falar pelo WhatsApp')),
+        tel ? h('li', null, icon('phone'), h('a', { href: tel }, C.contato.telefone)) : null,
+        C.contato.email ? h('li', null, icon('mail'), h('a', { href: 'mailto:' + limpo(C.contato.email) }, C.contato.email)) : null,
+        ig ? h('li', null, icon('instagram'), h('a', { href: C.links.instagram, target: '_blank', rel: 'noopener noreferrer' }, 'Instagram', h('span', { class: 'vh' }, ' (abre em outra aba)'))) : null)),
+      h('div', null, h('h2', null, 'Endereço e horário'), h('ul', null,
+        h('li', null, icon('pin'), h('span', null, enderecoLinhas())),
+        (C.horarios || []).length ? h('li', null, icon('clock'), h('span', { class: 'tnum' }, C.horarios.map((x, i) => [i ? h('br') : null, x.dias + ': ' + x.horas]))) : null))),
+    h('p', { class: 'creci-rodape' }, h('span', null, 'Responsável: ', h('strong', null, r.nome || '[TROCAR] Nome do responsável')), h('span', { class: 'tnum' }, creciTxt() + (r.uf ? ' · ' + r.uf : ''))),
+    h('div', { class: 'rodape-legal' },
+      h('span', null, '© ' + new Date().getFullYear() + ' ' + (legal.length ? legal.join(' · ') : n.nome)),
+      f.credito ? h('span', null, f.creditoUrl ? h('a', { href: f.creditoUrl, target: '_blank', rel: 'noopener noreferrer' }, f.credito) : f.credito) : null)));
+}
+
+/* ---------- botão flutuante ---------- */
+function flutuante() {
+  if (!on('botaoFlutuante')) return;
+  const el = $('#flutuante'); el.hidden = false;
+  el.href = waHref(fill(C.whatsapp.mensagem));
+  el.append(waIcon(), h('span', null, C.textos.botaoCurto), h('span', { class: 'vh' }, ' (abre o WhatsApp em outra aba)'));
+  const heroEl = $('#hero');
+  if ('IntersectionObserver' in window && heroEl) new IntersectionObserver(([e]) => { if (e.isIntersecting) el.removeAttribute('data-visivel'); else el.setAttribute('data-visivel', ''); }, { threshold: 0.1 }).observe(heroEl);
+  else el.setAttribute('data-visivel', '');
+}
+
+/* ---------- SEO: head + JSON-LD (empresa + cada imóvel disponível) ---------- */
+function metaSet(sel, attr, val) { const m = $(sel); if (m && val) m.setAttribute(attr, val); }
+function seo() {
+  const s = C.seo, titulo = fill(s.titulo), desc = fill(s.descricao);
+  document.title = titulo;
+  metaSet('meta[name="description"]', 'content', desc);
+  metaSet('meta[property="og:title"]', 'content', titulo);
+  metaSet('meta[property="og:description"]', 'content', desc);
+  metaSet('meta[property="og:site_name"]', 'content', C.negocio.nome);
+  if (s.urlSite) { metaSet('link[rel="canonical"]', 'href', s.urlSite); metaSet('meta[property="og:url"]', 'content', s.urlSite); }
+  if (s.imagemOg) metaSet('meta[property="og:image"]', 'content', s.imagemOg);
+}
+function jsonld() {
+  const n = C.negocio, abs = u => /^https?:\/\//.test(u || '') ? u : undefined;
+  const horas = (C.horariosSchema || []).filter(x => x && x.abre && x.fecha && (x.dias || []).length)
+    .map(x => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: x.dias, opens: x.abre, closes: x.fecha }));
+  const agente = {
+    '@type': 'RealEstateAgent', '@id': (abs(C.seo.urlSite) || '') + '#imobiliaria',
+    name: n.nome, description: fill(C.seo.descricao), url: abs(C.seo.urlSite), image: abs(C.seo.imagemOg),
+    telephone: numeroPendente ? undefined : '+' + numero, email: C.contato.email ? limpo(C.contato.email) : undefined,
+    address: { '@type': 'PostalAddress', streetAddress: n.rua, addressLocality: n.cidade, addressRegion: n.uf, postalCode: n.cep, addressCountry: 'BR' },
+    geo: n.coordenadas ? { '@type': 'GeoCoordinates', latitude: n.coordenadas.lat, longitude: n.coordenadas.lng } : undefined,
+    hasMap: mapsUrl(), openingHoursSpecification: horas.length ? horas : undefined,
+    sameAs: [C.links.instagram].filter(Boolean)
+  };
+  if (!agente.sameAs.length) delete agente.sameAs;
+  const grafo = [agente];
+  if (on('jsonLdImoveis') && on('catalogo')) baseCatalogo().filter(im => disponivel(im) && !im.exemplo).forEach(im => {
+    const fotos = (im.fotos || []).map(f => abs(f && f.src)).filter(Boolean);
+    const p = { '@type': 'Product', name: limpo(im.titulo), sku: limpo(im.codigo), description: limpo(im.descricao) || undefined, category: tipoNome(im.tipo), image: fotos.length ? fotos : undefined, url: linkImovel(im) || undefined };
+    if (numOk(im.valor)) p.offers = { '@type': 'Offer', price: im.valor, priceCurrency: 'BRL', availability: im.status === 'reservado' ? 'https://schema.org/LimitedAvailability' : 'https://schema.org/InStock',
+      businessFunction: im.finalidade === 'aluguel' ? 'http://purl.org/goodrelations/v1#LeaseOut' : 'http://purl.org/goodrelations/v1#Sell',
+      priceSpecification: im.finalidade === 'aluguel' ? { '@type': 'UnitPriceSpecification', price: im.valor, priceCurrency: 'BRL', unitText: 'mês' } : undefined,
+      seller: { '@id': agente['@id'] } };
+    grafo.push(p);
+  });
+  const s = h('script', { type: 'application/ld+json' }); s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': grafo }); document.head.append(s);
+}
+
+/* ---------- comportamentos ---------- */
+function comportamentos() {
+  const t = $('#topo');
+  let rafId = 0;
+  const atualiza = () => { rafId = 0; if (window.scrollY > 12) t.setAttribute('data-solido', ''); else t.removeAttribute('data-solido'); };
+  atualiza();
+  addEventListener('scroll', () => { if (!rafId) rafId = requestAnimationFrame(atualiza); }, { passive: true });
+  const els = document.querySelectorAll('.rev');
+  if ('IntersectionObserver' in window && !reduzMovimento && els.length) {
+    document.documentElement.classList.add('rev-on');
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    els.forEach(el => io.observe(el));
+  }
+}
+
+/* ---------- pendências [TROCAR] ---------- */
+function nosComMarca(raiz) {
+  const w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, { acceptNode: n => (n.parentElement && /^(SCRIPT|STYLE|NOSCRIPT|OPTION)$/.test(n.parentElement.tagName) ? NodeFilter.FILTER_REJECT : MARCA.test(n.nodeValue) ? (MARCA.lastIndex = 0, NodeFilter.FILTER_ACCEPT) : NodeFilter.FILTER_SKIP) });
+  const nos = []; while (w.nextNode()) nos.push(w.currentNode); return nos;
+}
+function marcarPendencias(raiz) {
+  nosComMarca(raiz).forEach(n => {
+    const partes = n.nodeValue.split(MARCA), f = document.createDocumentFragment();
+    partes.forEach((p, i) => { if (i) f.append(h('mark', { class: 'pend' }, 'Trocar')); if (p) f.append(p.replace(/^ /, i ? '' : ' ')); });
+    n.replaceWith(f);
+  });
+}
+function limparMarcas(raiz) { nosComMarca(raiz).forEach(n => { n.nodeValue = n.nodeValue.replace(MARCA, '').replace(/^\s+/, ''); }); }
+function pendencias() {
+  const total = nosComMarca(document.body).reduce((s, n) => s + n.nodeValue.split(MARCA).length - 1, 0);
+  if (modoLimpo) { limparMarcas(document.body); document.title = limpo(document.title); }
+  else if (previa) marcarPendencias(document.body);
+  // Novos cartões (filtros) também recebem as marcas
+  if (grade && (previa || modoLimpo)) new MutationObserver(() => { previa ? marcarPendencias(grade) : limparMarcas(grade); }).observe(grade, { childList: true });
+  const exemplos = (C.imoveis || []).filter(im => im && im.exemplo).length;
+  const numPend = numeroPendente ? 1 : 0;
+  const fotos = document.querySelectorAll('img[data-pendente]').length;
+  if (total || fotos || numPend || exemplos) {
+    console.warn('[template] Pendências antes de publicar →', { textos: total, fotos, whatsapp: numPend, imoveisExemplo: exemplos });
+    document.head.append(h('meta', { name: 'robots', content: 'noindex, nofollow' }));
+  }
+  if (previa) {
+    let k = -1;
+    const bt = h('button', { type: 'button', class: 'previa', 'aria-label': 'Prévia do template: ir para a próxima pendência' }, h('i'),
+      h('span', null, 'Prévia: ' + total + ' [TROCAR] · ' + fotos + ' fotos' + (exemplos ? ' · ' + exemplos + ' imóveis de exemplo' : '') + (numPend ? ' · WhatsApp' : ''), h('span', { class: 'previa-longo' }, ' — toque para ir à próxima')));
+    bt.addEventListener('click', () => {
+      const m = [...document.querySelectorAll('main mark.pend, footer mark.pend')].filter(x => x.offsetParent); if (!m.length) return;
+      document.querySelectorAll('.pend-foco').forEach(x => x.classList.remove('pend-foco'));
+      k = (k + 1) % m.length; const alvo = m[k];
+      alvo.scrollIntoView({ block: 'center', behavior: reduzMovimento ? 'auto' : 'smooth' });
+      alvo.parentElement && alvo.parentElement.classList.add('pend-foco');
+      setTimeout(() => alvo.parentElement && alvo.parentElement.classList.remove('pend-foco'), 1800);
+    });
+    document.body.append(bt);
+  }
+}
+
+/* ---------- montagem ---------- */
+function montar() {
+  aplicarTema(); seo();
+  const main = $('#conteudo');
+  const partes = [hero(), destaques(), catalogo(), comoFunciona(), proprietario(), sobre(), bairros(), avaliacoes(), faq(), localizacao(), ctaFinal()].filter(Boolean);
+  let alt = false;
+  partes.forEach(p => { const t = p.dataset && p.dataset.tom; if (t === 'auto') { if (alt) p.classList.add('sec--tinta'); alt = !alt; } else if (t) alt = false; main.append(p); });
+  const nav = [['catalogo', 'catalogo'], ['como-funciona', 'comoFunciona'], ['anunciar', 'anunciar'], ['perguntas', 'faq']]
+    .filter(([id]) => $('#' + id)).map(([id, k]) => ({ id, label: C.textos.nav[k] }));
+  cabecalho(nav); rodape(); flutuante();
+  if (grade) renderGrade();
+  jsonld(); comportamentos(); pendencias();
+  if (on('detalhe')) iniciarDetalhe();
+}
+if (numeroPendente) console.warn('[template] CONFIG.whatsapp.numero ainda é o número de exemplo.');
+montar();
+})();
+</script>
+</body>
+</html>
+<!--
+=====================================================================
+CHECKLIST DE ADAPTAÇÃO POR CLIENTE — IMOBILIÁRIA  (tudo no CONFIG, exceto o item 1)
+=====================================================================
+[ ] 1. <head> (estático, o WhatsApp/Facebook não rodam JS): <title>, meta description, canonical,
+       og:title, og:description, og:url, og:image (1200x630 com URL absoluta).
+[ ] 2. CONFIG.negocio: nome, cidade, uf, bairro, rua, cep.
+[ ] 3. CONFIG.responsavel: nome, CRECI (J para imobiliária, F para corretor) e UF — OBRIGATÓRIO.
+[ ] 4. CONFIG.whatsapp.numero (55 + DDD + número) e as 4 mensagens (geral, imóvel, busca, proprietário).
+[ ] 5. CONFIG.contato, CONFIG.horarios (e horariosSchema, opcional), CONFIG.links.
+[ ] 6. CONFIG.seo.urlSite: o endereço final do site — vira o link do imóvel dentro da mensagem do WhatsApp.
+[ ] 7. CONFIG.cores: 4 HEX. Primária escura (azul, verde ou terroso), secundária bem clara.
+[ ] 8. CONFIG.textos com [TROCAR]. Sem "imperdível", "oportunidade única", "melhor preço".
+[ ] 9. CONFIG.imoveis: APAGUE os 3 exemplos (exemplo: true) e cadastre os imóveis reais.
+       valor null = "Consulte". enderecoRestrito true = só bairro. Fotos 1200x900 com alt.
+[ ] 10. CONFIG.catalogo: indisponiveis ("ocultar" ou "mostrar") e faixasValor do filtro.
+[ ] 11. CONFIG.comoFunciona (passos 2 e 3), CONFIG.sobre, CONFIG.bairros.
+[ ] 12. CONFIG.avaliacoes: só depoimentos reais e autorizados.
+[ ] 13. CONFIG.faq: documentação, financiamento (sem prometer aprovação), visita, taxa de administração, garantias.
+[ ] 14. CONFIG.rodape: razão social, CNPJ, crédito.
+[ ] 15. CONFIG.planos.ativo = "basico" | "intermediario" | "completo" (limiteImoveis do Básico = 6).
+[ ] 16. Ctrl+F por "[TROCAR]": precisa dar ZERO resultados no CONFIG e no <head>.
+[ ] 17. Mostre ao cliente com ?limpo no fim do link (esconde as etiquetas amarelas).
+Obs.: enquanto houver [TROCAR], foto pendente, imóvel de exemplo ou WhatsApp de exemplo,
+a página se marca sozinha como noindex. Quando tudo estiver certo, volta a ser indexável.
+=====================================================================
+-->
