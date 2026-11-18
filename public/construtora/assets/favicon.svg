@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Monograma A da ARQUEN: fundo grafite, traço off-white. Mesma construção do "A" de logo.svg. -->
+  <rect width="64" height="64" fill="#151515"/>
+  <g fill="#F2EFE9" transform="translate(14.4 12) scale(0.4)">
+    <polygon points="0,100 11,100 49,0 38,0"/>
+    <polygon points="88,100 77,100 39,0 50,0"/>
+    <polygon points="20,72 68,72 65,64 23,64"/>
+  </g>
+</svg>
