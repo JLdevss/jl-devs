@@ -51,7 +51,7 @@ export function createObra(canvas, opcoes = {}) {
   const dprMax = baixa ? 1.25 : 2;
   const foco = Array.isArray(cfg.foco) ? cfg.foco.slice() : [0.5, 0.5];
   let p = 0, ativo = false, raf = 0, descartado = false;
-  let poster = null, videoPronto = false, buscando = false, urlBlob = '';
+  let poster = null, videoPronto = false, buscando = false;
   let ultimo = null; // última imagem desenhada (poster ou vídeo), para redesenhar no resize
 
   // <video> fora da tela (no DOM para o Safari decodificar os quadros)
@@ -88,6 +88,7 @@ export function createObra(canvas, opcoes = {}) {
     const h = Math.max(1, Math.round((canvas.clientHeight || window.innerHeight) * dpr));
     if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
     if (ultimo) desenhar(ultimo);
+    conferirOrientacao();
   }
 
   /* ----------------------------- busca pela rolagem ---------------------------- */
@@ -106,57 +107,82 @@ export function createObra(canvas, opcoes = {}) {
   function agendar() { if (ativo && !raf && !descartado) raf = requestAnimationFrame(laco); }
 
   /* --------------------------------- carga ------------------------------------ */
-  const imgPoster = new Image();
-  imgPoster.decoding = 'async';
-  imgPoster.onload = () => {
-    poster = imgPoster;
-    resize();
-    if (!videoPronto) desenhar(poster);
-    pronto.resolver();
-  };
-  imgPoster.onerror = () => { if (!videoPronto) pronto.rejeitar(new Error('obra-video.js: poster indisponível.')); };
-  // Tela em pé usa o vídeo vertical (enquadrado para o celular), se houver.
-  const emPe = (canvas.clientHeight || window.innerHeight) > (canvas.clientWidth || window.innerWidth) * 1.15;
-  const retrato = emPe && cfg.srcRetrato;
-  if (retrato) foco[0] = foco[1] = 0.5;
-  const posterUrl = retrato && cfg.posterRetrato ? cfg.posterRetrato : cfg.poster;
-  if (posterUrl) imgPoster.src = posterUrl;
-  if (retrato && cfg.posterRetrato && cfg.poster) {
-    imgPoster.onerror = () => { imgPoster.onerror = null; imgPoster.src = cfg.poster; };
+  // Tela em pé usa o vídeo vertical (enquadrado para o celular), se houver. Ao girar
+  // o aparelho / redimensionar a janela, troca de vídeo; os já baixados ficam em cache.
+  const focoBase = foco.slice();
+  const blobs = new Map(); // url do vídeo -> object URL
+  let geracao = 0, modoRetrato = null, timerTroca = 0;
+  function telaEmPe() {
+    return (canvas.clientHeight || window.innerHeight) > (canvas.clientWidth || window.innerWidth) * 1.15;
+  }
+  function carregar() {
+    const minha = ++geracao;
+    const retrato = !!(cfg.srcRetrato && telaEmPe());
+    modoRetrato = retrato;
+    videoPronto = false;
+    buscando = false;
+    foco[0] = retrato ? 0.5 : focoBase[0];
+    foco[1] = retrato ? 0.5 : focoBase[1];
+
+    // poster da orientação (cai para o horizontal se o vertical faltar)
+    const posters = [retrato && cfg.posterRetrato, cfg.poster].filter(Boolean);
+    let k = 0;
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = () => {
+      if (minha !== geracao || descartado) return;
+      poster = img;
+      resize();
+      if (!videoPronto) desenhar(img);
+      pronto.resolver();
+    };
+    img.onerror = () => {
+      if (minha !== geracao) return;
+      if (++k < posters.length) img.src = posters[k];
+      else if (!poster && !videoPronto) pronto.rejeitar(new Error('obra-video.js: poster indisponível.'));
+    };
+    if (posters.length) img.src = posters[0];
+
+    // vídeo: vertical, ou 1080p/720p conforme a tela; tenta o próximo se um falhar
+    const largura = Math.max(window.innerWidth, window.innerHeight) * Math.min(window.devicePixelRatio || 1, dprMax);
+    const candidatos = (retrato ? [cfg.srcRetrato, cfg.srcMobile, cfg.src]
+      : !baixa && largura > 1400 ? [cfg.src, cfg.srcMobile] : [cfg.srcMobile, cfg.src]).filter(Boolean);
+    const baixar = (i) => (blobs.has(candidatos[i]) ? Promise.resolve(blobs.get(candidatos[i])) : fetch(candidatos[i])
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
+      .then((b) => { const u = URL.createObjectURL(b); blobs.set(candidatos[i], u); return u; }))
+      .catch((e) => { if (i + 1 < candidatos.length) return baixar(i + 1); throw e; });
+    baixar(0)
+      .then((u) => new Promise((ok, falha) => {
+        if (descartado || minha !== geracao) return;
+        video.onloadeddata = () => { video.onloadeddata = video.onerror = null; ok(); };
+        video.onerror = () => { video.onloadeddata = video.onerror = null; falha(new Error('vídeo não decodificável')); };
+        video.src = u;
+        video.load();
+      }))
+      .then(() => {
+        if (descartado || minha !== geracao) return;
+        // destrava a decodificação em navegadores móveis (play/pause mudo)
+        const pp = video.play();
+        if (pp && pp.then) pp.then(() => video.pause()).catch(() => {});
+        else video.pause();
+        videoPronto = true;
+        resize();
+        desenhar(video); // quadro inicial já decodificado
+        talvezBuscar();  // e vai para a posição atual da rolagem
+        if (!poster) pronto.resolver();
+      })
+      .catch((e) => {
+        console.warn('[obra-video] mantendo o poster:', e);
+        if (!poster && !cfg.poster) pronto.rejeitar(e);
+      });
+  }
+  function conferirOrientacao() {
+    if (!cfg.srcRetrato || modoRetrato === null || telaEmPe() === modoRetrato) return;
+    clearTimeout(timerTroca);
+    timerTroca = setTimeout(() => { if (!descartado && telaEmPe() !== modoRetrato) carregar(); }, 350);
   }
 
-  const largura = Math.max(window.innerWidth, window.innerHeight) * Math.min(window.devicePixelRatio || 1, dprMax);
-  const candidatos = (retrato ? [cfg.srcRetrato, cfg.srcMobile, cfg.src]
-    : !baixa && largura > 1400 ? [cfg.src, cfg.srcMobile] : [cfg.srcMobile, cfg.src]).filter(Boolean);
-  const baixar = (i) => fetch(candidatos[i])
-    .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
-    .catch((e) => { if (i + 1 < candidatos.length) return baixar(i + 1); throw e; });
-  baixar(0)
-    .then((b) => new Promise((ok, falha) => {
-      if (descartado) return;
-      urlBlob = URL.createObjectURL(b);
-      video.onloadeddata = () => { video.onloadeddata = video.onerror = null; ok(); };
-      video.onerror = () => { video.onloadeddata = video.onerror = null; falha(new Error('vídeo não decodificável')); };
-      video.src = urlBlob;
-      video.load();
-    }))
-    .then(() => {
-      if (descartado) return;
-      // destrava a decodificação em navegadores móveis (play/pause mudo)
-      const pp = video.play();
-      if (pp && pp.then) pp.then(() => video.pause()).catch(() => {});
-      else video.pause();
-      videoPronto = true;
-      resize();
-      desenhar(video); // quadro inicial já decodificado
-      talvezBuscar();  // e vai para a posição atual da rolagem
-      if (!poster) pronto.resolver();
-    })
-    .catch((e) => {
-      console.warn('[obra-video] mantendo o poster:', e);
-      if (!poster && !cfg.poster) pronto.rejeitar(e);
-    });
-
+  carregar();
   resize();
 
   return {
@@ -174,10 +200,12 @@ export function createObra(canvas, opcoes = {}) {
       descartado = true;
       ativo = false;
       if (raf) cancelAnimationFrame(raf);
+      clearTimeout(timerTroca);
       video.removeAttribute('src');
       try { video.load(); } catch (_) { /* ignora */ }
       video.remove();
-      if (urlBlob) URL.revokeObjectURL(urlBlob);
+      blobs.forEach((u) => URL.revokeObjectURL(u));
+      blobs.clear();
     },
     ready: pronto.promessa,
     stages: 6,
