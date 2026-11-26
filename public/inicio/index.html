@@ -242,7 +242,20 @@ p{margin:0}
 @keyframes shim{from{background-position:120% 0}to{background-position:-120% 0}}
 .status{position:absolute;inset:auto 0 44%;text-align:center;font:500 .86rem/1 var(--f-mono);opacity:0;pointer-events:none}
 .mock.loading .status{opacity:.9;filter:none}
-.under{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 6px 2px;font-size:.8rem;color:var(--ink-3)}
+.under{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 6px 2px;font-size:.8rem;color:var(--ink-3)}
+.draft-lead{margin-top:14px;max-width:40ch}
+.tpl-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tpl{appearance:none;border:0;cursor:pointer;text-align:left;display:grid;gap:4px;align-content:start;padding:12px 14px;border-radius:14px;font:inherit;color:var(--ink);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:background .2s,box-shadow .2s}
+.tpl b{font-weight:600;font-size:.98rem;letter-spacing:-.01em;transition:color .2s}
+.tpl span{font-size:.8rem;line-height:1.35;color:var(--ink-3)}
+.tpl:hover{background:rgba(255,255,255,.09)}
+.tpl[aria-pressed="true"]{background:rgba(193,252,109,.09);box-shadow:inset 0 0 0 1.5px var(--lime)}
+.tpl[aria-pressed="true"] b{color:var(--lime)}
+.tpl-frame{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:#0b1a14;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
+.tpl-frame iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#fff}
+.tpl-loading{position:absolute;inset:0;display:grid;place-items:center;font:500 .86rem/1 var(--f-mono);color:var(--ink-2);background:linear-gradient(105deg,rgba(255,255,255,.02) 30%,rgba(255,255,255,.09) 50%,rgba(255,255,255,.02) 70%) 0 0/250% 100%,#0b1a14;animation:shim 1.2s linear infinite;transition:opacity .35s}
+.tpl-frame.ready .tpl-loading{opacity:0;pointer-events:none;animation:none}
+@media (max-width:560px){.tpl-frame{aspect-ratio:4/5}.tpl-list{grid-template-columns:minmax(0,1fr)}}
 
 /* ---------- services ---------- */
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
@@ -499,11 +512,22 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   <div class="wrap draft-grid">
     <div class="draft-side">
       <div>
-        
         <h2>Veja como fica <em>antes de programar.</em></h2>
+        <p class="muted draft-lead">Escolha um dos templates da JL Devs ou descreva o seu negócio no topo da página.</p>
       </div>
       <div class="group">
-        <p class="eyebrow" id="style-lbl">Estilo (opcional)</p>
+        <p class="eyebrow" id="tpl-lbl">Templates da JL Devs</p>
+        <div class="tpl-list" role="group" aria-labelledby="tpl-lbl" id="templates">
+          <button type="button" class="tpl" data-tpl="construtora" aria-pressed="false"><b>Construtora</b><span>A obra evolui em 3D pela rolagem</span></button>
+          <button type="button" class="tpl" data-tpl="imobiliaria" aria-pressed="false"><b>Imobiliária</b><span>Lançamento com seletor de andares</span></button>
+          <button type="button" class="tpl" data-tpl="dentista" aria-pressed="true"><b>Dentista</b><span>Tratamentos e agendamento</span></button>
+          <button type="button" class="tpl" data-tpl="estetica" aria-pressed="false"><b>Estética</b><span>Faciais, corporais e depilação</span></button>
+          <button type="button" class="tpl" data-tpl="advocacia" aria-pressed="false"><b>Advocacia</b><span>Áreas de atuação e contato</span></button>
+          <button type="button" class="tpl" data-tpl="pousada" aria-pressed="false"><b>Pousada</b><span>Quartos e reserva direta</span></button>
+        </div>
+      </div>
+      <div class="group" id="style-group" hidden>
+        <p class="eyebrow" id="style-lbl">Estilo do rascunho</p>
         <div class="chips" role="group" aria-labelledby="style-lbl" id="styles">
           <button type="button" class="chip" data-style="auto" aria-pressed="true">A IA escolhe</button>
           <button type="button" class="chip" data-style="leve" aria-pressed="false">Leve</button>
@@ -512,24 +536,19 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
           <button type="button" class="chip" data-style="minimalista" aria-pressed="false">Minimalista</button>
         </div>
       </div>
-      <div class="group">
-        <p class="eyebrow" id="ex-lbl">Sem ideia? Use um exemplo</p>
-        <div class="chips" role="group" aria-labelledby="ex-lbl" id="examples">
-          <button type="button" class="chip" data-ex="padaria" aria-pressed="true">Padaria</button>
-          <button type="button" class="chip" data-ex="pousada" aria-pressed="false">Pousada na praia</button>
-          <button type="button" class="chip" data-ex="oficina" aria-pressed="false">Oficina mecânica</button>
-          <button type="button" class="chip" data-ex="doceria" aria-pressed="false">Doceria artesanal</button>
-        </div>
-      </div>
     </div>
 
     <div class="browser glass lens" aria-live="polite">
       <div class="bar">
         <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="m-domain">padariaventosul.com.br</span></div>
-        <span class="tag">Exemplo</span>
+        <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="m-domain">jldevs.online/dentista</span></div>
+        <span class="tag" id="m-tag">Template</span>
       </div>
-      <div class="mock" id="mock">
+      <div class="tpl-frame" id="tpl-frame">
+        <iframe id="tpl-iframe" title="Prévia do template Dentista" loading="lazy"></iframe>
+        <div class="tpl-loading" aria-hidden="true">carregando template…</div>
+      </div>
+      <div class="mock" id="mock" hidden>
         <div class="m-top"><span id="m-name">Padaria Vento Sul</span><i class="m-burger" aria-hidden="true"></i></div>
         <div class="m-kicker" id="m-kicker">Padaria artesanal</div>
         <h3 class="m-h" id="m-h">Pão de verdade, feito de madrugada</h3>
@@ -540,7 +559,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
         <div class="shimmer" aria-hidden="true"></div>
         <div class="status" aria-hidden="true">desenhando o seu site…</div>
       </div>
-      <div class="under"><span id="m-foot">Exemplo fictício. Descreva o seu negócio para ver o seu.</span><span>Endereço fictício</span></div>
+      <div class="under"><span id="m-foot">Template da JL Devs. Os textos marcados [TROCAR] viram os dados do seu negócio.</span><a class="link" id="tpl-open" href="/dentista" target="_blank" rel="noopener">Abrir template ↗</a></div>
     </div>
   </div>
 </section>
@@ -960,21 +979,63 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
     return {domain:slug+'.com.br',name:name,kicker:'Atendimento direto pelo WhatsApp',h:'Tudo o que o seu cliente precisa saber, em uma página',p:clean.length>140?clean.slice(0,138)+'…':clean,cta:'Chamar no WhatsApp',chips:['Resposta rápida','Pronto para celular','Como chegar'],cards:[['O que fazemos','Os seus serviços explicados em poucas linhas, com foto real.'],['Quem atende','Apresente a equipe e passe confiança logo no primeiro contato.'],['Fale com a gente','Botão de WhatsApp com a mensagem já escrita.']],c:{bg:'#f2f7f5',fg:'#0f2a22',acc:'#3f7d14',font:'"Segoe UI", system-ui, sans-serif'}};
   }
   function setPressed(sel,btn){document.querySelectorAll(sel+' .chip').forEach(function(b){b.setAttribute('aria-pressed',b===btn?'true':'false')})}
+  /* templates reais da JL Devs, mostrados ao vivo dentro da janela */
+  var TPL={construtora:'Construtora',imobiliaria:'Imobiliária',dentista:'Dentista',estetica:'Estética',advocacia:'Advocacia',pousada:'Pousada'};
+  var tplFrame=$('tpl-frame'), ifr=$('tpl-iframe'), curTpl='dentista', armed=false;
+  var TPL_FOOT='Template da JL Devs. Os textos marcados [TROCAR] viram os dados do seu negócio.';
+  function fitTpl(){
+    var w=tplFrame.clientWidth, h=tplFrame.clientHeight; if(!w||!h) return;
+    var vw=w<500?390:1280, s=w/vw;
+    ifr.style.width=vw+'px'; ifr.style.height=Math.ceil(h/s)+'px'; ifr.style.transform='scale('+s+')';
+  }
+  function loadTpl(){ if(armed&&curTpl){tplFrame.classList.remove('ready');ifr.src='/'+curTpl} }
+  function showTpl(k,foot){
+    curTpl=k; mock.hidden=true; tplFrame.hidden=false; $('style-group').hidden=true;
+    document.querySelectorAll('#templates .tpl').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tpl===k?'true':'false')});
+    $('m-domain').textContent='jldevs.online/'+k; $('m-tag').textContent='Template';
+    ifr.title='Prévia do template '+TPL[k];
+    var open=$('tpl-open'); open.href='/'+k; open.hidden=false;
+    $('m-foot').textContent=foot||TPL_FOOT;
+    fitTpl(); loadTpl();
+  }
+  function showMock(){
+    curTpl=null; tplFrame.hidden=true; mock.hidden=false; $('style-group').hidden=false; $('tpl-open').hidden=true;
+    if(ifr.getAttribute('src')) ifr.src='about:blank';
+    $('m-tag').textContent='Rascunho';
+    document.querySelectorAll('#templates .tpl').forEach(function(b){b.setAttribute('aria-pressed','false')});
+  }
+  ifr.addEventListener('load',function(){if(ifr.getAttribute('src'))tplFrame.classList.add('ready')});
+  if('ResizeObserver' in window) new ResizeObserver(fitTpl).observe(tplFrame);
+  /* só carrega o template quando a seção chega perto da tela */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){if(en.some(function(x){return x.isIntersecting})){armed=true;loadTpl();io.disconnect()}},{rootMargin:'400px 0px'});
+    io.observe($('rascunho'));
+  }else{armed=true}
+  function tplFromText(s){s=s.toLowerCase();
+    if(/constru|obra|engenhar|incorpora|arquitet|reforma/.test(s)) return 'construtora';
+    if(/im[oó]ve|imobili|apartament|lan[cç]amento|corretor|condom/.test(s)) return 'imobiliaria';
+    if(/dent|odonto|sorriso|ortodon|implante/.test(s)) return 'dentista';
+    if(/est[eé]tic|beleza|sal[aã]o|spa\b|depila|pele|unha|sobrancelha|harmoniza/.test(s)) return 'estetica';
+    if(/advoga|advoc|jur[ií]dic|direito|escrit[oó]rio de adv/.test(s)) return 'advocacia';
+    if(/pousad|hotel|hosped|chal[eé]|airbnb|camping/.test(s)) return 'pousada';
+    return null}
   $('hero-form').addEventListener('submit',function(e){
     e.preventDefault(); var v=$('business').value.trim(); if(!v){$('business').focus();return}
     $('rascunho').scrollIntoView({behavior:noMotion?'auto':'smooth'});
+    var t=tplFromText(v);
+    if(t){armed=true;showTpl(t,'O template da JL Devs mais próximo do que você descreveu. A versão final é feita com os dados do seu negócio.');return}
+    showMock();
     pulse(function(){var k=fromText(v); if(k){current=k;custom=null}else{custom=generic(v)}
-      setPressed('#examples',k?document.querySelector('#examples [data-ex="'+k+'"]'):null);
       $('m-foot').textContent='Rascunho a partir da sua descrição. A versão final é escrita com você.'});
   });
-  $('examples').addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return; setPressed('#examples',b);
-    pulse(function(){current=b.dataset.ex;custom=null;$('m-foot').textContent='Exemplo fictício. Descreva o seu negócio para ver o seu.'});
+  $('templates').addEventListener('click',function(e){
+    var b=e.target.closest('.tpl'); if(!b) return; armed=true; showTpl(b.dataset.tpl);
   });
   $('styles').addEventListener('click',function(e){
     var b=e.target.closest('.chip'); if(!b) return; setPressed('#styles',b); style=b.dataset.style; pulse(function(){});
   });
   render();
+  showTpl('dentista');
 
   /* ---------- plans ---------- */
   var WA='https://wa.me/5548988058940?text=';
