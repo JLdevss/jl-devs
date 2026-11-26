@@ -210,6 +210,36 @@ p{margin:0}
 /* Shared by the suggested questions in the chat. */
 .chip{appearance:none;border:0;cursor:pointer;font:500 .88rem/1 var(--f-sans);color:var(--ink-2);padding:.62rem .9rem;border-radius:var(--r-pill);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:background .2s,color .2s,box-shadow .2s}
 .chip:hover{color:var(--ink);background:rgba(255,255,255,.1)}
+/* ---------- template previews ---------- */
+.template-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px);align-items:start}
+.template-grid:has(.browser[hidden]){grid-template-columns:minmax(0,1fr)}
+@media (max-width:900px){.template-grid{grid-template-columns:minmax(0,1fr)}}
+.template-side{display:grid;gap:16px}
+.template-side h2{font-size:clamp(2rem,1.6rem + 1.8vw,3.2rem)}
+.template-side>p{max-width:40ch}
+.browser{border-radius:var(--r-xl);padding:12px;--lb:2px}
+.bar{display:flex;align-items:center;gap:10px;padding:4px 6px 12px}
+.lights{display:flex;gap:6px}
+.lights i{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.lights i:nth-child(1){background:#ff7a7a}.lights i:nth-child(2){background:#ffd36b}.lights i:nth-child(3){background:var(--lime)}
+.url{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--r-pill);background:rgba(0,0,0,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);font:500 .78rem/1 var(--f-mono);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.url svg{width:12px;height:12px;flex:none;opacity:.7}
+.tag{font:500 .68rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border-radius:var(--r-pill);color:var(--on-lime);background:var(--lime)}
+.under{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 6px 2px;font-size:.8rem;color:var(--ink-3)}
+.tpl-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tpl{text-decoration:none;text-align:left;display:grid;gap:4px;align-content:start;padding:12px 14px;border-radius:14px;font:inherit;color:var(--ink);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:background .2s,box-shadow .2s}
+.tpl b{font-weight:600;font-size:.98rem;letter-spacing:-.01em;transition:color .2s}
+.tpl span{font-size:.8rem;line-height:1.35;color:var(--ink-3)}
+.tpl:hover{background:rgba(255,255,255,.09)}
+.tpl[aria-current="true"]{background:rgba(193,252,109,.09);box-shadow:inset 0 0 0 1.5px var(--lime)}
+.tpl[aria-current="true"] b{color:var(--lime)}
+.tpl-frame{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:#0b1a14;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
+.tpl-frame iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#fff}
+.tpl-loading{position:absolute;inset:0;display:grid;place-items:center;font:500 .86rem/1 var(--f-mono);color:var(--ink-2);background:linear-gradient(105deg,rgba(255,255,255,.02) 30%,rgba(255,255,255,.09) 50%,rgba(255,255,255,.02) 70%) 0 0/250% 100%,#0b1a14;animation:shim 1.2s linear infinite;transition:opacity .35s}
+.tpl-frame.ready .tpl-loading{opacity:0;pointer-events:none;animation:none}
+@media (max-width:560px){.tpl-frame{aspect-ratio:4/5}.tpl-list{grid-template-columns:minmax(0,1fr)}}
+@keyframes shim{from{background-position:120% 0}to{background-position:-120% 0}}
+
 /* ---------- services ---------- */
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media (max-width:900px){.services{grid-template-columns:minmax(0,1fr)}}
@@ -245,9 +275,7 @@ p{margin:0}
 .stack{display:flex;gap:6px;flex-wrap:wrap}
 .stack span{font:500 .74rem/1 var(--f-mono);padding:.45rem .6rem;border-radius:8px;color:var(--ink-2);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
 .case-foot .btn{--bh:42px;font-size:.9rem}
-.case-demos{margin-top:clamp(24px,4vw,48px)}
-.case-demos ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:14px 0 0;padding:0}
-.case-demos .btn{--bh:42px;font-size:.9rem}
+
 
 /* ---------- estimator ---------- */
 .est{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:18px;align-items:start}
@@ -424,6 +452,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   <nav class="nav glass lens" aria-label="Menu principal">
     <a class="logo" href="#inicio" aria-label="JL Devs, início"><svg aria-hidden="true" focusable="false"><use href="#logo-jl"/></svg><span class="word" aria-hidden="true">Devs</span></a>
     <ul class="nav-links">
+      <li><a href="#templates">Templates</a></li>
       <li><a href="#servicos">O que fazemos</a></li>
       <li><a href="#cases">Cases</a></li>
       <li><a href="#orcamento">Orçamento</a></li>
@@ -457,8 +486,38 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
+<section class="band alt" id="templates" data-name="Templates">
+  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">Templates</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 08</span></div></div>
+  <div class="wrap template-grid">
+    <div class="template-side">
+      <h2>Veja nossos <em>templates de sites.</em></h2>
+      <p class="muted" id="tpl-lbl">Escolha um segmento para ver a prévia. O seu site pode ter outras cores, fotos e seções.</p>
+      <div class="tpl-list" role="group" aria-labelledby="tpl-lbl" id="template-options">
+        <a class="tpl" href="/construtora"><b>Construtora</b><span>A obra evolui em 3D pela rolagem</span></a>
+        <a class="tpl" href="/imobiliaria"><b>Imobiliária</b><span>Lançamento com seletor de andares</span></a>
+        <a class="tpl" href="/dentista" aria-current="true"><b>Dentista</b><span>Tratamentos e agendamento</span></a>
+        <a class="tpl" href="/estetica"><b>Estética</b><span>Faciais, corporais e depilação</span></a>
+        <a class="tpl" href="/advocacia"><b>Advocacia</b><span>Áreas de atuação e contato</span></a>
+        <a class="tpl" href="/pousada"><b>Pousada</b><span>Quartos e reserva direta</span></a>
+      </div>
+    </div>
+    <div class="browser glass lens" id="template-preview" hidden>
+      <div class="bar">
+        <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="template-address" aria-live="polite">jldevs.online/dentista</span></div>
+        <span class="tag">Template</span>
+      </div>
+      <div class="tpl-frame" id="tpl-frame">
+        <iframe id="tpl-iframe" title="Prévia do template Dentista" loading="lazy"></iframe>
+        <div class="tpl-loading" aria-hidden="true">carregando template…</div>
+      </div>
+      <div class="under"><a class="link" id="tpl-open" href="/dentista" target="_blank" rel="noopener">Abrir template ↗</a></div>
+    </div>
+  </div>
+</section>
+
 <section class="band" id="servicos" data-name="O que fazemos">
-  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 08</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>O que fazemos</h2></div>
@@ -497,7 +556,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band alt" id="cases" data-name="Cases">
-  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 08</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>O que já <em>entregamos.</em></h2></div>
@@ -531,22 +590,11 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
         </div>
       </article>
     </div>
-    <div class="case-demos">
-      <h3>Exemplos de sites por segmento</h3>
-      <ul>
-        <li><a class="btn btn-glass glass" href="/construtora">Construtora</a></li>
-        <li><a class="btn btn-glass glass" href="/imobiliaria">Imobiliária</a></li>
-        <li><a class="btn btn-glass glass" href="/dentista">Dentista</a></li>
-        <li><a class="btn btn-glass glass" href="/estetica">Estética</a></li>
-        <li><a class="btn btn-glass glass" href="/advocacia">Advocacia</a></li>
-        <li><a class="btn btn-glass glass" href="/pousada">Pousada</a></li>
-      </ul>
-    </div>
   </div>
 </section>
 
 <section class="band" id="orcamento" data-name="Orçamento">
-  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 08</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>Responda em <em>menos de um minuto.</em></h2></div>
@@ -620,7 +668,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band alt" id="planos" data-name="Planos">
-  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 08</span></div></div>
   <div class="wrap split">
     <div class="price-intro">
       <img class="ribbon" src="/inicio/assets/fita-planos.webp" width="627" height="627" alt="" loading="lazy">
@@ -634,7 +682,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band" id="processo" data-name="Como funciona">
-  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 08</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>Como <em>funciona.</em></h2></div>
@@ -650,7 +698,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band alt" id="dupla" data-name="A dupla">
-  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 08</span></div></div>
   <div class="wrap split">
     <div>
       
@@ -673,7 +721,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band" id="perguntas" data-name="Perguntas">
-  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 07</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">08</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">08 / 08</span></div></div>
   <div class="wrap split">
     <div><h2>Antes de <em>chamar.</em></h2></div>
     <div class="faq">
@@ -711,6 +759,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
       <nav class="foot-col" aria-label="Rodapé">
         <p class="eyebrow">Navegação</p>
         <ul>
+          <li><a href="#templates">Templates</a></li>
           <li><a href="#servicos">O que fazemos</a></li>
           <li><a href="#cases">Cases</a></li>
           <li><a href="#orcamento">Orçamento</a></li>
@@ -845,6 +894,62 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   var spyQueued=false;
   addEventListener('scroll',function(){if(spyQueued)return;spyQueued=true;requestAnimationFrame(function(){spy();spyQueued=false})},{passive:true});
   addEventListener('resize',spy); spy();
+
+  /* ---------- template previews ---------- */
+  var templateOptions=$('template-options'), templatePreview=$('template-preview');
+  var templateFrame=$('tpl-frame'), templateIframe=$('tpl-iframe'), templateOpen=$('tpl-open');
+
+  function fitTemplate(){
+    var width=templateFrame.clientWidth, height=templateFrame.clientHeight;
+    if(!width||!height) return;
+    var viewportWidth=width<500?390:1280, scale=width/viewportWidth;
+    templateIframe.style.width=viewportWidth+'px';
+    templateIframe.style.height=Math.ceil(height/scale)+'px';
+    templateIframe.style.transform='scale('+scale+')';
+  }
+
+  function showTemplate(link){
+    var path=link.getAttribute('href');
+    templateOptions.querySelectorAll('a').forEach(function(option){
+      if(option===link) option.setAttribute('aria-current','true');
+      else option.removeAttribute('aria-current');
+    });
+    templateIframe.title='Prévia do template '+link.querySelector('b').textContent;
+    $('template-address').textContent=location.host+path;
+    templateOpen.href=path;
+    if(templateIframe.getAttribute('src')===path) return;
+    templateFrame.classList.remove('ready');
+    templateIframe.src=path;
+  }
+
+  templateIframe.addEventListener('load',function(){
+    if(templateIframe.getAttribute('src')) templateFrame.classList.add('ready');
+  });
+  templateOptions.addEventListener('click',function(e){
+    var link=e.target.closest('a');
+    if(!link||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.defaultPrevented) return;
+    e.preventDefault();
+    showTemplate(link);
+  });
+
+  templatePreview.hidden=false;
+  if('ResizeObserver' in window) new ResizeObserver(fitTemplate).observe(templateFrame);
+  else addEventListener('resize',fitTemplate);
+  fitTemplate();
+  function loadDefaultTemplate(){
+    if(!templateIframe.getAttribute('src')) showTemplate(templateOptions.querySelector('[aria-current]'));
+  }
+
+  if('IntersectionObserver' in window){
+    var templateObserver=new IntersectionObserver(function(entries){
+      if(!entries.some(function(entry){return entry.isIntersecting})) return;
+      loadDefaultTemplate();
+      templateObserver.disconnect();
+    },{rootMargin:'400px 0px'});
+    templateObserver.observe(templatePreview);
+  }else{
+    loadDefaultTemplate();
+  }
 
   /* ---------- plans ---------- */
   var WA='https://wa.me/5548988058940?text=';
