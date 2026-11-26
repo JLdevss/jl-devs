@@ -47,6 +47,12 @@
         ],
         "createdAt": "2026-11-26T02:59:32.969Z",
         "reason": "user asked this session to put this exact design (with Instrument Serif italic accents) on the JL Devs site"
+      },
+      {
+        "rule": "overused-font",
+        "value": "instrument sans",
+        "createdAt": "2026-11-26T03:28:28.648Z",
+        "reason": "user asked this session to ship this design (Instrument Sans came from the merged Codex/Claude design)"
       }
     ]
   }
