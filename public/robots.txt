@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /painel
+Disallow: /checkout
+# templates com textos de exemplo ([TROCAR]); não devem aparecer no Google
+Disallow: /dentista
+Disallow: /estetica
+Disallow: /advocacia
+Disallow: /pousada
+Disallow: /obra
+
+Sitemap: https://jldevs.online/sitemap.xml
