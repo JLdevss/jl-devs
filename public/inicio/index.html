@@ -37,7 +37,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout: editorial hairline structure (Codex) floating over one fixed liquid scene;
-   refractive glass (Claude) reserved for the pieces you touch: nav, prompt, preview, cases, estimator, plans. */
+   refractive glass (Claude) reserved for the pieces you touch: nav, cases, estimator, plans. */
 :root{
   color-scheme: dark;
   --abyss:#06120e;          /* deep green-black ground */
@@ -189,7 +189,7 @@ p{margin:0}
 @media (max-width:560px){.btn-long{display:none}.btn-short{display:inline}.nav{padding-left:14px;gap:8px}.nav .logo svg{width:40px;height:26px}.nav .logo .word{display:none}.where b{display:none}}
 
 /* ---------- hero ---------- */
-.hero{position:relative;padding-block:clamp(40px,6vw,80px) clamp(48px,6vw,90px);overflow:hidden}
+.hero{position:relative;min-height:clamp(460px,46vw,640px);padding-block:clamp(40px,6vw,80px) clamp(48px,6vw,90px);overflow:hidden}
 .hero-art{position:absolute;z-index:-1;right:-2%;top:4%;width:min(58%,820px);mix-blend-mode:screen;filter:contrast(1.12) brightness(.96);-webkit-mask-image:radial-gradient(ellipse 52% 50% at 52% 46%,#000 50%,transparent 96%);mask-image:radial-gradient(ellipse 52% 50% at 52% 46%,#000 50%,transparent 96%);animation:art-in 1.4s cubic-bezier(.2,.8,.2,1) both;will-change:transform}
 .hero-art img{display:block;width:100%;height:auto;max-width:100%}
 @keyframes art-in{from{transform:translateY(24px) scale(.97)}to{transform:none}}
@@ -201,80 +201,15 @@ p{margin:0}
 .hero h1 em.ln{animation-delay:.1s}
 @keyframes rise{from{transform:translateY(.35em)}to{transform:none}}
 .lead{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);color:var(--ink-2);margin-top:22px;max-width:36ch}
-.prompt{margin-top:clamp(28px,4vw,44px);max-width:600px;padding:18px;border-radius:var(--r-xl);--lb:6px}
-.prompt label{display:block;font-size:1.4rem;font-weight:600;letter-spacing:-.03em;margin:2px 4px 12px}
-.controls{display:flex;gap:10px}
-.controls input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:.98rem;color:var(--ink);background:rgba(0,0,0,.28);padding:0 16px;min-height:50px;border-radius:var(--r-md);box-shadow:inset 0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.1)}
-.controls input::placeholder{color:var(--ink-3)}
-.controls input:focus{box-shadow:inset 0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(193,252,109,.6),0 0 0 4px rgba(193,252,109,.14)}
-.controls .btn{--bh:50px}
-.prompt small{display:block;margin:10px 4px 0;font-size:.82rem;color:var(--ink-3)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(24px,3vw,36px)}
 @media (max-width:760px){
-  .hero{padding-top:20px}
-  .hero-art{position:relative;right:auto;top:auto;width:calc(100% + 40px);margin:-6px -20px -30px;z-index:-1}
-  .hero .wrap{display:flex;flex-direction:column}
-  .hero-copy{order:1}.hero-art{order:2}.prompt{order:3}
-  .controls{flex-wrap:wrap}.controls .btn{flex:1 1 100%}
+  .hero{min-height:0;padding-top:20px}
+  .hero-art{display:block;position:relative;right:auto;top:auto;width:calc(100% + 40px);margin:-6px -20px -30px;z-index:-1}
 }
 
-/* ---------- draft preview ---------- */
-.draft-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px);align-items:start}
-@media (max-width:900px){.draft-grid{grid-template-columns:minmax(0,1fr)}}
-.draft-side{display:grid;gap:26px}
-.draft-side h2{font-size:clamp(2rem,1.6rem + 1.8vw,3.2rem)}
-.group{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:16px}
-.group .eyebrow{margin:0}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
+/* Shared by the suggested questions in the chat. */
 .chip{appearance:none;border:0;cursor:pointer;font:500 .88rem/1 var(--f-sans);color:var(--ink-2);padding:.62rem .9rem;border-radius:var(--r-pill);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:background .2s,color .2s,box-shadow .2s}
 .chip:hover{color:var(--ink);background:rgba(255,255,255,.1)}
-.chip[aria-pressed="true"]{color:var(--on-lime);background:linear-gradient(#efffc0,#c1fc6d 60%,#a9e44c);box-shadow:inset 0 1px 1px #fff}
-.browser{border-radius:var(--r-xl);padding:12px;--lb:2px}
-.bar{display:flex;align-items:center;gap:10px;padding:4px 6px 12px}
-.lights{display:flex;gap:6px}
-.lights i{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
-.lights i:nth-child(1){background:#ff7a7a}.lights i:nth-child(2){background:#ffd36b}.lights i:nth-child(3){background:var(--lime)}
-.url{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--r-pill);background:rgba(0,0,0,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);font:500 .78rem/1 var(--f-mono);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.url svg{width:12px;height:12px;flex:none;opacity:.7}
-.tag{font:500 .68rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border-radius:var(--r-pill);color:var(--on-lime);background:var(--lime)}
-.mock{position:relative;border-radius:20px;overflow:hidden;background:var(--m-bg);color:var(--m-fg);font-family:var(--m-font);padding:22px clamp(18px,3vw,30px) 26px;transition:background .5s,color .5s;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
-.m-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.98rem;padding-bottom:16px;border-bottom:1px solid color-mix(in srgb,var(--m-fg) 14%,transparent)}
-.m-burger{width:20px;height:12px;background:linear-gradient(var(--m-fg) 0 0) top/100% 2px no-repeat,linear-gradient(var(--m-fg) 0 0) center/100% 2px no-repeat,linear-gradient(var(--m-fg) 0 0) bottom/100% 2px no-repeat;opacity:.7}
-.m-kicker{margin:18px 0 6px;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:var(--m-acc)}
-.m-h{font-family:var(--m-font);font-size:clamp(1.5rem,1.1rem + 1.4vw,2.3rem);line-height:1.08;font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
-.m-p{margin:10px 0 0;font-size:.94rem;line-height:1.5;opacity:.8;max-width:44ch}
-.m-cta{display:inline-block;margin-top:16px;padding:.72rem 1.1rem;border-radius:10px;font-size:.86rem;font-weight:700;background:var(--m-acc);color:var(--m-bg)}
-.m-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
-.m-chips span{font-size:.74rem;font-weight:600;padding:.4rem .65rem;border-radius:8px;background:color-mix(in srgb,var(--m-acc) 14%,transparent)}
-.m-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
-@media (max-width:560px){.m-cards{grid-template-columns:minmax(0,1fr)}}
-.m-card{padding:12px;border-radius:12px;background:color-mix(in srgb,var(--m-fg) 6%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--m-fg) 10%,transparent)}
-.m-card b{display:block;font-size:.84rem;margin-bottom:4px}
-.m-card p{margin:0;font-size:.76rem;line-height:1.4;opacity:.75}
-.mock.loading>*{opacity:.15;filter:blur(4px);transition:opacity .2s,filter .2s}
-.mock .shimmer{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);background-size:250% 100%}
-.mock.loading .shimmer{opacity:1;filter:none;animation:shim 1s linear infinite}
-@keyframes shim{from{background-position:120% 0}to{background-position:-120% 0}}
-.status{position:absolute;inset:auto 0 44%;text-align:center;font:500 .86rem/1 var(--f-mono);opacity:0;pointer-events:none}
-.mock.loading .status{opacity:.9;filter:none}
-.under{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 6px 2px;font-size:.8rem;color:var(--ink-3)}
-.draft-lead{margin-top:14px;max-width:40ch}
-.notice{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:rgba(193,252,109,.07);box-shadow:inset 0 0 0 1px rgba(193,252,109,.35)}
-.notice-ic{flex:none;width:24px;height:24px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font:600 .82rem/1 var(--f-mono);color:var(--on-lime);background:var(--lime)}
-.notice p{font-size:.9rem;line-height:1.5;color:var(--ink-2)}
-.notice strong{color:var(--ink);font-weight:600}
-.tpl-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.tpl{appearance:none;border:0;cursor:pointer;text-align:left;display:grid;gap:4px;align-content:start;padding:12px 14px;border-radius:14px;font:inherit;color:var(--ink);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:background .2s,box-shadow .2s}
-.tpl b{font-weight:600;font-size:.98rem;letter-spacing:-.01em;transition:color .2s}
-.tpl span{font-size:.8rem;line-height:1.35;color:var(--ink-3)}
-.tpl:hover{background:rgba(255,255,255,.09)}
-.tpl[aria-pressed="true"]{background:rgba(193,252,109,.09);box-shadow:inset 0 0 0 1.5px var(--lime)}
-.tpl[aria-pressed="true"] b{color:var(--lime)}
-.tpl-frame{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:#0b1a14;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
-.tpl-frame iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#fff}
-.tpl-loading{position:absolute;inset:0;display:grid;place-items:center;font:500 .86rem/1 var(--f-mono);color:var(--ink-2);background:linear-gradient(105deg,rgba(255,255,255,.02) 30%,rgba(255,255,255,.09) 50%,rgba(255,255,255,.02) 70%) 0 0/250% 100%,#0b1a14;animation:shim 1.2s linear infinite;transition:opacity .35s}
-.tpl-frame.ready .tpl-loading{opacity:0;pointer-events:none;animation:none}
-@media (max-width:560px){.tpl-frame{aspect-ratio:4/5}.tpl-list{grid-template-columns:minmax(0,1fr)}}
-
 /* ---------- services ---------- */
 .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media (max-width:900px){.services{grid-template-columns:minmax(0,1fr)}}
@@ -310,6 +245,9 @@ p{margin:0}
 .stack{display:flex;gap:6px;flex-wrap:wrap}
 .stack span{font:500 .74rem/1 var(--f-mono);padding:.45rem .6rem;border-radius:8px;color:var(--ink-2);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
 .case-foot .btn{--bh:42px;font-size:.9rem}
+.case-demos{margin-top:clamp(24px,4vw,48px)}
+.case-demos ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:14px 0 0;padding:0}
+.case-demos .btn{--bh:42px;font-size:.9rem}
 
 /* ---------- estimator ---------- */
 .est{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:18px;align-items:start}
@@ -486,7 +424,6 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   <nav class="nav glass lens" aria-label="Menu principal">
     <a class="logo" href="#inicio" aria-label="JL Devs, início"><svg aria-hidden="true" focusable="false"><use href="#logo-jl"/></svg><span class="word" aria-hidden="true">Devs</span></a>
     <ul class="nav-links">
-      <li><a href="#rascunho">Rascunho</a></li>
       <li><a href="#servicos">O que fazemos</a></li>
       <li><a href="#cases">Cases</a></li>
       <li><a href="#orcamento">Orçamento</a></li>
@@ -506,88 +443,22 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   <div class="wrap">
     <div class="hero-copy">
       <p class="eyebrow">JL Devs &nbsp;/&nbsp; Criação de sites em Santa Catarina</p>
-      <h1><span class="ln">Conte o seu negócio.</span><em class="ln">A IA desenha o seu site agora.</em></h1>
-      <p class="lead">A JL Devs cria sites, sistemas e automações com IA para pequenos negócios. Descreva o que você faz e veja um primeiro rascunho em segundos, grátis e sem cadastro.</p>
+      <h1><span class="ln">Sites sob medida</span><em class="ln">para o seu negócio.</em></h1>
+      <p class="lead">A JL Devs cria sites, sistemas e automações com IA para pequenos negócios. Conheça nossos projetos ou peça um orçamento.</p>
+      <div class="hero-actions">
+        <a class="btn btn-lime" href="#orcamento">Pedir orçamento</a>
+        <a class="btn btn-glass glass" href="#cases">Ver projetos</a>
+      </div>
     </div>
     <picture class="hero-art">
       <source media="(max-width:760px)" srcset="/inicio/assets/jl-glass-mobile.jpg">
       <img src="/inicio/assets/jl-glass.jpg" width="952" height="629" alt="Monograma JL esculpido em vidro verde">
     </picture>
-    <form class="prompt glass lens" id="hero-form" autocomplete="off">
-      <p class="eyebrow" style="margin:2px 4px 6px">Rascunho com IA</p>
-      <label for="business">Sobre o seu negócio</label>
-      <div class="controls">
-        <input id="business" name="business" maxlength="500" placeholder="Ex.: pousada pé na areia na Pinheira, com 8 quartos e café da manhã">
-        <button class="btn btn-lime" type="submit">Gerar rascunho</button>
-      </div>
-      <small>Enter gera o rascunho. Grátis e sem cadastro.</small>
-    </form>
-  </div>
-</section>
-
-<section class="band alt" id="rascunho" data-name="Rascunho">
-  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">Rascunho</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 08</span></div></div>
-  <div class="wrap draft-grid">
-    <div class="draft-side">
-      <div>
-        <h2>Veja como fica <em>antes de programar.</em></h2>
-        <p class="muted draft-lead">Escolha um dos templates da JL Devs ou descreva o seu negócio no topo da página.</p>
-      </div>
-      <div class="notice" role="note">
-        <span class="notice-ic" aria-hidden="true">i</span>
-        <p><strong>Isto é só um exemplo.</strong> O seu site não vai ficar igual a este template: textos, fotos, cores, seções e até o layout inteiro podem mudar para combinar com o seu negócio.</p>
-      </div>
-      <div class="group">
-        <p class="eyebrow" id="tpl-lbl">Templates da JL Devs</p>
-        <div class="tpl-list" role="group" aria-labelledby="tpl-lbl" id="templates">
-          <button type="button" class="tpl" data-tpl="construtora" aria-pressed="false"><b>Construtora</b><span>A obra evolui em 3D pela rolagem</span></button>
-          <button type="button" class="tpl" data-tpl="imobiliaria" aria-pressed="false"><b>Imobiliária</b><span>Lançamento com seletor de andares</span></button>
-          <button type="button" class="tpl" data-tpl="dentista" aria-pressed="true"><b>Dentista</b><span>Tratamentos e agendamento</span></button>
-          <button type="button" class="tpl" data-tpl="estetica" aria-pressed="false"><b>Estética</b><span>Faciais, corporais e depilação</span></button>
-          <button type="button" class="tpl" data-tpl="advocacia" aria-pressed="false"><b>Advocacia</b><span>Áreas de atuação e contato</span></button>
-          <button type="button" class="tpl" data-tpl="pousada" aria-pressed="false"><b>Pousada</b><span>Quartos e reserva direta</span></button>
-        </div>
-      </div>
-      <div class="group" id="style-group" hidden>
-        <p class="eyebrow" id="style-lbl">Estilo do rascunho</p>
-        <div class="chips" role="group" aria-labelledby="style-lbl" id="styles">
-          <button type="button" class="chip" data-style="auto" aria-pressed="true">A IA escolhe</button>
-          <button type="button" class="chip" data-style="leve" aria-pressed="false">Leve</button>
-          <button type="button" class="chip" data-style="sofisticado" aria-pressed="false">Sofisticado</button>
-          <button type="button" class="chip" data-style="vibrante" aria-pressed="false">Vibrante</button>
-          <button type="button" class="chip" data-style="minimalista" aria-pressed="false">Minimalista</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="browser glass lens" aria-live="polite">
-      <div class="bar">
-        <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="m-domain">jldevs.online/dentista</span></div>
-        <span class="tag" id="m-tag">Template</span>
-      </div>
-      <div class="tpl-frame" id="tpl-frame">
-        <iframe id="tpl-iframe" title="Prévia do template Dentista" loading="lazy"></iframe>
-        <div class="tpl-loading" aria-hidden="true">carregando template…</div>
-      </div>
-      <div class="mock" id="mock" hidden>
-        <div class="m-top"><span id="m-name">Padaria Vento Sul</span><i class="m-burger" aria-hidden="true"></i></div>
-        <div class="m-kicker" id="m-kicker">Padaria artesanal</div>
-        <h3 class="m-h" id="m-h">Pão de verdade, feito de madrugada</h3>
-        <p class="m-p" id="m-p">Fermentação natural, café passado na hora e encomendas pelo WhatsApp.</p>
-        <span class="m-cta" id="m-cta">Fazer encomenda</span>
-        <div class="m-chips" id="m-chips"></div>
-        <div class="m-cards" id="m-cards"></div>
-        <div class="shimmer" aria-hidden="true"></div>
-        <div class="status" aria-hidden="true">desenhando o seu site…</div>
-      </div>
-      <div class="under"><span id="m-foot">Só um exemplo: o seu site pode ficar totalmente diferente.</span><a class="link" id="tpl-open" href="/dentista" target="_blank" rel="noopener">Abrir template ↗</a></div>
-    </div>
   </div>
 </section>
 
 <section class="band" id="servicos" data-name="O que fazemos">
-  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 07</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>O que fazemos</h2></div>
@@ -626,7 +497,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band alt" id="cases" data-name="Cases">
-  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 07</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>O que já <em>entregamos.</em></h2></div>
@@ -660,11 +531,22 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
         </div>
       </article>
     </div>
+    <div class="case-demos">
+      <h3>Exemplos de sites por segmento</h3>
+      <ul>
+        <li><a class="btn btn-glass glass" href="/construtora">Construtora</a></li>
+        <li><a class="btn btn-glass glass" href="/imobiliaria">Imobiliária</a></li>
+        <li><a class="btn btn-glass glass" href="/dentista">Dentista</a></li>
+        <li><a class="btn btn-glass glass" href="/estetica">Estética</a></li>
+        <li><a class="btn btn-glass glass" href="/advocacia">Advocacia</a></li>
+        <li><a class="btn btn-glass glass" href="/pousada">Pousada</a></li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <section class="band" id="orcamento" data-name="Orçamento">
-  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 07</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>Responda em <em>menos de um minuto.</em></h2></div>
@@ -738,7 +620,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band alt" id="planos" data-name="Planos">
-  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 07</span></div></div>
   <div class="wrap split">
     <div class="price-intro">
       <img class="ribbon" src="/inicio/assets/fita-planos.webp" width="627" height="627" alt="" loading="lazy">
@@ -752,7 +634,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band" id="processo" data-name="Como funciona">
-  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 07</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>Como <em>funciona.</em></h2></div>
@@ -760,7 +642,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
     </div>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h3>Conversa</h3><p>Você conta o que precisa pelo WhatsApp.</p></li>
-      <li class="step"><span class="num">2</span><h3>Rascunho</h3><p>A gente mostra como vai ficar antes de programar.</p></li>
+      <li class="step"><span class="num">2</span><h3>Proposta visual</h3><p>A gente mostra como vai ficar antes de programar.</p></li>
       <li class="step"><span class="num">3</span><h3>Construção</h3><p>Programamos com animação e carregamento rápido.</p></li>
       <li class="step"><span class="num">4</span><h3>No ar</h3><p>Publicamos e o site é seu. Sem mensalidade.</p></li>
     </ol>
@@ -768,7 +650,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band alt" id="dupla" data-name="A dupla">
-  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 07</span></div></div>
   <div class="wrap split">
     <div>
       
@@ -791,7 +673,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band" id="perguntas" data-name="Perguntas">
-  <div class="wrap"><div class="sec-mark"><span class="n">08</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">08 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 07</span></div></div>
   <div class="wrap split">
     <div><h2>Antes de <em>chamar.</em></h2></div>
     <div class="faq">
@@ -812,7 +694,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
       </div>
       <div class="actions">
         <a class="btn btn-lime" href="https://wa.me/5548988058940?text=Oi%2C%20JG!%20Vim%20pelo%20site%20da%20JL%20Devs%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Chamar no WhatsApp ↗</a>
-        <a class="btn btn-glass glass" href="#inicio">Gerar um rascunho</a>
+        <a class="btn btn-glass glass" href="#orcamento">Simular orçamento</a>
       </div>
     </div>
   </div>
@@ -829,7 +711,6 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
       <nav class="foot-col" aria-label="Rodapé">
         <p class="eyebrow">Navegação</p>
         <ul>
-          <li><a href="#rascunho">Rascunho</a></li>
           <li><a href="#servicos">O que fazemos</a></li>
           <li><a href="#cases">Cases</a></li>
           <li><a href="#orcamento">Orçamento</a></li>
@@ -939,6 +820,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   },{passive:true});
 
   /* ---------- where am I: scrollspy, rail, progress ---------- */
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   var secs=[].slice.call(document.querySelectorAll('main section[data-name]'));
   var rail=$('rail'), navA={}, railA={}, cur=null, flashT;
   [].slice.call(document.querySelectorAll('.nav-links a')).forEach(function(a){navA[a.getAttribute('href').slice(1)]=a});
@@ -963,102 +845,6 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   var spyQueued=false;
   addEventListener('scroll',function(){if(spyQueued)return;spyQueued=true;requestAnimationFrame(function(){spy();spyQueued=false})},{passive:true});
   addEventListener('resize',spy); spy();
-
-  /* ---------- draft generator (demo) ---------- */
-  var T={
-    padaria:{domain:'padariaventosul.com.br',name:'Padaria Vento Sul',kicker:'Padaria artesanal',h:'Pão de verdade, feito de madrugada',p:'Fermentação natural, café passado na hora e encomendas pelo WhatsApp.',cta:'Fazer encomenda',chips:['Fermentação natural','Aberto às 6h30','Entrega no bairro'],cards:[['Fornadas do dia','Fermentação natural, ciabatta e o pão de milho da casa saem às 7h e às 16h.'],['Café no salão','Café coado, tapioca e bolo do dia para começar a manhã sem pressa.'],['Encomendas','Cestas, bolos e pães para festas. Peça pelo WhatsApp com um dia de antecedência.']],c:{bg:'#fbf3e6',fg:'#3b2414',acc:'#b4532a',font:'Georgia, "Times New Roman", serif'}},
-    pousada:{domain:'pousadamaredoce.com.br',name:'Pousada Maré Doce',kicker:'Pousada pé na areia',h:'Acorde com o mar a 30 passos',p:'Quartos com varanda, café da manhã caseiro e reserva direto pelo WhatsApp.',cta:'Ver datas livres',chips:['Pé na areia','Café incluso','Aceita pets'],cards:[['Suítes com varanda','Oito suítes com vista para a enseada, ar-condicionado e roupa de cama de algodão.'],['Café da manhã','Pão caseiro, frutas da estação e bolo da casa servidos até as 10h.'],['Como chegar','A 40 min do aeroporto de Florianópolis, com estacionamento coberto.']],c:{bg:'#eef7f8',fg:'#0e3a44',acc:'#0a8fa3',font:'"Trebuchet MS", "Segoe UI", sans-serif'}},
-    oficina:{domain:'torque48auto.com.br',name:'Torque 48 Auto Center',kicker:'Mecânica e revisão',h:'Seu carro revisado sem enrolação',p:'Orçamento por foto no WhatsApp, prazo combinado e peça com garantia.',cta:'Pedir orçamento',chips:['Revisão completa','Garantia de 90 dias','Leva e traz'],cards:[['Revisão','Óleo, filtros e checklist de 40 itens com laudo em PDF.'],['Freios e suspensão','Pastilhas, discos e amortecedores com peça original ou paralela.'],['Diagnóstico','Scanner para injeção eletrônica e luz da injeção acesa.']],c:{bg:'#15171a',fg:'#f1f1ee',acc:'#ffb020',font:'"Arial Narrow", "Segoe UI", sans-serif'}},
-    doceria:{domain:'doceriaflordeacucar.com.br',name:'Flor de Açúcar',kicker:'Doceria artesanal',h:'Bolos que viram assunto na festa',p:'Bolos sob encomenda, doces finos e caixas de presente feitas à mão.',cta:'Encomendar bolo',chips:['Sob encomenda','Sem conservantes','Retirada ou entrega'],cards:[['Bolos de festa','Massa amanteigada, recheio de brigadeiro belga ou frutas vermelhas. A partir de 15 fatias.'],['Doces finos','Bem-casados, camafeus e brigadeiros gourmet em forminhas de papel.'],['Caixas de presente','Caixa com 12 doces e cartão escrito à mão. Peça com 2 dias de antecedência.']],c:{bg:'#fff1f3',fg:'#4a1f2c',acc:'#d6456b',font:'Georgia, "Times New Roman", serif'}}
-  };
-  var STY={
-    leve:{bg:'#f6fbf8',font:'"Segoe UI", system-ui, sans-serif'},
-    sofisticado:{bg:'#14110f',fg:'#efe6d8',acc:'#c9a36a',font:'Georgia, "Times New Roman", serif'},
-    vibrante:{vibe:true,font:'"Trebuchet MS", "Segoe UI", sans-serif'},
-    minimalista:{bg:'#ffffff',fg:'#111111',acc:'#111111',font:'"Helvetica Neue", Arial, sans-serif'}
-  };
-  var current='padaria', style='auto', custom=null, mock=$('mock');
-  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  function render(){
-    var t=custom||T[current], c=Object.assign({},t.c), s=STY[style];
-    if(s){Object.keys(s).forEach(function(k){if(k!=='vibe')c[k]=s[k]}); if(s.vibe){c.bg=t.c.acc;c.fg='#ffffff';c.acc=t.c.bg==='#15171a'?'#15171a':t.c.fg}}
-    mock.style.setProperty('--m-bg',c.bg); mock.style.setProperty('--m-fg',c.fg); mock.style.setProperty('--m-acc',c.acc); mock.style.setProperty('--m-font',c.font);
-    $('m-domain').textContent=t.domain; $('m-name').textContent=t.name; $('m-kicker').textContent=t.kicker;
-    $('m-h').textContent=t.h; $('m-p').textContent=t.p; $('m-cta').textContent=t.cta;
-    $('m-chips').innerHTML=t.chips.map(function(x){return '<span>'+esc(x)+'</span>'}).join('');
-    $('m-cards').innerHTML=t.cards.map(function(x){return '<div class="m-card"><b>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p></div>'}).join('');
-  }
-  function pulse(fn){mock.classList.add('loading');setTimeout(function(){fn();render();mock.classList.remove('loading')},noMotion?0:1000)}
-  function fromText(s){s=s.toLowerCase();
-    if(/pousad|hotel|hosped|praia|chal[eé]|airbnb/.test(s)) return 'pousada';
-    if(/oficin|mec[aâ]nic|carro|auto|moto|pneu|funilar/.test(s)) return 'oficina';
-    if(/doce|bolo|confeit|brigadeir|torta/.test(s)) return 'doceria';
-    if(/p[aã]o|padar|caf[eé]|panific/.test(s)) return 'padaria';
-    return null}
-  function generic(txt){
-    var clean=txt.trim().replace(/\s+/g,' '), first=clean.split(/[.,;\n]/)[0];
-    var name=first.length>34?first.slice(0,32)+'…':first; name=name.charAt(0).toUpperCase()+name.slice(1);
-    var slug=first.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'').slice(0,22)||'seunegocio';
-    return {domain:slug+'.com.br',name:name,kicker:'Atendimento direto pelo WhatsApp',h:'Tudo o que o seu cliente precisa saber, em uma página',p:clean.length>140?clean.slice(0,138)+'…':clean,cta:'Chamar no WhatsApp',chips:['Resposta rápida','Pronto para celular','Como chegar'],cards:[['O que fazemos','Os seus serviços explicados em poucas linhas, com foto real.'],['Quem atende','Apresente a equipe e passe confiança logo no primeiro contato.'],['Fale com a gente','Botão de WhatsApp com a mensagem já escrita.']],c:{bg:'#f2f7f5',fg:'#0f2a22',acc:'#3f7d14',font:'"Segoe UI", system-ui, sans-serif'}};
-  }
-  function setPressed(sel,btn){document.querySelectorAll(sel+' .chip').forEach(function(b){b.setAttribute('aria-pressed',b===btn?'true':'false')})}
-  /* templates reais da JL Devs, mostrados ao vivo dentro da janela */
-  var TPL={construtora:'Construtora',imobiliaria:'Imobiliária',dentista:'Dentista',estetica:'Estética',advocacia:'Advocacia',pousada:'Pousada'};
-  var tplFrame=$('tpl-frame'), ifr=$('tpl-iframe'), curTpl='dentista', armed=false;
-  var TPL_FOOT='Só um exemplo: o seu site pode ficar totalmente diferente.';
-  function fitTpl(){
-    var w=tplFrame.clientWidth, h=tplFrame.clientHeight; if(!w||!h) return;
-    var vw=w<500?390:1280, s=w/vw;
-    ifr.style.width=vw+'px'; ifr.style.height=Math.ceil(h/s)+'px'; ifr.style.transform='scale('+s+')';
-  }
-  function loadTpl(){ if(armed&&curTpl){tplFrame.classList.remove('ready');ifr.src='/'+curTpl} }
-  function showTpl(k,foot){
-    curTpl=k; mock.hidden=true; tplFrame.hidden=false; $('style-group').hidden=true;
-    document.querySelectorAll('#templates .tpl').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.tpl===k?'true':'false')});
-    $('m-domain').textContent='jldevs.online/'+k; $('m-tag').textContent='Template';
-    ifr.title='Prévia do template '+TPL[k];
-    var open=$('tpl-open'); open.href='/'+k; open.hidden=false;
-    $('m-foot').textContent=foot||TPL_FOOT;
-    fitTpl(); loadTpl();
-  }
-  function showMock(){
-    curTpl=null; tplFrame.hidden=true; mock.hidden=false; $('style-group').hidden=false; $('tpl-open').hidden=true;
-    if(ifr.getAttribute('src')) ifr.src='about:blank';
-    $('m-tag').textContent='Rascunho';
-    document.querySelectorAll('#templates .tpl').forEach(function(b){b.setAttribute('aria-pressed','false')});
-  }
-  ifr.addEventListener('load',function(){if(ifr.getAttribute('src'))tplFrame.classList.add('ready')});
-  if('ResizeObserver' in window) new ResizeObserver(fitTpl).observe(tplFrame);
-  /* só carrega o template quando a seção chega perto da tela */
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(en){if(en.some(function(x){return x.isIntersecting})){armed=true;loadTpl();io.disconnect()}},{rootMargin:'400px 0px'});
-    io.observe($('rascunho'));
-  }else{armed=true}
-  function tplFromText(s){s=s.toLowerCase();
-    if(/constru|obra|engenhar|incorpora|arquitet|reforma/.test(s)) return 'construtora';
-    if(/im[oó]ve|imobili|apartament|lan[cç]amento|corretor|condom/.test(s)) return 'imobiliaria';
-    if(/dent|odonto|sorriso|ortodon|implante/.test(s)) return 'dentista';
-    if(/est[eé]tic|beleza|sal[aã]o|spa\b|depila|pele|unha|sobrancelha|harmoniza/.test(s)) return 'estetica';
-    if(/advoga|advoc|jur[ií]dic|direito|escrit[oó]rio de adv/.test(s)) return 'advocacia';
-    if(/pousad|hotel|hosped|chal[eé]|airbnb|camping/.test(s)) return 'pousada';
-    return null}
-  $('hero-form').addEventListener('submit',function(e){
-    e.preventDefault(); var v=$('business').value.trim(); if(!v){$('business').focus();return}
-    $('rascunho').scrollIntoView({behavior:noMotion?'auto':'smooth'});
-    var t=tplFromText(v);
-    if(t){armed=true;showTpl(t,'O template da JL Devs mais próximo do que você descreveu. Só um exemplo: o seu site pode ficar totalmente diferente.');return}
-    showMock();
-    pulse(function(){var k=fromText(v); if(k){current=k;custom=null}else{custom=generic(v)}
-      $('m-foot').textContent='Rascunho a partir da sua descrição. A versão final é escrita com você.'});
-  });
-  $('templates').addEventListener('click',function(e){
-    var b=e.target.closest('.tpl'); if(!b) return; armed=true; showTpl(b.dataset.tpl);
-  });
-  $('styles').addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return; setPressed('#styles',b); style=b.dataset.style; pulse(function(){});
-  });
-  render();
-  showTpl('dentista');
 
   /* ---------- plans ---------- */
   var WA='https://wa.me/5548988058940?text=';
