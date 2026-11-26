@@ -257,6 +257,14 @@ p{margin:0}
 .status{position:absolute;inset:auto 0 44%;text-align:center;font:500 .86rem/1 var(--f-mono);opacity:0;pointer-events:none}
 .mock.loading .status{opacity:.9;filter:none}
 .under{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 6px 2px;font-size:.8rem;color:var(--ink-3)}
+.seo-text{display:grid;gap:14px;max-width:72ch;color:var(--ink-2);margin-bottom:28px}
+.ramo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0}
+@media (max-width:1000px){.ramo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.ramo-grid{grid-template-columns:minmax(0,1fr)}}
+.ramo{display:grid;gap:6px;height:100%;padding:18px;border-radius:var(--r-md);text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.ramo:hover{transform:translateY(-3px)}
+.ramo b{font-size:1.05rem;letter-spacing:-.02em}
+.ramo span{font-size:.86rem;color:var(--ink-3)}
 .draft-lead{margin-top:14px;max-width:40ch}
 .notice{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;background:rgba(193,252,109,.07);box-shadow:inset 0 0 0 1px rgba(193,252,109,.35)}
 .notice-ic{flex:none;width:24px;height:24px;margin-top:1px;border-radius:50%;display:grid;place-items:center;font:600 .82rem/1 var(--f-mono);color:var(--on-lime);background:var(--lime)}
@@ -520,13 +528,13 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
         <input id="business" name="business" maxlength="500" placeholder="Ex.: pousada pé na areia na Pinheira, com 8 quartos e café da manhã">
         <button class="btn btn-lime" type="submit">Gerar rascunho</button>
       </div>
-      <small>Conte o tipo de negócio, o nome, a cidade e quantidades (quartos, profissionais…). A prévia usa o template mais próximo e troca esses dados. Grátis e sem cadastro.</small>
+      <small>Enter gera o rascunho. Grátis e sem cadastro.</small>
     </form>
   </div>
 </section>
 
 <section class="band alt" id="rascunho" data-name="Rascunho">
-  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">Rascunho</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">Rascunho</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 09</span></div></div>
   <div class="wrap draft-grid">
     <div class="draft-side">
       <div>
@@ -587,7 +595,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
 </section>
 
 <section class="band" id="servicos" data-name="O que fazemos">
-  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 08</span></div></div>
+  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 09</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>O que fazemos</h2></div>
@@ -625,8 +633,31 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
-<section class="band alt" id="cases" data-name="Cases">
-  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 08</span></div></div>
+<section class="band alt" id="criacao-de-sites" data-name="Criação de sites">
+  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Criação de sites</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 09</span></div></div>
+  <div class="wrap">
+    <div class="head-row">
+      <div><h2>Criação de sites em <em>Santa Catarina.</em></h2></div>
+      <a class="link" href="/criacao-de-sites">Tudo sobre criação de sites →</a>
+    </div>
+    <div class="seo-text">
+      <p>A JL Devs faz criação de sites profissionais para pequenos negócios: pousadas, clínicas, escritórios, construtoras, imobiliárias e comércio local. O site é rápido, fica bonito no celular e leva o cliente direto para o seu WhatsApp.</p>
+      <p>Você fala direto com quem programa, vê um rascunho antes de começarmos e paga uma única vez, a partir de R$ 350. Já entregamos sites para pousadas em Palhoça (Ponta do Papagaio e Pinheira) e atendemos todo o Brasil pela internet.</p>
+    </div>
+    <ul class="ramo-grid">
+        <li><a class="ramo glass" href="/criacao-de-sites"><b>Criação de sites</b><span>Visão geral, planos e como funciona</span></a></li>
+        <li><a class="ramo glass" href="/site-para-pousada"><b>Site para pousada</b><span>Quartos e reserva direto no WhatsApp</span></a></li>
+        <li><a class="ramo glass" href="/site-para-dentista"><b>Site para dentista</b><span>Tratamentos, equipe e agendamento</span></a></li>
+        <li><a class="ramo glass" href="/site-para-clinica-de-estetica"><b>Site para clínica de estética</b><span>Tratamentos e avaliação pelo WhatsApp</span></a></li>
+        <li><a class="ramo glass" href="/site-para-advogado"><b>Site para advogado</b><span>Áreas de atuação e contato</span></a></li>
+        <li><a class="ramo glass" href="/site-para-construtora"><b>Site para construtora</b><span>Obras e lançamentos com impacto</span></a></li>
+        <li><a class="ramo glass" href="/site-para-imobiliaria"><b>Site para imobiliária</b><span>Lançamentos com seletor de andares</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="cases" data-name="Cases">
+  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 09</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>O que já <em>entregamos.</em></h2></div>
@@ -663,8 +694,8 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
-<section class="band" id="orcamento" data-name="Orçamento">
-  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 08</span></div></div>
+<section class="band alt" id="orcamento" data-name="Orçamento">
+  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 09</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>Responda em <em>menos de um minuto.</em></h2></div>
@@ -737,8 +768,8 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
-<section class="band alt" id="planos" data-name="Planos">
-  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 08</span></div></div>
+<section class="band" id="planos" data-name="Planos">
+  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 09</span></div></div>
   <div class="wrap split">
     <div class="price-intro">
       <img class="ribbon" src="/inicio/assets/fita-planos.webp" width="627" height="627" alt="" loading="lazy">
@@ -751,8 +782,8 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
-<section class="band" id="processo" data-name="Como funciona">
-  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 08</span></div></div>
+<section class="band alt" id="processo" data-name="Como funciona">
+  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 09</span></div></div>
   <div class="wrap">
     <div class="head-row">
       <div><h2>Como <em>funciona.</em></h2></div>
@@ -767,8 +798,8 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
-<section class="band alt" id="dupla" data-name="A dupla">
-  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 08</span></div></div>
+<section class="band" id="dupla" data-name="A dupla">
+  <div class="wrap"><div class="sec-mark"><span class="n">08</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">08 / 09</span></div></div>
   <div class="wrap split">
     <div>
       
@@ -790,8 +821,8 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </div>
 </section>
 
-<section class="band" id="perguntas" data-name="Perguntas">
-  <div class="wrap"><div class="sec-mark"><span class="n">08</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">08 / 08</span></div></div>
+<section class="band alt" id="perguntas" data-name="Perguntas">
+  <div class="wrap"><div class="sec-mark"><span class="n">09</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">09 / 09</span></div></div>
   <div class="wrap split">
     <div><h2>Antes de <em>chamar.</em></h2></div>
     <div class="faq">
@@ -829,6 +860,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
       <nav class="foot-col" aria-label="Rodapé">
         <p class="eyebrow">Navegação</p>
         <ul>
+          <li><a href="/criacao-de-sites">Criação de sites</a></li>
           <li><a href="#rascunho">Rascunho</a></li>
           <li><a href="#servicos">O que fazemos</a></li>
           <li><a href="#cases">Cases</a></li>
@@ -878,7 +910,6 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </form>
 </div>
 
-<script src="/inicio/personaliza.js"></script>
 <script>
 (function(){
   var $=function(id){return document.getElementById(id)};
@@ -1028,13 +1059,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
     $('m-tag').textContent='Rascunho';
     document.querySelectorAll('#templates .tpl').forEach(function(b){b.setAttribute('aria-pressed','false')});
   }
-  /* personalização: dados tirados da descrição do topo, aplicados só no template escolhido por ela */
-  var pers=null;
-  ifr.addEventListener('load',function(){
-    if(!ifr.getAttribute('src')) return;
-    if(pers&&pers.tpl===curTpl&&window.JLPersonaliza){try{window.JLPersonaliza.aplicar(ifr.contentDocument,curTpl,pers.info)}catch(err){}}
-    tplFrame.classList.add('ready');
-  });
+  ifr.addEventListener('load',function(){if(ifr.getAttribute('src'))tplFrame.classList.add('ready')});
   if('ResizeObserver' in window) new ResizeObserver(fitTpl).observe(tplFrame);
   /* só carrega o template quando a seção chega perto da tela */
   if('IntersectionObserver' in window){
@@ -1053,10 +1078,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
     e.preventDefault(); var v=$('business').value.trim(); if(!v){$('business').focus();return}
     $('rascunho').scrollIntoView({behavior:noMotion?'auto':'smooth'});
     var t=tplFromText(v);
-    if(t){
-      var info={}; try{if(window.JLPersonaliza)info=window.JLPersonaliza.analisar(v)||{}}catch(err){}
-      pers={tpl:t,info:info}; armed=true;
-      showTpl(t,'Prévia montada com o que você escreveu. Só um exemplo: o seu site pode ficar totalmente diferente.');return}
+    if(t){armed=true;showTpl(t,'O template da JL Devs mais próximo do que você descreveu. Só um exemplo: o seu site pode ficar totalmente diferente.');return}
     showMock();
     pulse(function(){var k=fromText(v); if(k){current=k;custom=null}else{custom=generic(v)}
       $('m-foot').textContent='Rascunho a partir da sua descrição. A versão final é escrita com você.'});
