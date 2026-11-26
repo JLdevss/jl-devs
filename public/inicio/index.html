@@ -217,6 +217,9 @@ p{margin:0}
 .template-side{display:grid;gap:16px}
 .template-side h2{font-size:clamp(2rem,1.6rem + 1.8vw,3.2rem)}
 .template-side>p{max-width:40ch}
+.template-note{padding:14px 16px;border-inline-start:3px solid var(--lime);border-radius:0 var(--r-md) var(--r-md) 0;background:rgba(193,252,109,.07)}
+.template-note h3{font-size:var(--step-0);letter-spacing:normal;margin-bottom:6px}
+.template-note p{font-size:.95rem;color:var(--ink-2)}
 .browser{border-radius:var(--r-xl);padding:12px;--lb:2px}
 .bar{display:flex;align-items:center;gap:10px;padding:4px 6px 12px}
 .lights{display:flex;gap:6px}
@@ -491,7 +494,11 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   <div class="wrap template-grid">
     <div class="template-side">
       <h2>Veja nossos <em>templates de sites.</em></h2>
-      <p class="muted" id="tpl-lbl">Escolha um segmento para ver a prévia. O seu site pode ter outras cores, fotos e seções.</p>
+      <p class="muted" id="tpl-lbl">Escolha um segmento para ver a prévia.</p>
+      <aside class="template-note" aria-labelledby="template-note-title">
+        <h3 id="template-note-title">O que é um template?</h3>
+        <p>Um template é um modelo de site feito para um tipo de negócio, como pousadas ou clínicas. Ele serve de ponto de partida. Seu site pode ficar bem diferente do exemplo, com outras cores, fotos, textos e até outra estrutura.</p>
+      </aside>
       <div class="tpl-list" role="group" aria-labelledby="tpl-lbl" id="template-options">
         <a class="tpl" href="/construtora"><b>Construtora</b><span>A obra evolui em 3D pela rolagem</span></a>
         <a class="tpl" href="/imobiliaria"><b>Imobiliária</b><span>Lançamento com seletor de andares</span></a>
