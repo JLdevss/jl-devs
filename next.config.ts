@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 /*
- * A home (/) e o checkout (/checkout) são páginas estáticas geradas por
- * experimentos/pagina-cursores/build.py em public/. As regras abaixo servem
- * esses arquivos nos endereços limpos. O projeto roda com servidor (sem
+ * A home (/) é a página estática Liquid Glass em public/inicio/index.html.
+ * A home anterior (página dos cursores, gerada por
+ * experimentos/pagina-cursores/build.py em public/index.html) continua
+ * disponível em /cursores. O checkout (/checkout) e os templates de nicho
+ * também são páginas estáticas em public/. O projeto roda com servidor (sem
  * `output: "export"`) por causa das rotas /api/pedido e /painel.
  */
 const config: NextConfig = {
@@ -12,7 +14,8 @@ const config: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
-        { source: "/", destination: "/index.html" },
+        { source: "/", destination: "/inicio/index.html" },
+        { source: "/cursores", destination: "/index.html" },
         { source: "/checkout", destination: "/checkout/index.html" },
         { source: "/obra", destination: "/obra/index.html" },
         { source: "/construtora", destination: "/construtora/index.html" },
