@@ -520,7 +520,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
         <input id="business" name="business" maxlength="500" placeholder="Ex.: pousada pé na areia na Pinheira, com 8 quartos e café da manhã">
         <button class="btn btn-lime" type="submit">Gerar rascunho</button>
       </div>
-      <small>Conte o tipo de negócio, o nome, a cidade e quantidades (quartos, profissionais…). A prévia usa o template mais próximo e troca esses dados. Grátis e sem cadastro.</small>
+      <small>Enter gera o rascunho. Grátis e sem cadastro.</small>
     </form>
   </div>
 </section>
@@ -878,7 +878,6 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
   </form>
 </div>
 
-<script src="/inicio/personaliza.js"></script>
 <script>
 (function(){
   var $=function(id){return document.getElementById(id)};
@@ -1028,13 +1027,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
     $('m-tag').textContent='Rascunho';
     document.querySelectorAll('#templates .tpl').forEach(function(b){b.setAttribute('aria-pressed','false')});
   }
-  /* personalização: dados tirados da descrição do topo, aplicados só no template escolhido por ela */
-  var pers=null;
-  ifr.addEventListener('load',function(){
-    if(!ifr.getAttribute('src')) return;
-    if(pers&&pers.tpl===curTpl&&window.JLPersonaliza){try{window.JLPersonaliza.aplicar(ifr.contentDocument,curTpl,pers.info)}catch(err){}}
-    tplFrame.classList.add('ready');
-  });
+  ifr.addEventListener('load',function(){if(ifr.getAttribute('src'))tplFrame.classList.add('ready')});
   if('ResizeObserver' in window) new ResizeObserver(fitTpl).observe(tplFrame);
   /* só carrega o template quando a seção chega perto da tela */
   if('IntersectionObserver' in window){
@@ -1053,10 +1046,7 @@ legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transfo
     e.preventDefault(); var v=$('business').value.trim(); if(!v){$('business').focus();return}
     $('rascunho').scrollIntoView({behavior:noMotion?'auto':'smooth'});
     var t=tplFromText(v);
-    if(t){
-      var info={}; try{if(window.JLPersonaliza)info=window.JLPersonaliza.analisar(v)||{}}catch(err){}
-      pers={tpl:t,info:info}; armed=true;
-      showTpl(t,'Prévia montada com o que você escreveu. Só um exemplo: o seu site pode ficar totalmente diferente.');return}
+    if(t){armed=true;showTpl(t,'O template da JL Devs mais próximo do que você descreveu. Só um exemplo: o seu site pode ficar totalmente diferente.');return}
     showMock();
     pulse(function(){var k=fromText(v); if(k){current=k;custom=null}else{custom=generic(v)}
       $('m-foot').textContent='Rascunho a partir da sua descrição. A versão final é escrita com você.'});
