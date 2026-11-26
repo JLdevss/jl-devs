@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JL Devs — sites, sistemas e IA sob medida</title>
+<meta name="description" content="Dupla de devs em Santa Catarina que cria sites, sistemas e automações com IA para pequenos negócios. Pagamento único, sem mensalidade.">
+<meta name="theme-color" content="#06120e">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="JL Devs — sites, sistemas e IA sob medida">
+<meta property="og:description" content="Dupla de devs em Santa Catarina que cria sites, sistemas e automações com IA para pequenos negócios. Pagamento único, sem mensalidade.">
+<meta property="og:site_name" content="JL Devs">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jldevs.online/">
+<meta property="og:image" content="https://jldevs.online/inicio/assets/jl-glass.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jldevs.online/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-6 -14 116 116'%3E%3Crect x='-6' y='-14' width='116' height='116' rx='26' fill='%2306120e'/%3E%3Cg fill='%23c1fc6d'%3E%3Cpath d='M36 0.5H42Q49 0.5 49 7.5V39C49 52.5 38.5 63 25.3 63C12 63 1.5 52.5 1.5 40V39.5Q1.5 33 8 33H11.5Q18 33 18 39.5C18 43.8 20.5 47 23.5 47C26.5 47 29 43.8 29 39V7.5Q29 0.5 36 0.5Z'/%3E%3Cpath d='M59 0.5H63.5Q70.5 0.5 70.5 7.5V40Q70.5 44.5 75 44.5H85Q92 44.5 92 51.5V56Q92 63 85 63H59Q52 63 52 56V7.5Q52 0.5 59 0.5Z'/%3E%3Ccircle cx='98' cy='58.5' r='4.6'/%3E%3C/g%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"JL Devs","url":"https://jldevs.online/","description":"Sites, sistemas e automações com IA para pequenos negócios.","telephone":"+55-48-98805-8940","areaServed":"Santa Catarina, Brasil","address":{"@type":"PostalAddress","addressRegion":"SC","addressCountry":"BR"},"priceRange":"R$ 350 – R$ 1.100"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: editorial hairline structure (Codex) floating over one fixed liquid scene;
+   refractive glass (Claude) reserved for the pieces you touch: nav, prompt, preview, cases, estimator, plans. */
+:root{
+  color-scheme: dark;
+  --abyss:#06120e;          /* deep green-black ground */
+  --deep:#03100b;
+  --lime:#c1fc6d;           /* JL Devs lime, from the glass monogram */
+  --emerald:#2bd977;        /* depth tone for the scene */
+  --aqua:#57d6e8;           /* one cool note in the liquid */
+  --ink:#f1f6ec;
+  --ink-2:#c3d3c7;
+  --ink-3:#a2b6a8;
+  --line:rgba(193,252,109,.16);
+  --line-2:rgba(255,255,255,.12);
+  --on-lime:#10200c;
+
+  --f-sans:"Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --r-xl:30px; --r-lg:22px; --r-md:16px; --r-pill:999px;
+  --step--1:clamp(.78rem,.76rem + .1vw,.84rem);
+  --step-0:clamp(1rem,.97rem + .15vw,1.07rem);
+  --step-1:clamp(1.3rem,1.15rem + .6vw,1.7rem);
+  --step-2:clamp(1.6rem,1.35rem + 1vw,2.2rem);
+  --step-3:clamp(2.4rem,1.8rem + 2.6vw,4rem);
+  --step-4:clamp(3rem,1.9rem + 5.2vw,6.4rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--abyss);color:var(--ink);font-family:var(--f-sans);font-size:var(--step-0);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--abyss)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:100;background:var(--lime);color:var(--on-lime);padding:.6rem 1rem;border-radius:var(--r-pill)}
+em{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--lime);letter-spacing:-.02em}
+
+/* ---------- liquid scene ---------- */
+.scene{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:
+  radial-gradient(110% 70% at 70% -10%, #0e3a22 0%, transparent 60%),
+  radial-gradient(80% 60% at 0% 100%, #0a2a26 0%, transparent 65%),
+  var(--abyss)}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);will-change:transform}
+.b1{width:52vmax;height:52vmax;right:-16vmax;top:-20vmax;background:radial-gradient(circle,rgba(193,252,109,.55),transparent 62%);animation:drift1 28s ease-in-out infinite alternate}
+.b2{width:46vmax;height:46vmax;left:-18vmax;top:30vh;background:radial-gradient(circle,rgba(43,217,119,.5),transparent 62%);animation:drift2 34s ease-in-out infinite alternate}
+.b3{width:36vmax;height:36vmax;right:4vw;bottom:-18vmax;background:radial-gradient(circle,rgba(87,214,232,.35),transparent 62%);animation:drift3 38s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(-14vw,16vh) scale(1.1)}}
+@keyframes drift2{to{transform:translate(16vw,-12vh) scale(.92)}}
+@keyframes drift3{to{transform:translate(-12vw,-20vh) scale(1.12)}}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(193,252,109,.2) 1px,transparent 1.4px);background-size:28px 28px;-webkit-mask-image:radial-gradient(ellipse at 60% 30%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 60% 30%,#000,transparent 72%);opacity:.5}
+.orb{position:absolute;border-radius:50%;will-change:transform}
+.orb::after{content:"";position:absolute;inset:9% 24% 60% 20%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.9),transparent 70%);filter:blur(1.5px)}
+.o1{width:min(15vw,170px);aspect-ratio:1;left:74%;top:82%;background:radial-gradient(circle at 32% 28%,#f6ffe2 0%,var(--lime) 26%,#4f8f1f 62%,#14300a 88%);box-shadow:inset -10px -16px 34px rgba(0,0,0,.45);animation:bob 16s ease-in-out infinite alternate}
+.o2{width:min(8vw,84px);aspect-ratio:1;left:93%;top:30%;background:radial-gradient(circle at 34% 30%,#fff 0%,#b8f3ff 28%,var(--aqua) 58%,#0b4652 90%);box-shadow:inset -6px -10px 20px rgba(0,0,0,.45);animation:bob 13s ease-in-out -5s infinite alternate}
+@keyframes bob{to{transform:translate3d(0,-34px,0)}}
+
+/* ---------- glass system ---------- */
+.glass{position:relative;isolation:isolate;border-radius:var(--r-lg);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.5),
+    inset 0 -1px 1px rgba(255,255,255,.12),
+    inset 1px 0 0 rgba(255,255,255,.16),
+    inset 0 0 30px rgba(255,255,255,.05),
+    0 26px 56px -24px rgba(0,0,0,.7)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;
+  background:
+    radial-gradient(240px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.13),transparent 70%),
+    linear-gradient(150deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.03) 40%,rgba(255,255,255,.015) 64%,rgba(255,255,255,.07) 100%),
+    rgba(10,30,20,.28);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);
+  backdrop-filter:blur(18px) saturate(170%)}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.2px;pointer-events:none;
+  background:linear-gradient(140deg,rgba(255,255,255,.8),rgba(255,255,255,.06) 28%,rgba(255,255,255,0) 55%,rgba(193,252,109,.18) 80%,rgba(255,255,255,.5));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.lens{--lens:blur(0px)}
+.refract .lens::before{
+  -webkit-backdrop-filter:var(--lens) blur(var(--lb,3px)) saturate(180%) brightness(1.06);
+  backdrop-filter:var(--lens) blur(var(--lb,3px)) saturate(180%) brightness(1.06)}
+
+/* ---------- layout + type ---------- */
+.wrap{max-width:1290px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(56px,7vw,100px);scroll-margin-top:calc(env(safe-area-inset-top,0px) + 40px)}
+/* section wayfinding: every band opens with a hairline, alternate bands sit on a darker ground */
+.band{position:relative}
+.band::before,.band.alt::after{content:"";position:absolute;left:0;right:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(193,252,109,.4) 14%,rgba(193,252,109,.4) 86%,transparent)}
+.band::before{top:0}
+.band.alt::after{bottom:0}
+.band.alt{background:linear-gradient(180deg,rgba(2,10,7,.84),rgba(2,10,7,.7))}
+.sec-mark{display:flex;align-items:center;gap:12px;margin-bottom:clamp(26px,3.4vw,44px);font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.09em;text-transform:uppercase}
+.sec-mark .n{color:var(--lime)}
+.sec-mark .name{color:var(--ink);padding:.6rem .9rem;border-radius:var(--r-pill);background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);white-space:nowrap;transition:background .35s,color .35s,box-shadow .35s}
+.sec-mark .rule{flex:1;min-width:24px;height:1px;background:linear-gradient(90deg,rgba(193,252,109,.55),rgba(193,252,109,.06))}
+.sec-mark .tot{color:var(--ink-3);white-space:nowrap}
+.is-current .sec-mark .name{color:var(--on-lime);background:linear-gradient(#efffc0,#c1fc6d 60%,#a9e44c);box-shadow:inset 0 1px 1px #fff,0 0 0 4px rgba(193,252,109,.14)}
+@media (max-width:420px){.sec-mark .tot{display:none}}
+
+/* side rail (wide screens) */
+.rail{position:fixed;right:max(12px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;align-items:center;gap:4px;padding:10px 7px;border-radius:var(--r-pill)}
+@media (min-width:1380px){.rail{display:flex}}
+.rail a{position:relative;display:grid;place-items:center;width:18px;min-height:18px;text-decoration:none}
+.rail a i{display:block;width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.38);transition:height .35s cubic-bezier(.2,.8,.2,1),background .3s}
+.rail a:hover i{background:var(--ink)}
+.rail a[aria-current] i{height:24px;background:var(--lime);box-shadow:inset 0 1px 1px #fff}
+.rail a span{position:absolute;right:30px;top:50%;transform:translate(6px,-50%);white-space:nowrap;font:500 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:.5rem .7rem;border-radius:var(--r-pill);color:var(--ink);background:rgba(6,18,14,.92);box-shadow:inset 0 0 0 1px rgba(193,252,109,.3);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.rail a:hover span,.rail a:focus-visible span,.rail.flash a[aria-current] span{opacity:1;transform:translate(0,-50%)}
+.rail a[aria-current] span{color:var(--lime)}
+.eyebrow{font:500 var(--step--1)/1.5 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin:0 0 16px}
+h1,h2,h3{font-weight:600;letter-spacing:-.045em;line-height:1.04;text-wrap:balance;margin:0}
+h2{font-size:var(--step-3)}
+h3{font-size:var(--step-1);letter-spacing:-.03em;line-height:1.12}
+p{margin:0}
+.muted{color:var(--ink-2)}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap;margin-bottom:clamp(26px,3.5vw,44px)}
+.head-row>p{max-width:42ch}
+
+/* buttons */
+.btn{--bh:48px;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:var(--bh);padding:0 1.4rem;border-radius:var(--r-pill);border:0;font:600 .95rem/1 var(--f-sans);text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:scale(.97)}
+.btn-lime{color:var(--on-lime);background:linear-gradient(#efffc0,#cbfb80 17%,#ade84b 62%,#bdf367 90%,#dcff9e);box-shadow:inset 0 1px 2px rgba(255,255,255,.75),inset 0 -2px 3px rgba(99,147,37,.5),0 0 0 1px #d7ff9b,0 10px 26px -12px rgba(0,0,0,.8)}
+.btn-lime:hover{transform:translateY(-2px)}
+.btn-glass{color:var(--ink)}
+.btn-glass:hover{transform:translateY(-2px)}
+.link{color:var(--lime);font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline;text-underline-offset:.25em}
+
+/* ---------- nav ---------- */
+.nav-shell{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:50;padding-top:12px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:8px 8px 8px 20px;border-radius:var(--r-pill)}
+.logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap;line-height:1}
+.logo svg{width:44px;height:29px;flex:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.logo .word{font-size:1.28rem;font-weight:600;letter-spacing:-.035em;color:var(--ink);transform:translateY(2px)}
+.logo--lg svg{width:66px;height:43px}
+.logo--lg .word{font-size:1.9rem}
+.nav-links{display:flex;gap:.15rem;list-style:none;margin:0;padding:0}
+.nav-links a{display:block;padding:.55rem .85rem;border-radius:var(--r-pill);text-decoration:none;font-size:.93rem;color:var(--ink-2);transition:background .2s,color .2s}
+.nav-links a:hover{background:rgba(255,255,255,.08);color:var(--ink)}
+.nav .btn{--bh:42px;padding:0 1.1rem;font-size:.9rem}
+.nav-links a[aria-current]{color:var(--on-lime);background:linear-gradient(#efffc0,#c1fc6d 60%,#a9e44c);box-shadow:inset 0 1px 1px #fff}
+.progress{position:absolute;left:24px;right:24px;bottom:0;height:2px;border-radius:2px;background:linear-gradient(90deg,#8fd13c,var(--lime));transform-origin:left center;transform:scaleX(var(--p,0));pointer-events:none}
+.where{display:none;align-items:center;gap:8px;min-width:0;font:500 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding:.5rem .75rem;border-radius:var(--r-pill);background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(193,252,109,.3);overflow:hidden}
+.where b{color:var(--lime);font-weight:500}
+.where span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn-short{display:none}
+@media (max-width:960px){.nav-links{display:none}.where{display:inline-flex}}
+@media (max-width:560px){.btn-long{display:none}.btn-short{display:inline}.nav{padding-left:14px;gap:8px}.nav .logo svg{width:40px;height:26px}.nav .logo .word{display:none}.where b{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(40px,6vw,80px) clamp(48px,6vw,90px);overflow:hidden}
+.hero-art{position:absolute;z-index:-1;right:-2%;top:4%;width:min(58%,820px);mix-blend-mode:screen;filter:contrast(1.12) brightness(.96);-webkit-mask-image:radial-gradient(ellipse 52% 50% at 52% 46%,#000 50%,transparent 96%);mask-image:radial-gradient(ellipse 52% 50% at 52% 46%,#000 50%,transparent 96%);animation:art-in 1.4s cubic-bezier(.2,.8,.2,1) both;will-change:transform}
+.hero-art img{display:block;width:100%;height:auto;max-width:100%}
+@keyframes art-in{from{transform:translateY(24px) scale(.97)}to{transform:none}}
+.hero-copy{max-width:580px;position:relative}
+.hero h1{font-size:clamp(2.6rem,1.4rem + 3.6vw,4.8rem);line-height:1;letter-spacing:-.055em}
+@media (min-width:761px) and (max-width:1100px){.hero-art{width:50%;top:18%}.hero-copy{max-width:52%}}
+.hero h1 em{display:block;font-size:.95em;line-height:1.02}
+.hero h1 .ln{display:block;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 em.ln{animation-delay:.1s}
+@keyframes rise{from{transform:translateY(.35em)}to{transform:none}}
+.lead{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);color:var(--ink-2);margin-top:22px;max-width:36ch}
+.prompt{margin-top:clamp(28px,4vw,44px);max-width:600px;padding:18px;border-radius:var(--r-xl);--lb:6px}
+.prompt label{display:block;font-size:1.4rem;font-weight:600;letter-spacing:-.03em;margin:2px 4px 12px}
+.controls{display:flex;gap:10px}
+.controls input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:.98rem;color:var(--ink);background:rgba(0,0,0,.28);padding:0 16px;min-height:50px;border-radius:var(--r-md);box-shadow:inset 0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.1)}
+.controls input::placeholder{color:var(--ink-3)}
+.controls input:focus{box-shadow:inset 0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(193,252,109,.6),0 0 0 4px rgba(193,252,109,.14)}
+.controls .btn{--bh:50px}
+.prompt small{display:block;margin:10px 4px 0;font-size:.82rem;color:var(--ink-3)}
+@media (max-width:760px){
+  .hero{padding-top:20px}
+  .hero-art{position:relative;right:auto;top:auto;width:calc(100% + 40px);margin:-6px -20px -30px;z-index:-1}
+  .hero .wrap{display:flex;flex-direction:column}
+  .hero-copy{order:1}.hero-art{order:2}.prompt{order:3}
+  .controls{flex-wrap:wrap}.controls .btn{flex:1 1 100%}
+}
+
+/* ---------- draft preview ---------- */
+.draft-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.draft-grid{grid-template-columns:minmax(0,1fr)}}
+.draft-side{display:grid;gap:26px}
+.draft-side h2{font-size:clamp(2rem,1.6rem + 1.8vw,3.2rem)}
+.group{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:16px}
+.group .eyebrow{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{appearance:none;border:0;cursor:pointer;font:500 .88rem/1 var(--f-sans);color:var(--ink-2);padding:.62rem .9rem;border-radius:var(--r-pill);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:background .2s,color .2s,box-shadow .2s}
+.chip:hover{color:var(--ink);background:rgba(255,255,255,.1)}
+.chip[aria-pressed="true"]{color:var(--on-lime);background:linear-gradient(#efffc0,#c1fc6d 60%,#a9e44c);box-shadow:inset 0 1px 1px #fff}
+.browser{border-radius:var(--r-xl);padding:12px;--lb:2px}
+.bar{display:flex;align-items:center;gap:10px;padding:4px 6px 12px}
+.lights{display:flex;gap:6px}
+.lights i{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.lights i:nth-child(1){background:#ff7a7a}.lights i:nth-child(2){background:#ffd36b}.lights i:nth-child(3){background:var(--lime)}
+.url{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:var(--r-pill);background:rgba(0,0,0,.28);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);font:500 .78rem/1 var(--f-mono);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.url svg{width:12px;height:12px;flex:none;opacity:.7}
+.tag{font:500 .68rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.45rem .6rem;border-radius:var(--r-pill);color:var(--on-lime);background:var(--lime)}
+.mock{position:relative;border-radius:20px;overflow:hidden;background:var(--m-bg);color:var(--m-fg);font-family:var(--m-font);padding:22px clamp(18px,3vw,30px) 26px;transition:background .5s,color .5s;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
+.m-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.98rem;padding-bottom:16px;border-bottom:1px solid color-mix(in srgb,var(--m-fg) 14%,transparent)}
+.m-burger{width:20px;height:12px;background:linear-gradient(var(--m-fg) 0 0) top/100% 2px no-repeat,linear-gradient(var(--m-fg) 0 0) center/100% 2px no-repeat,linear-gradient(var(--m-fg) 0 0) bottom/100% 2px no-repeat;opacity:.7}
+.m-kicker{margin:18px 0 6px;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:var(--m-acc)}
+.m-h{font-family:var(--m-font);font-size:clamp(1.5rem,1.1rem + 1.4vw,2.3rem);line-height:1.08;font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.m-p{margin:10px 0 0;font-size:.94rem;line-height:1.5;opacity:.8;max-width:44ch}
+.m-cta{display:inline-block;margin-top:16px;padding:.72rem 1.1rem;border-radius:10px;font-size:.86rem;font-weight:700;background:var(--m-acc);color:var(--m-bg)}
+.m-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.m-chips span{font-size:.74rem;font-weight:600;padding:.4rem .65rem;border-radius:8px;background:color-mix(in srgb,var(--m-acc) 14%,transparent)}
+.m-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}
+@media (max-width:560px){.m-cards{grid-template-columns:minmax(0,1fr)}}
+.m-card{padding:12px;border-radius:12px;background:color-mix(in srgb,var(--m-fg) 6%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--m-fg) 10%,transparent)}
+.m-card b{display:block;font-size:.84rem;margin-bottom:4px}
+.m-card p{margin:0;font-size:.76rem;line-height:1.4;opacity:.75}
+.mock.loading>*{opacity:.15;filter:blur(4px);transition:opacity .2s,filter .2s}
+.mock .shimmer{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);background-size:250% 100%}
+.mock.loading .shimmer{opacity:1;filter:none;animation:shim 1s linear infinite}
+@keyframes shim{from{background-position:120% 0}to{background-position:-120% 0}}
+.status{position:absolute;inset:auto 0 44%;text-align:center;font:500 .86rem/1 var(--f-mono);opacity:0;pointer-events:none}
+.mock.loading .status{opacity:.9;filter:none}
+.under{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 6px 2px;font-size:.8rem;color:var(--ink-3)}
+
+/* ---------- services ---------- */
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.services{grid-template-columns:minmax(0,1fr)}}
+.svc{padding:14px 14px 24px;border-radius:var(--r-xl);display:grid;gap:16px;align-content:start}
+.svc-art{border-radius:20px;overflow:hidden;aspect-ratio:1.3;max-width:100%;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%,rgba(193,252,109,.08),transparent 70%)}
+.svc-art img{width:94%;max-width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.svc:hover .svc-art img{transform:translateY(-6px) rotate(-3deg) scale(1.04)}
+.svc-copy{padding:0 8px;display:grid;gap:10px}
+.svc-copy p{color:var(--ink-2);max-width:38ch}
+.ex{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:4px 0 0}
+.svc-proj{font-size:.86rem;color:var(--ink-3);border-top:1px solid var(--line-2);padding-top:12px;margin-top:4px}
+.ex li{font:500 .76rem/1 var(--f-mono);padding:.5rem .65rem;border-radius:8px;color:var(--ink-2);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+@media (max-width:900px){
+  .svc-art{aspect-ratio:1.9}
+  .svc-art img{width:min(78%,360px)}
+}
+
+/* ---------- cases ---------- */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:860px){.cases{grid-template-columns:minmax(0,1fr)}}
+.case{padding:10px;border-radius:var(--r-xl);display:flex;flex-direction:column}
+.shot{display:block;position:relative;border-radius:22px;overflow:hidden;aspect-ratio:2.07;max-width:100%;padding:4px;background:linear-gradient(171deg,#e3ffcf,#5d9237 5%,#182e20 36%,#9ace70 54%,#173524 58%,#baff75 94%,#477131)}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;border-radius:18px;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.case:hover .shot img{transform:scale(1.04)}
+.case-body{padding:20px 12px 10px;display:grid;gap:12px;flex:1}
+.loc{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.case-body p{color:var(--ink-2)}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.ticks li{position:relative;padding-left:28px;font-size:.94rem}
+.ticks li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#f6ffe2,var(--lime) 60%,#8fcf3e);box-shadow:inset 0 1px 0 #fff}
+.ticks li::after{content:"";position:absolute;left:5px;top:7px;width:7px;height:4px;border-left:2px solid var(--on-lime);border-bottom:2px solid var(--on-lime);transform:rotate(-45deg)}
+.case-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.stack{display:flex;gap:6px;flex-wrap:wrap}
+.stack span{font:500 .74rem/1 var(--f-mono);padding:.45rem .6rem;border-radius:8px;color:var(--ink-2);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.case-foot .btn{--bh:42px;font-size:.9rem}
+
+/* ---------- estimator ---------- */
+.est{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:18px;align-items:start}
+@media (max-width:960px){.est{grid-template-columns:minmax(0,1fr)}}
+.est-form{padding:clamp(20px,3vw,32px);border-radius:var(--r-xl);display:grid;gap:24px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.pick{position:relative}
+.pick input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.pick span{display:inline-flex;align-items:center;padding:.7rem 1rem;border-radius:var(--r-pill);font-size:.92rem;color:var(--ink-2);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);transition:all .2s;cursor:pointer;user-select:none}
+.pick:hover span{background:rgba(255,255,255,.1);color:var(--ink)}
+.pick input:checked+span{color:var(--on-lime);background:linear-gradient(#efffc0,#c1fc6d 60%,#a9e44c);box-shadow:inset 0 1px 1px #fff}
+.pick input:focus-visible+span{outline:2px solid var(--lime);outline-offset:3px}
+.pick input:disabled+span{opacity:.35;cursor:not-allowed}
+.field{display:grid;gap:8px}
+.field label{font:500 var(--step--1)/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.field input,.field textarea{width:100%;border:0;outline:0;font:inherit;color:var(--ink);background:rgba(0,0,0,.26);padding:13px 15px;border-radius:var(--r-md);box-shadow:inset 0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.1)}
+.field textarea{min-height:88px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-3)}
+.field input:focus,.field textarea:focus{box-shadow:inset 0 1px 3px rgba(0,0,0,.4),inset 0 0 0 1px rgba(193,252,109,.6),0 0 0 4px rgba(193,252,109,.14)}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.row2{grid-template-columns:minmax(0,1fr)}}
+.est-out{position:sticky;top:calc(env(safe-area-inset-top,0px) + 100px);padding:clamp(22px,3vw,30px);border-radius:var(--r-xl);display:grid;gap:16px;--lb:10px}
+@media (max-width:960px){.est-out{position:relative;top:auto}}
+.est-out .eyebrow{margin:0}
+.est-out .plan{font-size:var(--step-1);font-weight:600;letter-spacing:-.03em}
+.price{display:flex;align-items:baseline;gap:.4rem;font-variant-numeric:tabular-nums}
+.price .cur{font-size:1.2rem;color:var(--ink-2)}
+.price .val{font-size:clamp(3rem,2.2rem + 3vw,4.4rem);font-weight:600;letter-spacing:-.06em;line-height:1;color:var(--lime)}
+.price .was{font-size:1rem;color:var(--ink-3);text-decoration:line-through;margin-left:.3rem}
+.est-out p{color:var(--ink-2);font-size:.95rem}
+.est-out .fine{font-size:.82rem;color:var(--ink-3)}
+.est-out .btn{width:100%}
+
+/* ---------- plans ---------- */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:start}
+@media (max-width:860px){.split{grid-template-columns:minmax(0,1fr)}}
+.price-intro{position:relative;isolation:isolate;padding-bottom:20px}
+.price-intro .ribbon{position:absolute;z-index:-1;right:-4%;top:-6%;width:52%;max-width:100%;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 60%,transparent 100%)}
+.price-intro h2 em{display:block}
+.price-intro p{margin:22px 0 28px;max-width:30ch}
+.plan-list{border-radius:var(--r-xl);padding:8px 22px}
+.plan-row{border-top:1px solid var(--line-2)}
+.plan-row:first-child{border-top:0}
+.plan-row summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:14px;padding:18px 0}
+.plan-row summary::-webkit-details-marker{display:none}
+.plan-row .pname{font-size:1.15rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{font:500 .66rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:.38rem .5rem;border-radius:var(--r-pill);color:var(--lime);box-shadow:inset 0 0 0 1px rgba(193,252,109,.4)}
+.badge.ai{color:var(--aqua);box-shadow:inset 0 0 0 1px rgba(87,214,232,.45)}
+.pprice{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pprice b{color:var(--lime);font-weight:600;font-size:1.1rem}
+.pprice s{display:block;font-size:.78rem;color:var(--ink-3)}
+.plus{width:28px;height:28px;border-radius:50%;position:relative;background:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.4);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;border-radius:2px;background:var(--ink);transform:translate(-50%,-50%)}
+.plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.plan-row[open] .plus{transform:rotate(45deg)}
+.plan-body{padding:0 0 22px;display:grid;gap:14px}
+.plan-body p{color:var(--ink-2);max-width:48ch}
+.plan-body .btn{justify-self:start;--bh:44px}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 28px;list-style:none;margin:0;padding:0}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
+@media (max-width:480px){.steps{grid-template-columns:minmax(0,1fr);gap:0}}
+.step{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:10px;align-content:start}
+@media (max-width:480px){.step{padding-block:18px}}
+.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:500 .95rem/1 var(--f-mono);color:var(--on-lime);background:radial-gradient(circle at 32% 28%,#fbffef,var(--lime) 50%,#8fcf3e);box-shadow:inset 0 2px 0 #fff,inset -3px -5px 10px rgba(60,100,10,.35)}
+.step p{color:var(--ink-2)}
+
+/* ---------- duo + faq ---------- */
+.duo-title{font:italic 400 clamp(2.8rem,2rem + 3vw,4.4rem)/1.04 var(--f-serif);letter-spacing:-.02em;color:var(--ink)}
+.person{border-top:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 20px}
+.person:first-child{border-top:0;padding-top:0}
+.person p{color:var(--ink-2);margin-top:4px}
+.who{display:flex;align-items:center;gap:14px}
+.avatar{width:54px;height:54px;flex:none;border-radius:50% 50% 50% 18%;display:grid;place-items:center;font:600 1.05rem/1 var(--f-sans);letter-spacing:-.02em;color:var(--on-lime);box-shadow:inset 0 2px 0 rgba(255,255,255,.8),inset -5px -7px 14px rgba(0,0,0,.28),0 10px 24px -10px rgba(0,0,0,.7)}
+.av-jg{background:radial-gradient(circle at 30% 25%,#fbffef,var(--lime) 45%,#7fc22f)}
+.av-lc{background:radial-gradient(circle at 30% 25%,#f2fdff,#a8eef8 45%,#3fb3c6)}
+.est-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;border-top:1px solid var(--line-2);padding-top:20px}
+.est-actions small{color:var(--ink-3);font-size:.84rem}
+.msg{padding:14px;border-radius:var(--r-md);background:rgba(0,0,0,.26);box-shadow:inset 0 0 0 1px rgba(193,252,109,.25)}
+.msg .eyebrow{margin:0 0 8px}
+.msg p:last-child{white-space:pre-line;font-size:.86rem;color:var(--ink-2);margin:0}
+.person .skills{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.person .skills li{font:500 .74rem/1 var(--f-mono);padding:.45rem .6rem;border-radius:8px;color:var(--ink-2);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.phone{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;border-radius:var(--r-pill)}
+.phone span{font:500 .9rem/1 var(--f-mono);user-select:all;font-variant-numeric:tabular-nums;white-space:nowrap}
+.phone .btn{--bh:38px;font-size:.86rem;padding:0 .95rem}
+@media (max-width:520px){.person{grid-template-columns:minmax(0,1fr)}.phone{justify-content:space-between}}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-size:1.15rem;font-weight:600;letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq details[open] .plus{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--ink-2);max-width:62ch}
+
+.final{padding:clamp(30px,5vw,60px);border-radius:36px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;--lb:4px}
+@media (max-width:760px){.final{grid-template-columns:minmax(0,1fr)}}
+.final h2{font-size:clamp(2rem,1.5rem + 2vw,3.2rem)}
+.final p{margin-top:12px;color:var(--ink-2);max-width:46ch}
+.final .actions{display:flex;flex-wrap:wrap;gap:10px}
+.site-foot{position:relative;padding-block:clamp(44px,6vw,72px) calc(92px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(2,10,7,.6),rgba(2,10,7,.92))}
+.site-foot::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(193,252,109,.4) 14%,rgba(193,252,109,.4) 86%,transparent)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr) minmax(0,1fr);gap:32px 40px}
+@media (max-width:760px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1/-1}}
+@media (max-width:420px){.foot-grid{grid-template-columns:minmax(0,1fr)}}
+.foot-brand{display:grid;gap:16px;align-content:start}
+.foot-brand p{max-width:36ch}
+.foot-col .eyebrow{margin-bottom:12px}
+.foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot-col a{text-decoration:none;color:var(--ink-2)}
+.foot-col a:hover{color:var(--lime)}
+.mono{font-family:var(--f-mono);font-size:.88em}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.88rem;color:var(--ink-3)}
+
+/* chat (Pergunte à IA) */
+.chat-btn{position:fixed;z-index:45;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;color:var(--ink);font:600 .92rem/1 var(--f-sans);padding:14px 18px;border-radius:var(--r-pill);transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.chat-btn svg{width:18px;height:18px;color:var(--lime)}
+.chat-btn:hover{transform:translateY(-2px)}
+.chat-btn[aria-expanded="true"]{opacity:0;pointer-events:none}
+.chat{position:fixed;z-index:46;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(380px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 120px));display:flex;flex-direction:column;border-radius:var(--r-xl);--lb:14px;transform-origin:bottom right;animation:pop .32s cubic-bezier(.2,.8,.2,1)}
+.chat::before{background:linear-gradient(150deg,rgba(255,255,255,.12),rgba(255,255,255,.03) 50%),rgba(6,20,14,.72)!important}
+@keyframes pop{from{transform:scale(.92) translateY(10px)}to{transform:none}}
+.chat-top{display:flex;justify-content:space-between;gap:12px;padding:18px 18px 12px;border-bottom:1px solid var(--line-2)}
+.chat-top h2{font-size:1.2rem;letter-spacing:-.02em}
+.chat-top p{font-size:.84rem;color:var(--ink-2);margin-top:4px}
+.chat-close{flex:none;appearance:none;border:0;background:none;padding:0;cursor:pointer;height:28px}
+.chat-close .plus{display:block;transform:rotate(45deg)}
+.chat-log{flex:1;overflow:auto;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-height:120px}
+.bubble{max-width:86%;padding:10px 13px;border-radius:16px;font-size:.92rem;line-height:1.45}
+.bubble.ai{align-self:flex-start;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);border-bottom-left-radius:6px}
+.bubble.me{align-self:flex-end;color:var(--on-lime);background:var(--lime);border-bottom-right-radius:6px}
+.bubble.typing{color:var(--ink-3);font-family:var(--f-mono);font-size:.8rem}
+.chat-sugs{display:flex;flex-wrap:wrap;gap:6px;padding:0 18px 12px}
+.chat-sugs .chip{font-size:.8rem;padding:.5rem .75rem}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line-2)}
+.chat-form textarea{flex:1;min-width:0;resize:none;border:0;outline:0;font:inherit;font-size:.93rem;color:var(--ink);background:rgba(0,0,0,.28);padding:12px 14px;border-radius:var(--r-md);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);max-height:120px}
+.chat-form textarea:focus{box-shadow:inset 0 0 0 1px rgba(193,252,109,.6)}
+.chat-form .btn{--bh:46px;width:46px;padding:0;flex:none}
+.chat-form .btn svg{width:18px;height:18px}
+@media (max-width:560px){.chat-btn{padding:12px 15px;font-size:.86rem}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+@media (prefers-reduced-transparency:reduce){.glass::before{background:rgba(10,32,22,.94)}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs id="lens-defs">
+  <linearGradient id="jl-corpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDFFC2"/><stop offset=".42" stop-color="#C1FC6D"/><stop offset=".8" stop-color="#8ED63A"/><stop offset="1" stop-color="#D2FF90"/></linearGradient>
+  <linearGradient id="jl-brilho" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset=".25" stop-color="#fff" stop-opacity=".28"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <radialGradient id="jl-ponto" cx=".38" cy=".32" r=".7"><stop offset="0" stop-color="#F6FFE4"/><stop offset=".45" stop-color="#C1FC6D"/><stop offset="1" stop-color="#6EAE24"/></radialGradient>
+  <path id="jl-j" d="M36 0.5H42Q49 0.5 49 7.5V39C49 52.5 38.5 63 25.3 63C12 63 1.5 52.5 1.5 40V39.5Q1.5 33 8 33H11.5Q18 33 18 39.5C18 43.8 20.5 47 23.5 47C26.5 47 29 43.8 29 39V7.5Q29 0.5 36 0.5Z"/>
+  <path id="jl-l" d="M59 0.5H63.5Q70.5 0.5 70.5 7.5V40Q70.5 44.5 75 44.5H85Q92 44.5 92 51.5V56Q92 63 85 63H59Q52 63 52 56V7.5Q52 0.5 59 0.5Z"/>
+  <clipPath id="jl-letras"><use href="#jl-j"/><use href="#jl-l"/></clipPath>
+  <symbol id="logo-jl" viewBox="0 -2 104 68">
+    <g fill="url(#jl-corpo)" stroke="#4E8A16" stroke-width="1.4" stroke-linejoin="round"><use href="#jl-j"/><use href="#jl-l"/></g>
+    <g fill="none" stroke="#F4FFE2" stroke-opacity=".7" stroke-width=".9" stroke-linejoin="round" transform="translate(.9 .9) scale(.982)"><use href="#jl-j"/><use href="#jl-l"/></g>
+    <rect x="0" y="-2" width="104" height="68" fill="url(#jl-brilho)" clip-path="url(#jl-letras)"/>
+    <circle cx="98" cy="58.5" r="4.6" fill="url(#jl-ponto)" stroke="#4E8A16" stroke-width=".9"/>
+    <ellipse cx="96.6" cy="56.8" rx="1.6" ry="1.1" fill="#fff" opacity=".8"/>
+  </symbol>
+</defs></svg>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="scene" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="dots"></div>
+</div>
+
+<div class="nav-shell wrap">
+  <nav class="nav glass lens" aria-label="Menu principal">
+    <a class="logo" href="#inicio" aria-label="JL Devs, início"><svg aria-hidden="true" focusable="false"><use href="#logo-jl"/></svg><span class="word" aria-hidden="true">Devs</span></a>
+    <ul class="nav-links">
+      <li><a href="#rascunho">Rascunho</a></li>
+      <li><a href="#servicos">O que fazemos</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#orcamento">Orçamento</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#dupla">Dupla</a></li>
+    </ul>
+    <span class="where" id="where" aria-hidden="true"><b id="where-n">00</b><span id="where-name">Início</span></span>
+    <a class="btn btn-lime" href="https://wa.me/5548988058940?text=Oi%2C%20JG!%20Vim%20pelo%20site%20da%20JL%20Devs%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:17px;height:17px"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.3.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.3Z"/></svg><span class="btn-long">Chamar no WhatsApp</span><span class="btn-short">WhatsApp</span><span class="sr"> (abre em nova aba)</span></a>
+    <i class="progress" id="progress" aria-hidden="true"></i>
+  </nav>
+</div>
+<nav class="rail glass" id="rail" aria-label="Seções da página"></nav>
+
+<main id="conteudo">
+
+<section class="hero" id="inicio" data-name="Início">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Sites, sistemas e IA &nbsp;/&nbsp; Santa Catarina</p>
+      <h1><span class="ln">Conte o seu negócio.</span><em class="ln">A IA desenha o seu site agora.</em></h1>
+      <p class="lead">É grátis e não pede cadastro: descreva o que você faz e veja um primeiro rascunho em segundos.</p>
+    </div>
+    <picture class="hero-art">
+      <source media="(max-width:760px)" srcset="/inicio/assets/jl-glass-mobile.jpg">
+      <img src="/inicio/assets/jl-glass.jpg" width="952" height="629" alt="Monograma JL esculpido em vidro verde">
+    </picture>
+    <form class="prompt glass lens" id="hero-form" autocomplete="off">
+      <p class="eyebrow" style="margin:2px 4px 6px">Rascunho com IA</p>
+      <label for="business">Sobre o seu negócio</label>
+      <div class="controls">
+        <input id="business" name="business" maxlength="500" placeholder="Ex.: pousada pé na areia na Pinheira, com 8 quartos e café da manhã">
+        <button class="btn btn-lime" type="submit">Gerar rascunho</button>
+      </div>
+      <small>Enter gera o rascunho. Grátis e sem cadastro.</small>
+    </form>
+  </div>
+</section>
+
+<section class="band alt" id="rascunho" data-name="Rascunho">
+  <div class="wrap"><div class="sec-mark"><span class="n">01</span><span class="name">Rascunho</span><span class="rule" aria-hidden="true"></span><span class="tot">01 / 08</span></div></div>
+  <div class="wrap draft-grid">
+    <div class="draft-side">
+      <div>
+        
+        <h2>Veja como fica <em>antes de programar.</em></h2>
+      </div>
+      <div class="group">
+        <p class="eyebrow" id="style-lbl">Estilo (opcional)</p>
+        <div class="chips" role="group" aria-labelledby="style-lbl" id="styles">
+          <button type="button" class="chip" data-style="auto" aria-pressed="true">A IA escolhe</button>
+          <button type="button" class="chip" data-style="leve" aria-pressed="false">Leve</button>
+          <button type="button" class="chip" data-style="sofisticado" aria-pressed="false">Sofisticado</button>
+          <button type="button" class="chip" data-style="vibrante" aria-pressed="false">Vibrante</button>
+          <button type="button" class="chip" data-style="minimalista" aria-pressed="false">Minimalista</button>
+        </div>
+      </div>
+      <div class="group">
+        <p class="eyebrow" id="ex-lbl">Sem ideia? Use um exemplo</p>
+        <div class="chips" role="group" aria-labelledby="ex-lbl" id="examples">
+          <button type="button" class="chip" data-ex="padaria" aria-pressed="true">Padaria</button>
+          <button type="button" class="chip" data-ex="pousada" aria-pressed="false">Pousada na praia</button>
+          <button type="button" class="chip" data-ex="oficina" aria-pressed="false">Oficina mecânica</button>
+          <button type="button" class="chip" data-ex="doceria" aria-pressed="false">Doceria artesanal</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="browser glass lens" aria-live="polite">
+      <div class="bar">
+        <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="m-domain">padariaventosul.com.br</span></div>
+        <span class="tag">Exemplo</span>
+      </div>
+      <div class="mock" id="mock">
+        <div class="m-top"><span id="m-name">Padaria Vento Sul</span><i class="m-burger" aria-hidden="true"></i></div>
+        <div class="m-kicker" id="m-kicker">Padaria artesanal</div>
+        <h3 class="m-h" id="m-h">Pão de verdade, feito de madrugada</h3>
+        <p class="m-p" id="m-p">Fermentação natural, café passado na hora e encomendas pelo WhatsApp.</p>
+        <span class="m-cta" id="m-cta">Fazer encomenda</span>
+        <div class="m-chips" id="m-chips"></div>
+        <div class="m-cards" id="m-cards"></div>
+        <div class="shimmer" aria-hidden="true"></div>
+        <div class="status" aria-hidden="true">desenhando o seu site…</div>
+      </div>
+      <div class="under"><span id="m-foot">Exemplo fictício. Descreva o seu negócio para ver o seu.</span><span>Endereço fictício</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="servicos" data-name="O que fazemos">
+  <div class="wrap"><div class="sec-mark"><span class="n">02</span><span class="name">O que fazemos</span><span class="rule" aria-hidden="true"></span><span class="tot">02 / 08</span></div></div>
+  <div class="wrap">
+    <div class="head-row">
+      <div><h2>O que fazemos</h2></div>
+      <p class="muted">Três frentes, uma dupla. Escolha o que você precisa e veja um projeto real.</p>
+    </div>
+    <div class="services">
+      <article class="svc glass">
+        <div class="svc-art"><img src="/inicio/assets/icon-sites.svg" alt="" loading="lazy"></div>
+        <div class="svc-copy">
+          <h3>Sites sob medida</h3>
+          <p>Sites rápidos, bonitos no celular e feitos para o cliente chamar você no WhatsApp.</p>
+          <ul class="ex"><li>Pousadas e hospedagens</li><li>Comércio local</li><li>Página de serviços</li></ul>
+          <p class="svc-proj">Projetos entregues: <a class="link" href="#case-pousada-do-dado">Pousada do Dado</a> · <a class="link" href="#case-lucilia-residencial">Lucília Residencial</a></p>
+        </div>
+      </article>
+      <article class="svc glass">
+        <div class="svc-art"><img src="/inicio/assets/icon-sistemas.svg" alt="" loading="lazy"></div>
+        <div class="svc-copy">
+          <h3>Sistemas de gestão</h3>
+          <p>Vendas, estoque e reservas organizados em um painel feito para a sua rotina.</p>
+          <ul class="ex"><li>CRM de vendas</li><li>Painel de reservas</li><li>Controle de estoque</li></ul>
+          <p class="svc-proj">Valor combinado depois de uma conversa.</p>
+        </div>
+      </article>
+      <article class="svc glass">
+        <div class="svc-art"><img src="/inicio/assets/icon-automacao.svg" alt="" loading="lazy"></div>
+        <div class="svc-copy">
+          <h3>Automações com IA</h3>
+          <p>IA que atende no WhatsApp, responde dúvidas e passa o cliente pronto para você.</p>
+          <ul class="ex"><li>Atendimento 24h</li><li>Agendamento automático</li><li>Resumo de conversas</li></ul>
+          <p class="svc-proj">Valor combinado depois de uma conversa.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="cases" data-name="Cases">
+  <div class="wrap"><div class="sec-mark"><span class="n">03</span><span class="name">Cases</span><span class="rule" aria-hidden="true"></span><span class="tot">03 / 08</span></div></div>
+  <div class="wrap">
+    <div class="head-row">
+      <div><h2>O que já <em>entregamos.</em></h2></div>
+      <p class="muted">Sites de pousada no litoral de Santa Catarina, no ar e recebendo reservas.</p>
+    </div>
+    <div class="cases">
+      <article class="case glass" id="case-pousada-do-dado">
+        <a class="shot" href="https://pousadadodado.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/inicio/assets/case-dado.jpg" alt="" loading="lazy"></a>
+        <div class="case-body">
+          <span class="loc">Ponta do Papagaio / SC</span>
+          <h3>Pousada do Dado</h3>
+          <p>Pousada a 250 m da praia: acomodações reais, galeria com filtros, perguntas frequentes e um pedido de reserva que já chega pronto no WhatsApp.</p>
+          <ul class="ticks"><li>Pedido de reserva com datas e hóspedes</li><li>Galeria com filtros</li><li>Dados estruturados para o Google</li></ul>
+          <div class="case-foot">
+            <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <a class="btn btn-glass glass" href="https://pousadadodado.com/" target="_blank" rel="noopener">Ver site ↗<span class="sr"> da Pousada do Dado</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="case glass" id="case-lucilia-residencial">
+        <a class="shot" href="https://lucilia-residencial.vercel.app/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/inicio/assets/case-lucilia.jpg" alt="" loading="lazy"></a>
+        <div class="case-body">
+          <span class="loc">Enseada da Pinheira / SC</span>
+          <h3>Lucília Residencial</h3>
+          <p>Pousada na Praia da Pinheira: apartamentos de 1 a 3 quartos, avaliações do Google e um formulário que monta a mensagem de reserva no WhatsApp.</p>
+          <ul class="ticks"><li>Formulário de reserva por faixa etária</li><li>Avaliações reais do Google</li><li>Imagens otimizadas</li></ul>
+          <div class="case-foot">
+            <div class="stack"><span>Astro</span><span>Vercel</span></div>
+            <a class="btn btn-glass glass" href="https://lucilia-residencial.vercel.app/" target="_blank" rel="noopener">Ver site ↗<span class="sr"> do Lucília Residencial</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="orcamento" data-name="Orçamento">
+  <div class="wrap"><div class="sec-mark"><span class="n">04</span><span class="name">Orçamento</span><span class="rule" aria-hidden="true"></span><span class="tot">04 / 08</span></div></div>
+  <div class="wrap">
+    <div class="head-row">
+      <div><h2>Responda em <em>menos de um minuto.</em></h2></div>
+      <p class="muted">O preço sai da nossa tabela e muda enquanto você marca as opções. Sem surpresa.</p>
+    </div>
+    <div class="est">
+      <form class="est-form glass" id="est-form" autocomplete="off">
+        <fieldset>
+          <legend>O que você precisa</legend>
+          <div class="opts">
+            <label class="pick"><input type="radio" name="need" value="site" id="need-site" checked><span>Site</span></label>
+            <label class="pick"><input type="radio" name="need" value="sistema" id="need-sistema"><span>Sistema</span></label>
+            <label class="pick"><input type="radio" name="need" value="automacao" id="need-auto"><span>Automação</span></label>
+          </div>
+        </fieldset>
+        <fieldset id="pages-fs">
+          <legend>Quantas páginas</legend>
+          <div class="opts">
+            <label class="pick"><input type="radio" name="pages" value="1" id="pg-1" checked><span>1 página</span></label>
+            <label class="pick"><input type="radio" name="pages" value="5" id="pg-5"><span>Até 5 páginas</span></label>
+            <label class="pick"><input type="radio" name="pages" value="sem-limite" id="pg-x"><span>Sem limite</span></label>
+          </div>
+        </fieldset>
+        <fieldset id="feat-fs">
+          <legend>O que precisa ter (marque quantos quiser)</legend>
+          <div class="opts">
+            <label class="pick"><input type="checkbox" name="f" value="whatsapp" id="f-wa" checked><span>Botão ou reserva pelo WhatsApp</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="galeria" id="f-gal"><span>Galeria de fotos</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="formulario" id="f-form"><span>Formulário de contato</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="mapa" id="f-map"><span>Mapa e como chegar</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="agenda" id="f-ag"><span>Agenda ou reservas</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="painel" id="f-pn"><span>Painel para editar e acompanhar</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="ia" id="f-ia"><span>Assistente com IA</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="pagamento" id="f-pay"><span>Pagamento online</span></label>
+            <label class="pick"><input type="checkbox" name="f" value="idiomas" id="f-lang"><span>Mais de um idioma</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Prazo</legend>
+          <div class="opts">
+            <label class="pick"><input type="radio" name="prazo" value="Sem pressa" id="pz-1" checked><span>Sem pressa</span></label>
+            <label class="pick"><input type="radio" name="prazo" value="Ainda este mês" id="pz-2"><span>Ainda este mês</span></label>
+            <label class="pick"><input type="radio" name="prazo" value="Urgente" id="pz-3"><span>Urgente</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="est-desc">Conte o que você precisa (opcional)</label>
+          <textarea id="est-desc" placeholder="Quanto mais detalhe, mais certeiro fica o escopo."></textarea>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="est-name">Seu nome (opcional)</label><input id="est-name" type="text"></div>
+          <div class="field"><label for="est-wa">Seu WhatsApp (opcional, para a gente responder)</label><input id="est-wa" type="tel" inputmode="tel" placeholder="(48) 9 0000-0000"></div>
+        </div>
+        <div class="est-actions">
+          <button type="submit" class="btn btn-lime" id="est-calc">Calcular orçamento</button>
+          <small>O pedido fica salvo para a JL Devs poder responder você.</small>
+        </div>
+      </form>
+      <aside class="est-out glass lens" aria-live="polite">
+        <p class="eyebrow">Sua estimativa</p>
+        <div class="plan" id="o-plan">Plano Básico</div>
+        <div class="price" id="o-price"><span class="cur">R$</span><span class="val" id="o-val">350</span><span class="was" id="o-was" hidden></span></div>
+        <p id="o-txt">Uma página com botão de WhatsApp cabe no plano Básico. Pagamento único, sem mensalidade.</p>
+        <ul class="ticks" id="o-inc"></ul>
+        <p class="fine" id="o-hint">O valor muda conforme você marca as opções. Toque em Calcular orçamento para a IA montar o escopo e a mensagem para mandar no WhatsApp.</p>
+        <div class="msg" id="o-msgbox" hidden><p class="eyebrow">Mensagem pronta</p><p id="o-msg"></p></div>
+        <a class="btn btn-lime" id="o-send" href="#" target="_blank" rel="noopener">Mandar no WhatsApp ↗</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="planos" data-name="Planos">
+  <div class="wrap"><div class="sec-mark"><span class="n">05</span><span class="name">Planos</span><span class="rule" aria-hidden="true"></span><span class="tot">05 / 08</span></div></div>
+  <div class="wrap split">
+    <div class="price-intro">
+      <img class="ribbon" src="/inicio/assets/ribbon.jpg" alt="" loading="lazy">
+      
+      <h2>Seu site,<em>sob medida.</em></h2>
+      <p class="muted">Pagamento único, sem mensalidade. Sistemas e automações têm valor combinado depois de uma conversa.</p>
+      <a class="btn btn-lime" href="#orcamento">Calcular orçamento</a>
+    </div>
+    <div class="plan-list glass" id="plans"></div>
+  </div>
+</section>
+
+<section class="band" id="processo" data-name="Como funciona">
+  <div class="wrap"><div class="sec-mark"><span class="n">06</span><span class="name">Como funciona</span><span class="rule" aria-hidden="true"></span><span class="tot">06 / 08</span></div></div>
+  <div class="wrap">
+    <div class="head-row">
+      <div><h2>Como <em>funciona.</em></h2></div>
+      <p class="muted">Do primeiro oi no WhatsApp ao site no ar, em quatro passos.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h3>Conversa</h3><p>Você conta o que precisa pelo WhatsApp.</p></li>
+      <li class="step"><span class="num">2</span><h3>Rascunho</h3><p>A gente mostra como vai ficar antes de programar.</p></li>
+      <li class="step"><span class="num">3</span><h3>Construção</h3><p>Programamos com animação e carregamento rápido.</p></li>
+      <li class="step"><span class="num">4</span><h3>No ar</h3><p>Publicamos e o site é seu. Sem mensalidade.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band alt" id="dupla" data-name="A dupla">
+  <div class="wrap"><div class="sec-mark"><span class="n">07</span><span class="name">A dupla</span><span class="rule" aria-hidden="true"></span><span class="tot">07 / 08</span></div></div>
+  <div class="wrap split">
+    <div>
+      
+      <h2 class="duo-title">Vamos conversar?</h2>
+      <p class="muted" style="margin-top:18px;max-width:34ch">Dois devs em Santa Catarina. Fale com quem vai criar o seu projeto.</p>
+    </div>
+    <div>
+      <div class="person">
+        <div class="who"><span class="avatar av-jg" aria-hidden="true">JG</span><div><h3>JG Dev</h3><p>Back-end, IA e automações</p></div></div>
+        <div class="phone glass"><span>(48) 98805-8940</span><a class="btn btn-lime" href="https://wa.me/5548988058940?text=Oi%2C%20JG%20Dev!%20Vim%20pelo%20site%20da%20JL%20Devs." target="_blank" rel="noopener">WhatsApp ↗<span class="sr"> do JG Dev</span></a></div>
+        <ul class="skills"><li>APIs e banco de dados</li><li>Integração com IA</li><li>Automações no WhatsApp</li></ul>
+      </div>
+      <div class="person">
+        <div class="who"><span class="avatar av-lc" aria-hidden="true">LC</span><div><h3>LC Dev</h3><p>Front-end e design</p></div></div>
+        <div class="phone glass"><span>(48) 98876-7877</span><a class="btn btn-lime" href="https://wa.me/5548988767877?text=Oi%2C%20LC%20Dev!%20Vim%20pelo%20site%20da%20JL%20Devs." target="_blank" rel="noopener">WhatsApp ↗<span class="sr"> do LC Dev</span></a></div>
+        <ul class="skills"><li>Interfaces e animações</li><li>Design visual</li><li>Sites rápidos e responsivos</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="perguntas" data-name="Perguntas">
+  <div class="wrap"><div class="sec-mark"><span class="n">08</span><span class="name">Perguntas</span><span class="rule" aria-hidden="true"></span><span class="tot">08 / 08</span></div></div>
+  <div class="wrap split">
+    <div><h2>Antes de <em>chamar.</em></h2></div>
+    <div class="faq">
+      <details open><summary>Tem mensalidade?<span class="plus" aria-hidden="true"></span></summary><p>Não. Você paga uma vez e o site é seu.</p></details>
+      <details><summary>Quanto tempo demora?<span class="plus" aria-hidden="true"></span></summary><p>Depende do tamanho do projeto. Um site de uma página costuma ficar pronto em poucos dias; sistemas levam mais.</p></details>
+      <details><summary>Vocês fazem sistemas e automações?<span class="plus" aria-hidden="true"></span></summary><p>Sim. Além de sites, fazemos painéis sob medida e automações com IA no WhatsApp. O valor sai depois de uma conversa.</p></details>
+      <details><summary>Como funciona o pagamento?<span class="plus" aria-hidden="true"></span></summary><p>Pagamento único, combinado direto com a gente pelo WhatsApp.</p></details>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Contato" style="padding-top:0">
+  <div class="wrap">
+    <div class="final glass lens">
+      <div>
+        <h2>Um site de uma página fica pronto em <em>poucos dias.</em></h2>
+        <p>Mande um oi, conte o que você faz e veja como vai ficar antes da gente programar.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-lime" href="https://wa.me/5548988058940?text=Oi%2C%20JG!%20Vim%20pelo%20site%20da%20JL%20Devs%20e%20quero%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener">Chamar no WhatsApp ↗</a>
+        <a class="btn btn-glass glass" href="#inicio">Gerar um rascunho</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo logo--lg" href="#inicio" aria-label="JL Devs, voltar ao início"><svg aria-hidden="true" focusable="false"><use href="#logo-jl"/></svg><span class="word" aria-hidden="true">Devs</span></a>
+        <p class="muted">Sites, sistemas e automações com IA para pequenos negócios. Pagamento único, sem mensalidade.</p>
+      </div>
+      <nav class="foot-col" aria-label="Rodapé">
+        <p class="eyebrow">Navegação</p>
+        <ul>
+          <li><a href="#rascunho">Rascunho</a></li>
+          <li><a href="#servicos">O que fazemos</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#orcamento">Orçamento</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#dupla">Dupla</a></li>
+          <li><a href="#perguntas">Perguntas</a></li>
+        </ul>
+      </nav>
+      <div class="foot-col">
+        <p class="eyebrow">Contato</p>
+        <ul>
+          <li><a href="https://wa.me/5548988058940" target="_blank" rel="noopener">JG Dev · <span class="mono">(48) 98805-8940</span></a></li>
+          <li><a href="https://wa.me/5548988767877" target="_blank" rel="noopener">LC Dev · <span class="mono">(48) 98876-7877</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 JL Devs. Feito em Santa Catarina.</p>
+      <a href="#inicio" class="link">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="chat-btn glass" id="chat-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="chat">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+  Pergunte à IA
+</button>
+<div class="chat glass lens" id="chat" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>
+  <div class="chat-top">
+    <div><h2 id="chat-title">Pergunte à IA</h2><p>Tire dúvidas sobre sites, sistemas e preços. A conversa fica salva.</p></div>
+    <button type="button" class="chat-close" id="chat-close" aria-label="Fechar chat"><span class="plus" aria-hidden="true"></span></button>
+  </div>
+  <div class="chat-log" id="chat-log" role="log" aria-live="polite" tabindex="0">
+    <div class="bubble ai">Oi! Eu sou a IA da JL Devs. Pergunte sobre sites, sistemas, automações, prazos ou preços.</div>
+  </div>
+  <div class="chat-sugs" id="chat-sugs" role="group" aria-label="Sugestões de pergunta">
+    <button type="button" class="chip">Quanto custa um site?</button>
+    <button type="button" class="chip">Vocês fazem automação no WhatsApp?</button>
+    <button type="button" class="chip">Como funciona o pagamento?</button>
+  </div>
+  <form class="chat-form" id="chat-form" autocomplete="off">
+    <label for="chat-input" class="sr">Sua pergunta</label>
+    <textarea id="chat-input" rows="1" maxlength="1500" placeholder="Escreva a sua pergunta"></textarea>
+    <button type="submit" class="btn btn-lime" aria-label="Enviar pergunta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </form>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var noMotion=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- refraction (Chromium) ---------- */
+  var ua=navigator.userAgentData;
+  var chromium=!!(ua&&ua.brands&&ua.brands.some(function(b){return /Chromium/i.test(b.brand)}));
+  var reduceT=window.matchMedia&&matchMedia('(prefers-reduced-transparency: reduce)').matches;
+  var NS='http://www.w3.org/2000/svg', defs=$('lens-defs');
+  function mapURL(w,h,r,band){
+    var s=w*h>220000?0.35:0.5, cw=Math.max(2,Math.round(w*s)), ch=Math.max(2,Math.round(h*s));
+    var c=document.createElement('canvas'); c.width=cw; c.height=ch;
+    var ctx=c.getContext('2d'), img=ctx.createImageData(cw,ch), d=img.data, hw=w/2, hh=h/2; r=Math.min(r,hw,hh);
+    for(var j=0;j<ch;j++){for(var i=0;i<cw;i++){
+      var px=(i+.5)/s-hw, py=(j+.5)/s-hh, qx=Math.abs(px)-(hw-r), qy=Math.abs(py)-(hh-r), nx, ny, dist;
+      if(qx>0&&qy>0){var l=Math.hypot(qx,qy)||1;dist=l-r;nx=qx/l;ny=qy/l}
+      else if(qx>qy){dist=qx-r;nx=1;ny=0}else{dist=qy-r;nx=0;ny=1}
+      if(px<0)nx=-nx; if(py<0)ny=-ny;
+      var depth=-dist, t=0; if(depth<band){t=1-Math.max(depth,0)/band;t=t*t*(3-2*t)}
+      var k=(i+j*cw)*4; d[k]=128-nx*t*127; d[k+1]=128-ny*t*127; d[k+2]=128; d[k+3]=255;
+    }}
+    ctx.putImageData(img,0,0); return c.toDataURL();
+  }
+  function build(el,idx){
+    var w=Math.round(el.offsetWidth), h=Math.round(el.offsetHeight);
+    if(w<4||h<4||(el._lw===w&&el._lh===h)) return; el._lw=w; el._lh=h;
+    var r=parseFloat(getComputedStyle(el).borderTopLeftRadius)||20;
+    var band=Math.min(34,Math.max(16,Math.min(w,h)*.16)), scale=Math.min(90,Math.max(36,band*2.2));
+    var id='lens-'+idx, old=document.getElementById(id); if(old) old.remove();
+    var f=document.createElementNS(NS,'filter');
+    f.setAttribute('id',id); f.setAttribute('x','0'); f.setAttribute('y','0'); f.setAttribute('width',w); f.setAttribute('height',h);
+    f.setAttribute('filterUnits','userSpaceOnUse'); f.setAttribute('color-interpolation-filters','sRGB');
+    var ch=function(sc,res,m){return '<feDisplacementMap in="SourceGraphic" in2="m" scale="'+sc+'" xChannelSelector="R" yChannelSelector="G" result="d'+res+'"/><feColorMatrix in="d'+res+'" type="matrix" values="'+m+'" result="'+res+'"/>'};
+    f.innerHTML='<feImage href="'+mapURL(w,h,r,band)+'" x="0" y="0" width="'+w+'" height="'+h+'" preserveAspectRatio="none" result="m"/>'+
+      ch(scale,'r','1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0')+ch(scale*.9,'g','0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0')+ch(scale*.8,'b','0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0')+
+      '<feBlend in="r" in2="g" mode="screen" result="rg"/><feBlend in="rg" in2="b" mode="screen"/>';
+    defs.appendChild(f); el.style.setProperty('--lens','url(#'+id+')');
+  }
+  if(chromium&&!reduceT){
+    document.documentElement.classList.add('refract');
+    var lenses=[].slice.call(document.querySelectorAll('.lens')), pending;
+    var run=function(){lenses.forEach(build)}; run();
+    if('ResizeObserver' in window){var ro=new ResizeObserver(function(){clearTimeout(pending);pending=setTimeout(run,140)});lenses.forEach(function(el){ro.observe(el)})}
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(run);
+  }
+
+  /* ---------- pointer specular + hero art parallax ---------- */
+  var art=document.querySelector('.hero-art');
+  document.addEventListener('pointermove',function(e){
+    var g=e.target.closest&&e.target.closest('.glass');
+    if(g){var r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px')}
+    if(art&&!noMotion&&e.pointerType==='mouse'){var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;art.style.translate=(x*-18)+'px '+(y*-12)+'px'}
+  },{passive:true});
+  var orbs=[].slice.call(document.querySelectorAll('.orb')), ticking=false;
+  if(!noMotion) addEventListener('scroll',function(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){var y=scrollY;orbs.forEach(function(o,i){var d=parseFloat(o.dataset.depth);o.style.translate=(Math.cos(y/900+i)*d*500)+'px '+(Math.sin(y/700+i*1.7)*d*1400)+'px'});ticking=false});
+  },{passive:true});
+
+  /* ---------- where am I: scrollspy, rail, progress ---------- */
+  var secs=[].slice.call(document.querySelectorAll('main section[data-name]'));
+  var rail=$('rail'), navA={}, railA={}, cur=null, flashT;
+  [].slice.call(document.querySelectorAll('.nav-links a')).forEach(function(a){navA[a.getAttribute('href').slice(1)]=a});
+  rail.innerHTML=secs.map(function(s){return '<a href="#'+s.id+'" data-sec="'+s.id+'"><i></i><span>'+esc(s.dataset.name)+'</span></a>'}).join('');
+  [].slice.call(rail.querySelectorAll('a')).forEach(function(a){railA[a.dataset.sec]=a});
+  function setCurrent(sec){
+    if(!sec||sec===cur) return; cur=sec;
+    secs.forEach(function(s){s.classList.toggle('is-current',s===sec)});
+    Object.keys(navA).forEach(function(k){if(k===sec.id)navA[k].setAttribute('aria-current','location');else navA[k].removeAttribute('aria-current')});
+    Object.keys(railA).forEach(function(k){if(k===sec.id)railA[k].setAttribute('aria-current','location');else railA[k].removeAttribute('aria-current')});
+    var i=secs.indexOf(sec);
+    $('where-n').textContent=('0'+i).slice(-2); $('where-name').textContent=sec.dataset.name;
+    rail.classList.add('flash'); clearTimeout(flashT); flashT=setTimeout(function(){rail.classList.remove('flash')},1600);
+  }
+  function spy(){
+    var mid=innerHeight*.42, pick=secs[0];
+    for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=mid) pick=secs[i]}
+    setCurrent(pick);
+    var max=document.documentElement.scrollHeight-innerHeight;
+    $('progress').style.setProperty('--p',max>0?Math.min(1,scrollY/max):0);
+  }
+  var spyQueued=false;
+  addEventListener('scroll',function(){if(spyQueued)return;spyQueued=true;requestAnimationFrame(function(){spy();spyQueued=false})},{passive:true});
+  addEventListener('resize',spy); spy();
+
+  /* ---------- draft generator (demo) ---------- */
+  var T={
+    padaria:{domain:'padariaventosul.com.br',name:'Padaria Vento Sul',kicker:'Padaria artesanal',h:'Pão de verdade, feito de madrugada',p:'Fermentação natural, café passado na hora e encomendas pelo WhatsApp.',cta:'Fazer encomenda',chips:['Fermentação natural','Aberto às 6h30','Entrega no bairro'],cards:[['Fornadas do dia','Fermentação natural, ciabatta e o pão de milho da casa saem às 7h e às 16h.'],['Café no salão','Café coado, tapioca e bolo do dia para começar a manhã sem pressa.'],['Encomendas','Cestas, bolos e pães para festas. Peça pelo WhatsApp com um dia de antecedência.']],c:{bg:'#fbf3e6',fg:'#3b2414',acc:'#b4532a',font:'Georgia, "Times New Roman", serif'}},
+    pousada:{domain:'pousadamaredoce.com.br',name:'Pousada Maré Doce',kicker:'Pousada pé na areia',h:'Acorde com o mar a 30 passos',p:'Quartos com varanda, café da manhã caseiro e reserva direto pelo WhatsApp.',cta:'Ver datas livres',chips:['Pé na areia','Café incluso','Aceita pets'],cards:[['Suítes com varanda','Oito suítes com vista para a enseada, ar-condicionado e roupa de cama de algodão.'],['Café da manhã','Pão caseiro, frutas da estação e bolo da casa servidos até as 10h.'],['Como chegar','A 40 min do aeroporto de Florianópolis, com estacionamento coberto.']],c:{bg:'#eef7f8',fg:'#0e3a44',acc:'#0a8fa3',font:'"Trebuchet MS", "Segoe UI", sans-serif'}},
+    oficina:{domain:'torque48auto.com.br',name:'Torque 48 Auto Center',kicker:'Mecânica e revisão',h:'Seu carro revisado sem enrolação',p:'Orçamento por foto no WhatsApp, prazo combinado e peça com garantia.',cta:'Pedir orçamento',chips:['Revisão completa','Garantia de 90 dias','Leva e traz'],cards:[['Revisão','Óleo, filtros e checklist de 40 itens com laudo em PDF.'],['Freios e suspensão','Pastilhas, discos e amortecedores com peça original ou paralela.'],['Diagnóstico','Scanner para injeção eletrônica e luz da injeção acesa.']],c:{bg:'#15171a',fg:'#f1f1ee',acc:'#ffb020',font:'"Arial Narrow", "Segoe UI", sans-serif'}},
+    doceria:{domain:'doceriaflordeacucar.com.br',name:'Flor de Açúcar',kicker:'Doceria artesanal',h:'Bolos que viram assunto na festa',p:'Bolos sob encomenda, doces finos e caixas de presente feitas à mão.',cta:'Encomendar bolo',chips:['Sob encomenda','Sem conservantes','Retirada ou entrega'],cards:[['Bolos de festa','Massa amanteigada, recheio de brigadeiro belga ou frutas vermelhas. A partir de 15 fatias.'],['Doces finos','Bem-casados, camafeus e brigadeiros gourmet em forminhas de papel.'],['Caixas de presente','Caixa com 12 doces e cartão escrito à mão. Peça com 2 dias de antecedência.']],c:{bg:'#fff1f3',fg:'#4a1f2c',acc:'#d6456b',font:'Georgia, "Times New Roman", serif'}}
+  };
+  var STY={
+    leve:{bg:'#f6fbf8',font:'"Segoe UI", system-ui, sans-serif'},
+    sofisticado:{bg:'#14110f',fg:'#efe6d8',acc:'#c9a36a',font:'Georgia, "Times New Roman", serif'},
+    vibrante:{vibe:true,font:'"Trebuchet MS", "Segoe UI", sans-serif'},
+    minimalista:{bg:'#ffffff',fg:'#111111',acc:'#111111',font:'"Helvetica Neue", Arial, sans-serif'}
+  };
+  var current='padaria', style='auto', custom=null, mock=$('mock');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(){
+    var t=custom||T[current], c=Object.assign({},t.c), s=STY[style];
+    if(s){Object.keys(s).forEach(function(k){if(k!=='vibe')c[k]=s[k]}); if(s.vibe){c.bg=t.c.acc;c.fg='#ffffff';c.acc=t.c.bg==='#15171a'?'#15171a':t.c.fg}}
+    mock.style.setProperty('--m-bg',c.bg); mock.style.setProperty('--m-fg',c.fg); mock.style.setProperty('--m-acc',c.acc); mock.style.setProperty('--m-font',c.font);
+    $('m-domain').textContent=t.domain; $('m-name').textContent=t.name; $('m-kicker').textContent=t.kicker;
+    $('m-h').textContent=t.h; $('m-p').textContent=t.p; $('m-cta').textContent=t.cta;
+    $('m-chips').innerHTML=t.chips.map(function(x){return '<span>'+esc(x)+'</span>'}).join('');
+    $('m-cards').innerHTML=t.cards.map(function(x){return '<div class="m-card"><b>'+esc(x[0])+'</b><p>'+esc(x[1])+'</p></div>'}).join('');
+  }
+  function pulse(fn){mock.classList.add('loading');setTimeout(function(){fn();render();mock.classList.remove('loading')},noMotion?0:1000)}
+  function fromText(s){s=s.toLowerCase();
+    if(/pousad|hotel|hosped|praia|chal[eé]|airbnb/.test(s)) return 'pousada';
+    if(/oficin|mec[aâ]nic|carro|auto|moto|pneu|funilar/.test(s)) return 'oficina';
+    if(/doce|bolo|confeit|brigadeir|torta/.test(s)) return 'doceria';
+    if(/p[aã]o|padar|caf[eé]|panific/.test(s)) return 'padaria';
+    return null}
+  function generic(txt){
+    var clean=txt.trim().replace(/\s+/g,' '), first=clean.split(/[.,;\n]/)[0];
+    var name=first.length>34?first.slice(0,32)+'…':first; name=name.charAt(0).toUpperCase()+name.slice(1);
+    var slug=first.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,'').slice(0,22)||'seunegocio';
+    return {domain:slug+'.com.br',name:name,kicker:'Atendimento direto pelo WhatsApp',h:'Tudo o que o seu cliente precisa saber, em uma página',p:clean.length>140?clean.slice(0,138)+'…':clean,cta:'Chamar no WhatsApp',chips:['Resposta rápida','Pronto para celular','Como chegar'],cards:[['O que fazemos','Os seus serviços explicados em poucas linhas, com foto real.'],['Quem atende','Apresente a equipe e passe confiança logo no primeiro contato.'],['Fale com a gente','Botão de WhatsApp com a mensagem já escrita.']],c:{bg:'#f2f7f5',fg:'#0f2a22',acc:'#3f7d14',font:'"Segoe UI", system-ui, sans-serif'}};
+  }
+  function setPressed(sel,btn){document.querySelectorAll(sel+' .chip').forEach(function(b){b.setAttribute('aria-pressed',b===btn?'true':'false')})}
+  $('hero-form').addEventListener('submit',function(e){
+    e.preventDefault(); var v=$('business').value.trim(); if(!v){$('business').focus();return}
+    $('rascunho').scrollIntoView({behavior:noMotion?'auto':'smooth'});
+    pulse(function(){var k=fromText(v); if(k){current=k;custom=null}else{custom=generic(v)}
+      setPressed('#examples',k?document.querySelector('#examples [data-ex="'+k+'"]'):null);
+      $('m-foot').textContent='Rascunho a partir da sua descrição. A versão final é escrita com você.'});
+  });
+  $('examples').addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b) return; setPressed('#examples',b);
+    pulse(function(){current=b.dataset.ex;custom=null;$('m-foot').textContent='Exemplo fictício. Descreva o seu negócio para ver o seu.'});
+  });
+  $('styles').addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b) return; setPressed('#styles',b); style=b.dataset.style; pulse(function(){});
+  });
+  render();
+
+  /* ---------- plans ---------- */
+  var WA='https://wa.me/5548988058940?text=';
+  var PLANS=[
+    {k:'basico',n:'Básico',p:350,desc:'Uma página que apresenta o seu negócio e leva o cliente ao WhatsApp.',inc:['Site de 1 página','Botão de WhatsApp','Pronto para celular','Publicação no ar']},
+    {k:'medio',n:'Médio',p:450,de:600,desc:'Site com mais páginas, galeria e formulário para pedidos.',inc:['Até 5 páginas','Galeria de fotos','Formulário que chega no WhatsApp','Mapa e como chegar']},
+    {k:'completo',n:'Completo',p:700,de:950,desc:'Site completo, com agenda ou painel e alterações quando você quiser.',inc:['Páginas sem limite','Agenda ou reservas','Painel para editar e acompanhar','Modificações quantas quiser']},
+    {k:'profissional',n:'Profissional',p:900,desc:'Para vender ou atender mais gente: pagamento online ou site em mais de um idioma.',inc:['Tudo do Completo','Pagamento online','Site em mais de um idioma','Suporte quando precisar']},
+    {k:'premium',n:'Premium',p:999,de:1100,ai:true,desc:'Site com assistente de IA que responde os clientes com as informações do seu negócio.',inc:['Tudo do Completo','Assistente com IA no site','IA treinada com os dados do negócio','Suporte quando precisar']},
+    {k:'empresarial',n:'Empresarial',p:1100,de:1200,ai:true,desc:'Tudo junto: IA, pagamento online, idiomas e os recursos avançados no mesmo site.',inc:['Tudo do Profissional e do Premium','IA + pagamento online ou idiomas','Três ou mais recursos avançados','Suporte prioritário']}
+  ];
+  var brl=function(n){return n.toLocaleString('pt-BR')};
+  var tick=function(arr){return arr.map(function(i){return '<li>'+i+'</li>'}).join('')};
+  $('plans').innerHTML=PLANS.map(function(p,i){
+    var badge=p.ai?'<span class="badge ai">Com IA</span>':'';
+    return '<details class="plan-row" id="plano-'+p.k+'"'+(i===0?' open':'')+'><summary>'+
+      '<span class="pname">'+p.n+badge+'</span>'+
+      '<span class="pprice">'+(p.de?'<s>R$ '+brl(p.de)+'</s>':'')+'<b>R$ '+brl(p.p)+'</b></span>'+
+      '<span class="plus" aria-hidden="true"></span></summary>'+
+      '<div class="plan-body"><p>'+p.desc+'</p><ul class="ticks">'+tick(p.inc)+'</ul>'+
+      '<a class="btn btn-lime" target="_blank" rel="noopener" href="'+WA+encodeURIComponent('Oi, JG! Vim pelo site da JL Devs e quero o plano '+p.n+'.')+'">Pedir pelo WhatsApp ↗<span class="sr"> o plano '+p.n+'</span></a></div></details>';
+  }).join('');
+
+  /* ---------- estimator ---------- */
+  var form=$('est-form');
+  var FL={whatsapp:'Botão ou reserva pelo WhatsApp',galeria:'Galeria de fotos',formulario:'Formulário de contato',mapa:'Mapa e como chegar',agenda:'Agenda ou reservas',painel:'Painel para editar e acompanhar',ia:'Assistente com IA',pagamento:'Pagamento online',idiomas:'Mais de um idioma'};
+  var WHY={basico:'Uma página com botão de WhatsApp cabe no plano Básico.',medio:'Mais páginas, galeria, formulário ou mapa levam ao plano Médio.',completo:'Agenda, painel ou páginas sem limite pedem o plano Completo.',profissional:'Pagamento online ou mais de um idioma entram no plano Profissional.',premium:'O assistente com IA treinado com o seu negócio está no plano Premium.',empresarial:'IA junto com pagamento online ou idiomas é o plano Empresarial.'};
+  function estimate(){
+    var fd=new FormData(form), need=fd.get('need'), pages=fd.get('pages'), f=fd.getAll('f'), has=function(x){return f.indexOf(x)>-1}, isSite=need==='site', lines=[];
+    $('pages-fs').disabled=!isSite;
+    document.querySelectorAll('#feat-fs input').forEach(function(i){i.disabled=!isSite&&['agenda','painel','ia','whatsapp'].indexOf(i.value)<0});
+    if(isSite){
+      var k='basico';
+      if(has('ia')&&(has('pagamento')||has('idiomas'))) k='empresarial';
+      else if(has('ia')) k='premium';
+      else if(has('pagamento')||has('idiomas')) k='profissional';
+      else if(has('agenda')||has('painel')||pages==='sem-limite') k='completo';
+      else if(has('galeria')||has('formulario')||has('mapa')||pages==='5') k='medio';
+      var plan=PLANS.filter(function(p){return p.k===k})[0];
+      $('o-plan').textContent='Plano '+plan.n; $('o-price').hidden=false; $('o-val').textContent=brl(plan.p);
+      var was=$('o-was'); if(plan.de){was.hidden=false;was.textContent='R$ '+brl(plan.de)}else{was.hidden=true}
+      $('o-txt').textContent=WHY[k]+' Pagamento único, sem mensalidade.';
+      $('o-inc').innerHTML=tick(plan.inc);
+      lines.push('Quero um site. Estimativa: plano '+plan.n+' (R$ '+brl(plan.p)+').');
+      lines.push('Páginas: '+(pages==='1'?'1 página':pages==='5'?'até 5':'sem limite')+'.');
+    }else{
+      $('o-plan').textContent=need==='sistema'?'Sistema sob medida':'Automação com IA'; $('o-price').hidden=true;
+      $('o-txt').textContent='Sistemas e automações têm valor combinado depois de uma conversa. Mande o resumo e a gente responde com o escopo.';
+      $('o-inc').innerHTML=tick(need==='sistema'?['Painel do tamanho do seu negócio','Conversa direta com quem programa','Valor fechado antes de começar']:['Atendimento 24h no WhatsApp','Agendamento automático','Resumo das conversas para você']);
+      lines.push('Quero '+(need==='sistema'?'um sistema sob medida':'uma automação com IA')+'.');
+    }
+    var feats=f.filter(function(x){return !document.querySelector('#feat-fs input[value="'+x+'"]').disabled}).map(function(x){return FL[x]});
+    if(feats.length) lines.push('Precisa ter: '+feats.join(', ')+'.');
+    lines.push('Prazo: '+fd.get('prazo')+'.');
+    var desc=$('est-desc').value.trim(), name=$('est-name').value.trim(), wa=$('est-wa').value.trim();
+    if(desc) lines.push('Detalhes: '+desc); if(name) lines.push('Nome: '+name+'.'); if(wa) lines.push('WhatsApp: '+wa+'.');
+    var msg='Oi, JG! Vim pelo site da JL Devs.\n'+lines.join('\n');
+    $('o-send').href=WA+encodeURIComponent(msg); $('o-msg').textContent=msg;
+  }
+  form.addEventListener('input',estimate); form.addEventListener('change',estimate);
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); var b=$('est-calc'); b.disabled=true; b.textContent='Calculando…';
+    setTimeout(function(){estimate();$('o-msgbox').hidden=false;$('o-hint').textContent='Escopo montado. Revise a mensagem e mande no WhatsApp.';b.disabled=false;b.textContent='Recalcular orçamento';
+      if(innerWidth<960) document.querySelector('.est-out').scrollIntoView({behavior:noMotion?'auto':'smooth',block:'start'})},noMotion?0:700);
+  });
+  estimate();
+
+  /* ---------- Pergunte à IA (demo) ---------- */
+  var chat=$('chat'), chatBtn=$('chat-btn'), log=$('chat-log'), input=$('chat-input');
+  var ANS={
+    'Quanto custa um site?':'Os sites vão de R$ 350 (uma página com WhatsApp) a R$ 1.100 (IA, pagamento online e idiomas). Pagamento único, sem mensalidade. Dá para simular no Orçamento aqui da página.',
+    'Vocês fazem automação no WhatsApp?':'Sim. A IA atende no WhatsApp, responde dúvidas, agenda e passa o cliente pronto para você. O valor sai depois de uma conversa com o JG.',
+    'Como funciona o pagamento?':'Pagamento único, combinado direto com a gente pelo WhatsApp. Não tem mensalidade.'
+  };
+  function openChat(o){chat.hidden=!o;chatBtn.setAttribute('aria-expanded',o);if(o)input.focus();else chatBtn.focus()}
+  function bubble(t,who){var d=document.createElement('div');d.className='bubble '+who;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+  function ask(q){
+    q=q.trim(); if(!q) return; bubble(q,'me'); input.value='';
+    var t=bubble('digitando…','ai typing');
+    setTimeout(function(){t.remove();bubble(ANS[q]||'Boa pergunta! Para responder direitinho, chama a gente no WhatsApp: (48) 98805-8940 (JG) ou (48) 98876-7877 (LC).','ai')},noMotion?0:800);
+  }
+  chatBtn.addEventListener('click',function(){openChat(true)});
+  $('chat-close').addEventListener('click',function(){openChat(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!chat.hidden)openChat(false)});
+  $('chat-sugs').addEventListener('click',function(e){var b=e.target.closest('.chip');if(b)ask(b.textContent)});
+  $('chat-form').addEventListener('submit',function(e){e.preventDefault();ask(input.value)});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask(input.value)}});
+})();
+</script>
+</body>
+</html>
