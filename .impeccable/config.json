@@ -38,6 +38,15 @@
         "value": "ibm plex mono",
         "createdAt": "2026-11-26T02:58:05.860Z",
         "reason": "user asked this session to ship the new Liquid Glass home with its own type system; DESIGN.md predates it"
+      },
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "public/inicio/index.html"
+        ],
+        "createdAt": "2026-11-26T02:59:32.969Z",
+        "reason": "user asked this session to put this exact design (with Instrument Serif italic accents) on the JL Devs site"
       }
     ]
   }
