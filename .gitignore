@@ -15,3 +15,8 @@ assets/plates/
 
 # página de teste: o arquivo servido fica em public/obra/
 experimentos/pagina-cursores/dist/
+
+# renders da cena do hero de dentista (o vídeo final fica em public/dentista/assets/cena/)
+experimentos/dentista-cena/render/
+# capturas de verificação do Codex (não publicar)
+public/dentista/verification/
