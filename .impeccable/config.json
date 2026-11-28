@@ -53,6 +53,15 @@
         "value": "instrument sans",
         "createdAt": "2026-11-26T03:28:28.648Z",
         "reason": "user asked this session to ship this design (Instrument Sans came from the merged Codex/Claude design)"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "public/inicio/ramos.css"
+        ],
+        "createdAt": "2026-11-26T04:39:54.379Z",
+        "reason": "Claude: L97 is a rotated border-left+border-bottom checkmark glyph (7x4px) inside the feature tick, not a card side border"
       }
     ]
   }
