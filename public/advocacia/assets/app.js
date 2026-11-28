@@ -574,6 +574,19 @@ function jsonld() {
 }
 
 
+/* GSAP + ScrollTrigger (115 KB) não seguram mais a primeira pintura: o <head> já os baixa (preload),
+   e aqui eles só executam, em ordem, depois que o hero apareceu. */
+function carregarScroll() {
+  if (window.gsap && window.ScrollTrigger) return Promise.resolve();
+  return ['/advocacia/assets/vendor/gsap.min.js', '/advocacia/assets/vendor/ScrollTrigger.min.js'].reduce((anterior, src) =>
+    anterior.then(() => new Promise(resolve => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = s.onerror = resolve;
+      document.head.append(s);
+    })), Promise.resolve());
+}
+
 function iniciarCena() {
   const canvas = $('#cena');
   if (!canvas) return;
@@ -581,10 +594,17 @@ function iniciarCena() {
   const observaHero = 'IntersectionObserver' in window;
   let cena, tween, geracao = 0, pertoDoHero = !observaHero;
   let paginaCarregada = document.readyState === 'complete', midiaAgendada = false;
-  const { gsap, ScrollTrigger } = window;
-  if (gsap && ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.config({ ignoreMobileResize: true });
+  // GSAP chega depois da primeira pintura (ver carregarScroll): até lá a cena fica parada no pôster.
+  let gsapPronto = false;
+  function prepararGsap() {
+    const { gsap, ScrollTrigger } = window;
+    if (!gsap || !ScrollTrigger) return false;
+    if (!gsapPronto) {
+      gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+      gsapPronto = true;
+    }
+    return true;
   }
   function atualizar(p) {
     cena?.setProgress(p);
@@ -614,10 +634,10 @@ function iniciarCena() {
   }
   function ajustarPin() {
     const cabe = heroEl.offsetHeight <= innerHeight + 2 && innerHeight >= 510;
-    const podeFixar = !movimento.matches && cabe && gsap && ScrollTrigger;
+    const podeFixar = !movimento.matches && cabe && prepararGsap();
     if (podeFixar && !tween) {
       const proxy = { p: 0 };
-      tween = gsap.to(proxy, {
+      tween = window.gsap.to(proxy, {
         p: 1, ease: 'none', onUpdate: () => atualizar(proxy.p),
         scrollTrigger: {
           trigger: heroEl, start: 'top top',
@@ -665,6 +685,7 @@ function iniciarCena() {
     });
   }
   configurar();
+  carregarScroll().then(() => { if (prepararGsap()) redimensionar(); });
   document.fonts?.ready.then(redimensionar);
   document.fonts?.addEventListener('loadingdone', redimensionar);
   addEventListener('resize', redimensionar, { passive: true });
