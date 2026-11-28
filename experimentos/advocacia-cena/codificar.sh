@@ -16,6 +16,22 @@ ENC=(-c:v libx264 -preset veryslow -tune film -profile:v high -pix_fmt yuv420p
      -g 6 -keyint_min 6 -sc_threshold 0 -bf 0 -x264-params aq-mode=3:aq-strength=0.9
      -movflags +faststart -an)
 esc() { echo "scale=$1:$2:flags=lanczos+accurate_rnd+full_chroma_int:sws_dither=ed"; }
+# Versões modernas ao lado de cada MP4 H.264 (o site usa a primeira que o aparelho decodifica por hardware).
+# CRFs calibrados por VMAF contra os PNGs: mesma nota do H.264 (99,3 no retrato HD) com 32% (HEVC) e ~58% (AV1) menos bytes.
+# $1 entrada (padrão de PNG), $2 filtro de escala, $3 saída .mp4 (gera .hevc.mp4 e .av1.mp4), $4 CRF HEVC, $5 CRF AV1
+modernos() {
+  local base="${3%.mp4}"
+  "$FF" -y -loglevel error -framerate 30 -i "$1" -vf "$2" -c:v libx265 -preset slow -crf "$4" -pix_fmt yuv420p -tag:v hvc1 \
+    -x265-params keyint=6:min-keyint=6:scenecut=0:bframes=0:aq-mode=3:log-level=error -movflags +faststart -an "$base.hevc.mp4"
+  "$FF" -y -loglevel error -framerate 30 -i "$1" -vf "$2" -c:v libsvtav1 -preset 4 -crf "$5" -g 6 -pix_fmt yuv420p10le \
+    -svtav1-params tune=0:scd=0:enable-overlays=0:svt-log-level=1 -movflags +faststart -an "$base.av1.mp4"
+}
+# imagens: AVIF (10 bits) e WebP ao lado de cada JPG; o site tenta AVIF, depois WebP, depois JPG
+imagens() {  # $1 PNG, $2 filtro, $3 saída .jpg, $4 CRF AVIF, $5 qualidade WebP
+  local base="${3%.jpg}"
+  "$FF" -y -loglevel error -i "$1" -vf "$2" -c:v libaom-av1 -still-picture 1 -crf "$4" -cpu-used 2 -pix_fmt yuv420p10le "$base.avif"
+  "$FF" -y -loglevel error -i "$1" -vf "$2" -c:v libwebp -quality "$5" -compression_level 6 "$base.webp"
+}
 
 if [[ "$QUAL" == "retrato" || "$QUAL" == "todos" ]]; then
   "$FF" -y -loglevel error -framerate 30 -i render/retrato/%04d.png -vf "$(esc 1440 2560)" "${ENC[@]}" -level:v 5.1 -crf 19 "$OUT/cena-retrato.mp4"
@@ -24,6 +40,10 @@ if [[ "$QUAL" == "retrato" || "$QUAL" == "todos" ]]; then
   # poster = primeiro quadro (primeira pintura, leve); final = último (movimento reduzido e CTA)
   "$FF" -y -loglevel error -i render/retrato/0001.png -vf "$(esc 1080 1920)" -q:v 3 "$OUT/cena-poster-retrato.jpg"
   "$FF" -y -loglevel error -i "$ULTR" -vf "$(esc 1440 2560)" -q:v 3 "$OUT/cena-final-retrato.jpg"
+  modernos "render/retrato/%04d.png" "$(esc 1440 2560)" "$OUT/cena-retrato.mp4" 20 23
+  modernos "render/retrato/%04d.png" "$(esc 1080 1920)" "$OUT/cena-retrato-leve.mp4" 22 25
+  imagens render/retrato/0001.png "$(esc 1080 1920)" "$OUT/cena-poster-retrato.jpg" 30 88
+  imagens "$ULTR" "$(esc 1440 2560)" "$OUT/cena-final-retrato.jpg" 24 92
 fi
 
 if [[ "$QUAL" == "paisagem" || "$QUAL" == "todos" ]]; then
@@ -31,6 +51,9 @@ if [[ "$QUAL" == "paisagem" || "$QUAL" == "todos" ]]; then
   ULT=$(ls render/paisagem/*.png | tail -1)
   "$FF" -y -loglevel error -i render/paisagem/0001.png -vf "$(esc 1920 1080)" -q:v 4 "$OUT/cena-poster.jpg"
   "$FF" -y -loglevel error -i "$ULT" -vf "$(esc 1920 1080)" -q:v 3 "$OUT/cena-final.jpg"
+  modernos "render/paisagem/%04d.png" "$(esc 1920 1080)" "$OUT/cena.mp4" 20 23
+  imagens render/paisagem/0001.png "$(esc 1920 1080)" "$OUT/cena-poster.jpg" 30 88
+  imagens "$ULT" "$(esc 1920 1080)" "$OUT/cena-final.jpg" 24 92
 fi
 
 rm -f "$OUT"/cena-1080.mp4 "$OUT"/cena-720.mp4

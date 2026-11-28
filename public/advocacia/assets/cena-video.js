@@ -17,6 +17,44 @@ function obterBlob(src) {
   return blobs.get(src);
 }
 
+/* Versões menores, com a mesma qualidade, ao lado de cada MP4 H.264: nome.av1.mp4 e nome.hevc.mp4.
+   Só entram quando o aparelho decodifica com fluidez (AV1 só por hardware, para a busca no scrub não pesar).
+   Sem esses arquivos, o 404 cai no MP4 H.264 normal. */
+const MODERNOS = [
+  { ext: '.av1.mp4', codec: px => px > 2.3e6 ? 'av01.0.12M.10' : 'av01.0.08M.10', hardware: true },
+  { ext: '.hevc.mp4', codec: px => px > 2.3e6 ? 'hvc1.1.6.L153.B0' : 'hvc1.1.6.L123.B0', hardware: false }
+];
+const suporte = new Map();
+
+function decodificaBem(contentType, width, height, hardware) {
+  const chave = `${contentType}|${width}x${height}`;
+  if (!suporte.has(chave)) {
+    const capacidades = navigator.mediaCapabilities;
+    suporte.set(chave, typeof capacidades?.decodingInfo !== 'function'
+      ? Promise.resolve(false)
+      : capacidades.decodingInfo({ type: 'file', video: { contentType, width, height, bitrate: 4000000, framerate: FPS } })
+        .then(info => Boolean(info.supported && info.smooth && (!hardware || info.powerEfficient)))
+        .catch(() => false));
+  }
+  return suporte.get(chave);
+}
+
+async function comVariantes({ src, w, h }, modernos) {
+  if (!modernos || !/\.mp4$/i.test(src)) return [src];
+  const base = src.replace(/\.mp4$/i, '');
+  const extras = [];
+  for (const m of MODERNOS) {
+    if (await decodificaBem(`video/mp4; codecs="${m.codec(w * h)}"`, w, h, m.hardware)) extras.push(base + m.ext);
+  }
+  return [...extras, src];
+}
+
+/* Imagens: tenta nome.avif, depois nome.webp e por fim o JPG do CONFIG (navegador sem AVIF ou arquivo ausente cai no próximo). */
+function imagensModernas(src, modernos) {
+  if (!modernos || !/\.jpe?g$/i.test(src)) return [src];
+  return [src.replace(/\.jpe?g$/i, '.avif'), src.replace(/\.jpe?g$/i, '.webp'), src];
+}
+
 function permiteVideo() {
   const rede = navigator.connection;
   return !rede?.saveData && !['slow-2g', '2g'].includes(rede?.effectiveType);
@@ -154,7 +192,7 @@ export function createCena(canvas, { cena = {}, estatico = false, quadroFinal = 
   }
 
   async function carregarQuadro(fontes, signal, prioritario) {
-    const opcoes = new Set(fontes.filter(Boolean));
+    const opcoes = new Set(fontes.filter(Boolean).flatMap(src => imagensModernas(src, cena.formatosModernos !== false)));
     for (const src of opcoes) {
       try {
         return await carregarImagem(src, signal, prioritario);
@@ -166,13 +204,22 @@ export function createCena(canvas, { cena = {}, estatico = false, quadroFinal = 
 
   async function fontesRetrato() {
     const hd = cena.videoRetrato, leve = cena.videoRetratoLeve;
-    if (!hd || hd === leve) return leve ? [leve] : [];
-    return [await permiteRetratoHD() && hd, leve].filter(Boolean);
+    const daLeve = leve ? [{ src: leve, w: 1080, h: 1920 }] : [];
+    if (!hd || hd === leve) return daLeve;
+    return [...(await permiteRetratoHD() ? [{ src: hd, w: 1440, h: 2560 }] : []), ...daLeve];
+  }
+
+  // Ordem de tentativa: para cada arquivo do CONFIG, AV1, HEVC e H.264; depois o próximo arquivo.
+  async function expandir(fontes) {
+    const modernos = cena.codecsModernos !== false;
+    const lista = [];
+    for (const fonte of fontes) lista.push(...await comVariantes(fonte, modernos));
+    return [...new Set(lista.filter(Boolean))];
   }
 
   async function carregarVideo(signal) {
     if (!fontesPendentes) {
-      const fontes = retrato ? await fontesRetrato() : fontesHorizontais.slice();
+      const fontes = await expandir(retrato ? await fontesRetrato() : fontesHorizontais.map(src => ({ src, w: 1920, h: 1080 })));
       if (signal.aborted) return;
       fontesPendentes = fontes;
     }

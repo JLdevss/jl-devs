@@ -20,9 +20,17 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2315253D'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23FAFAF8'%3EA%3C/text%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;family=Libre+Caslon+Display&amp;family=Libre+Caslon+Text:ital@1&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Fontes servidas pelo próprio site (sem conexão extra com o Google): o texto do hero aparece com a fonte certa mais cedo. -->
+<link rel="preload" href="/advocacia/assets/fontes/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/advocacia/assets/fontes/libre-caslon-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/advocacia/assets/fontes/libre-caslon-text-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Abertura da cena baixada já no início (5 KB em AVIF). Se trocar CONFIG.hero.cena.poster/posterRetrato, troque aqui também. -->
+<link rel="modulepreload" href="/advocacia/assets/cena-video.js">
+<!-- GSAP baixa já, mas só executa depois que o hero aparece (app.js > carregarScroll). -->
+<link rel="preload" as="script" href="/advocacia/assets/vendor/gsap.min.js" fetchpriority="low">
+<link rel="preload" as="script" href="/advocacia/assets/vendor/ScrollTrigger.min.js" fetchpriority="low">
+<link rel="preload" as="image" type="image/avif" href="/advocacia/assets/cena/cena-poster-retrato.avif" media="(max-width: 699px) and (orientation: portrait)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" href="/advocacia/assets/cena/cena-poster.avif" media="(min-width: 700px), (orientation: landscape)" fetchpriority="high">
 <link rel="stylesheet" href="/advocacia/assets/styles.css">
 
 <script>
@@ -154,7 +162,10 @@ const CONFIG = {
      poster/posterRetrato: primeiro quadro, exibido durante o carregamento.
      final/finalRetrato: último quadro, usado no movimento reduzido e no fundo do contato.
      foco: [x, y] de 0 a 1, ponto de interesse no recorte horizontal. O retrato é centralizado.
-     cena.ativa: false usa hero.foto (advogado(a) ou escritório, 1200×1500) ou só texto. */
+     cena.ativa: false usa hero.foto (advogado(a) ou escritório, 1200×1500) ou só texto.
+     Arquivos menores com a mesma qualidade, procurados ao lado de cada um (sem eles, vale o do CONFIG):
+       nome.av1.mp4 e nome.hevc.mp4 para cada MP4 (usados quando o aparelho decodifica por hardware);
+       nome.avif e nome.webp para cada JPG. codecsModernos: false ou formatosModernos: false desligam a busca. */
   hero: {
     foto: "",
     alt: "[TROCAR] Descreva a foto: ex. Dr(a). Nome no escritório",
@@ -267,8 +278,6 @@ const CONFIG = {
 
 </script>
 <script defer src="/advocacia/assets/app.js"></script>
-<script defer src="/advocacia/assets/vendor/gsap.min.js"></script>
-<script defer src="/advocacia/assets/vendor/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
