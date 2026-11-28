@@ -11,6 +11,20 @@ import type { NextConfig } from "next";
 const config: NextConfig = {
   images: { unoptimized: true },
   devIndicators: false,
+  // Cache das mídias pesadas das cenas 3D (advocacia e dentista): visitas seguintes não baixam de novo vídeo, pôster nem fontes.
+  // As fontes nunca mudam de conteúdo; a cena revalida em segundo plano depois de 7 dias (um novo render chega sozinho).
+  async headers() {
+    return [
+      {
+        source: "/advocacia/assets/fontes/:arquivo*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
+        source: "/:ramo(advocacia|dentista)/assets/cena/:arquivo*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=2592000" }],
+      },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
