@@ -768,9 +768,41 @@ r.image_settings.color_depth = "16"
 r.image_settings.compression = 30
 cena.frame_start, cena.frame_end = INICIO, FIM
 
-saida = os.path.join(AQUI, "render", FORMATO if MODO == "final" else "teste")
+# Fotos fixas do consultório para as seções do site (mesma luz do último quadro: refletor aceso, manhã clara).
+# blender -b --factory-startup --python cena.py -- --modo fotos [--fotos mesa,eucalipto] [--escala 50]
+# nome: (largura, altura, câmera, alvo, foco, lente mm, f/)
+FOTOS = {
+    "mesa": (1800, 1200, (0.50, -0.32, MESA_Z + 0.11), (-0.12, 0.32, MESA_Z + 0.07), (TX + 0.05, TY, MESA_Z + 0.01), 50, 2.8),
+    "janela": (1200, 1500, (0.10, -0.40, MESA_Z + 0.33), (-0.70, 0.82, MESA_Z + 0.33), (-0.85, 0.78, MESA_Z + 0.50), 35, 4.0),
+    "eucalipto": (1200, 1500, (0.92, -0.45, MESA_Z + 0.215), (VX - 0.012, VY - 0.009, MESA_Z + 0.215), (VX + 0.018, VY - 0.025, MESA_Z + 0.08), 75, 2.8),
+    "linho": (1200, 1500, (-0.08, -0.12, MESA_Z + 0.30), (CX - 0.01, CY + 0.04, MESA_Z + 0.005), (CX + 0.01, CY - 0.04, MESA_Z + 0.04), 60, 2.8),
+    "bandeja": (1800, 1200, (TX - 0.031, TY - 0.175, MESA_Z + 0.84), (TX, TY, MESA_Z + 0.005), (TX, TY, MESA_Z + 0.005), 70, 8.0),
+}
+
+saida = os.path.join(AQUI, "render", {"final": FORMATO, "fotos": "fotos"}.get(MODO, "teste"))
 os.makedirs(saida, exist_ok=True)
-if MODO == "teste":
+if MODO == "fotos":
+    # fotos paradas não precisam do clima escuro do vídeo: exposição neutra e contraste base (fundo do site é claro)
+    vs.exposure = float(arg("--exposicao", "0.4"))
+    for look in ("AgX - Base Contrast", "Base Contrast"):
+        try:
+            vs.look = look; break
+        except Exception:
+            pass
+    cena.frame_set(N_FRAMES)
+    for ob in (cam, alvo, foco):
+        ob.animation_data_clear()
+    cam_d.animation_data_clear()
+    nomes = [n for n in arg("--fotos", ",".join(FOTOS)).split(",") if n]
+    for nome in nomes:
+        w, h, c, a, fo, lente, fst = FOTOS[nome]
+        r.resolution_x, r.resolution_y = w, h
+        cam.location, alvo.location, foco.location = Vector(c), Vector(a), Vector(fo)
+        cam_d.lens, cam_d.dof.aperture_fstop = lente, fst
+        r.filepath = os.path.join(saida, f"{nome}.png")
+        bpy.ops.render.render(write_still=True)
+        print("[foto]", nome)
+elif MODO == "teste":
     cena.frame_set(FRAME)
     r.filepath = os.path.join(saida, f"{FORMATO}_{FRAME:04d}.png")
     bpy.ops.render.render(write_still=True)

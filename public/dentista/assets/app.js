@@ -63,12 +63,10 @@ function fill(str, extra) {
   const v = Object.assign(vals(), extra || {});
   return String(str == null ? '' : str).replace(/\{(\w+)\}/g, (m, k) => (k in v ? limpo(v[k]) : m));
 }
+/* *palavra* continua aceito no CONFIG (compatibilidade), mas sai como texto normal, sem destaque visual. */
 function rich(s) {
   const f = document.createDocumentFragment();
-  String(s).split(/(\*[^*]+\*)/).forEach(p => {
-    if (/^\*[^*]+\*$/.test(p)) f.append(h('em', null, p.slice(1, -1)));
-    else if (p) f.append(p);
-  });
+  f.append(String(s).replace(/\*([^*]+)\*/g, '$1'));
   return f;
 }
 
@@ -88,7 +86,7 @@ const lum = a => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : M
 const ratio = (a, b) => { const x = lum(rgb(a)), y = lum(rgb(b)); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
 const toHex = a => '#' + a.map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
 const mix = (a, b, t) => { const A = rgb(a), B = rgb(b); return toHex(A.map((v, i) => v * (1 - t) + B[i] * t)); };
-const cor = { primaria: '#2F4F44', secundaria: '#DCE5DE', fundo: '#F4F3EF', texto: '#18221F' };
+const cor = { primaria: '#21443A', secundaria: '#D3DED6', fundo: '#F4F6F4', texto: '#18211F' };
 Object.keys(cor).forEach(k => { if (HEX.test(C.cores[k] || '')) cor[k] = C.cores[k]; else console.warn('[template] cor inválida em CONFIG.cores.' + k + ' — use HEX, ex. #0B6E78'); });
 
 
@@ -98,66 +96,89 @@ function contraste(bg, cores, minimo = 4.5) {
 }
 
 
+/* Primeira cor da lista com contraste mínimo sobre TODOS os fundos dados (ex.: porcelana e sálvia). */
+function contrasteEm(fundos, cores, minimo = 4.5) {
+  return cores.find(c => fundos.every(bg => ratio(bg, c) >= minimo)) || contraste(fundos[0], cores, minimo);
+}
+
+/* Aço (linhas) e aço texto (legendas) são tons fixos da "bandeja"; se a paleta do cliente não comportar, caem para misturas do texto. */
+const ACO = '#8E989A', ACO_TEXTO = '#56615E';
+
 function aplicarTema() {
   const { primaria, secundaria, fundo, texto } = cor;
-  const papel = mix(fundo, '#FFFFFF', .48);
-  const tinta = contraste(fundo, [texto, '#18221F', '#FFFFFF', '#000000']);
+  const tinta = contraste(fundo, [texto, '#18211F', '#FFFFFF', '#000000']);
+  const papel = mix(fundo, '#FFFFFF', .6);
   const veu = mix(fundo, '#FFFFFF', .65);
-  const heroTinta = contraste(veu, [texto, '#18221F', '#000000'], 8);
-  const salvia = mix(fundo, secundaria, .73);
+  const heroTinta = contraste(veu, [texto, '#18211F', '#000000'], 8);
+  const salvia = mix(fundo, secundaria, .42);
+  const aco = ratio(fundo, ACO) >= 2 ? ACO : mix(fundo, tinta, .45);
   const tema = {
-    primaria, secundaria, fundo, texto: tinta, papel, salvia, veu,
-    'texto-salvia': contraste(salvia, [tinta, '#18221F', '#FFFFFF', '#000000']),
-    'texto-papel': contraste(papel, [tinta, '#18221F', '#FFFFFF', '#000000']),
+    primaria, secundaria, fundo, texto: tinta, papel, salvia, veu, aco,
+    'texto-salvia': contraste(salvia, [tinta, '#18211F', '#FFFFFF', '#000000']),
+    'texto-papel': contraste(papel, [tinta, '#18211F', '#FFFFFF', '#000000']),
     'hero-tinta': heroTinta,
     'hero-acento': contraste(mix(veu, '#000000', .16), [primaria, heroTinta, '#000000'], 5),
     'cta-texto': contraste(primaria, ['#FFFFFF', tinta, '#000000']),
-    'texto-suave': contraste(fundo, [mix(fundo, tinta, .71), tinta]),
-    acento: contraste(fundo, [primaria, tinta]),
+    'texto-suave': contrasteEm([fundo, salvia, veu], [ACO_TEXTO, mix(fundo, tinta, .7), mix(fundo, tinta, .82), tinta]),
+    acento: contrasteEm([fundo, salvia], [primaria, tinta]),
     foco: contraste(fundo, [primaria, tinta], 4.5),
-    linha: mix(fundo, tinta, .34),
     controle: contraste(papel, [mix(papel, tinta, .55), tinta], 3),
-    pedra: mix(fundo, tinta, .48),
+    pedra: aco,
     'sala-clara': mix(veu, secundaria, .35),
     'sala-fundo': mix(secundaria, primaria, .22)
   };
   Object.entries(tema).forEach(([k,v]) => document.documentElement.style.setProperty('--'+k,v));
   $('meta[name="theme-color"]').content = fundo;
   const ini = limpo(C.negocio.nome).toUpperCase().match(/^\p{L}/u)?.[0] || 'C';
-  const fav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="3" y="3" width="58" height="58" rx="24" fill="${primaria}"/><text x="32" y="45" font-family="Georgia,serif" font-size="38" text-anchor="middle" fill="${tema['cta-texto']}">${ini}</text></svg>`;
+  const fav = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="6" fill="${primaria}"/><text x="32" y="43" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="30" text-anchor="middle" fill="${tema['cta-texto']}">${ini}</text></svg>`;
   $('link[rel="icon"]').href = 'data:image/svg+xml,' + encodeURIComponent(fav);
 }
 
-function placeholder(tipo, indice) {
-  const tom = [.06, .14, .09, .18][indice % 4];
-  const fundo = mix(cor.secundaria, cor.primaria, tom);
-  const papel = mix(cor.fundo, cor.secundaria, .2);
-  const retrato = tipo === 'retrato';
-  const arte = retrato
-    ? '<path d="M128 378V184a112 112 0 0 1 224 0v194Z" fill="url(#l)" stroke="none"/><circle cx="240" cy="181" r="37"/><path d="M164 313a76 76 0 0 1 152 0"/><path d="M155 367h170"/>'
-    : indice % 2
-      ? '<path d="M0 315H680M64 315V87h186v228m-93-228v228m-93-133h186m102 133v-79a79 79 0 0 1 158 0v79"/><path d="M394 315v-62a37 37 0 0 1 74 0v62"/>'
-      : '<path d="M0 315H680M86 315V200q0-24 24-24h181q24 0 24 24v115m0-36h222m-97 0v-53m-49 0h98m-130 89v-35m178 35v-35"/><path d="M371 61h145v107H371zM443 61v107"/>';
-  const size = retrato ? '480 520' : '680 420';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size}"><defs><linearGradient id="l" x2="1" y2="1"><stop stop-color="${papel}"/><stop offset="1" stop-color="${fundo}"/></linearGradient></defs><rect width="100%" height="100%" fill="${fundo}"/><path d="M0 0H680L495 420H0Z" fill="url(#l)" opacity=".7"/><g fill="none" stroke="${cor.primaria}" stroke-width="1.45" opacity=".46" ${retrato ? 'transform="translate(0 38)"' : ''}>${arte}</g></svg>`;
+/* Medidas de referência (proporção) das fotos: retrato 4:5, ambiente 3:2. */
+const MEDIDAS_FOTO = { retrato: [1200, 1500], ambiente: [1800, 1200] };
+
+/* Foto pendente: plano liso de papel sálvia com um rótulo pequeno. Sem viewBox, o rótulo fica com
+   tamanho fixo em pixels em qualquer largura; a proporção vem do width/height do <img>. */
+function placeholder() {
+  const fundo = mix(cor.fundo, cor.secundaria, .72);
+  const tinta = contraste(fundo, [ACO_TEXTO, mix(fundo, cor.texto, .7), cor.texto]);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="${fundo}"/><text x="14" y="100%" dy="-14" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="12" font-weight="500" fill="${tinta}">Foto pendente</text></svg>`;
   return 'data:image/svg+xml,' + encodeURIComponent(svg);
 }
 
-function foto(src, { alt, rotulo, indice = 0, tipo = 'ambiente' }) {
-  const retrato = tipo === 'retrato';
-  const img = h('img', { alt: limpo(alt) || rotulo, width: retrato ? 480 : 680, height: retrato ? 520 : 420, loading: 'lazy', decoding: 'async' });
+/* Retorna <picture> (AVIF, WebP e o JPG) quando o src termina em .jpg; senão, o <img>.
+   Formato moderno ausente: tenta o JPG. JPG ausente: placeholder (conta como foto pendente). */
+function foto(src, { alt, rotulo, indice = 0, tipo = 'ambiente', largura, altura }) {
+  const [w, hh] = MEDIDAS_FOTO[tipo] || MEDIDAS_FOTO.ambiente;
+  const img = h('img', { alt: limpo(alt) || rotulo, width: largura || w, height: altura || hh, loading: 'lazy', decoding: 'async' });
   const usarPlaceholder = () => {
-    img.src = placeholder(tipo, indice);
+    if ('pendente' in img.dataset) return;
+    img.parentElement?.querySelectorAll('source').forEach(s => s.remove());
+    img.src = placeholder();
     img.alt = 'Foto pendente: ' + rotulo;
     img.dataset.pendente = '';
     if (img.isConnected) atualizarPendencias();
   };
-  if (src) {
-    if (/\[TROCAR\]/.test(alt || '')) pendentes.add(alt);
+  if (!src) { usarPlaceholder(); return img; }
+  if (/\[TROCAR\]/.test(alt || '')) pendentes.add(alt);
+  const jpg = /\.jpe?g$/i;
+  if (!jpg.test(src)) {
     img.addEventListener('error', usarPlaceholder, { once: true });
     img.src = src;
-  } else usarPlaceholder();
-  return img;
+    return img;
+  }
+  const pic = h('picture', null,
+    h('source', { type: 'image/avif', srcset: src.replace(jpg, '.avif') }),
+    h('source', { type: 'image/webp', srcset: src.replace(jpg, '.webp') }),
+    img);
+  img.addEventListener('error', () => {
+    const fontes = pic.querySelectorAll('source');
+    if (!fontes.length) return usarPlaceholder();
+    fontes.forEach(s => s.remove());
+    img.src = src;
+  });
+  img.src = src;
+  return pic;
 }
 /* ---------- WhatsApp ---------- */
 const numero = String(C.whatsapp.numero || '').replace(/\D/g, '');
@@ -172,7 +193,8 @@ function detalhesFrase(comTratamento) {
   return p.length ? ' ' + p.join('. ') + '.' : '';
 }
 function waUrl(tpl, extra, comTratamento) {
-  const msg = fill(tpl, extra).replaceAll('{detalhes}', detalhesFrase(comTratamento)).replace(/\s+/g, ' ').trim();
+  // limpo() no fim: o paciente nunca recebe "[TROCAR]" (a contagem de pendências lê o CONFIG, não o link).
+  const msg = limpo(fill(tpl, extra).replaceAll('{detalhes}', detalhesFrase(comTratamento)));
   return 'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg);
 }
 function registra(a, tpl, extra, comTratamento) { waLinks.push({ a, tpl: tpl || C.whatsapp.mensagem, extra: extra || {}, comTratamento: comTratamento !== false }); return a; }
@@ -214,8 +236,39 @@ function novoLink(url, ...kids) {
 }
 
 function marca() {
-  return h('a', { class: 'marca', href: '#hero' }, h('span', { class: 'marca-sinal' }, icon('dente')),
-    h('span', { class: 'marca-nome' }, C.negocio.nome));
+  return h('a', { class: 'marca', href: '#hero' }, h('span', { class: 'marca-nome' }, C.negocio.nome));
+}
+
+/* Barra fina do modelo demonstrativo, acima do cabeçalho (só na prévia). As marcações "Trocar" e o
+   selo de pendências começam ocultos; o botão alterna a classe .campos-visiveis no <html>. */
+const CHAVE_CAMPOS = 'dentista:campos-editaveis';
+function barraDemo() {
+  if (!previa) return;
+  const raiz = document.documentElement;
+  let visiveis = false;
+  try { visiveis = localStorage.getItem(CHAVE_CAMPOS) === '1'; } catch { /* sem armazenamento: começa oculto */ }
+  // Até 480px só "Campos editáveis" aparece; o nome acessível continua sendo o rótulo completo.
+  const longo = h('span', { class: 'demo-longo' });
+  const botao = h('button', { type: 'button', class: 'demo-alterna' },
+    longo, h('span', { class: 'demo-curto', 'aria-hidden': 'true' }, 'Campos editáveis'));
+  const aplicar = () => {
+    const rotulo = visiveis ? 'Ocultar campos editáveis' : 'Mostrar campos editáveis';
+    raiz.classList.toggle('campos-visiveis', visiveis);
+    longo.textContent = rotulo;
+    botao.setAttribute('aria-label', rotulo);
+  };
+  botao.addEventListener('click', () => {
+    visiveis = !visiveis;
+    aplicar();
+    try { localStorage.setItem(CHAVE_CAMPOS, visiveis ? '1' : '0'); } catch { /* preferência só nesta visita */ }
+  });
+  aplicar();
+  raiz.classList.add('tem-demo');
+  $('#topo').prepend(h('div', { class: 'demo' },
+    h('div', { class: 'container demo-in' },
+      h('p', null, 'Modelo demonstrativo', h('span', { class: 'demo-a' }, ' de site para clínicas odontológicas'), '.',
+        h('span', { class: 'demo-b' }, ' Clínica fictícia.')),
+      botao)));
 }
 
 function cabecalho(navItens) {
@@ -231,8 +284,14 @@ function cabecalho(navItens) {
     if (voltar) toggle.focus();
   }
   toggle.addEventListener('click', () => menu(!topo.hasAttribute('data-menu')));
-  topo.addEventListener('keydown', e => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && topo.hasAttribute('data-menu')) menu(false, true);
+  });
+  // Foco saiu do cabeçalho (Tab além do último item): fecha. Sem relatedTarget (clique em área não
+  // focável, ou link que não recebe foco no Safari) quem fecha é o pointerdown abaixo; fechar aqui
+  // esconderia o link antes do clique.
+  topo.addEventListener('focusout', e => {
+    if (topo.hasAttribute('data-menu') && e.relatedTarget && !topo.contains(e.relatedTarget)) menu(false);
   });
   links.forEach(link => link.addEventListener('click', () => {
     if (!topo.hasAttribute('data-menu')) return;
@@ -264,7 +323,10 @@ function hero() {
   const t = C.textos;
   const titulo = fill(t.heroTitulo).split(/\r?\n/).filter(Boolean);
   const temServicos = on('servicos') && servicosAtivos().length;
-  const abertura = t.heroAbertura ?? 'O cuidado começa pela *escuta*.';
+  const abertura = t.heroAbertura ?? 'O cuidado começa pela escuta.';
+  // O nicho abre a frase de apoio (sem rótulo acima do título).
+  const nicho = limpo(fill(C.negocio.nicho));
+  const fecho = t.heroFecho || t.ctaFinalTitulo;
   return h('section', { class: 'hero', id: 'hero', 'aria-labelledby': 'h1' },
     h('div', { class: 'hero-media', 'aria-hidden': 'true' }, cenaConfig ? h('canvas', { id: 'cena' }) : null),
     h('div', { class: 'container hero-in' },
@@ -273,172 +335,262 @@ function hero() {
           h('p', { class: 'hero-frase', 'aria-hidden': 'true' }, prosa(abertura)),
           temServicos ? h('a', { class: 'text-link', href: '#tratamentos' }, prosa(t.verServicos)) : null) : null,
         h('div', { class: 'hero-principal' },
-          C.negocio.nicho ? h('p', { class: 'hero-nicho' }, prosa(C.negocio.nicho)) : null,
           h('h1', { id: 'h1' }, titulo.map((linha, i) => [i ? ' ' : '', h('span', null, rich(linha))])),
-          h('p', { class: 'hero-lead' }, prosa(t.heroSubtitulo)),
+          h('p', { class: 'hero-lead' },
+            nicho ? [prosa(C.negocio.nicho), /[.!?…]$/.test(nicho) ? ' ' : '. '] : null,
+            prosa(t.heroSubtitulo)),
           h('div', { class: 'hero-acoes' },
             waBtn({ texto: t.botaoPrincipal }),
             temServicos ? h('a', { class: 'text-link', href: '#tratamentos' }, prosa(t.verServicos)) : null))),
       h('div', { class: 'hero-base' },
         cenaConfig ? h('div', { class: 'hero-fecho' },
-          h('p', null, prosa(t.ctaFinalTitulo)), waBtn({ texto: t.botaoPrincipal })) : null,
+          h('p', null, prosa(fecho)), waBtn({ texto: t.botaoPrincipal })) : null,
         registroRT('hero-rt'))),
     cenaConfig ? h('div', { class: 'hero-progresso', 'aria-hidden': 'true' }, h('span')) : null);
 }
 
+/* tabular-nums só nos trechos de dígitos (com hífen entre dígitos): na Schibsted Grotesk ele também
+   alarga vírgula, ponto e dois-pontos ("08:00", "CRO-SP 12.345"). */
+function digitos(str) {
+  return String(str == null ? '' : str).split(/(\d+(?:-\d+)*)/)
+    .map((p, i) => (i % 2 ? h('span', { class: 'tnum' }, p) : p)).filter(p => p !== '');
+}
+
+/* Uma linha por horário ("Dias, horas"). */
 function horarios() {
-  return (C.horarios || []).map(x => h('span', { class: 'horario tnum' }, fill(x.dias), ', ', fill(x.horas)));
+  return (C.horarios || []).map(x => h('span', { class: 'horario' }, fill(x.dias), ', ', digitos(fill(x.horas))));
 }
 
+/* Horários como tabela dia | horário (Onde estamos). */
+function tabelaHorarios(classe) {
+  const itens = (C.horarios || []).filter(x => x && (x.dias || x.horas));
+  if (!itens.length) return null;
+  return h('dl', { class: 'horas' + (classe ? ' ' + classe : '') }, itens.map(x =>
+    h('div', { class: 'horas-linha' }, h('dt', null, fill(x.dias)), h('dd', null, digitos(fill(x.horas))))));
+}
+
+/* Registro do responsável técnico: caixa de linha fina com nome e CRO (CFO). */
+function registro(classe) {
+  const rt = C.responsavelTecnico || {};
+  return h('dl', { class: 'registro' + (classe ? ' ' + classe : '') },
+    h('div', null, h('dt', null, 'Responsável técnico'), h('dd', null, rt.nome || '[TROCAR] Nome do responsável técnico')),
+    h('div', null, h('dt', null, 'Registro'), h('dd', null, digitos(rt.cro || '[TROCAR] CRO-UF 00000'))));
+}
+
+/* Faixa de fatos: etiqueta da bandeja logo depois da abertura (horário, convênios, bairro, telefone).
+   O RT + CRO já aparecem na abertura, em Sobre e no rodapé (CFO); aqui não se repetem.
+   As colunas seguem a grade de 12 da página: --fatos = quantidade de colunas. */
 function fatos() {
-  const n = C.negocio, hr = horarios()[0];
+  const n = C.negocio, tel = telHref();
+  const hrs = (C.horarios || []).filter(x => x && (x.dias || x.horas));
+  const fato = (rotulo, classe, ...valor) => h('div', { class: 'fato' + (classe ? ' ' + classe : '') },
+    h('dt', null, rotulo), valor.map(v => h('dd', null, v)));
+  const itens = [
+    hrs.length ? fato('Horário', 'fato--horas', ...hrs.map(x => [fill(x.dias), ', ', h('span', { class: 'fato-hora' }, digitos(fill(x.horas)))])) : null,
+    C.convenios?.length ? fato('Convênios', '', C.convenios.join(', ')) : null,
+    fato('Endereço', '', [n.bairro, ', ', n.cidade, '/', n.uf]),
+    tel ? fato('Agendamento', 'fato--contato', h('a', { href: tel }, h('span', null, digitos(C.contato.telefone)))) : null
+  ].filter(Boolean);
   return h('div', { class: 'fatos' },
-    h('ul', { class: 'container fatos-in', role: 'list', 'aria-label': 'Informações rápidas' },
-      h('li', null, icon('pin'), h('span', null, n.bairro, ', ', n.cidade, '/', n.uf)),
-      hr ? h('li', null, icon('clock'), hr) : null,
-      C.convenios?.length ? h('li', null, icon('card'), h('span', null, 'Convênios: ', C.convenios.join(', '))) : null));
+    h('div', { class: 'container' },
+      h('dl', { class: 'fatos-in', 'aria-label': 'Informações da clínica', style: '--fatos:' + itens.length }, itens)));
 }
 
+/* Tratamentos: índice em linhas. A linha inteira abre o WhatsApp com o tratamento preenchido
+   (o link fica no nome e se estende pela linha). icone continua aceito no CONFIG, mas não aparece.
+   O h3 leva só o nome; a ação ("Conversar sobre este tratamento pelo WhatsApp") entra como descrição do link. */
+const INTRO_SERVICOS_ANTIGA = 'Conheça os tratamentos da clínica e agende uma avaliação para entender as opções.';
 function servicos() {
   const itens = servicosAtivos();
   if (!on('servicos') || !itens.length) return null;
-  return sec('tratamentos', 'sec-tratamentos',
-    secHead('tratamentos', C.textos.servicosTitulo, C.textos.servicosIntro, 'sec-head--lado'),
-    h('ul', { class: 'tratamentos', role: 'list' }, itens.map(item => {
+  const comLink = on('linksServico');
+  // botaoServico ainda manda no texto; o valor antigo do modelo ("Agendar avaliação") vira o novo padrão.
+  const acao = C.textos.botaoServico && C.textos.botaoServico !== 'Agendar avaliação'
+    ? C.textos.botaoServico : 'Conversar sobre este tratamento';
+  // servicosIntro vazio (ou o texto antigo do modelo) = introdução padrão; false = sem introdução.
+  let intro = C.textos.servicosIntro;
+  if (intro !== false && (!limpo(intro) || limpo(intro) === INTRO_SERVICOS_ANTIGA)) {
+    intro = comLink ? 'Selecione um tratamento para conversar sobre ele pelo WhatsApp.' : 'Conheça os tratamentos oferecidos pela clínica.';
+  }
+  return sec('tratamentos', 'sec-tratamentos sec--claro',
+    secHead('tratamentos', C.textos.servicosTitulo, intro, 'cab-dupla'),
+    h('ul', { class: 'trat-lista' + (comLink ? ' trat-lista--links' : ''), role: 'list' }, itens.map(item => {
       const nome = fill(item.nome);
-      const link = on('linksServico') ? novoLink('#', prosa(C.textos.botaoServico),
-        h('span', { class: 'vh' }, ' de ' + limpo(nome) + ' pelo WhatsApp')) : null;
-      if (link) {
-        link.className = 'text-link tratamento-link';
-        registra(link, C.whatsapp.mensagemServico, { servico: nome }, false);
+      let titulo = rich(nome);
+      if (comLink) {
+        titulo = h('a', { class: 'trat-link', href: '#', target: '_blank', rel: 'noopener noreferrer', 'aria-describedby': 'trat-acao-desc' }, titulo);
+        registra(titulo, C.whatsapp.mensagemServico, { servico: nome }, false);
       }
-      return h('li', { class: 'tratamento' },
-        h('div', { class: 'tratamento-icone' }, icon(item.icone)),
-        h('h3', null, rich(nome)),
-        item.texto ? h('p', null, prosa(item.texto)) : null,
-        link);
-    })));
+      return h('li', { class: 'trat' },
+        h('h3', { class: 'trat-nome' }, titulo),
+        item.texto ? h('p', { class: 'trat-texto' }, prosa(item.texto)) : null,
+        comLink ? h('span', { class: 'trat-acao', 'aria-hidden': 'true' },
+          waIcon(), h('span', { class: 'trat-acao-txt' }, prosa(acao))) : null);
+    })),
+    comLink ? h('span', { id: 'trat-acao-desc', hidden: true }, prosa(acao), ' pelo WhatsApp (abre em outra aba)') : null);
 }
 
+/* Primeira consulta: trilho com três paradas (horizontal no desktop, vertical no celular).
+   A foto vem de CONFIG.primeiraConsultaFoto (opcional; sem a chave ou com src: false, a seção fica
+   só com o texto e o trilho, com o título à esquerda e a introdução à direita). */
 function primeiraConsulta() {
-  const passos = (C.primeiraConsulta || []).slice(0, 3);
+  const passos = (C.primeiraConsulta || []).filter(s => s && (s.titulo || s.texto)).slice(0, 3);
   if (!on('primeiraConsulta') || !passos.length) return null;
+  const f = C.primeiraConsultaFoto;
+  const midia = f && f.src !== false && f.src !== null
+    ? h('figure', { class: 'primeira-foto' }, foto(f.src, { alt: f.alt, rotulo: f.rotulo || 'Consultório', indice: 2 }))
+    : null;
   return sec('primeira-consulta', 'sec-primeira',
-    h('div', { class: 'primeira-in' },
-      secHead('primeira-consulta', C.textos.primeiraTitulo, C.textos.primeiraIntro),
-      h('ol', { class: 'passos', role: 'list', style: '--passos:' + passos.length }, passos.map((s, i) =>
-        h('li', { class: 'passo' },
-          h('span', { class: 'passo-numero', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')),
-          h('h3', null, prosa(s.titulo)), h('p', null, prosa(s.texto)))))));
+    h('div', { class: 'primeira-topo' + (midia ? '' : ' primeira-topo--so-texto') },
+      secHead('primeira-consulta', C.textos.primeiraTitulo, C.textos.primeiraIntro, midia ? '' : 'cab-dupla'),
+      midia),
+    h('ol', { class: 'trilho', role: 'list', style: '--paradas:' + passos.length }, passos.map((s, i) =>
+      h('li', { class: 'parada' },
+        h('span', { class: 'parada-num tnum', 'aria-hidden': 'true' }, String(i + 1)),
+        h('h3', null, prosa(s.titulo)),
+        s.texto ? h('p', null, prosa(s.texto)) : null))));
 }
 
+/* Sobre: foto 4:5 à esquerda (~5 colunas), texto à direita com frase de abertura e o registro do RT. */
 function sobre() {
   const s = C.sobre;
   if (!on('sobre') || !s?.paragrafos?.length) return null;
   const principal = C.hero.foto || s.foto;
   const fotos = [
     principal || s.foto !== false ? foto(principal, {
-      alt: C.hero.foto ? C.hero.alt : s.alt, rotulo: 'Ambiente da clínica', tipo: C.hero.foto ? 'retrato' : 'ambiente'
+      alt: C.hero.foto ? C.hero.alt : s.alt, rotulo: 'Ambiente da clínica', tipo: 'retrato'
     }) : null,
     C.hero.foto && s.foto && s.foto !== C.hero.foto ? foto(s.foto, { alt: s.alt, rotulo: 'Consultório', indice: 1 }) : null
   ].filter(Boolean);
   const [abre, ...resto] = s.paragrafos;
-  return sec('sobre', 'sec-sobre',
+  return sec('sobre', 'sec-sobre sec--claro',
     h('div', { class: 'sobre-in' + (fotos.length ? '' : ' sobre-in--texto') },
+      fotos.length ? h('div', { class: 'sobre-fotos' }, fotos.map(img => h('figure', null, img))) : null,
       h('div', { class: 'sobre-texto' },
         secHead('sobre', s.titulo),
         h('p', { class: 'sobre-abre' }, prosa(abre)),
-        resto.map(p => h('p', null, prosa(p))),
-        s.assinatura ? h('p', { class: 'assinatura' }, prosa(s.assinatura)) : null),
-      fotos.length ? h('div', { class: 'sobre-fotos' }, fotos.map(img => h('figure', null, img))) : null));
+        resto.length ? h('div', { class: 'sobre-corpo' }, resto.map(p => h('p', null, prosa(p)))) : null,
+        s.assinatura ? h('p', { class: 'sobre-assinatura' }, prosa(s.assinatura)) : null,
+        registro('sobre-registro'))));
 }
 
+/* Iniciais para o cartão sem foto: ignora [TROCAR], "Dr(a).", "Dr.", "Dra." e partículas (de, da, dos...). */
+function iniciais(nome) {
+  const partes = limpo(nome).replace(/^(dr\(a\)|drª|dra|dr)\.?\s+/i, '').split(/\s+/)
+    .filter(p => /\p{L}/u.test(p) && !/^(d[aeo]s?|e)$/i.test(p));
+  const letra = p => p.match(/\p{L}/u)[0].toUpperCase();
+  if (!partes.length) return '';
+  return partes.length > 1 ? letra(partes[0]) + letra(partes[partes.length - 1]) : letra(partes[0]);
+}
+
+/* Equipe: cartões tipográficos. foto "" = plano de papel sálvia com as iniciais; foto false = só o texto. */
 function equipe() {
   const lista = (C.equipe || []).filter(p => p?.nome);
   if (!on('equipe') || !lista.length) return null;
-  return sec('equipe', 'sec-equipe',
-    secHead('equipe', C.textos.equipeTitulo, C.textos.equipeIntro, 'sec-head--lado'),
-    h('ul', { class: 'equipe', role: 'list' }, lista.map((p, i) => h('li', { class: 'membro' },
-      p.foto !== false ? h('figure', { class: 'membro-foto' }, foto(p.foto, {
-        alt: p.alt || p.nome, rotulo: limpo(p.nome) || 'Profissional', tipo: 'retrato', indice: i
-      })) : null,
-      h('div', { class: 'membro-texto' },
-        h('h3', null, prosa(p.nome)),
-        p.cro ? h('p', { class: 'membro-cro tnum' }, p.cro) : null,
-        p.especialidade ? h('p', null, prosa(p.especialidade)) : null,
-        p.bio ? h('p', { class: 'membro-bio' }, prosa(p.bio)) : null)))));
+  const colunas = lista.length <= 2 ? 2 : lista.length === 3 ? 3 : 4;
+  return sec('equipe', 'sec-equipe sec--claro',
+    h('div', { class: 'equipe-in' + (lista.length <= 2 ? ' equipe-in--lado' : '') },
+      secHead('equipe', C.textos.equipeTitulo, C.textos.equipeIntro),
+      h('ul', { class: 'equipe', role: 'list', style: '--colunas:' + colunas }, lista.map((p, i) => h('li', { class: 'pessoa' },
+        p.foto === false ? null : p.foto
+          ? h('figure', { class: 'pessoa-foto' }, foto(p.foto, {
+            alt: p.alt || p.nome, rotulo: limpo(p.nome) || 'Profissional', tipo: 'retrato', indice: i }))
+          : h('div', { class: 'pessoa-foto pessoa-foto--iniciais', 'aria-hidden': 'true' },
+            h('span', { class: 'pessoa-iniciais' }, iniciais(p.nome))),
+        h('div', { class: 'pessoa-texto' },
+          h('h3', null, prosa(p.nome)),
+          p.cro ? h('p', { class: 'pessoa-cro' }, digitos(p.cro)) : null,
+          p.especialidade ? h('p', { class: 'pessoa-esp' }, prosa(p.especialidade)) : null,
+          p.bio ? h('p', { class: 'pessoa-bio' }, prosa(p.bio)) : null))))));
 }
 
+/* Galeria: mosaico em ritmo de 4 (largo 3:2 + alto 4:5, depois alto + largo). Legendas pequenas abaixo.
+   Fica sobre o plano de sálvia clara para quebrar a sequência de seções claras. */
 const lbItens = [];
 function galeria() {
-  if (!on('galeria') || !C.galeria?.length) return null;
-  const tiles = C.galeria.map((g, i) => {
-    const img = foto(g.src, { alt: g.alt, rotulo: g.rotulo || 'Foto da clínica', indice: i });
+  const itens = (Array.isArray(C.galeria) ? C.galeria : []).filter(g => g && typeof g === 'object');
+  if (!on('galeria') || !itens.length) return null;
+  const tiles = itens.map((g, i) => {
+    const forma = i % 4 === 0 || i % 4 === 3 ? 'largo' : 'alto';
+    const img = foto(g.src, { alt: g.alt, rotulo: g.rotulo || 'Foto da clínica', indice: i, tipo: forma === 'largo' ? 'ambiente' : 'retrato' });
     const amplia = on('lightbox') && Boolean(g.src);
     const idx = lbItens.length;
-    if (amplia) lbItens.push({ src: g.src, alt: limpo(g.alt) || g.rotulo || '', legenda: fill(g.legenda), w: 1200, h: 900 });
+    if (amplia) lbItens.push({ src: g.src, alt: limpo(g.alt) || g.rotulo || '', legenda: fill(g.legenda) || limpo(g.rotulo),
+      w: forma === 'largo' ? 1800 : 1200, h: forma === 'largo' ? 1200 : 1500 });
     const media = amplia
-      ? h('button', { type: 'button', class: 'tile-zoom', 'aria-label': 'Ampliar: ' + limpo(g.rotulo || g.alt || 'foto da clínica'), onclick: () => abrirLb(idx) }, img,
-        h('span', { class: 'tile-mais', 'aria-hidden': 'true' }, '+'))
+      ? h('button', { type: 'button', class: 'gal-zoom', 'aria-label': 'Ampliar foto: ' + limpo(g.rotulo || g.alt || 'foto da clínica'), onclick: () => abrirLb(idx) }, img)
       : img;
-    return h('figure', { class: 'tile' },
-      h('div', { class: 'tile-media' }, media),
-      g.rotulo || g.legenda ? h('figcaption', null, g.rotulo ? h('strong', null, prosa(g.rotulo)) : null,
-        g.legenda ? h('span', null, prosa(g.legenda)) : null) : null);
+    return h('figure', { class: 'gal-item gal-item--' + forma },
+      h('div', { class: 'gal-media' }, media),
+      g.rotulo || g.legenda ? h('figcaption', null, g.rotulo ? h('span', { class: 'gal-rotulo' }, prosa(g.rotulo)) : null,
+        g.legenda ? h('span', { class: 'gal-legenda' }, prosa(g.legenda)) : null) : null);
   });
-  return sec('galeria', 'sec-galeria',
-    secHead('galeria', C.textos.galeriaTitulo, C.textos.galeriaIntro, 'sec-head--lado'),
-    h('div', { class: 'galeria' + (tiles.length >= 3 ? ' galeria--editorial' : '') }, tiles));
+  return sec('galeria', 'sec-galeria sec-galeria--plano',
+    secHead('galeria', C.textos.galeriaTitulo, C.textos.galeriaIntro, 'cab-dupla'),
+    h('div', { class: 'gal' }, tiles));
 }
 
 function avaliacoes() {
   const itens = (C.avaliacoes || []).filter(a => a?.texto);
   if (!on('avaliacoes') || !itens.length) return null;
-  return sec('avaliacoes', 'sec-avaliacoes',
-    secHead('avaliacoes', C.textos.avaliacoesTitulo, C.textos.avaliacoesIntro),
-    h('div', { class: 'avaliacoes' }, itens.map(a => h('figure', { class: 'avaliacao' },
-      h('blockquote', null, '“', prosa(a.texto), '”'),
-      h('figcaption', null, a.autor ? h('strong', null, prosa(a.autor)) : null,
-        a.origem ? h('span', null, prosa(a.origem)) : null, a.link ? novoLink(a.link, 'Ver relato original') : null)))));
+  return sec('avaliacoes', 'sec-avaliacoes sec--claro',
+    secHead('avaliacoes', C.textos.avaliacoesTitulo, C.textos.avaliacoesIntro, 'cab-dupla'),
+    h('div', { class: 'relatos' + (itens.length === 1 ? ' relatos--um' : '') }, itens.map(a => h('figure', { class: 'relato' },
+      h('blockquote', null, h('p', null, '“', prosa(a.texto), '”')),
+      h('figcaption', null, a.autor ? h('span', { class: 'relato-autor' }, prosa(a.autor)) : null,
+        a.origem ? h('span', { class: 'relato-origem' }, prosa(a.origem)) : null,
+        a.link ? novoLink(a.link, 'Ver relato original') : null)))));
 }
 
+/* Dúvidas: título e botão à esquerda; acordeão com linhas de aço à direita. */
 function faq() {
-  if (!on('faq') || !C.faq?.length) return null;
-  return sec('perguntas', 'sec-faq',
+  const itens = (C.faq || []).filter(f => f?.p);
+  if (!on('faq') || !itens.length) return null;
+  return sec('perguntas', 'sec-faq sec--claro',
     h('div', { class: 'faq-in' },
       h('div', { class: 'faq-info' }, secHead('perguntas', C.textos.faqTitulo, C.textos.faqIntro),
         waBtn({ texto: C.textos.faqBotao, cls: 'btn--linha' })),
-      h('div', { class: 'faq' }, C.faq.map(f =>
+      h('div', { class: 'faq' }, itens.map(f =>
         h('details', null,
-          h('summary', null, h('span', null, prosa(f.p)), h('span', { class: 'sinal-mais', 'aria-hidden': 'true' })),
-          h('p', null, prosa(f.r)))))));
+          h('summary', null, h('span', { class: 'faq-p' }, prosa(f.p)), h('span', { class: 'faq-sinal', 'aria-hidden': 'true' })),
+          h('div', { class: 'faq-r' }, h('p', null, prosa(f.r))))))));
 }
 
 function contatos() {
   const tel = telHref();
   return [
-    tel ? h('a', { href: tel }, C.contato.telefone) : null,
+    // O <span> mantém o espaço depois do DDD quando o link vira inline-flex (alvo de 44px no toque).
+    tel ? h('a', { href: tel }, h('span', null, digitos(C.contato.telefone))) : null,
     C.contato.email ? h('a', { href: 'mailto:' + limpo(C.contato.email) }, C.contato.email) : null
   ].filter(Boolean);
 }
 
+/* Onde estamos: blocos com linha de aço (endereço, horários em tabela, contato) + mapa.
+   Sem mapaEmbed, o mapa vira um plano liso de papel sálvia ("Como chegar" + rota no Google Maps);
+   no celular esse plano some e a rota fica só no bloco Endereço (que sempre tem o link). */
 function localizacao() {
   if (!on('localizacao')) return null;
-  const n = C.negocio, hrs = horarios();
-  const info = (nome, desenho, ...texto) => h('div', null, h('dt', null, icon(desenho), nome), h('dd', null, texto));
-  const mapa = on('mapa') ? h('div', { class: 'mapa' }, C.links.mapaEmbed
-    ? h('iframe', { src: C.links.mapaEmbed, title: 'Mapa com a localização de ' + limpo(n.nome), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true })
-    : h('div', { class: 'mapa-vazio' }, icon('pin'), h('span', null, '[TROCAR] Mapa da clínica'), novoLink(mapsUrl(), 'Abrir no Google Maps'))) : null;
-  return sec('localizacao', 'sec-local',
-    h('div', { class: 'local' + (mapa ? ' local--mapa' : '') },
+  const n = C.negocio, tabela = tabelaHorarios(), contato = contatos();
+  const bloco = (titulo, classe, ...conteudo) => h('div', { class: 'local-bloco' + (classe ? ' ' + classe : '') }, h('h3', null, titulo), conteudo);
+  const embed = on('mapa') && C.links.mapaEmbed;
+  const mapa = !on('mapa') ? null : embed
+    ? h('div', { class: 'mapa' }, h('iframe', { src: C.links.mapaEmbed, title: 'Mapa com a localização de ' + limpo(n.nome), loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade', allowfullscreen: true }))
+    : h('div', { class: 'mapa mapa--painel' },
+      h('h3', { class: 'mapa-titulo' }, 'Como chegar'),
+      h('div', { class: 'mapa-base' },
+        h('p', { class: 'mapa-lugar' }, n.bairro, h('br'), n.cidade, '/', n.uf),
+        novoLink(mapsUrl(), 'Ver rota no Google Maps')));
+  return sec('localizacao', 'sec-local sec--claro',
+    h('div', { class: 'local' + (mapa ? ' local--mapa' : '') + (mapa && !embed ? ' local--painel' : '') },
       h('div', { class: 'local-info' },
         secHead('localizacao', C.textos.localTitulo),
-        h('dl', { class: 'dados' },
-          info('Endereço', 'pin', enderecoLinhas()),
-          hrs.length ? info('Horário de atendimento', 'clock', hrs) : null,
-          n.acessibilidade ? info('Acessibilidade', 'acesso', prosa(n.acessibilidade)) : null,
-          C.convenios?.length ? info('Convênios', 'card', C.convenios.join(', ')) : null),
-        h('div', { class: 'local-acoes' }, novoLink(mapsUrl(), 'Ver rota no Google Maps'), contatos())),
+        h('div', { class: 'local-blocos' },
+          bloco('Endereço', '', h('p', null, enderecoLinhas()),
+            h('p', { class: 'local-rota' }, novoLink(mapsUrl(), 'Ver rota no Google Maps'))),
+          tabela ? bloco('Horário de atendimento', '', tabela) : null,
+          contato.length ? bloco('Contato', 'local-contato', contato.map(a => h('p', null, a))) : null,
+          n.acessibilidade ? bloco('Acessibilidade', '', h('p', null, prosa(n.acessibilidade))) : null,
+          C.convenios?.length ? bloco('Convênios', '', h('p', null, C.convenios.join(', '))) : null)),
       mapa));
 }
 
@@ -458,7 +610,8 @@ function consultaRapida() {
       h('span', null, texto)))));
   const periodos = (C.periodos || []).filter(Boolean);
   return h('section', { class: 'consulta', id: 'consulta', 'aria-labelledby': 'consulta-t' },
-    secHead('consulta', C.textos.consultaTitulo, C.textos.consultaIntro),
+    h('h3', { id: 'consulta-t', class: 'consulta-titulo' }, prosa(C.textos.consultaTitulo)),
+    C.textos.consultaIntro ? h('p', { class: 'consulta-intro' }, prosa(C.textos.consultaIntro)) : null,
     h('div', { class: 'consulta-form' },
       h('div', { class: 'campo' }, h('label', { for: 'f-trat' }, 'Tratamento'), sel),
       h('div', { class: 'consulta-opcoes' },
@@ -467,35 +620,69 @@ function consultaRapida() {
       waBtn({ texto: C.textos.botaoPrincipal })));
 }
 
+/* Imagem de fundo com AVIF/WebP quando o src termina em .jpg e o navegador aceita image-set com type(). */
+function imagemFundo(src) {
+  const jpg = /\.jpe?g$/i, u = x => 'url(' + JSON.stringify(x) + ')';
+  if (!jpg.test(src) || !window.CSS?.supports?.('background-image', 'image-set(url("a.avif") type("image/avif"))')) return u(src);
+  return 'image-set(' + u(src.replace(jpg, '.avif')) + ' type("image/avif"), ' + u(src.replace(jpg, '.webp')) + ' type("image/webp"), ' + u(src) + ' type("image/jpeg"))';
+}
+
+/* Fecho: faixa abeto com o quadro final da cena à direita. O --quadro-final normalmente vem de
+   iniciarCena; se a faixa se aproximar da tela antes disso (ou sem cena ativa), usa CONFIG.hero.cena.final.
+   A ação do WhatsApp (botão ou "Conte o que você precisa") vem antes do telefone e do e-mail. */
 function ctaFinal() {
   const consulta = consultaRapida();
-  return sec('agendar', 'final',
-    h('div', { class: 'final-in' + (consulta ? ' final-in--consulta' : '') },
+  const cena = C.hero.cena;
+  const lista = contatos();
+  const contato = lista.length ? h('div', { class: 'final-contato' }, lista) : null;
+  const s = sec('agendar', 'final' + (consulta ? ' final--consulta' : ''),
+    h('div', { class: 'final-in' },
       h('div', { class: 'final-texto' },
         secHead('agendar', C.textos.ctaFinalTitulo, C.textos.ctaFinalTexto),
         consulta ? null : waBtn({ texto: C.textos.botaoPrincipal }),
-        h('div', { class: 'final-contato' }, contatos())),
-      consulta));
+        consulta ? null : contato),
+      consulta,
+      consulta ? contato : null));
+  s.prepend(h('div', { class: 'final-quadro', 'aria-hidden': 'true' }));
+  if (cena?.final && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      // No desktop o quadro é uma coluna vertical: o quadro final em retrato cabe nela sem cortar a bandeja.
+      if (cena.finalRetrato) s.style.setProperty('--quadro-retrato', imagemFundo(cena.finalRetrato));
+      if (s.style.getPropertyValue('--quadro-final')) return;
+      const src = matchMedia('(orientation: portrait)').matches && cena.finalRetrato || cena.final;
+      s.style.setProperty('--quadro-final', 'url(' + JSON.stringify(src) + ')');
+    }, { rootMargin: '900px 0px' });
+    io.observe(s);
+  }
+  return s;
 }
 
 function rodape() {
-  const f = C.rodape;
+  const f = C.rodape, tel = telHref();
   const redes = on('instagram') ? [[C.links.instagram, 'Instagram'], [C.links.facebook, 'Facebook']].filter(([url]) => url) : [];
+  const horas = (C.horarios || []).filter(x => x && (x.dias || x.horas));
+  const coluna = (titulo, itens) => h('div', { class: 'rodape-col' }, h('h2', null, titulo),
+    h('ul', { role: 'list' }, itens.filter(Boolean).map(x => h('li', null, x))));
   $('#rodape').append(h('div', { class: 'container' },
     h('div', { class: 'rodape-in' },
-      h('div', null, marca(), f.frase ? h('p', { class: 'rodape-frase' }, prosa(f.frase)) : null),
-      h('div', null, h('h2', null, 'Contato'),
-        h('ul', { role: 'list' }, h('li', null, registra(novoLink('#', 'Agendar pelo WhatsApp'))),
-          contatos().map(link => h('li', null, link)), redes.map(([url, nome]) => h('li', null, novoLink(url, nome))))),
-      h('div', null, h('h2', null, 'Endereço e horário'),
-        h('ul', { role: 'list' }, h('li', null, enderecoLinhas()),
-          horarios().map(hora => h('li', null, hora)), h('li', null, novoLink(mapsUrl(), 'Ver no mapa'))))),
+      h('div', { class: 'rodape-marca' }, marca(), f.frase ? h('p', { class: 'rodape-frase' }, prosa(f.frase)) : null),
+      coluna('Contato', [
+        registra(novoLink('#', 'Agendar pelo WhatsApp')),
+        tel ? h('a', { href: tel, class: 'tnum' }, C.contato.telefone) : null,
+        C.contato.email ? h('a', { href: 'mailto:' + limpo(C.contato.email) }, C.contato.email) : null,
+        ...redes.map(([url, nome]) => novoLink(url, nome))]),
+      coluna('Endereço', [h('span', null, enderecoLinhas()), novoLink(mapsUrl(), 'Ver no mapa')]),
+      horas.length ? coluna('Horário', horas.map(x => h('span', { class: 'rodape-hora' },
+        h('span', null, fill(x.dias)), h('span', null, fill(x.horas))))) : null),
     h('div', { class: 'rodape-registro' },
       registroRT('rt-rodape'),
-      h('div', { class: 'rodape-legal' },
+      // Sem .tnum aqui: na Schibsted Grotesk o tabular alarga também vírgula, ponto e dois-pontos.
+      h('p', { class: 'rodape-legal' },
         f.razaoSocial ? h('span', null, prosa(f.razaoSocial)) : null,
-        f.cnpj ? h('span', { class: 'tnum' }, 'CNPJ ', f.cnpj) : null,
-        f.croClinica ? h('span', { class: 'tnum' }, 'Inscrição da clínica: ', f.croClinica) : null)),
+        f.cnpj ? h('span', null, 'CNPJ ', f.cnpj) : null,
+        f.croClinica ? h('span', null, 'Inscrição da clínica: ', f.croClinica) : null)),
     h('div', { class: 'rodape-base' },
       h('span', null, '© ' + new Date().getFullYear(), ' ', C.negocio.nome),
       f.credito ? (f.creditoUrl ? novoLink(f.creditoUrl, f.credito) : h('span', null, f.credito)) : null)));
@@ -505,6 +692,9 @@ function flutuante() {
   if (!on('botaoFlutuante')) return;
   const a = $('#flutuante');
   a.append(waIcon(), h('span', { class: 'vh' }, C.textos.botaoCurto + ' (abre o WhatsApp em outra aba)'));
+  // Sai de [hidden] já oculto por data-oculto; comportamentos() mostra e esconde com transição curta.
+  a.setAttribute('data-oculto', '');
+  a.hidden = false;
   registra(a);
 }
 
@@ -512,13 +702,27 @@ let lbI = 0;
 function abrirLb(i) { const d = $('#lightbox'); lbI = i; mostrarLb(); if (!d.open) d.showModal(); }
 function mostrarLb() {
   const d = $('#lightbox'), it = lbItens[lbI]; if (!it) return;
-  const img = $('img', d); img.width = it.w; img.height = it.h; img.src = it.src; img.alt = it.alt;
+  const img = $('img', d), jpg = /\.jpe?g$/i.test(it.src);
+  d.querySelectorAll('source').forEach(s => {
+    if (jpg) s.srcset = it.src.replace(/\.jpe?g$/i, '.' + s.dataset.formato); else s.removeAttribute('srcset');
+  });
+  img.width = it.w; img.height = it.h; img.src = it.src; img.alt = it.alt;
   $('figcaption', d).textContent = it.legenda || '';
   d.setAttribute('aria-label', 'Galeria de fotos, foto ' + (lbI + 1) + ' de ' + lbItens.length);
 }
 function iniciarLb() {
   const d = $('#lightbox');
-  $('figure', d).prepend(h('img', { alt: '', decoding: 'async' }));
+  const img = h('img', { alt: '', decoding: 'async' });
+  // Mesmo esquema de foto(): AVIF, WebP e o JPG; formato moderno ausente cai para o JPG.
+  img.addEventListener('error', () => {
+    const fontes = [...d.querySelectorAll('source[srcset]')];
+    if (!fontes.length) return;
+    fontes.forEach(s => s.removeAttribute('srcset'));
+    img.src = lbItens[lbI]?.src || '';
+  });
+  $('figure', d).prepend(h('picture', null,
+    h('source', { type: 'image/avif', 'data-formato': 'avif' }),
+    h('source', { type: 'image/webp', 'data-formato': 'webp' }), img));
   $('[data-lb=prev]', d).hidden = $('[data-lb=next]', d).hidden = lbItens.length < 2;
   $('[data-lb=x]', d).append(icon('close')); $('[data-lb=prev]', d).append(icon('prev')); $('[data-lb=next]', d).append(icon('next'));
   const nav = k => { lbI = (lbI + k + lbItens.length) % lbItens.length; mostrarLb(); };
@@ -734,14 +938,26 @@ function pendencias() {
 
 function comportamentos() {
   const topo = $('#topo'), heroEl = $('#hero'), flutuanteEl = $('#flutuante');
+  const comFlutuante = on('botaoFlutuante');
+  const fimVisivel = new Set();
   let frame = 0;
   function atualizar() {
     frame = 0;
     const passou = heroEl.getBoundingClientRect().bottom <= topo.offsetHeight + 1;
     topo.toggleAttribute('data-solido', passou);
-    if (on('botaoFlutuante')) flutuanteEl.hidden = !passou;
+    // Com as marcações à mostra, o selo de pendências sai da frente do RT/CRO enquanto o hero está na tela (celular).
+    $('.previa')?.toggleAttribute('data-hero', !passou);
+    // Botão flutuante: some no hero e quando o CTA final ou o rodapé já estão na tela.
+    if (comFlutuante) flutuanteEl.toggleAttribute('data-oculto', !passou || fimVisivel.size > 0);
   }
   const agendar = () => { if (!frame) frame = requestAnimationFrame(atualizar); };
+  if (comFlutuante && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => (e.isIntersecting ? fimVisivel.add(e.target) : fimVisivel.delete(e.target)));
+      agendar();
+    });
+    [$('#agendar'), $('#rodape')].filter(Boolean).forEach(el => io.observe(el));
+  }
   addEventListener('scroll', agendar, { passive: true });
   addEventListener('resize', agendar, { passive: true });
   addEventListener('pageshow', agendar);
@@ -757,6 +973,7 @@ function montar() {
   const nav = [['tratamentos', 'servicos'], ['equipe', 'equipe'], ['perguntas', 'faq'], ['localizacao', 'local']]
     .filter(([id]) => $('#' + id)).map(([id, k]) => ({ id, label: C.textos.nav[k] }));
   cabecalho(nav);
+  barraDemo();
   rodape();
   flutuante();
   if (lbItens.length) iniciarLb();
