@@ -8,7 +8,7 @@
 <title>Dentista — Modelo de site | JL Devs</title>
 <meta name="description" content="Modelo demonstrativo da JL Devs para clínicas odontológicas, com cena 3D no topo. Explore tratamentos, equipe e agendamento pelo WhatsApp.">
 <meta name="robots" content="noindex, nofollow" data-template>
-<meta name="theme-color" content="#2F4F44">
+<meta name="theme-color" content="#21443A">
 <link rel="canonical" href="https://jldevs.online/dentista">
 
 <!-- Open Graph: o WhatsApp e o Facebook NÃO executam JavaScript. Edite estas linhas à mão para cada cliente. -->
@@ -21,17 +21,16 @@
 <meta property="og:image" content="https://jldevs.online/dentista/assets/cena/cena-final.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F4F44'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='32' text-anchor='middle' fill='%23FFFFFF'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2321443A'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='32' text-anchor='middle' fill='%23FFFFFF'%3EC%3C/text%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="preload" href="/dentista/assets/fontes/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/dentista/assets/styles.css">
+<link rel="stylesheet" href="/dentista/assets/secoes.css">
 <script id="schema-dentista" type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist"}</script>
 <script>
 /* ==========================================================================
    CONFIG — TUDO que muda de cliente fica aqui. Procure por [TROCAR].
-   Dica: *palavra* marca um destaque. Use \n para quebrar a linha do título de abertura.
+   *palavra* continua aceito nos textos, mas aparece como texto normal (sem destaque). Use \n para quebrar a linha do título de abertura.
    Tokens aceitos nos textos: {nome} {cidade} {bairro} {uf} {convenios}
 
    REGRAS DO CFO (publicidade odontológica) já respeitadas pelo template:
@@ -44,8 +43,9 @@
    ========================================================================== */
 const CONFIG = {
 
-  /* Prévia: mostra a etiqueta amarela [TROCAR] e o contador de pendências.
-     Para mostrar ao cliente sem as etiquetas, abra o link com ?limpo no final. */
+  /* Prévia: mostra a barra "Modelo demonstrativo" no topo. As marcações "Trocar" e o contador de pendências
+     começam ocultos; o botão "Mostrar campos editáveis" da barra liga e desliga (a escolha fica salva no navegador).
+     Para mostrar ao cliente sem a barra e sem os [TROCAR], abra o link com ?limpo no final. */
   modoPrevia: true,
 
   negocio: {
@@ -109,19 +109,22 @@ const CONFIG = {
   },
 
   /* Cores em HEX. Sugestões (copie e cole):
-     SÁLVIA → primaria #2F4F44  secundaria #DCE5DE  fundo #F4F3EF  texto #18221F
+     BANDEJA (padrão) → primaria #21443A  secundaria #D3DED6  fundo #F4F6F4  texto #18211F
      VERDE-ÁGUA → primaria #0B6E78  secundaria #CFEDEA  fundo #FFFFFF  texto #12303A
-     A primária recebe texto branco por cima: precisa ser escura. A secundária é o tom claro de apoio. */
-  cores: { primaria: "#2F4F44", secundaria: "#DCE5DE", fundo: "#F4F3EF", texto: "#18221F" },
+     A primária recebe texto branco por cima: precisa ser escura. A secundária é o tom claro de apoio.
+     Linhas e legendas usam tons de aço calculados automaticamente, sempre com contraste suficiente. */
+  cores: { primaria: "#21443A", secundaria: "#D3DED6", fundo: "#F4F6F4", texto: "#18211F" },
 
   textos: {
     /* Tom calmo, sem promessas. heroAbertura é a frase breve no início da cena (opcional). */
-    heroAbertura: "O cuidado começa pela *escuta*.",
-    heroTitulo: "[TROCAR] Seu cuidado,\n*passo a passo*.",
+    heroAbertura: "O cuidado começa pela escuta.",
+    heroTitulo: "[TROCAR] Seu cuidado,\npasso a passo.",
     heroSubtitulo: "[TROCAR] Avaliação, prevenção e tratamentos em {bairro}, {cidade}/{uf}. Converse com a equipe antes de decidir o próximo passo.",
+    /* Frase do fim da cena, acima do botão (vazio = usa ctaFinalTitulo). */
+    heroFecho: "Agende sua avaliação",
     botaoPrincipal: "Agendar avaliação pelo WhatsApp",
     botaoCurto: "Agendar avaliação",
-    botaoServico: "Agendar avaliação",
+    botaoServico: "Conversar sobre este tratamento",   // ação de cada linha de Tratamentos
     verServicos: "Ver tratamentos",
     nav: { servicos: "Tratamentos", equipe: "Equipe", faq: "Dúvidas", local: "Localização" },
 
@@ -129,7 +132,9 @@ const CONFIG = {
     consultaIntro: "Suas escolhas entram na mensagem do WhatsApp. Tudo é opcional.",
 
     servicosTitulo: "Tratamentos *oferecidos*",
-    servicosIntro: "[TROCAR] Conheça os tratamentos da clínica e agende uma avaliação para entender as opções.",
+    /* servicosIntro vazio = texto padrão ("Selecione um tratamento para conversar sobre ele pelo WhatsApp." quando
+       as linhas abrem o WhatsApp); escreva um texto para personalizar; false = sem introdução. */
+    servicosIntro: "",
 
     primeiraTitulo: "Como é a *primeira consulta*",
     primeiraIntro: "Três passos para você saber o que esperar.",
@@ -138,7 +143,7 @@ const CONFIG = {
     equipeIntro: "[TROCAR] Profissionais da clínica, com o número de registro no CRO.",
 
     galeriaTitulo: "Conheça a *clínica*",
-    galeriaIntro: "[TROCAR] Fotos do consultório e da recepção.",
+    galeriaIntro: "[TROCAR] Imagens ilustrativas do consultório.",   // com as fotos reais: ex. "Fotos do consultório e da recepção."
 
     avaliacoesTitulo: "O que dizem os *pacientes*",
     avaliacoesIntro: "Relatos de pacientes, publicados com autorização.",
@@ -149,8 +154,8 @@ const CONFIG = {
 
     localTitulo: "Onde *estamos*",
 
-    ctaFinalTitulo: "Agende sua *avaliação*",
-    ctaFinalTexto: "[TROCAR] Mande uma mensagem com o melhor dia e período. A clínica responde com os horários livres."
+    ctaFinalTitulo: "Marque a primeira conversa",
+    ctaFinalTexto: "[TROCAR] Mande uma mensagem com o dia e o período que preferir. A clínica responde com os horários livres."
   },
 
   /* Cena: video/videoMobile horizontal 1920×1080 (podem repetir a URL).
@@ -175,8 +180,9 @@ const CONFIG = {
     }
   },
 
-  /* Tratamentos. oferece: false esconde o tratamento. Descrições curtas, sem promessa de resultado e sem preço.
-     icone: limpeza | clareamento | ortodontia | implante | crianca | urgencia | dente */
+  /* Tratamentos. oferece: false esconde o tratamento. Descrições curtas (até ~2 linhas), sem promessa de resultado e sem preço.
+     Cada linha abre o WhatsApp com o nome do tratamento já na mensagem (whatsapp.mensagemServico).
+     icone: aceito por compatibilidade, mas o layout atual não mostra ícones. */
   servicos: [
     { oferece: true, icone: "limpeza",     nome: "Limpeza e prevenção",
       texto: "[TROCAR] Remoção de tártaro, check-up e orientação de cuidados em casa." },
@@ -195,21 +201,27 @@ const CONFIG = {
   sobre: {
     titulo: "[TROCAR] Sobre a *clínica*",
     paragrafos: [
-      "[TROCAR] Antes de falar sobre tratamento, queremos ouvir o que trouxe você até aqui.",
+      "[TROCAR] Na avaliação, conversamos sobre o que trouxe você à clínica e explicamos quais opções fazem sentido para o seu caso.",
       "[TROCAR] A consulta é um espaço para fazer perguntas e conversar sobre o que será avaliado. A equipe explica cada etapa e combina os próximos passos com você."
     ],
-    assinatura: "[TROCAR] Equipe da clínica",
-    foto: "", alt: "[TROCAR] Descreva a foto: ex. sala de atendimento da clínica"
+    assinatura: "",                  // opcional: só com uma assinatura real (ex.: "Dra. Nome Sobrenome, responsável técnica"). "" = sem assinatura
+    /* Foto vertical 4:5 (1200x1500). Junto do .jpg, deixe .webp e .avif com o mesmo nome, se tiver. foto: false = sem foto. */
+    foto: "/dentista/assets/fotos/janela.jpg", alt: "[TROCAR] Janela do consultório com luz natural da manhã"
   },
 
   /* "Como é a primeira consulta": agenda → avaliação → plano de tratamento explicado. */
   primeiraConsulta: [
-    { titulo: "Você agenda", texto: "Escolha o melhor dia e período pelo WhatsApp. A clínica confirma o horário com você." },
+    { titulo: "Você agenda", texto: "Escolha pelo WhatsApp o dia e o período que preferir. A clínica confirma o horário com você." },
     { titulo: "Avaliação", texto: "[TROCAR] Você conversa com a equipe sobre sua saúde bucal e passa por um exame clínico. Outros exames podem ser solicitados conforme a avaliação." },
     { titulo: "Plano de tratamento explicado", texto: "[TROCAR] A equipe apresenta as opções e responde às suas perguntas antes de você decidir como seguir." }
   ],
+  /* Opcional: foto horizontal 3:2 (1800x1200) ao lado dos passos.
+     src: false (padrão) ou sem a chave = só o texto e os passos; src: "/caminho/foto.jpg" = mostra a foto; src: "" = foto pendente.
+     Use uma foto que não se repita na galeria. */
+  primeiraConsultaFoto: { src: false, alt: "[TROCAR] Descreva a foto: ex. a recepção da clínica" },
 
-  /* Equipe. Lista vazia = a seção some. foto: "" = placeholder; foto: false = card sem foto.
+  /* Equipe. Lista vazia = a seção some. foto: "" = plano com as iniciais do nome; foto: false = card só com texto.
+     Foto vertical 4:5 (960x1200).
      especialidade: só escreva "Especialista em X" se o título estiver registrado no CFO;
      caso contrário, use "Clínico geral" ou "Atua em X". */
   equipe: [
@@ -220,14 +232,15 @@ const CONFIG = {
   ],
 
   /* Galeria: SÓ o ambiente da clínica (recepção, consultórios, fachada, equipe).
-     NÃO use fotos de "antes e depois" de pacientes. Lista vazia = a seção some. */
+     NÃO use fotos de "antes e depois" de pacientes. Lista vazia = a seção some.
+     O mosaico segue um ritmo de 4: 1ª e 4ª fotos largas (3:2, 1800x1200), 2ª e 3ª verticais (4:5, 1200x1500).
+     As fotos abaixo são da cena de demonstração: troque pelas fotos reais da clínica.
+     rotulo = legenda curta que descreve o que aparece na foto, sem exagero. */
   galeria: [
-    { src: "", alt: "[TROCAR] Descreva: recepção da clínica", rotulo: "Recepção", legenda: "" },
-    { src: "", alt: "[TROCAR] Descreva: consultório", rotulo: "Consultório", legenda: "" },
-    { src: "", alt: "[TROCAR] Descreva: sala de espera", rotulo: "Sala de espera", legenda: "" },
-    { src: "", alt: "[TROCAR] Descreva: fachada ou entrada", rotulo: "Fachada", legenda: "" },
-    { src: "", alt: "[TROCAR] Descreva: outro consultório ou detalhe", rotulo: "Consultório 2", legenda: "" },
-    { src: "", alt: "[TROCAR] Descreva: equipe reunida", rotulo: "Equipe", legenda: "" }
+    { src: "/dentista/assets/fotos/bandeja.jpg", alt: "[TROCAR] Bandeja de instrumentos com espelho clínico, sonda e roletes de algodão", rotulo: "Bandeja de instrumentos", legenda: "" },
+    { src: "/dentista/assets/fotos/linho.jpg", alt: "[TROCAR] Duas toalhas de linho dobradas sobre a bancada, na luz da janela", rotulo: "Toalhas de linho", legenda: "" },
+    { src: "/dentista/assets/fotos/eucalipto.jpg", alt: "[TROCAR] Ramos de eucalipto em um vaso sobre a bancada, perto da janela", rotulo: "Eucalipto na bancada", legenda: "" },
+    { src: "/dentista/assets/fotos/mesa.jpg", alt: "[TROCAR] Bancada de atendimento com a bandeja de instrumentos e toalhas dobradas, diante da janela", rotulo: "Bancada de atendimento", legenda: "" }
   ],
 
   /* Depoimentos REAIS, com autorização escrita do paciente. Lista vazia = a seção some.
